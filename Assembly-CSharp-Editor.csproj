@@ -1,0 +1,1560 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LangVersion>9.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{4FDD486D-131D-CBDC-F139-6F41ADA03AEE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>.</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\Bin\Debug\</OutputPath>
+    <DefineConstants>UNITY_2022_3_6;UNITY_2022_3;UNITY_2022;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;ENABLE_NAVIGATION_PACKAGE_DEBUG_VISUALIZATION;ENABLE_NAVIGATION_HEIGHTMESH_RUNTIME_SUPPORT;ENABLE_NAVIGATION_UI_REQUIRES_PACKAGE;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;PLATFORM_INITIALIZES_MEMORY_MANAGER_EXPLICITLY;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;DOOZY_REACTOR;DOOZY_UIMANAGER;DOOZY_SIGNALS;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER;UNITY_EDITOR_ONLY_COMPILATION</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoConfig>true</NoConfig>
+    <NoStdLib>true</NoStdLib>
+    <AddAdditionalExplicitAssemblyReferences>false</AddAdditionalExplicitAssemblyReferences>
+    <ImplicitlyExpandNETStandardFacades>false</ImplicitlyExpandNETStandardFacades>
+    <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <UnityProjectGenerator>Package</UnityProjectGenerator>
+    <UnityProjectGeneratorVersion>2.0.18</UnityProjectGeneratorVersion>
+    <UnityProjectType>Editor:5</UnityProjectType>
+    <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
+    <UnityVersion>2022.3.6f1</UnityVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="D:\Unity\2022.3.6f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
+    <Analyzer Include="D:\Unity\2022.3.6f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Listeners\Vector2SignalListenerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Signals\Editors\SignalSenderEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\Targets\TextMeshProColorTargetEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\Dashboard\DashboardHomeQuickActionSection.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Visual\UIContainerSpriteSwapperEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\Nodes\ApplicationQuitNodeEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\Internal\FluidListViewItem.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Listeners\IntSignalListenerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\Internal\FluidElement.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\WindowLayouts\EditorUIDatabaseWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\Enums\GenericFontWeight.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Input\DefineSymbolsForInput.cs" />
+    <Compile Include="Assets\Doozy\Editor\SceneManagement\Editors\SceneDirectorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\ProgressorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Windows\ReactorEditorTickerWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Automation\Generators\EditorSpriteSheetsGenerator.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Triggers\UISubmitTriggerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Automation\Generators\UISliderIdExtensionGenerator.cs" />
+    <Compile Include="Assets\Doozy\Editor\SceneManagement\Nodes\UnloadSceneNodeEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\FluidAnimatedContainer.cs" />
+    <Compile Include="Assets\Doozy\Editor\Mody\Automation\Generators\TriggerFactoryGenerator.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\ScriptableObjects\Textures\EditorTextureInfo.cs" />
+    <Compile Include="Assets\Doozy\Editor\Common\Editors\PrefabLinkEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\FluidListView.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Components\ContainerReactionControls.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Components\UIToggleGroupEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Components\AnimatorFluidListViewItem.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Components\Texture2DAnimationInfo.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Components\UIToggleEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\ReactorSymbol.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Components\Internal\UISelectableBaseEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\PropertyFluidListViewItem.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\Targets\TextMeshProProgressTargetEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Enums\IndicatorPosition.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Windows\EditorUIWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Nodes\PortData\UIOutputPortDataView.cs" />
+    <Compile Include="Assets\Doozy\Editor\Common\Extensions\SpriteExtensions.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\Animators\ColorAnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Mody\Drawers\ModyActions\SimpleModyActionDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\EnabledIndicator.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\ScriptableObjects\MicroAnimations\EditorMicroAnimationInfo.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Editors\EditorDataMicroAnimationGroupEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Common\Drawers\CategoryNameIdUtils.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Enums\TabContent.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\Nodes\ExitNodeView.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Components\UIButtonEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Drawers\ThemeColorDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Animators\UISelectableVector3AnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Visual\SignalToSpriteTargetEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Fields\FieldInfoLabel.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Animators\UIContainerUIAnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Listeners\ColorSignalListenerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\FluidDualLabel.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Drawers\UISelectableStateDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\Dashboard\WindowsLayouts\DashboardHomeWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\FluidWindowHeader.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Animators\UIContainerFloatAnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Modules\AnimatorModuleEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Orientation\OrientationDetectorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Listeners\SignalListenerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Common\Layouts\CategoryNameItemCategoryRow.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\ScriptableObjects\SpriteSheets\EditorDataSpriteSheetGroup.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Components\ReactionControls.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Containers\UIPopupEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\Nodes\PivotNodeView.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Drawers\EditorColorInfoDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Listeners\BoolSignalListenerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\FluidFoldout.cs" />
+    <Compile Include="Assets\Doozy\Editor\Signals\Editors\SignalToAudioSourceEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Drawers\Options\UIViewShowHideOptionDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\Dashboard\Windows\DoozyDashboardWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Components\UIStepperEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Animators\UISelectableIntAnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Filter.cs" />
+    <Compile Include="Assets\Doozy\Editor\Common\Layouts\CategoryNameItemNameRow.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\EditorStyles.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Drawers\SpriteAnimationDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\FluidTab.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Drawers\Ids\UIViewIdDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Listeners\StringSignalListenerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Nodes\UINodeView.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Layouts\ReactorSettingsWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Layouts\Databases\ButtonsDatabaseWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Animators\Internal\BaseUIToggleAnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Triggers\PointerDoubleClickTriggerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Events\FluidBoolEvent.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Windows\EditorSelectableColorsWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Layouts\Databases\SteppersDatabaseWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\Windows\DoozyControllerWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\Editors\FlowGraphEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\ScriptableObjects\ProgressorIdDatabase.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Listeners\FloatSignalListenerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Interfaces\IDashboardDatabaseWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Interfaces\IWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\ScriptableObjects\Layouts\EditorDataLayoutGroup.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\ScriptableObjects\UIViewIdRoamingDatabase.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Utils\EditorUtils.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIElements\BindableElementExtensions.cs" />
+    <Compile Include="Assets\Doozy\Editor\Common\Drawers\RandomFloatDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Windows\SlidersDatabaseWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\ProgressorGroupEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Dashboard\WindowsLayouts\DashboardAboutWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\Signals\ScriptableObjects\StreamIdRoamingDatabase.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\Targets\ImageProgressTargetEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\Targets\TextProgressTargetEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\SceneManagement\Nodes\LoadSceneNodeView.cs" />
+    <Compile Include="Assets\Doozy\Editor\Signals\Windows\StreamsConsoleWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\Internal\FluidToggle.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\ScriptableObjects\Colors\EditorThemeColor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\Nodes\ApplicationQuitNodeView.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\ScriptableObjects\Styles\EditorDataStyleDatabase.cs" />
+    <Compile Include="Assets\Doozy\Editor\Interfaces\IDashboardSettingsWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Automation\Generators\EditorColorsGenerator.cs" />
+    <Compile Include="Assets\Doozy\Editor\Common\Utils\DelayedCall.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Layouts\Databases\TooltipsDatabaseWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\Internal\FluidTabBase.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Components\UISelectableEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Automation\Generators\UIToggleIdExtensionGenerator.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Content\Internal\DateTimeComponentEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Signals\Windows\StreamsDatabaseWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\ScriptableObjects\UIStepperIdDatabase.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\ScriptableObjects\UIToggleIdDataGroup.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\UIMenu\UIMenuItemsDatabase.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\ScriptableObjects\Styles\EditorDataStyleGroup.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Windows\Internal\EditorUIDatabaseWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Reflection\Drawers\ReflectedVector2Drawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\ScriptableObjects\UISliderIdDatabase.cs" />
+    <Compile Include="Assets\Doozy\Editor\Mody\ModyModuleEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\ScriptableObjects\UIStepperIdRoamingDatabase.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Content\UIClockEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\Nodes\RandomNodeView.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Animators\UIToggleSpriteAnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\NodyCreateNodeWindw.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\NodyMiniMap.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Layouts\UIManagerSettingsWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Containers\UIViewEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Animators\Internal\BaseUIContainerAnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Signals\Windows\SignalsWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Reflection\Drawers\ReflectedFloatDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Automation\Generators\UITagIdExtensionGenerator.cs" />
+    <Compile Include="Assets\Doozy\Editor\Dashboard\WindowsLayouts\DashboardEditorUIWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\NodyInspectorWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Layouts\FPSGauge.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\FluidDragAndDrop.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Animators\UIContainerSpriteAnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\Nodes\StickyNoteNodeEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\FluidSideMenu.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\FlowEdgeView.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Nodes\BackButtonNodeView.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Windows\SteppersDatabaseWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\Signals\Layouts\SignalsConsoleWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Reflection\Drawers\ReflectedVector3Drawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\Dashboard\WindowsLayouts\DashboardHomeWindowLayout.HomeSection.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\ScriptableObjects\UITagIdDatabase.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\ScriptableObjects\Textures\EditorDataTextureDatabase.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Drawers\Vector2AnimationDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\Signals\Layouts\StreamsDatabaseWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Animators\UISelectableSpriteAnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\UIManagerSymbol.cs" />
+    <Compile Include="Assets\Doozy\Editor\Signals\Layouts\SignalsSettingsWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\ScriptableObjects\UIButtonIdDataGroup.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Enums\ButtonAnimationTrigger.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Dashboard\DashboardHomeSectionInputSettings.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\FluidRangeSlider.cs" />
+    <Compile Include="Assets\Doozy\Editor\Common\Utils\DefineSymbolsUtils.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\EditorLayouts.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\Nodes\DebugNodeEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Internal\ReactionExtensions.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\FluidToggleRadio.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\Animators\Vector3AnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Drawers\EditorStyleInfoDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\ScriptableObjects\UITagIdDataGroup.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Editors\EditorDataStyleGroupEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Triggers\PointerClickTriggerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\FluidResizer.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\FluidComponentHeader.cs" />
+    <Compile Include="Assets\Doozy\Editor\Windows\DoozyBarWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Drawers\IntAnimationDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Drawers\Behaviours\UIBehavioursDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Layouts\Databases\TagsDatabaseWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Ticker\EditorTicker.cs" />
+    <Compile Include="Assets\Doozy\Editor\SceneManagement\Nodes\UnloadSceneNodeView.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\ScriptableObjects\Fonts\EditorDataFontDatabase.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Nodes\SignalNodeView.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\Targets\ImageSpriteTargetEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Automation\Generators\ProgressorIdExtensionGenerator.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\EditorColors.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\ScriptableObjects\Colors\EditorDataColorDatabase.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Animators\Internal\BaseUISelectableAnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\WindowLayouts\EditorSelectableColorsWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\Nodes\StartNodeView.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\FlowPortView.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Components\ToggleReactionControls.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Listeners\Vector4SignalListenerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Visual\UISelectableSpriteSwapperEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\ScriptableObjects\UIButtonIdDatabase.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Layouts\Databases\PopupsDatabaseWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\Nodes\StartNodeEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIDesigner\Dashboard\DashboardHomeQuickActionSection.cs" />
+    <Compile Include="Assets\Doozy\Editor\Signals\SignalsUtils.cs" />
+    <Compile Include="Assets\Doozy\Editor\Mody\Editors\Modules\AudioSourceModuleEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Animators\UIToggleColorAnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Windows\ReactorWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\ReactorControllerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\EditorSpriteSheets.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Enums\InteractableState.cs" />
+    <Compile Include="Assets\Doozy\Editor\Signals\Drawers\SignalPayloadDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Interfaces\IToggleGroup.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\NodyNodeSearchWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorPath.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Layouts\Databases\TogglesDatabaseWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\FluidCircularGauge.cs" />
+    <Compile Include="Assets\Doozy\Editor\Dashboard\WindowsLayouts\DashboardHomeWindowQuickActions.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\FluidSearchBox.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Triggers\PointerEnterTriggerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Animators\UISelectableUIAnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Triggers\PointerDownTriggerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Layouts\Databases\ProgressorsDatabaseWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Editors\EditorDataFontFamilyEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\WindowLayouts\EditorColorsWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\SceneManagement\Nodes\ActivateLoadedScenesNodeEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Listeners\UIToggleListenerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Automation\Generators\EditorMicroAnimationsGenerator.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Nodes\BackButtonNodeEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Common\ScriptableObjects\UpdateBot.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\Animators\FloatAnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Animators\UIContainerColorAnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\WindowLayouts\EditorStylesWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIElements\VisualElementExtensions.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIDesigner\Utils\DesignerEditorUtils.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Drawers\Ids\UIToggleIdDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\ScriptableObjects\Fonts\EditorFontInfo.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\FluidToggleGroup.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Enums\ButtonStyle.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Triggers\PointerExitTriggerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\Targets\AudioMixerProgressTargetEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Automation\Generators\EditorSelectableColorsGenerator.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Components\UIAnimatorIndicators.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Drawers\Ids\UITagIdDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\UIMenu\Dashboard\DashboardHomeQuickActionSection.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Audio\UIToggleSoundyAudioEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Windows\EditorLayoutsWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Audio\UISelectableAudioEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\FluidWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\ScriptableObjects\Colors\EditorDataSelectableColorPalette.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\ScriptableObjects\UISliderIdDataGroup.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Editors\EditorDataSelectableColorPaletteEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Drawers\Vector3AnimationDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Layouts\UIManagerAboutWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\UIMenu\UIMenuSettings.cs" />
+    <Compile Include="Assets\Doozy\Editor\Dashboard\WindowsLayouts\DashboardDatabasesWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Animators\UIToggleUIAnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Windows\EditorFontsWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\UIMenu\UIMenuCameraEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\ScriptableObjects\UISliderIdRoamingDatabase.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\ObjectFluidListViewItem.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\EditorUIManagerPath.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Automation\Generators\EditorTexturesGenerator.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\Nodes\PortData\RandomNodeOutputPortDataEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Mody\Components\ModyActionsDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Triggers\UISliderValueTriggerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Reflection\Drawers\Internal\ReflectedValueDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Animators\UIToggleVector3AnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\UIMenu\PrefabInstantiateMode.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Utils\DesignUtils.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Enums\IconAnimationTrigger.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\EditorMicroAnimations.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Triggers\PointerRightClickTriggerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\Automation\Generators\NewNodeGenerator.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Containers\UITooltipEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Components\ComponentReactionControls.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\ScriptableObjects\UIButtonIdRoamingDatabase.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Components\AnimationPreview.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Windows\Internal\FluidWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\UIMenu\PrefabInstantiateModeSetting.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\Nodes\TimeScaleNodeEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIDesigner\Editors\UIRescalerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Animators\Internal\BaseTargetComponentAnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Enums\TabPosition.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\ScriptableObjects\Layouts\EditorDataLayoutDatabase.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Editors\EditorDataSpriteSheetGroupEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Common\Layouts\CategoryNameGroupWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Editors\EditorDataTextureGroupEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Animators\UISelectableVector2AnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Windows\ViewsDatabaseWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Windows\PopupsDatabaseWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\Common\Addons\AddonInfo.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Listeners\UIButtonListenerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Content\UITimerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Components\UISliderEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\ComponentField.cs" />
+    <Compile Include="Assets\Doozy\Editor\Common\Drawers\RandomIntDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Animators\UISelectableColorAnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\ScriptableObjects\Textures\EditorDataTextureGroup.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Ticker\EditorHeartbeat.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\ScriptableObjects\MicroAnimations\EditorDataMicroAnimationGroup.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Components\UIScrollbarEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Automation\Generators\UIStepperIdExtensionGenerator.cs" />
+    <Compile Include="Assets\Doozy\Editor\Signals\Windows\SignalsConsoleWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\FluidContainer.cs" />
+    <Compile Include="Assets\Doozy\Editor\Common\Automation\Generators\AssemblyDefinitionsGenerator.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Layouts\UIRadialLayoutEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Common\Utils\DomainReloadHandler.cs" />
+    <Compile Include="Assets\Doozy\Editor\Common\ScriptableObjects\DynamicSearchProvider.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Input\InputToSignalEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Enums\ElementSize.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\ScriptableObjects\Colors\EditorDataColorPalette.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Editors\EditorDataLayoutGroupEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Drawers\ProgressorIdDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Triggers\UISelectedTriggerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Signals\Automation\Generators\SignalProviderExtensionGenerator.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Input\BackButtonEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Animators\UIContainerVector3AnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Drawers\ColorAnimationDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Triggers\InputBackButtonTriggerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\FluidToggleButtonTab.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Events\IFluidEvent.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Automation\Generators\UIViewIdExtensionGenerator.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Drawers\EditorLayoutInfoDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Drawers\EditorSpriteSheetInfoDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\WindowLayouts\EditorLayoutsWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIDesigner\Windows\RotateWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\Targets\Internal\ReactorColorTargetEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Windows\EditorColorsWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\WindowLayouts\DoozyBarWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\WindowLayouts\EditorTexturesWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Enums\ToggleLabelType.cs" />
+    <Compile Include="Assets\Doozy\Editor\Common\Interfaces\IUpdateCallback.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\UIMenu\UIPrefabType.cs" />
+    <Compile Include="Assets\Doozy\Editor\Mody\Components\ModyModuleComponentHeader.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Components\MetaReactionControls.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Components\UITagEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Windows\TooltipsDatabaseWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\Signals\Layouts\StreamsConsoleRow.cs" />
+    <Compile Include="Assets\Doozy\Editor\Signals\Layouts\StreamsConsoleWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\Common\Utils\AssetUtils.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\ScriptableObjects\UIViewIdDataGroup.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Audio\UIToggleAudioEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\PoolableElement.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Triggers\UIStepperValueTriggerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\ScriptableObjects\Layouts\EditorLayoutInfo.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Nodes\SignalNodeEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Content\UIStopwatchEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Windows\ProgressorsDatabaseWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\FluidToggleSwitch.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Nodes\PortData\UIOutputPortDataEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\Targets\Internal\ReactorSpriteTargetEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Visual\SignalToColorTargetEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\ScriptableObjects\EditorUISettings.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Drawers\Ids\UIStepperIdDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\UIMenu\UIMenuWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Windows\TogglesDatabaseWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Windows\EditorSpriteSheetsWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Reflection\Drawers\ReflectedRectDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\Animators\Internal\ReflectedValueAnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Drawers\EditorSelectableColorInfoDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Windows\EditorTexturesWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\UIMenu\UIMenuItem.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\NodyWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\Common\Drawers\FormattedLabelDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Listeners\UIViewListenerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\FlowGraphView.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Nodes\PortalNodeView.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\StringFluidListViewItem.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Drawers\ReactionSettingsDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\ScriptableObjects\MicroAnimations\EditorDataMicroAnimationDatabase.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Enums\LayoutOrientation.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Components\SpriteAnimationInfo.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\UIMenu\UIMenuItemButton.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Interfaces\IToggle.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\EditorSelectableColors.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\FlowNodeViewExtension.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Containers\UIContainerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Drawers\Ids\UIButtonIdDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\Mody\Components\ModyModuleStateIndicator.cs" />
+    <Compile Include="Assets\Doozy\Editor\Dashboard\WindowsLayouts\DashboardHelpWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\Common\Utils\FileGenerator.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\FluidToggleCheckbox.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\Targets\SpriteMaskSpriteTargetEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Mody\Components\ModyTriggerStateIndicator.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Events\FluidEventBase.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Windows\TagsDatabaseWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\FluidField.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Layouts\Databases\ViewsDatabaseWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\FluidButton.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\EditorFonts.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Triggers\UIDeselectedTriggerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Common\Extensions\TextureExtensions.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Windows\ButtonsDatabaseWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Components\TickerVisualizer.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\EditorUIEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Common\Layouts\PrefabLinkDatabaseItemRow.cs" />
+    <Compile Include="Assets\Doozy\Editor\Dashboard\WindowsLayouts\DashboardHomeWindowLayout.QuickActionSection.cs" />
+    <Compile Include="Assets\Doozy\Editor\Common\Interfaces\IEditorDataDatabase.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\Targets\Internal\BaseReactorTargetEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\FlowNodeView.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\FluidPlaceholder.cs" />
+    <Compile Include="Assets\Doozy\Editor\Common\ProductInfo.cs" />
+    <Compile Include="Assets\Doozy\Editor\Mody\Drawers\ModyActionRunnerDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Layouts\Settings\UISettingsWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\Common\ScriptableObjects\SingletonEditorScriptableObject.cs" />
+    <Compile Include="Assets\Doozy\Editor\Signals\Layouts\SignalsConsoleRow.cs" />
+    <Compile Include="Assets\Doozy\Editor\Signals\ScriptableObjects\StreamIdDatabase.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\Nodes\EnterNodeView.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Audio\UIContainerSoundyAudioEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Containers\Internal\BaseUIContainerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Animators\UIToggleIntAnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Interfaces\IEditorUIDatabaseWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\Signals\Drawers\StreamIdDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\Common\Layouts\PrefabLinkDatabaseWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\ScriptableObjects\Styles\EditorStyleInfo.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\ScriptableObjects\ProgressorIdDataGroup.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\Automation\Generators\FlowNodeViewExtensionGenerator.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Animators\UIContainerIntAnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Enums\IconType.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\UIMenu\UIMenuUtils.cs" />
+    <Compile Include="Assets\Doozy\Editor\Common\Addons\AddonInfoDatabase.cs" />
+    <Compile Include="Assets\Doozy\Editor\Dashboard\WindowsLayouts\DashboardAddonsWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Animators\UIContainerVector2AnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\ScriptableObjects\ProgressorIdRoamingDatabase.cs" />
+    <Compile Include="Assets\Doozy\Editor\Signals\Drawers\ProviderIdDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Triggers\PointerLeftClickTriggerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Automation\Generators\EditorStylesGenerator.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\ScriptableObjects\SpriteSheets\EditorDataSpriteSheetTextures.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Automation\Generators\UIButtonIdExtensionGenerator.cs" />
+    <Compile Include="Assets\Doozy\Editor\Signals\Dashboard\DashboardHomeQuickActionSection.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\WindowLayouts\EditorFontsWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\Animators\Vector2AnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\Nodes\TimeScaleNodeView.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Visual\UIToggleSpriteSwapperEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Interfaces\IDashboardWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Utils\TextureUtils.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Reflection\Drawers\ReflectedIntDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\Editors\FlowControllerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Signals\Automation\Generators\StreamIdExtensionGenerator.cs" />
+    <Compile Include="Assets\Doozy\Editor\Signals\ScriptableObjects\StreamIdDataGroup.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Dashboard\DashboardHomeQuickActionSection.cs" />
+    <Compile Include="Assets\Doozy\Editor\SceneManagement\Nodes\LoadSceneNodeEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\Targets\UnityEventProgressTargetEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Mody\ModyTriggerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\Automation\Generators\NodyNodeSearchWindowGenerator.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\Animators\UIAnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Common\Extensions\SerializedPropertyExtensions.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Audio\UIContainerAudioEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Enums\ThemeType.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Nodes\UINodeEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Windows\ReactorRuntimeTickerWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\Nodes\PivotNodeEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Nodes\PortData\GoBackInputPortDataView.cs" />
+    <Compile Include="Assets\Doozy\Editor\Mody\Editors\Modules\UnityEventModuleEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Mody\Components\ModyActionStateIndicator.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\Nodes\PortData\RandomNodeOutputPortDataView.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Triggers\PointerLongClickTriggerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Mody\Drawers\ModyEventDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Animators\UIToggleFloatAnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Triggers\PointerMiddleClickTriggerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Windows\EditorMicroAnimationsWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\Signals\Drawers\SignalReceiverDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\Signals\SignalsSymbol.cs" />
+    <Compile Include="Assets\Doozy\Editor\SceneManagement\Editors\SceneLoaderEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Windows\UIManagerWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\Nodes\Internal\FlowNodeEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\FluidToggleIconButton.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\UIMenu\UIMenuItemEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Input\MultiplayerInfoEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Drawers\UIAnimationDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\Enums\Size.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Windows\EditorStylesWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\Enums\TypeScale.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Automation\Generators\EditorFontsGenerator.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Processors\EditorUIRefresher.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Layouts\UIManagerDatabasesWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Components\ColorAnimationTab.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\ScriptableObjects\SpriteSheets\EditorSpriteSheetInfo.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Triggers\PointerUpTriggerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\ScriptableObjects\SpriteSheets\EditorDataSpriteSheetDatabase.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\Targets\AnimatorProgressTargetEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Enums\TypographyTransformType.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\Targets\Internal\ProgressTargetEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\ScriptableObjects\UIViewIdDatabase.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\WindowLayouts\EditorSpriteSheetsWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\WindowLayouts\EditorMicroAnimationsWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\Nodes\StickyNoteNodeView.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Triggers\ProgressorValueTriggerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Dashboard\WindowsLayouts\DashboardSettingsWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Listeners\Vector3SignalListenerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\SceneManagement\Nodes\ActivateLoadedScenesNodeView.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\EditorTextures.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Components\UIAnimationTab.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Drawers\Behaviours\UIBehaviourDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIDesigner\Windows\SizeWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\ScriptableObjects\Colors\EditorSelectableColorInfo.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\ScriptableObjects\UIPopupLinkEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\Animators\IntAnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\FluidProgressBar.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\Targets\ImageColorTargetEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Layouts\Settings\InputSettingsWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\Animators\SpriteAnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Drawers\EditorFontInfoDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Drawers\EditorTextureInfoDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\Animators\Internal\BaseReactorAnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Animators\UIToggleVector2AnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Automation\Generators\UIMenuContextMenuGenerator.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\ScriptableObjects\UIToggleIdDatabase.cs" />
+    <Compile Include="Assets\Doozy\Editor\Mody\Drawers\ModyActions\BaseModyActionDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\ScriptableObjects\UITagIdRoamingDatabase.cs" />
+    <Compile Include="Assets\Doozy\Editor\Mody\Drawers\ModyActions\FloatModyActionDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\UIMenu\UIMenuContextMenu.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Drawers\Ids\UISliderIdDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Interfaces\ISearchable.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Layouts\ReactorPresetsWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIDesigner\Windows\ScaleWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\ScriptableObjects\UIToggleIdRoamingDatabase.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\Nodes\DebugNodeView.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Drawers\MoveDirectionDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Layouts\Databases\SlidersDatabaseWindowLayout.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Automation\Generators\EditorLayoutsGenerator.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Audio\UISelectableSoundyAudioEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Mody\Components\ModyActionsDrawerItem.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Enums\ToggleState.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Nodes\PortalNodeEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Enums\InfoDotState.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\Targets\TextColorTargetEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Components\Internal\FluidSearchableItem.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\Nodes\RandomNodeEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Animators\UISelectableFloatAnimatorEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Triggers\Internal\BaseValueTriggerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\ScriptableObjects\Fonts\EditorDataFontFamily.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\ScriptableObjects\UIStepperIdDataGroup.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Editors\EditorDataColorPaletteEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Dashboard\DashboardHomeSectionReactorSettings.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\ScriptableObjects\UITooltipLinkEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Nody\ScriptableObjects\NodySettings.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIDesigner\Windows\AlignWindow.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\Drawers\EditorMicroAnimationInfoDrawer.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Components\UITabEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\UIManager\Editors\Triggers\UITooltipTriggerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\Targets\SpriteRendererSpriteTargetEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Editors\RuntimeTickerEditor.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\ScriptableObjects\Colors\EditorDataSelectableColorDatabase.cs" />
+    <Compile Include="Assets\Doozy\Editor\EditorUI\ScriptableObjects\Colors\EditorColorInfo.cs" />
+    <Compile Include="Assets\Doozy\Editor\Reactor\Drawers\FloatAnimationDrawer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidSideMenu.uss" />
+    <None Include="Assets\Doozy\Editor\Nody\Editor\NodeView.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\EditorSelectableColorInfo.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidContainer.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\EditorSpriteSheetInfo.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidSearchBox.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\ListViewItem.uss" />
+    <None Include="Assets\Doozy\Editor\Reactor\Editor\AnimationInfo.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidToggle.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidField.uxml" />
+    <None Include="Assets\Doozy\Editor\Reactor\Editor\AnimationPreview.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\EditorTextureInfo.uss" />
+    <None Include="Assets\Doozy\Editor\Common\Editor\PrefabLinkDatabaseItemRow.uss" />
+    <None Include="Assets\Doozy\Editor\Mody\Editor\ModyStateIndicator.uss" />
+    <None Include="Assets\Doozy\Editor\UIManager\Editor\UIMenuWindow.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\EditorMicroAnimationInfo.uxml" />
+    <None Include="Assets\Doozy\Editor\UIManager\Editor\UIMenuWindow.uxml" />
+    <None Include="Assets\Doozy\Editor\Common\Editor\PrefabLinkDatabaseItemRow.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FieldInfoLabel.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\LayoutContainer.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidSystemWindow.uxml" />
+    <None Include="Assets\Doozy\Editor\Nody\Editor\NodyWindow.uxml" />
+    <None Include="Assets\Doozy\Editor\Mody\Editor\ModyActionRunner.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidSearchBox.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\ListView.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidToggleButton.uxml" />
+    <None Include="Assets\Doozy\Editor\UIManager\Editor\UIMenuItemButton.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidPlaceholder.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidToggleIconButton.uss" />
+    <None Include="Assets\Doozy\Editor\Common\Editor\CategoryNameItemNameRow.uss" />
+    <None Include="Assets\Doozy\Editor\Common\Editor\CategoryNameItemCategoryRow.uxml" />
+    <None Include="Assets\Doozy\Editor\Nody\Editor\FlowPort.uss" />
+    <None Include="Assets\Doozy\Editor\Reactor\Editor\AnimationPreview.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\ComponentField.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\EditorSelectableColorInfo.uss" />
+    <None Include="Assets\Doozy\Editor\Nody\Editor\NodyInspectorWindow.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Automation\Templates\Copyright.txt" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Fonts\Ubuntu\UFL.txt" />
+    <None Include="Assets\Doozy\Editor\Dashboard\Editor\DashboardWindow.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\ComponentField.uss" />
+    <None Include="Assets\Doozy\Editor\Mody\Editor\ModyStateIndicator.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidAnimatedContainer.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FieldIcon.uss" />
+    <None Include="Assets\Doozy\Editor\Nody\Editor\PivotNode.uss" />
+    <None Include="Assets\Doozy\Editor\Nody\Editor\NodyInspectorWindow.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\ListView.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidToggle.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\WindowHeader.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Fonts\Inter\OFL.txt" />
+    <None Include="Assets\Doozy\Editor\Signals\Editor\SignalsConsoleRow.uxml" />
+    <None Include="Assets\Doozy\Editor\UIManager\Editor\UIManagerWindow.uss" />
+    <None Include="Assets\Doozy\Editor\Signals\Editor\SignalsWindow.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidWindowLayout.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidFoldout.uss" />
+    <None Include="Assets\Doozy\Editor\Mody\Editor\ModyActionRunner.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidButton.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\WindowHeader.uss" />
+    <None Include="Assets\Doozy\Editor\UIManager\Editor\UIMenuItemButton.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidToggleButton.uss" />
+    <None Include="Assets\Doozy\Editor\Signals\Editor\SignalsConsoleRow.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidFoldout.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidContainer.uxml" />
+    <None Include="Assets\Doozy\Editor\Reactor\Editor\TickerVisualizer.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidCircularGauge.uxml" />
+    <None Include="Assets\Doozy\Editor\Reactor\Editor\AnimationInfo.uss" />
+    <None Include="Assets\Doozy\Editor\Common\Automation\Templates\Doozy.Editor.txt" />
+    <None Include="Assets\Doozy\Editor\Dashboard\Editor\DashboardWindow.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\EditorSpriteSheetInfo.uxml" />
+    <None Include="Assets\Doozy\Editor\Common\Automation\Templates\Doozy.Runtime.txt" />
+    <None Include="Assets\Doozy\Editor\Reactor\Editor\TickerVisualizer.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidComponentHeader.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\EditorUIWindow.uss" />
+    <None Include="Assets\Doozy\Editor\Signals\Editor\StreamsConsoleRow.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\EditorTextureInfo.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\EditorColorInfo.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidComponentHeader.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidToggleIconButton.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidListViewItem.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\EditorMicroAnimationInfo.uss" />
+    <None Include="Assets\Doozy\Editor\Signals\Editor\ProvidersConsoleRow.uxml" />
+    <None Include="Assets\Doozy\Editor\Reactor\Editor\ReactionControls.uxml" />
+    <None Include="Assets\Doozy\Editor\Nody\Editor\NodeView.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FieldName.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidPlaceholder.uss" />
+    <None Include="Assets\Doozy\Editor\Reactor\Editor\ReactorWindow.uxml" />
+    <None Include="Assets\Doozy\Editor\Signals\Editor\StreamsConsoleRow.uss" />
+    <None Include="Assets\Doozy\Editor\Common\Editor\CategoryNameItemCategoryRow.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\ThemeColor.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidCircularGauge.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\ListViewItem.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidWindowLayout.uxml" />
+    <None Include="Assets\Doozy\Editor\Signals\Editor\SignalsWindow.uss" />
+    <None Include="Assets\Doozy\Editor\UIManager\Editor\UIManagerWindow.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidAnimatedContainer.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\EditorUIWindow.uxml" />
+    <None Include="Assets\Doozy\Editor\Reactor\Editor\ReactionControls.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidListViewItem.uxml" />
+    <None Include="Assets\Doozy\Editor\Signals\Editor\ProvidersConsoleRow.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidSystemWindow.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\ThemeColor.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidSideMenu.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidListView.uss" />
+    <None Include="Assets\Doozy\Editor\Common\Editor\CategoryNameItemNameRow.uxml" />
+    <None Include="Assets\Doozy\Editor\Reactor\Editor\ReactorWindow.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidField.uss" />
+    <None Include="Assets\Doozy\Editor\Nody\Editor\NodyWindow.uss" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidListView.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\EditorColorInfo.uxml" />
+    <None Include="Assets\Doozy\Editor\EditorUI\Editor\FluidButton.uss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AIModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.AIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ARModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.ARModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AccessibilityModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.AccessibilityModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AndroidJNIModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.AndroidJNIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.AssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClothModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.ClothModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterInputModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.ClusterInputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterRendererModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.ClusterRendererModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ContentLoadModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.ContentLoadModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CrashReportingModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.CrashReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.DSPGraphModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.DSPGraphModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.DirectorModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.DirectorModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GIModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.GIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GameCenterModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.GameCenterModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GridModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.GridModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HotReloadModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.HotReloadModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.InputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.JSONSerializeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.LocalizationModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.LocalizationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.NVIDIAModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.NVIDIAModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PerformanceReportingModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.PerformanceReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ProfilerModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.ProfilerModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PropertiesModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.PropertiesModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ScreenCaptureModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.ScreenCaptureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SharedInternalsModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.SharedInternalsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteMaskModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.SpriteMaskModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteShapeModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.SpriteShapeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.StreamingModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.StreamingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SubstanceModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.SubstanceModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SubsystemsModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.SubsystemsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TLSModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.TLSModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.TerrainModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainPhysicsModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.TerrainPhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextCoreFontEngineModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.TextCoreFontEngineModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextCoreTextEngineModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.TextCoreTextEngineModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TilemapModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.TilemapModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIElementsModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.UIElementsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UmbraModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.UmbraModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityAnalyticsModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityAnalyticsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityAnalyticsCommonModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityAnalyticsCommonModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityConnectModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityConnectModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityCurlModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityCurlModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityTestProtocolModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityTestProtocolModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VFXModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.VFXModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VRModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.VRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VehiclesModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.VehiclesModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VideoModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.VideoModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VirtualTexturingModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.VirtualTexturingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.WindModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.WindModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.XRModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.XRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.CoreModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEditor.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.DeviceSimulatorModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEditor.DeviceSimulatorModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.DiagnosticsModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEditor.DiagnosticsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.EditorToolbarModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEditor.EditorToolbarModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.GraphViewModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEditor.GraphViewModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.PresetsUIModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEditor.PresetsUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.QuickSearchModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEditor.QuickSearchModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.SceneTemplateModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEditor.SceneTemplateModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.SceneViewModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEditor.SceneViewModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TextCoreFontEngineModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEditor.TextCoreFontEngineModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TextCoreTextEngineModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEditor.TextCoreTextEngineModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UIBuilderModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEditor.UIBuilderModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UIElementsModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEditor.UIElementsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UIElementsSamplesModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEditor.UIElementsSamplesModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UnityConnectModule">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Graphs">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WebGL.Extensions">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\PlaybackEngines\WebGLSupport\UnityEditor.WebGL.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Android.Extensions">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\PlaybackEngines\AndroidPlayer\UnityEditor.Android.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.YamlDotNet">
+      <HintPath>Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Collections.LowLevel.ILSupport">
+      <HintPath>Library\PackageCache\com.unity.collections@1.2.4\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Plastic.Antlr3.Runtime">
+      <HintPath>Library\PackageCache\com.unity.collab-proxy@2.2.0\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="unityplastic">
+      <HintPath>Library\PackageCache\com.unity.collab-proxy@2.2.0\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Plastic.Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.collab-proxy@2.2.0\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="log4netPlastic">
+      <HintPath>Library\PackageCache\com.unity.collab-proxy@2.2.0\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.IonicZip">
+      <HintPath>Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
+      <HintPath>Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.TextureAssets">
+      <HintPath>Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Android.Types">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Android.Gradle">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Android.GradleProject">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.GradleProject.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\mscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.Runtime.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.Xml.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics.Vectors">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.IO.Compression.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Microsoft.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.Data.DataSetExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.IO.Compression.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.ComponentModel.Composition.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.Transactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Primitives">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\Microsoft.Win32.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\netstandard.dll</HintPath>
+    </Reference>
+    <Reference Include="System.AppContext">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.AppContext.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Concurrent">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Collections.Concurrent.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.NonGeneric">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Collections.NonGeneric.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Specialized">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Collections.Specialized.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.ComponentModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.EventBasedAsync">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.ComponentModel.EventBasedAsync.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Primitives">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.ComponentModel.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.TypeConverter">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.ComponentModel.TypeConverter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Console">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Common">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Data.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Contracts">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Diagnostics.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Debug">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Diagnostics.Debug.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.FileVersionInfo">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Diagnostics.FileVersionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Process">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Diagnostics.Process.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.StackTrace">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Diagnostics.StackTrace.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.TextWriterTraceListener">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Diagnostics.TextWriterTraceListener.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Tools">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Diagnostics.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.TraceSource">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Diagnostics.TraceSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Primitives">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Drawing.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Dynamic.Runtime">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Dynamic.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Globalization.Calendars">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Globalization.Calendars.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Globalization">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Globalization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Globalization.Extensions">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Globalization.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression.ZipFile">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.IO.Compression.ZipFile.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.IO.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.DriveInfo">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.IO.FileSystem.DriveInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Watcher">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.IO.FileSystem.Watcher.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.IsolatedStorage">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.IO.IsolatedStorage.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.MemoryMappedFiles">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.IO.MemoryMappedFiles.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipes">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.IO.Pipes.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.UnmanagedMemoryStream">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.IO.UnmanagedMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Expressions">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Linq.Expressions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Parallel">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Linq.Parallel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Queryable">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Linq.Queryable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Rtc">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Net.Http.Rtc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.NameResolution">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Net.NameResolution.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.NetworkInformation">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Net.NetworkInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Ping">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Net.Ping.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Primitives">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Net.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Requests">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Net.Requests.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Security">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Net.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Sockets">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Net.Sockets.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.WebHeaderCollection">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Net.WebHeaderCollection.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.WebSockets.Client">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Net.WebSockets.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.WebSockets">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Net.WebSockets.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ObjectModel">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.ObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.DispatchProxy">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Reflection.DispatchProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Emit">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Reflection.Emit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Emit.ILGeneration">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Reflection.Emit.ILGeneration.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Emit.Lightweight">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Reflection.Emit.Lightweight.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Extensions">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Reflection.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Primitives">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Reflection.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Resources.Reader">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Resources.Reader.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Resources.ResourceManager">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Resources.ResourceManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Resources.Writer">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Resources.Writer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.VisualC">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.CompilerServices.VisualC.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Extensions">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Handles">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.Handles.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.InteropServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.WindowsRuntime">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.InteropServices.WindowsRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Numerics">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.Serialization.Formatters.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Json">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.Serialization.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Primitives">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.Serialization.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Xml">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.Serialization.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Claims">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Security.Claims.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Csp">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Security.Cryptography.Csp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Security.Principal.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.SecureString">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Security.SecureString.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Duplex">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.ServiceModel.Duplex.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Http">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.ServiceModel.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.NetTcp">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.ServiceModel.NetTcp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Primitives">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.ServiceModel.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Security">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.ServiceModel.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Text.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.Extensions">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Text.Encoding.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Text.RegularExpressions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Overlapped">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Threading.Overlapped.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Parallel">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Threading.Tasks.Parallel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Thread">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Threading.Thread.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.ThreadPool">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Threading.ThreadPool.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Timer">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Threading.Timer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.ReaderWriter">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.ReaderWriter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XDocument">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.XDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XmlDocument">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.XmlDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XmlSerializer">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.XmlSerializer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XPath">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.XPath.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XPath.XDocument">
+      <HintPath>D:\Unity\2022.3.6f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TestRunner">
+      <HintPath>Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.IK.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="PsdPlugin">
+      <HintPath>Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst">
+      <HintPath>Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PlasticSCM.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Common.Path.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Common.Path.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Shared.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualStudio.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Core">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Animation.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Animation.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Tilemap.Extras">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Core.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.PixelPerfect.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Aseprite.Common">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Aseprite.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InternalAPIEditorBridge.005">
+      <HintPath>Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.005.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InternalAPIEngineBridge.001">
+      <HintPath>Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Common.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Tilemap.Extras.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline">
+      <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InputSystem">
+      <HintPath>Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InputSystem.ForUI">
+      <HintPath>Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Collections">
+      <HintPath>Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Psdimporter.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Psdimporter.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InternalAPIEditorBridge.001">
+      <HintPath>Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.SpriteShape.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.State.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.PixelPerfect">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics">
+      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Common.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Aseprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Aseprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.State">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+    </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.SpriteShape.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.SpriteShape.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Tilemap.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Animation.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Animation.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.IK.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.IK.Editor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp.csproj">
+      <Project>{2AFC4CDB-5F65-4852-FF20-E3C8F7CDABD2}</Project>
+      <Name>Assembly-CSharp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="GenerateTargetFrameworkMonikerAttribute" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

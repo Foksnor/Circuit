@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f596eff5112c554089c6d028bd0e335, type: 3}
+  m_Name: Card_MoveW
+  m_EditorClassIdentifier: 
+  CardType: 0
+  CardName: Move West
+  Cost: 0
+  Sprite: {fileID: 21300000, guid: 3304b67eb1333ab46b23f27ba47bf5ab, type: 3}
+  Sound: {fileID: 0}
+  Particle: {fileID: 0}
+  ParticleLocation: 0
+  TargetType: 0
+  MoveSteps: {x: -1, y: 0}
+  AttackSteps: {x: 0, y: 0}
+  AutoTargetNearest: 0
+  AttackOffset: 0
+  Value: 0
+  Description: Moves the player 1 step west.
+  MaxTimeInUse: 1
