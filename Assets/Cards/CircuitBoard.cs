@@ -16,6 +16,7 @@ public class CircuitBoard : MonoBehaviour
     public List<CardScriptableObject> startingCards = new List<CardScriptableObject>();
     private int activeCardNumber = 0;
     private float timeBetweenCardsPlayed = 0;
+    private bool isReadyToProcessSimulation = true;
 
     protected bool needsNewCardCalculation { set; get; } = false;
 
@@ -55,7 +56,6 @@ public class CircuitBoard : MonoBehaviour
         if (timeBetweenCardsPlayed > 0)
             return true;
 
-
         if (activeCardNumber < activeCards.Count)
         {
             activeCards[activeCardNumber].ActivateCard(targetCharacter);
@@ -77,6 +77,21 @@ public class CircuitBoard : MonoBehaviour
         return true;
     }
 
+    public bool IsProcessingSimulation(Character targetCharacter)
+    {
+        // Only process simulation when it's ready, and wait when there are enemy simulations happening
+        if (isReadyToProcessSimulation)
+            isReadyToProcessSimulation = IsProcessingCards(targetCharacter.InstancedCharacterSimulation);
+
+        if (needsNewCardCalculation)
+        {
+            ResetCardProcessing();
+            targetCharacter.RefreshCharacterSimulation();
+            needsNewCardCalculation = false;
+        }
+        return isReadyToProcessSimulation;
+    }
+
     public void ResetCardProcessing()
     {
         timeBetweenCardsPlayed = 0;
@@ -87,8 +102,15 @@ public class CircuitBoard : MonoBehaviour
         }
     }
 
+    public void ResetSimulationProcessing(Character targetCharacter)
+    {
+        targetCharacter.RefreshCharacterSimulation();
+        isReadyToProcessSimulation = true;
+    }
+
     public void CalculateAllCards(Character targetCharacter, bool isSetupPhase)
     {
+        targetCharacter.ToggleCharacterSimulation(isSetupPhase);
         int previsGridNumber = targetCharacter.PositionInGrid;
         for (int cardNumber = 0; cardNumber < activeCards.Count; cardNumber++)
         {
@@ -100,23 +122,6 @@ public class CircuitBoard : MonoBehaviour
             // TODO: voeg toe dat spelers aan het begin van hun beurt een nieuwe hand van kaarten uit hun deck trekt, en dan er een mogen kiezen, daarna moet deze onderstaande functie aangeroepen worden. :)
             previsGridNumber = activeCards[cardNumber].CalculateCard(previsGridNumber, isSetupPhase);
             ToggleInteractableCardStateOnCircuitBoard(cardNumber, isSetupPhase);
-        }
-        ShowCardPrevis(targetCharacter, isSetupPhase);
-    }
-
-    private void ShowCardPrevis(Character targetCharacter, bool isSetupPhase)
-    {
-        targetCharacter.ToggleCharacterSimulation(isSetupPhase);
-        if (targetCharacter.InstancedCharacterSimulation != null
-            && isSetupPhase)
-        {
-            bool isBusyProcessing = IsProcessingCards(targetCharacter.InstancedCharacterSimulation);
-            if (!isBusyProcessing || needsNewCardCalculation)
-            {
-                ResetCardProcessing();
-                targetCharacter.RefreshCharacterSimulation();
-                needsNewCardCalculation = false;
-            }
         }
     }
 

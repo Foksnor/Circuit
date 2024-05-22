@@ -126,7 +126,10 @@ public class PlayerCircuitBoard : CircuitBoard
         // If any of the active cards has their position changed. A new card calculation is in order. This can happen during setup phase
         // Bool needsNewCardCalculation will set itself to false once the calculation action has ended
         if (!needsNewCardCalculation)
+        {
             needsNewCardCalculation = CompareIfListsAreDifferent(CardOrderBeforeSort, activeCards);
+            TransitionTurns.TurnCalculation.needsNewSimulationCalculation = needsNewCardCalculation;
+        }
     }
 
     protected override void AllignCardOnCircuitBoard(int cardNumber)
