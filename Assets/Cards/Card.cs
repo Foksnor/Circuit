@@ -242,6 +242,11 @@ public class Card : MonoBehaviour
         return angle;
     }
 
+    private void HandleMovement(Character instigator)
+    {
+        instigator.ChangeDestinationGridNumber(targetedGridForMovement);
+    }
+
     private void HandleAttack(Character instigator)
     {
         for (int i = 0; i < attackedGridTargets.Count; i++)
@@ -257,24 +262,39 @@ public class Card : MonoBehaviour
         if (cardScriptableObject.Particle == null)
             return;
 
+        GameObject particle = null;
+
         switch (cardScriptableObject.ParticleLocation)
         {
             case CardScriptableObject._ParticleLocation.OnSelf:
                 if (!hasParticleSpawnedOnSelf)
                 {
-                    Instantiate(cardScriptableObject.Particle, instigator.transform.position, transform.rotation);
+                    particle = Instantiate(cardScriptableObject.Particle, instigator.transform.position, transform.rotation);
                     hasParticleSpawnedOnSelf = true;
                 }
                 break;
             case CardScriptableObject._ParticleLocation.OnDamageTiles:
             case CardScriptableObject._ParticleLocation.OnMovementTiles:
-                Instantiate(cardScriptableObject.Particle, cube.transform.position, transform.rotation);
+                particle = Instantiate(cardScriptableObject.Particle, cube.transform.position, transform.rotation);
                 break;
+        }
+
+        // Sets the spawned particle in the "Simulation" layer
+        // This is needed because the simulation camera renders all simulation based events different than the main camera
+        if (particle != null)
+        {
+            int layerNumber = LayerMask.NameToLayer("Simulation");
+            SetGameLayerRecursive(particle, layerNumber);
         }
     }
 
-    private void HandleMovement(Character instigator)
+    // Cycles through every transform in a gameobject and sets the same layer throughout
+    private void SetGameLayerRecursive(GameObject gameObject, int layer)
     {
-        instigator.ChangeDestinationGridNumber(targetedGridForMovement);
+        gameObject.layer = layer;
+        foreach (Transform child in gameObject.transform)
+        {
+            SetGameLayerRecursive(child.gameObject, layer);
+        }
     }
 }
