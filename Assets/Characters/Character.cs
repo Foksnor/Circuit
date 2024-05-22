@@ -87,8 +87,15 @@ public class Character : MonoBehaviour
 
     public void ToggleCharacterSimulation(bool isSetupPhase)
     {
-        if (InstancedCharacterSimulation != null)
-            if (InstancedCharacterSimulation.gameObject != null)
-                InstancedCharacterSimulation.gameObject.SetActive(isSetupPhase);
+        if (isSetupPhase)
+        {
+            if (InstancedCharacterSimulation == null)
+                InstantiateCharacterSimulation();
+        }
+        else
+        {
+            if (InstancedCharacterSimulation != null)
+                Destroy(InstancedCharacterSimulation.gameObject);
+        }
     }
 }

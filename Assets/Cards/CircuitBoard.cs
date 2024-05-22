@@ -55,6 +55,7 @@ public class CircuitBoard : MonoBehaviour
         if (timeBetweenCardsPlayed > 0)
             return true;
 
+
         if (activeCardNumber < activeCards.Count)
         {
             activeCards[activeCardNumber].ActivateCard(targetCharacter);
@@ -106,7 +107,8 @@ public class CircuitBoard : MonoBehaviour
     private void ShowCardPrevis(Character targetCharacter, bool isSetupPhase)
     {
         targetCharacter.ToggleCharacterSimulation(isSetupPhase);
-        if (targetCharacter.InstancedCharacterSimulation != null)
+        if (targetCharacter.InstancedCharacterSimulation != null
+            && isSetupPhase)
         {
             bool isBusyProcessing = IsProcessingCards(targetCharacter.InstancedCharacterSimulation);
             if (!isBusyProcessing || needsNewCardCalculation)

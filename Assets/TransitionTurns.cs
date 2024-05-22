@@ -9,7 +9,9 @@ public class TransitionTurns : MonoBehaviour
     [SerializeField] private float maxTurnTime = 8;
     private float curTurnTime;
     private bool isPlayerTurnActive = false;
+    private bool isPlayerSimulationTurnActive = false;
     private bool isEnemyTurnActive = false;
+    private bool isEnemySimulationTurnActive = false;
 
     // Turns before a new enemy spawns.
     [SerializeField] private int enemySpawnEveryXRounds = 5;
@@ -47,6 +49,15 @@ public class TransitionTurns : MonoBehaviour
         {
             // Player set up phase
             PlayerDrawPhase();
+
+            if (isPlayerSimulationTurnActive)
+            {
+                isPlayerSimulationTurnActive = ProcessTeamCards(CharacterTeams._PlayerTeamSimulations);
+            }
+            else if (isEnemySimulationTurnActive)
+            {
+                isEnemySimulationTurnActive = ProcessTeamCards(CharacterTeams._EnemyTeamSimulations);
+            }
 
             CalculateTeamCards(CharacterTeams._PlayerTeamCharacters, true);
             CalculateTeamCards(CharacterTeams._EnemyTeamCharacters, true);
