@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - GameManager
   layers:
   - Default
   - TransparentFX
@@ -40,4 +41,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Particles
+    uniqueID: 3124288541
+    locked: 0
+  - name: Interface
+    uniqueID: 1699562441
     locked: 0
