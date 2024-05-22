@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2747477502415484707}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: VisualRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23,6 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067481299798353838}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -30,7 +31,6 @@ Transform:
   m_Children:
   - {fileID: 2380046256169473881}
   m_Father: {fileID: 6044319272456017678}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4801838353471862375
 GameObject:
@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2380046256169473881}
   - component: {fileID: 7022178285850042869}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,13 +56,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4801838353471862375}
+  serializedVersion: 2
   m_LocalRotation: {x: -0.42261827, y: -0, z: -0, w: 0.9063079}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2747477502415484707}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -50, y: 0, z: 0}
 --- !u!212 &7022178285850042869
 SpriteRenderer:
@@ -102,11 +102,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -813932621
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 05c489fbe4f4c6845a4a5d748ba82eda, type: 3}
-  m_Color: {r: 0, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 6044319272456017678}
   - component: {fileID: 5176291571335548904}
   - component: {fileID: 6486095623281261906}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CharacterSimulation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,6 +141,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5939660903587104732}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -148,7 +149,6 @@ Transform:
   m_Children:
   - {fileID: 2747477502415484707}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5176291571335548904
 MonoBehaviour:

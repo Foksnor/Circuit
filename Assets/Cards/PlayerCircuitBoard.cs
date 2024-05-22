@@ -12,7 +12,7 @@ public class PlayerCircuitBoard : CircuitBoard
     [SerializeField] private GameObject cardDrawPanel = null;
     [HideInInspector] public List<Card> drawnCards = new List<Card>();
 
-    private bool canPlayerDrawNewHand = false;
+    private bool canPlayerDrawNewHand = true;
 
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private Image timerFill;
@@ -107,11 +107,15 @@ public class PlayerCircuitBoard : CircuitBoard
     {
         bool isProcessing = base.IsProcessingCards(targetCharacter);
 
-        // Player discards their hand.
-        // Sets value to true so players can draw a single hand during their next draw phase.
-        if (!canPlayerDrawNewHand)
-            RemoveCardsFromHand();
-        canPlayerDrawNewHand = true;
+        // Only the player character can draw cards, not their simulation
+        if (targetCharacter.CharacterSimulation != null)
+        {
+            // Player discards their hand.
+            // Sets value to true so players can draw a single hand during their next draw phase.
+            if (!canPlayerDrawNewHand)
+                RemoveCardsFromHand();
+            canPlayerDrawNewHand = true;
+        }
 
         return isProcessing;
     }

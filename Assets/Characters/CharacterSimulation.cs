@@ -8,7 +8,7 @@ public class CharacterSimulation : Character
     private void Awake()
     {
         // Character sim cannot be dealt damage
-        isInvulnerable = true;
+        //isInvulnerable = true;
     }
 
     public void SetCharacterSimInfo(SpriteRenderer spriteRenderer)

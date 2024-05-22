@@ -84,7 +84,7 @@ public class TransitionTurns : MonoBehaviour
             // When a new simulation is needed
             // E.g. player re-orders their cards in circuit
             if (TurnCalculation.needsNewSimulationCalculation)
-            {
+            {                
                 isPlayerSimulationTurnActive = true;
                 ResetSimulationProcessing(CharacterTeams._PlayerTeamCharacters);
                 ResetSimulationProcessing(CharacterTeams._EnemyTeamCharacters);
