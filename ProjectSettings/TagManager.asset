@@ -16,7 +16,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Simulation
   - 
   - 
   - 
@@ -39,6 +39,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: GroundTiles
+    uniqueID: 71848447
+    locked: 0
+  - name: Simulation
+    uniqueID: 3481034675
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
