@@ -281,7 +281,7 @@ public class Card : MonoBehaviour
 
         // Sets the spawned particle in the "Simulation" layer
         // This is needed because the simulation camera renders all simulation based events different than the main camera
-        if (particle != null)
+        if (particle != null && instigator.InstancedCharacterSimulation == null)
         {
             int layerNumber = LayerMask.NameToLayer("Simulation");
             SetGameLayerRecursive(particle, layerNumber);
