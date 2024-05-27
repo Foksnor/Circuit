@@ -57,8 +57,9 @@ public class Character : MonoBehaviour
     private void Die()
     {
         // Spawn death VFX
+        bool isSimulation = InstancedCharacterSimulation == null;
         DeathVFX deathobj = Instantiate(deathVFX, transform.position, transform.rotation);
-        deathobj.SetDeathVFXCharacterVisual(characterSpriteRenderer.sprite);
+        deathobj.SetDeathVFXCharacterVisual(characterSpriteRenderer.sprite, isSimulation);
 
         Destroy(gameObject);
     }

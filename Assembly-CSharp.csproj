@@ -364,6 +364,7 @@
     <Compile Include="Assets\Doozy\Runtime\Mody\Actions\DoubleModyAction.cs" />
     <Compile Include="Assets\Doozy\Runtime\Mody\Actions\Vector4ModyAction.cs" />
     <Compile Include="Assets\Doozy\Runtime\UIManager\Enums\ButtonTrigger.cs" />
+    <Compile Include="Assets\HelperFunctions.cs" />
     <Compile Include="Assets\Doozy\Runtime\Nody\FlowNode.cs" />
     <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\QuarticEaseInEasing.cs" />
     <Compile Include="Assets\Doozy\Runtime\Nody\Nodes\Internal\SimpleNode.cs" />

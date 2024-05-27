@@ -292,17 +292,8 @@ public class Card : MonoBehaviour
         if (particle != null && instigator.InstancedCharacterSimulation == null)
         {
             int layerNumber = LayerMask.NameToLayer("Simulation");
-            SetGameLayerRecursive(particle, layerNumber);
+            HelperFunctions.SetGameLayerRecursive(particle, layerNumber);
         }
     }
 
-    // Cycles through every transform in a gameobject and sets the same layer throughout
-    private void SetGameLayerRecursive(GameObject gameObject, int layer)
-    {
-        gameObject.layer = layer;
-        foreach (Transform child in gameObject.transform)
-        {
-            SetGameLayerRecursive(child.gameObject, layer);
-        }
-    }
 }
