@@ -4,60 +4,74 @@ using UnityEngine;
 
 public static class ValidateGridPosition
 {
-    public static bool CanStepX(int targetNum1, int targetNum2)
+    public static bool CanStepX(Character targetCharacter, int startingNum, int destinationNum)
     {
-        if (targetNum1 >= GridPositions._GridCubes.Count ||
-            targetNum2 >= GridPositions._GridCubes.Count ||
-            targetNum1 < 0 ||
-            targetNum2 < 0)
+        if (startingNum >= GridPositions._GridCubes.Count ||
+            destinationNum >= GridPositions._GridCubes.Count ||
+            startingNum < 0 ||
+            destinationNum < 0)
             return false;
 
-        GridCube pos1 = GridPositions._GridCubes[targetNum1];
-        GridCube pos2 = GridPositions._GridCubes[targetNum2];
+        GridCube startingPos = GridPositions._GridCubes[startingNum];
+        GridCube destinationPos = GridPositions._GridCubes[destinationNum];
 
-        if ((pos1.transform.position - pos2.transform.position).magnitude <= 1)
+        // Cannot move when a character occupies destination
+        if (destinationPos.CharacterOnThisGrid != null)
+            if (!destinationPos.CharacterOnThisGrid.IsCharacterRelatedToMe(targetCharacter))
+                return false;
+
+        // Can move 1 step if destination is 1 step away
+        if ((startingPos.transform.position - destinationPos.transform.position).magnitude <= 1)
             return true;
 
-        if (pos1.transform.position.y == pos2.transform.position.y &&
-            pos1 != pos2)
+        // Can move horizontally when both positions share the same y positions
+        if (startingPos.transform.position.y == destinationPos.transform.position.y &&
+            startingPos != destinationPos)
             return true;
 
         return false;
     }
 
-    public static bool CanStepY(int targetNum1, int targetNum2)
+    public static bool CanStepY(Character targetCharacter, int startingNum, int destinationNum)
     {
-        if (targetNum1 >= GridPositions._GridCubes.Count ||
-            targetNum2 >= GridPositions._GridCubes.Count ||
-            targetNum1 < 0 ||
-            targetNum2 < 0)
+        if (startingNum >= GridPositions._GridCubes.Count ||
+            destinationNum >= GridPositions._GridCubes.Count ||
+            startingNum < 0 ||
+            destinationNum < 0)
             return false;
 
-        GridCube pos1 = GridPositions._GridCubes[targetNum1];
-        GridCube pos2 = GridPositions._GridCubes[targetNum2];
+        GridCube startingPos = GridPositions._GridCubes[startingNum];
+        GridCube destinationPos = GridPositions._GridCubes[destinationNum];
 
-        if ((pos1.transform.position - pos2.transform.position).magnitude <= 1)
+        // Cannot move when a character occupies destination
+        if (destinationPos.CharacterOnThisGrid != null)
+            if (!destinationPos.CharacterOnThisGrid.IsCharacterRelatedToMe(targetCharacter))
+                return false;
+
+        // Can move 1 step if destination is 1 step away
+        if ((startingPos.transform.position - destinationPos.transform.position).magnitude <= 1)
             return true;
 
-        if (pos1.transform.position.y != pos2.transform.position.y &&
-            pos1 != pos2)
+        // Can move vertically when both positions have different y positions
+        if (startingPos.transform.position.y != destinationPos.transform.position.y &&
+            startingPos != destinationPos)
             return true;
 
         return false;
     }
 
-    public static bool CanAttack(int targetNum1, int targetNum2, int attackOffsetY)
+    public static bool CanAttack(int startingNum, int destinationNum, int attackOffsetY)
     {
-        if (targetNum1 >= GridPositions._GridCubes.Count ||
-            targetNum2 >= GridPositions._GridCubes.Count ||
-            targetNum1 < 0 ||
-            targetNum2 < 0)
+        if (startingNum >= GridPositions._GridCubes.Count ||
+            destinationNum >= GridPositions._GridCubes.Count ||
+            startingNum < 0 ||
+            destinationNum < 0)
             return false;
 
-        GridCube pos1 = GridPositions._GridCubes[targetNum1];
-        GridCube pos2 = GridPositions._GridCubes[targetNum2];
+        GridCube startingPos = GridPositions._GridCubes[startingNum];
+        GridCube destinationPos = GridPositions._GridCubes[destinationNum];
 
-        int yDiff = (int)Mathf.Abs(pos1.transform.position.y - pos2.transform.position.y);
+        int yDiff = (int)Mathf.Abs(startingPos.transform.position.y - destinationPos.transform.position.y);
         if (yDiff == attackOffsetY)
             return true;
 

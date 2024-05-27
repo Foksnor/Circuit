@@ -120,7 +120,7 @@ public class Card : MonoBehaviour
         return steps;
     }
 
-    public int CalculateCard(int savedGridUsedByPreviousCard, bool isSetupPhase)
+    public int CalculateCard(Character targetCharacter, int savedGridUsedByPreviousCard, bool isSetupPhase)
     {
         int targetedGrid = savedGridUsedByPreviousCard;
         Vector2Int attackSteps = cardScriptableObject.AttackSteps;
@@ -147,17 +147,24 @@ public class Card : MonoBehaviour
                 int attackWidth = Mathf.FloorToInt(attackSteps.x / 2);
                 targetedGrid -= attackWidth;
 
-                for (int attackStepX = 1; attackStepX < attackSteps.x + 1; attackStepX++)
+                if (isSetupPhase)
                 {
-                    // Handles X steps in the attack
-                    if (ValidateGridPosition.CanAttack(savedGridUsedByPreviousCard, targetedGrid, attackStepY))
+                    // Empty the list before adding attack positions
+                    // List gets cleared everytime because the character can be updating their position before commiting to the attack
+                    attackedGridTargets.Clear();
+
+                    for (int attackStepX = 1; attackStepX < attackSteps.x + 1; attackStepX++)
                     {
-                        // Tile based previs disabled for now
-                        // GridPositions._GridCubes[targetedGrid].SetIndicatorVisual(isSetupPhase, cardScriptableObject, 0);
-                        if (isSetupPhase && !attackedGridTargets.Contains(GridPositions._GridCubes[targetedGrid]))
-                            attackedGridTargets.Add(GridPositions._GridCubes[targetedGrid]);
+                        // Handles X steps in the attack
+                        if (ValidateGridPosition.CanAttack(savedGridUsedByPreviousCard, targetedGrid, attackStepY))
+                        {
+                            // Tile based previs disabled for now
+                            // GridPositions._GridCubes[targetedGrid].SetIndicatorVisual(isSetupPhase, cardScriptableObject, 0);
+                            if (isSetupPhase)
+                                attackedGridTargets.Add(GridPositions._GridCubes[targetedGrid]);
+                        }
+                        targetedGrid++;
                     }
-                    targetedGrid++;
                 }
             }
 
@@ -172,7 +179,7 @@ public class Card : MonoBehaviour
             for (int stepLength = 0; stepLength < Mathf.Abs(moveSteps.y); stepLength++)
             {
                 // Handles the Y steps in the movement
-                targetedGrid = GetMovementGridNumber(targetedGrid, moveSteps);
+                targetedGrid = GetMovementGridNumber(targetCharacter, targetedGrid, moveSteps);
                 float dirAngle = GetDirectionAngleBetweenGrids(targetedGrid, savedGridUsedByPreviousCard);
                 // Tile based previs disabled for now
                 // GridPositions._GridCubes[targetedGrid].SetIndicatorVisual(isSetupPhase, cardScriptableObject, dirAngle);
@@ -180,7 +187,7 @@ public class Card : MonoBehaviour
             for (int stepWidth = 0; stepWidth < Mathf.Abs(moveSteps.x); stepWidth++)
             {
                 // Handles X steps in the movement
-                targetedGrid = GetMovementGridNumber(targetedGrid, moveSteps);
+                targetedGrid = GetMovementGridNumber(targetCharacter, targetedGrid, moveSteps);
                 float dirAngle = GetDirectionAngleBetweenGrids(targetedGrid, savedGridUsedByPreviousCard);
                 // Tile based previs disabled for now
                 //GridPositions._GridCubes[targetedGrid].SetIndicatorVisual(isSetupPhase, cardScriptableObject, dirAngle);
@@ -195,7 +202,7 @@ public class Card : MonoBehaviour
         return targetedGrid;
     }
 
-    private int GetMovementGridNumber(int startingGridNumber, Vector2Int moveSteps)
+    private int GetMovementGridNumber(Character targetCharacter, int startingGridNumber, Vector2Int moveSteps)
     {
         int offsetFromInstigator = 0;
 
@@ -204,7 +211,7 @@ public class Card : MonoBehaviour
         int moveX = moveIncrement.x;
         if (moveX != 0)
         {
-            if (ValidateGridPosition.CanStepX(startingGridNumber, startingGridNumber + moveX))
+            if (ValidateGridPosition.CanStepX(targetCharacter, startingGridNumber, startingGridNumber + moveX))
                 offsetFromInstigator += moveX;
         }
 
@@ -218,7 +225,7 @@ public class Card : MonoBehaviour
 
             if (startingGridNumber + moveY <= GridPositions._GridCubes.Count)
             {
-                if (ValidateGridPosition.CanStepY(startingGridNumber, startingGridNumber + moveY))
+                if (ValidateGridPosition.CanStepY(targetCharacter, startingGridNumber, startingGridNumber + moveY))
                     offsetFromInstigator += moveY;
             }
             else // If the targeted grid number does not exist, fall back to starting grid
@@ -251,7 +258,8 @@ public class Card : MonoBehaviour
     {
         for (int i = 0; i < attackedGridTargets.Count; i++)
         {
-            attackedGridTargets[i].CharacterOnThisGrid?.ChangeHealth(1, instigator);
+            if (attackedGridTargets[i].CharacterOnThisGrid != null)
+                attackedGridTargets[i].CharacterOnThisGrid.ChangeHealth(1, instigator);
             SpawnParticleEffectAtGridCube(instigator, attackedGridTargets[i]);
         }
         attackedGridTargets.Clear();

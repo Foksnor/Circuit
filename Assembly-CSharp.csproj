@@ -514,6 +514,7 @@
     <Compile Include="Assets\Doozy\Runtime\UIDesigner\Enums\Distribute.cs" />
     <Compile Include="Assets\Doozy\Runtime\Reactor\Reactor.cs" />
     <Compile Include="Assets\Doozy\Runtime\UIManager\Orientation\DetectedOrientationEvent.cs" />
+    <Compile Include="Assets\Characters\DeathVFX\DeathVFX.cs" />
     <Compile Include="Assets\Doozy\Runtime\UIManager\Triggers\UISubmitTrigger.cs" />
     <Compile Include="Assets\Doozy\Runtime\Reactor\Targets\SpriteTargets\ImageSpriteTarget.cs" />
     <Compile Include="Assets\Doozy\Runtime\Signals\Signal.cs" />

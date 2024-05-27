@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GridCube : MonoBehaviour
 {
-    [SerializeField] private TextMesh textMesh;
+    [SerializeField] private TextMesh textMeshGridNumber;
+    [SerializeField] private TextMesh textMeshCharacterRef;
     [SerializeField] private float highestElevation;
     [SerializeField] private float lowestElevation;
     [SerializeField] private SpriteRenderer floorSprite;
@@ -33,7 +34,7 @@ public class GridCube : MonoBehaviour
 
     public void SetGridReferenceNumber(int numberInGrid)
     {
-        textMesh.text = numberInGrid.ToString();
+        textMeshGridNumber.text = numberInGrid.ToString();
     }
 
     public void SetHeight(Vector3 gridPosition)
@@ -71,11 +72,15 @@ public class GridCube : MonoBehaviour
     public void SetCharacterOnGrid(Character character)
     {
         CharacterOnThisGrid = character;
+        textMeshCharacterRef.text = character.name;
     }
 
     public void RemoveCharacterOnGrid(Character character)
     {
         if (CharacterOnThisGrid == character)
+        {
             CharacterOnThisGrid = null;
+            textMeshCharacterRef.text = "";
+        }
     }
 }

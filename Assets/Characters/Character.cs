@@ -9,6 +9,7 @@ public class Character : MonoBehaviour
     [HideInInspector] public int PositionInGrid { private set; get; }
     [SerializeField] protected SpriteRenderer characterSpriteRenderer = null;
     [SerializeField] protected Animator characterAnimator = null;
+    [SerializeField] private DeathVFX deathVFX = null;
     public CharacterSimulation CharacterSimulation = null;
     public CharacterSimulation InstancedCharacterSimulation { private set; get; } = null;
     public int Health { private set; get; } = 1;
@@ -55,6 +56,10 @@ public class Character : MonoBehaviour
 
     private void Die()
     {
+        // Spawn death VFX
+        DeathVFX deathobj = Instantiate(deathVFX, transform.position, transform.rotation);
+        deathobj.SetDeathVFXCharacterVisual(characterSpriteRenderer.sprite);
+
         Destroy(gameObject);
     }
 
@@ -63,6 +68,7 @@ public class Character : MonoBehaviour
         // Remove character from their list before destroying it to prevent null references.
         CharacterTeams._PlayerTeamCharacters.Remove(this);
         CharacterTeams._EnemyTeamCharacters.Remove(this);
+        GridPositions._GridCubes[PositionInGrid].RemoveCharacterOnGrid(this);
     }
 
     public virtual void RefreshCharacterSimulation()
@@ -95,7 +101,19 @@ public class Character : MonoBehaviour
         else
         {
             if (InstancedCharacterSimulation != null)
-                Destroy(InstancedCharacterSimulation.gameObject);
+                DestroyCharacterSimulation();
         }
+    }
+
+    public bool IsCharacterRelatedToMe(Character comparisonCharacter)
+    {
+        if (comparisonCharacter.gameObject == gameObject)
+            return true;
+
+        if (comparisonCharacter.InstancedCharacterSimulation != null)
+            if (comparisonCharacter.InstancedCharacterSimulation.gameObject == gameObject)
+                return true;
+
+        return false;
     }
 }
