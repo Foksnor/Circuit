@@ -672,6 +672,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 961207204}
+  - component: {fileID: 961207207}
   - component: {fileID: 961207205}
   - component: {fileID: 961207206}
   m_Layer: 0
@@ -735,6 +736,20 @@ MonoBehaviour:
   startingPosition: 37
   enemyWeakMelee: {fileID: 1957793412199929724, guid: 69023d50af278324b87b5202712490ae, type: 3}
   enemyWeakRanged: {fileID: 0}
+--- !u!114 &961207207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961207202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16e4f234c70187348b900d0499df6b27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteTransformOrientation: {x: 0, y: -30, z: 90}
+  SpriteTransformOffset: {x: 0, y: 0, z: 0.3}
 --- !u!1 &1076255273 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5047261694016473884, guid: b423b082df74dc3468f59ef426aa35ab, type: 3}
@@ -1189,5 +1204,5 @@ SceneRoots:
   - {fileID: 297228755}
   - {fileID: 230039452}
   - {fileID: 129611670}
-  - {fileID: 933816339}
   - {fileID: 961207204}
+  - {fileID: 933816339}
