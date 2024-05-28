@@ -295,5 +295,4 @@ public class Card : MonoBehaviour
             HelperFunctions.SetGameLayerRecursive(particle, layerNumber);
         }
     }
-
 }

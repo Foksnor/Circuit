@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Doozy\Runtime\Reactor\Reactions\ReflectedVector3Reaction.cs" />
+    <Compile Include="Assets\Characters\TransformBillboard.cs" />
     <Compile Include="Assets\Doozy\Runtime\UIManager\Orientation\DetectedOrientation.cs" />
     <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\QuinticEaseInEasing.cs" />
     <Compile Include="Assets\Doozy\Runtime\Mody\Actions\Vector2ModyAction.cs" />
@@ -458,6 +459,7 @@
     <Compile Include="Assets\Doozy\Runtime\UIManager\Containers\UIPopup.cs" />
     <Compile Include="Assets\Doozy\Runtime\UIDesigner\Components\UIRescaler.cs" />
     <Compile Include="Assets\Characters\Player\Button_TransitionTurn.cs" />
+    <Compile Include="Assets\GameSettings.cs" />
     <Compile Include="Assets\Doozy\_Examples\Common\Runtime\Scripts\PrintToConsole.cs" />
     <Compile Include="Assets\Doozy\Runtime\UIManager\Enums\ContainerBehaviour.cs" />
     <Compile Include="Assets\Doozy\Runtime\Mody\Interfaces\IHaveActions.cs" />
