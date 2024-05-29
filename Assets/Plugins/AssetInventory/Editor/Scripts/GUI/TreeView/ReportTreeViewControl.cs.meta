@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: 32e9e52d96024606a723df294f8fd1ab
+timeCreated: 1685908590
+AssetOrigin:
+  serializedVersion: 1
+  productId: 275893
+  packageName: Asset Inventory 2
+  packageVersion: 2.3.0
+  assetPath: Assets/AssetInventory/Editor/Scripts/GUI/TreeView/ReportTreeViewControl.cs
+  uploadId: 666922

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 16578cbec6a24ac4d951b5f328a970ca
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 167990
+  packageName: Asset Cleaner PRO - Clean | Find References
+  packageVersion: 1.26
+  assetPath: Assets/Asset Cleaner/Data/CleanerStyleAsset.cs
+  uploadId: 523925

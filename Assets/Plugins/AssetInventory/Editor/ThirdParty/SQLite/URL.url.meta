@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: dc87c9370afb36f4cb36d6570dbb07e1
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 275893
+  packageName: Asset Inventory 2
+  packageVersion: 2.3.0
+  assetPath: Assets/AssetInventory/Editor/ThirdParty/SQLite/URL.url
+  uploadId: 666922

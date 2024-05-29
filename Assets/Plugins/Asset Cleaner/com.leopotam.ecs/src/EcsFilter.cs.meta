@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: b90027f88e50ab84091856e4c71b9710
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 167990
+  packageName: Asset Cleaner PRO - Clean | Find References
+  packageVersion: 1.26
+  assetPath: Assets/Asset Cleaner/com.leopotam.ecs/src/EcsFilter.cs
+  uploadId: 523925

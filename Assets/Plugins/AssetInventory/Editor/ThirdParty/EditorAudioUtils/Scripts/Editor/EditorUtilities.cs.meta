@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: b345de9558274d7c8e18c18e3fda5cf6
+timeCreated: 1634989771
+AssetOrigin:
+  serializedVersion: 1
+  productId: 275893
+  packageName: Asset Inventory 2
+  packageVersion: 2.3.0
+  assetPath: Assets/AssetInventory/Editor/ThirdParty/EditorAudioUtils/Scripts/Editor/EditorUtilities.cs
+  uploadId: 666922

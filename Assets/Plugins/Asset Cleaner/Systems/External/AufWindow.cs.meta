@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 44ebd7bbb2bb41b4ba0187901e8d583f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 167990
+  packageName: Asset Cleaner PRO - Clean | Find References
+  packageVersion: 1.26
+  assetPath: Assets/Asset Cleaner/Systems/External/AufWindow.cs
+  uploadId: 523925

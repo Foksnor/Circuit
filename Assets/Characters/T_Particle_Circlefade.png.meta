@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      T_Particle_Circlefade_0: 1911854976787687742
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
