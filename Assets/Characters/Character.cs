@@ -66,10 +66,14 @@ public class Character : MonoBehaviour
 
     private void OnDestroy()
     {
-        // Remove character from their list before destroying it to prevent null references.
-        CharacterTeams._PlayerTeamCharacters.Remove(this);
-        CharacterTeams._EnemyTeamCharacters.Remove(this);
-        GridPositions._GridCubes[PositionInGrid].RemoveCharacterOnGrid(this);
+        // Only call this when not quiting the application, otherwise cleaning up the variables when closing the game might result in missing references
+        if (Application.isPlaying)
+        {
+            // Remove character from their list before destroying it to prevent null references.
+            CharacterTeams._PlayerTeamCharacters.Remove(this);
+            CharacterTeams._EnemyTeamCharacters.Remove(this);
+            GridPositions._GridCubes[PositionInGrid].RemoveCharacterOnGrid(this);
+        }
     }
 
     public virtual void RefreshCharacterSimulation()
