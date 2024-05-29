@@ -6,7 +6,7 @@ public class TransformToBillboard : MonoBehaviour
 {
     [SerializeField] Transform Transform = null;
 
-    void Awake()
+    void Start()
     {
         Transform.eulerAngles = GlobalSettings.SpriteBillboardVector;
         Transform.position += GlobalSettings.SpriteOffsetVector;
