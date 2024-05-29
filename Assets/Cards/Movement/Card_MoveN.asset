@@ -15,7 +15,7 @@ MonoBehaviour:
   CardType: 0
   CardName: Move North
   Cost: 0
-  Sprite: {fileID: 21300000, guid: 9da6b774dd55ef841bb376f284b55897, type: 3}
+  Sprite: {fileID: 21300000, guid: 3088e55232f26414e89c33f55c40ca6b, type: 3}
   Sound: {fileID: 0}
   Particle: {fileID: 0}
   ParticleLocation: 0

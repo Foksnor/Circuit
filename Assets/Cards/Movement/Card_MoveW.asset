@@ -15,7 +15,7 @@ MonoBehaviour:
   CardType: 0
   CardName: Move West
   Cost: 0
-  Sprite: {fileID: 21300000, guid: 3304b67eb1333ab46b23f27ba47bf5ab, type: 3}
+  Sprite: {fileID: 21300000, guid: 9da6b774dd55ef841bb376f284b55897, type: 3}
   Sound: {fileID: 0}
   Particle: {fileID: 0}
   ParticleLocation: 0
