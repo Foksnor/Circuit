@@ -82,9 +82,15 @@ public class CircuitBoard : MonoBehaviour
         // Only process simulation when it's ready, and wait when there are enemy simulations happening
         if (isReadyToProcessSimulation)
         {
-            isReadyToProcessSimulation = IsProcessingCards(targetCharacter.InstancedCharacterSimulation);
-            // Sets highlight to false once the function "IsProcessingCards" finished
-            targetCharacter.InstancedCharacterSimulation.ToggleCharacterSimHighlight(isReadyToProcessSimulation);
+            // If the simulation was destroyed before being able to process, or if the processing has finished; set simulation process to false
+            if (targetCharacter.InstancedCharacterSimulation != null)
+            {
+                isReadyToProcessSimulation = IsProcessingCards(targetCharacter.InstancedCharacterSimulation);
+                // Sets highlight to false once the function "IsProcessingCards" finished
+                targetCharacter.InstancedCharacterSimulation.ToggleCharacterSimHighlight(isReadyToProcessSimulation);
+            }
+            else
+                isReadyToProcessSimulation = false;
         }
 
         if (needsNewCardCalculation)

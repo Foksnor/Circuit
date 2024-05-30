@@ -15,6 +15,7 @@ public class Character : MonoBehaviour
     public int Health { private set; get; } = 1;
     protected bool isInvulnerable = false;
     private float speed = 1;
+    [HideInInspector] public bool isSimulationMarkedForDeath;
 
     private void Start()
     {
@@ -54,13 +55,12 @@ public class Character : MonoBehaviour
             Die();
     }
 
-    private void Die()
+    protected virtual void Die()
     {
         // Spawn death VFX
         bool isSimulation = InstancedCharacterSimulation == null;
         DeathVFX deathobj = Instantiate(deathVFX, transform.position, transform.rotation);
         deathobj.SetDeathVFXCharacterVisual(characterSpriteRenderer.sprite, isSimulation);
-
         Destroy(gameObject);
     }
 
@@ -92,7 +92,7 @@ public class Character : MonoBehaviour
     public virtual void InstantiateCharacterSimulation()
     {
         InstancedCharacterSimulation = Instantiate(CharacterSimulation, transform);
-        InstancedCharacterSimulation.SetCharacterSimInfo(characterSpriteRenderer);
+        InstancedCharacterSimulation.SetCharacterSimInfo(this, characterSpriteRenderer);
         InstancedCharacterSimulation.ChangeDestinationGridNumber(PositionInGrid);
     }
 
@@ -100,13 +100,15 @@ public class Character : MonoBehaviour
     {
         if (isSetupPhase)
         {
-            if (InstancedCharacterSimulation == null)
+            if (InstancedCharacterSimulation == null &&
+                !isSimulationMarkedForDeath)
                 InstantiateCharacterSimulation();
         }
         else
         {
             if (InstancedCharacterSimulation != null)
                 DestroyCharacterSimulation();
+            isSimulationMarkedForDeath = false;
         }
     }
 
