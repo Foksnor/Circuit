@@ -13,4 +13,22 @@ public static class HelperFunctions
             SetGameLayerRecursive(child.gameObject, layer);
         }
     }
+
+    // Only returns true if boths lists have the exact same cards AND order
+    public static bool AreCardListsDifferent(List<Card> list1, List<Card> list2)
+    {
+        bool areListsDifferent = false;
+
+        if (list1.Count != list2.Count)
+            return false;
+
+        for (int i = 0; i < list1.Count; i++)
+        {
+            if (list1[i] != list2[i])
+            {
+                areListsDifferent = true;
+            }
+        }
+        return areListsDifferent;
+    }
 }

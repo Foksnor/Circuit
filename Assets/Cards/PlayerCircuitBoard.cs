@@ -131,7 +131,7 @@ public class PlayerCircuitBoard : CircuitBoard
         // Bool needsNewCardCalculation will set itself to false once the calculation action has ended
         if (!needsNewCardCalculation)
         {
-            needsNewCardCalculation = CompareIfListsAreDifferent(CardOrderBeforeSort, activeCards);
+            needsNewCardCalculation = HelperFunctions.AreCardListsDifferent(CardOrderBeforeSort, activeCards);
             TransitionTurns.TurnCalculation.needsNewSimulationCalculation = needsNewCardCalculation;
         }
     }
@@ -156,22 +156,5 @@ public class PlayerCircuitBoard : CircuitBoard
     {
         timerText.text = timerDisplayText;
         timerFill.fillAmount = timerDisplayFillAmount;
-    }
-
-    private bool CompareIfListsAreDifferent(List<Card> list1, List<Card> list2)
-    {
-        bool areListsDifferent = false;
-
-        if (list1.Count != list2.Count)
-            return false;
-
-        for (int i = 0; i < list1.Count; i++)
-        {
-            if (list1[i] != list2[i])
-            {
-                areListsDifferent = true;
-            }
-        }
-        return areListsDifferent;
     }
 }
