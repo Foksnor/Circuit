@@ -186,8 +186,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -32, y: -700}
+  m_AnchoredPosition: {x: 0, y: 100}
+  m_SizeDelta: {x: -32, y: -600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2983516289567812038
 CanvasRenderer:
@@ -410,7 +410,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: 21.984257}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -498,8 +498,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -200, y: 2}
-  m_SizeDelta: {x: -1000, y: -640}
+  m_AnchoredPosition: {x: 0, y: 2}
+  m_SizeDelta: {x: -800, y: -552}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &7009371935489836241
 CanvasRenderer:
@@ -620,7 +620,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 360, y: 800}
+  m_ReferenceResolution: {x: 1280, y: 720}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
@@ -644,7 +644,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1079
 --- !u!222 &1359440867389015743
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1382,7 +1382,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4636776060964948814}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1442,8 +1442,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -146.5, y: 2}
-  m_SizeDelta: {x: -307, y: -640}
+  m_AnchoredPosition: {x: -432, y: 52}
+  m_SizeDelta: {x: -922.2345, y: -602}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &312992520986675319
 CanvasRenderer:
@@ -2118,7 +2118,7 @@ Transform:
   m_GameObject: {fileID: 6620700368744670989}
   serializedVersion: 2
   m_LocalRotation: {x: -0.18301266, y: -0.18301266, z: 0.6830127, w: 0.6830127}
-  m_LocalPosition: {x: 5, y: 4, z: -10}
+  m_LocalPosition: {x: 5, y: 4, z: -8.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2608,6 +2608,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e5fa2d1ee1c20094f9c23764add936c0, type: 2}
   - {fileID: 11400000, guid: d0908e0ccafa3d94289e8fae073eb708, type: 2}
   - {fileID: 11400000, guid: 0ab56dfea13abac46811ea582c8e04a8, type: 2}
+  - {fileID: 11400000, guid: e5fa2d1ee1c20094f9c23764add936c0, type: 2}
+  - {fileID: 11400000, guid: e5fa2d1ee1c20094f9c23764add936c0, type: 2}
   startingCardsInDeck:
   - {fileID: 11400000, guid: e5fa2d1ee1c20094f9c23764add936c0, type: 2}
   - {fileID: 11400000, guid: d0908e0ccafa3d94289e8fae073eb708, type: 2}
@@ -2615,7 +2617,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d3fc687195eb6a04b99a06c93bf541aa, type: 2}
   - {fileID: 11400000, guid: d3fc687195eb6a04b99a06c93bf541aa, type: 2}
   - {fileID: 11400000, guid: e5fa2d1ee1c20094f9c23764add936c0, type: 2}
-  cardDrawPerTurn: 3
+  cardDrawPerTurn: 5
   cardDrawPanel: {fileID: 1947314140481383821}
   drawnCards: []
   timerText: {fileID: 3965400122022038849}
