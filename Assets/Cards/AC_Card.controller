@@ -205,7 +205,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: A_Card
+  m_Name: AC_Card
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: isHighlighted

@@ -15,7 +15,8 @@ public class Card : MonoBehaviour
     [SerializeField] private AudioClip sound;
     [SerializeField] private TextMeshProUGUI valueText;
     [SerializeField] private TextMeshProUGUI descriptionText;
-    [SerializeField] private Animator animator;
+    [SerializeField] private Animator cardAnimator;
+    [SerializeField] private Animator feedbackAnimator;
     public Card_PointerInteraction CardPointerInteraction;
     private List<GridCube> attackedGridTargets = new List<GridCube>();
     private int targetedGridForMovement = 0;
@@ -51,12 +52,20 @@ public class Card : MonoBehaviour
 
     public void SetCardHighlight()
     {
-        // Sets the card highlight on the circuitboard
+        // Sets the card highlight on the circuitboard when card is played
         MaxTimeInUse -= Time.deltaTime;
         if (MaxTimeInUse < 0)
-            animator.SetBool("isHighlighted", false);
+            cardAnimator.SetBool("isHighlighted", false);
         else
-            animator.SetBool("isHighlighted", true);
+            cardAnimator.SetBool("isHighlighted", true);
+    }
+
+    private void SetCardFeedback(string animationParameter, bool parameterState)
+    {
+        // Sets the card feedback on the circuitboard if state based actions could give feedback to why certain things work or won't work
+        if (!feedbackAnimator.isActiveAndEnabled)
+            return;
+        feedbackAnimator.SetBool(animationParameter, parameterState);
     }
 
     public void ConnectToSocket(CardSocket socket)
@@ -132,6 +141,9 @@ public class Card : MonoBehaviour
             attackSteps = RotateCardTowardsTarget(newTargetGrid, savedGridUsedByPreviousCard, attackSteps);
             moveSteps = RotateCardTowardsTarget(newTargetGrid, savedGridUsedByPreviousCard, moveSteps);
         }
+
+        SetCardFeedback("isInvalid", false);
+
 
         // Attack
         if (cardScriptableObject.CardType == CardScriptableObject._CardType.Attack)
@@ -213,6 +225,8 @@ public class Card : MonoBehaviour
         {
             if (ValidateGridPosition.CanStepX(targetCharacter, startingGridNumber, startingGridNumber + moveX))
                 offsetFromInstigator += moveX;
+            else
+                SetCardFeedback("isInvalid", true);
         }
 
         // Move Y
@@ -227,9 +241,14 @@ public class Card : MonoBehaviour
             {
                 if (ValidateGridPosition.CanStepY(targetCharacter, startingGridNumber, startingGridNumber + moveY))
                     offsetFromInstigator += moveY;
+                else
+                    SetCardFeedback("isInvalid", true);
             }
             else // If the targeted grid number does not exist, fall back to starting grid
+            {
+                SetCardFeedback("isInvalid", true);
                 return startingGridNumber;
+            }
         }
 
         return startingGridNumber + offsetFromInstigator;
