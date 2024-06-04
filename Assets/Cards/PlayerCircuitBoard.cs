@@ -86,6 +86,9 @@ public class PlayerCircuitBoard : CircuitBoard
         PlayerDeck.CurrentCardsInDiscard.Add(cardToReplace.GetCardInfo());
         Destroy(cardToReplace.gameObject);
 
+        // Enables reset of the card simulation
+        needsNewCardCalculation = true;
+
         RemoveCardsFromHand();
     }
 
