@@ -125,13 +125,13 @@ public class Character : MonoBehaviour
     {
         if (isSetupPhase)
         {
-            if (InstancedCharacterSimulation == null &&
+            if (CharacterSimulation == null &&
                 !isSimulationMarkedForDeath)
                 InstantiateCharacterSimulation();
         }
         else
         {
-            if (InstancedCharacterSimulation != null)
+            if (CharacterSimulation != null)
                 DestroyCharacterSimulation();
             isSimulationMarkedForDeath = false;
         }
