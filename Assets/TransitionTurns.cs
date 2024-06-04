@@ -137,6 +137,9 @@ public class TransitionTurns : MonoBehaviour
         // Reseting the cooldown during a turn transition makes sure that the character plays their cards in the correct order and tempo
         ForceResetCardProcessing(CharacterTeams._PlayerTeamCharacters);
         ForceResetCardProcessing(CharacterTeams._EnemyTeamCharacters);
+
+        // QQQ TODO: number of rows being added needs to be the same as the amount of Y steps the player took this turn
+        entitySpawner.AddRow(4);
     }
 
     private void DecideEnemySpawn()

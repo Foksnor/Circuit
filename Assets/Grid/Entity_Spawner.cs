@@ -34,11 +34,11 @@ public class Entity_Spawner : MonoBehaviour
     {
         for (int i = rowAmount; i > 0; i--)
         {
-            currentPositionForNewCube = new Vector2(currentPositionForNewCube.x, currentPositionForNewCube.y + rowAmount);
+            currentPositionForNewCube = new Vector2(currentPositionForNewCube.x, currentPositionForNewCube.y + 1);
             for (int gridWidth = 0; gridWidth < gridSize.x; gridWidth++)
             {
                 currentPositionForNewCube = new Vector2(gridWidth, currentPositionForNewCube.y);
-                SpawnCube(cubeWater, currentPositionForNewCube);
+                SpawnCube(cubeDefault, currentPositionForNewCube);
             }
         }
         SortGrid();
