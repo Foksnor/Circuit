@@ -6,25 +6,16 @@ public class GridCube : MonoBehaviour
 {
     [SerializeField] private TextMesh textMeshGridNumber;
     [SerializeField] private TextMesh textMeshCharacterRef;
+    [SerializeField] private TextMesh textMeshSimulationRef;
     [SerializeField] private float highestElevation;
     [SerializeField] private float lowestElevation;
     [SerializeField] private SpriteRenderer floorSprite;
     [SerializeField] private Sprite[] randomFloorSprite;
     [HideInInspector] public float Height;
     [SerializeField] private GameObject visualElevation = null;
-    private Character characterOnThisGrid = null;
-    public GameObject PlayerMovementIndicator,
-                        PlayerMovementArrowIndicator,
-                        PlayerDamageIndicator,
-                        EnemyMovementIndicator,
-                        EnemyMovementArrowIndicator,
-                        EnemyDamageIndicator;
-
-    public Character CharacterOnThisGrid
-    {
-        get => characterOnThisGrid;
-        set => characterOnThisGrid = value;
-    }
+    public Character CharacterOnThisGrid { private set; get; }
+    public Character SimulationOnThisGrid { private set; get; }
+    public GameObject MovementIndicator, DamageIndicator;
 
     private void Awake()
     {
@@ -43,36 +34,34 @@ public class GridCube : MonoBehaviour
         visualElevation.transform.position = gridPosition + new Vector3(0, 0, Height);
     }
 
-    public void SetIndicatorVisual(bool isShowingPrevis, CardScriptableObject cardScriptable, float angle)
+    public GameObject GetIndicatorVisual(CardScriptableObject cardScriptable)
     {
-        if (isShowingPrevis)
+        GameObject indicatorvisual;
+        switch (cardScriptable.CardType)
         {
-            if (cardScriptable.CardType == CardScriptableObject._CardType.Movement)
-            {
-                PlayerMovementIndicator.gameObject.SetActive(true);
-                PlayerMovementArrowIndicator.gameObject.SetActive(true);
-                PlayerMovementArrowIndicator.gameObject.transform.eulerAngles = new Vector3(0, 0, angle);
-            }
-            else if (cardScriptable.CardType == CardScriptableObject._CardType.Attack)
-            {
-                PlayerDamageIndicator.gameObject.SetActive(true);
-            }
+            default:
+            case CardScriptableObject._CardType.Movement:
+                indicatorvisual = MovementIndicator;
+                break;
+            case CardScriptableObject._CardType.Attack:
+                indicatorvisual = DamageIndicator;
+                break;
         }
-        else
-        {
-            PlayerMovementIndicator.SetActive(false);
-            PlayerMovementArrowIndicator.SetActive(false);
-            PlayerDamageIndicator.SetActive(false);
-            EnemyMovementIndicator.SetActive(false);
-            EnemyMovementArrowIndicator.SetActive(false);
-            EnemyDamageIndicator.SetActive(false);
-        }
+        return indicatorvisual;
     }
 
     public void SetCharacterOnGrid(Character character)
     {
-        CharacterOnThisGrid = character;
-        textMeshCharacterRef.text = character.name;
+        if (character.CharacterSimulation != null)
+        {
+            CharacterOnThisGrid = character;
+            textMeshCharacterRef.text = character.name;
+        }
+        else
+        {
+            SimulationOnThisGrid = character;
+            textMeshSimulationRef.text = character.name;
+        }
     }
 
     public void RemoveCharacterOnGrid(Character character)
@@ -80,7 +69,14 @@ public class GridCube : MonoBehaviour
         if (CharacterOnThisGrid == character)
         {
             CharacterOnThisGrid = null;
-            textMeshCharacterRef.text = "";
+            if (textMeshCharacterRef != null)
+                textMeshCharacterRef.text = "";
+        }
+        else if (SimulationOnThisGrid == character)
+        {
+            SimulationOnThisGrid = null;
+            if (textMeshSimulationRef != null)
+                textMeshSimulationRef.text = "";
         }
     }
 }
