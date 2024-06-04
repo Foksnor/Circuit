@@ -142,9 +142,6 @@ public class Card : MonoBehaviour
             moveSteps = RotateCardTowardsTarget(newTargetGrid, savedGridUsedByPreviousCard, moveSteps);
         }
 
-        SetCardFeedback("isInvalid", false);
-
-
         // Attack
         if (cardScriptableObject.CardType == CardScriptableObject._CardType.Attack)
         {
@@ -170,8 +167,9 @@ public class Card : MonoBehaviour
                         // Handles X steps in the attack
                         if (ValidateGridPosition.CanAttack(savedGridUsedByPreviousCard, targetedGrid, attackStepY))
                         {
-                            // Tile based previs disabled for now
-                            // GridPositions._GridCubes[targetedGrid].SetIndicatorVisual(isSetupPhase, cardScriptableObject, 0);
+                            // Tile based previs
+                            GameObject tilevisual = GridPositions._GridCubes[targetedGrid].GetIndicatorVisual(cardScriptableObject);
+                            targetCharacter.ToggleCardPrevis(isSetupPhase, tilevisual, 0);
                             if (isSetupPhase)
                                 attackedGridTargets.Add(GridPositions._GridCubes[targetedGrid]);
                         }
@@ -193,22 +191,28 @@ public class Card : MonoBehaviour
                 // Handles the Y steps in the movement
                 targetedGrid = GetMovementGridNumber(targetCharacter, targetedGrid, moveSteps);
                 float dirAngle = GetDirectionAngleBetweenGrids(targetedGrid, savedGridUsedByPreviousCard);
-                // Tile based previs disabled for now
-                // GridPositions._GridCubes[targetedGrid].SetIndicatorVisual(isSetupPhase, cardScriptableObject, dirAngle);
+                // Tile based previs
+                GameObject tilevisual = GridPositions._GridCubes[targetedGrid].GetIndicatorVisual(cardScriptableObject);
+                targetCharacter.ToggleCardPrevis(isSetupPhase, tilevisual, dirAngle);
             }
             for (int stepWidth = 0; stepWidth < Mathf.Abs(moveSteps.x); stepWidth++)
             {
                 // Handles X steps in the movement
                 targetedGrid = GetMovementGridNumber(targetCharacter, targetedGrid, moveSteps);
                 float dirAngle = GetDirectionAngleBetweenGrids(targetedGrid, savedGridUsedByPreviousCard);
-                // Tile based previs disabled for now
-                //GridPositions._GridCubes[targetedGrid].SetIndicatorVisual(isSetupPhase, cardScriptableObject, dirAngle);
+                // Tile based previs
+                GameObject tilevisual = GridPositions._GridCubes[targetedGrid].GetIndicatorVisual(cardScriptableObject);
+                targetCharacter.ToggleCardPrevis(isSetupPhase, tilevisual, dirAngle);
             }
 
             // Save target location for movement during set up phase
             if (isSetupPhase)
                 targetedGridForMovement = targetedGrid;
         }
+
+        // Reset feedback animation if needed
+        if (!isSetupPhase)
+            SetCardFeedback("isInvalid", false);
 
         // Returns the integer of the current used gridnumber, so it's location can be used for the other cards in the sequence
         return targetedGrid;
@@ -217,6 +221,7 @@ public class Card : MonoBehaviour
     private int GetMovementGridNumber(Character targetCharacter, int startingGridNumber, Vector2Int moveSteps)
     {
         int offsetFromInstigator = 0;
+        SetCardFeedback("isInvalid", false);
 
         // Move X
         Vector2Int moveIncrement = moveSteps.ConvertVector2IntToIncrement();

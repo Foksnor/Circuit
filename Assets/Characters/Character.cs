@@ -12,10 +12,12 @@ public class Character : MonoBehaviour
     [SerializeField] private DeathVFX deathVFX = null;
     public CharacterSimulation CharacterSimulation = null;
     public CharacterSimulation InstancedCharacterSimulation { private set; get; } = null;
+    [HideInInspector] public bool isSimulationMarkedForDeath;
+    private GameObject cardPrevisBinder = null;
+    private List<GameObject> ActiveCardPrevisTiles = new List<GameObject>();
     public int Health { private set; get; } = 1;
     protected bool isInvulnerable = false;
     private float speed = 1;
-    [HideInInspector] public bool isSimulationMarkedForDeath;
 
     private void Start()
     {
@@ -66,20 +68,17 @@ public class Character : MonoBehaviour
 
     private void OnDestroy()
     {
-        // Only call this when not quiting the application, otherwise cleaning up the variables when closing the game might result in missing references
-        if (Application.isPlaying)
-        {
-            // Remove character from their list before destroying it to prevent null references.
-            CharacterTeams._PlayerTeamCharacters.Remove(this);
-            CharacterTeams._EnemyTeamCharacters.Remove(this);
-            GridPositions._GridCubes[PositionInGrid].RemoveCharacterOnGrid(this);
-        }
+        // Remove character from their list before destroying it to prevent null references.
+        CharacterTeams._PlayerTeamCharacters.Remove(this);
+        CharacterTeams._EnemyTeamCharacters.Remove(this);
+        GridPositions._GridCubes[PositionInGrid].RemoveCharacterOnGrid(this);
     }
 
     public virtual void RefreshCharacterSimulation()
     {
         DestroyCharacterSimulation();
         InstantiateCharacterSimulation();
+        RemoveCardPrevis();
     }
 
     public void DestroyCharacterSimulation()
@@ -94,6 +93,32 @@ public class Character : MonoBehaviour
         InstancedCharacterSimulation = Instantiate(CharacterSimulation, transform);
         InstancedCharacterSimulation.SetCharacterSimInfo(this, characterSpriteRenderer);
         InstancedCharacterSimulation.ChangeDestinationGridNumber(PositionInGrid);
+    }
+
+    public virtual void ToggleCardPrevis(bool isShowingPrevis, GameObject tilevisual, float angle)
+    {
+        if (cardPrevisBinder == null)
+            cardPrevisBinder = new GameObject("CardPrevisBinder");
+
+        if (isShowingPrevis)
+        {
+            if (!ActiveCardPrevisTiles.Contains(tilevisual))
+            {
+                ActiveCardPrevisTiles.Add(tilevisual);
+                tilevisual = Instantiate(tilevisual, tilevisual.transform.position, transform.rotation);
+                tilevisual.transform.eulerAngles = new Vector3(0, 0, angle);
+                tilevisual.transform.parent = cardPrevisBinder.transform;
+                tilevisual.SetActive(true);
+            }
+        }
+        else
+            RemoveCardPrevis();
+    }
+
+    private void RemoveCardPrevis()
+    {
+        Destroy(cardPrevisBinder);
+        ActiveCardPrevisTiles.Clear();
     }
 
     public void ToggleCharacterSimulation(bool isSetupPhase)
