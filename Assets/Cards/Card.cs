@@ -282,8 +282,21 @@ public class Card : MonoBehaviour
     {
         for (int i = 0; i < attackedGridTargets.Count; i++)
         {
+            Character charOnThisGrid = null;
+            Character simOnThisGrid = null;
+
             if (attackedGridTargets[i].CharacterOnThisGrid != null)
-                attackedGridTargets[i].CharacterOnThisGrid.ChangeHealth(1, instigator);
+                charOnThisGrid = attackedGridTargets[i].CharacterOnThisGrid;
+            if (attackedGridTargets[i].SimulationOnThisGrid != null)
+                simOnThisGrid = attackedGridTargets[i].SimulationOnThisGrid;
+
+            // Attack character if instigator is a character
+            if (instigator.CharacterSimulation != null && charOnThisGrid != null)
+                charOnThisGrid.ChangeHealth(1, instigator);
+            // Attack simulation if instigator is a simulation
+            if (instigator.CharacterSimulation == null && simOnThisGrid != null)
+                simOnThisGrid.ChangeHealth(1, instigator);
+
             SpawnParticleEffectAtGridCube(instigator, attackedGridTargets[i]);
         }
         attackedGridTargets.Clear();
@@ -313,7 +326,7 @@ public class Card : MonoBehaviour
 
         // Sets the spawned particle in the "Simulation" layer
         // This is needed because the simulation camera renders all simulation based events different than the main camera
-        if (particle != null && instigator.InstancedCharacterSimulation == null)
+        if (particle != null && instigator.CharacterSimulation == null)
         {
             int layerNumber = LayerMask.NameToLayer("Simulation");
             HelperFunctions.SetGameLayerRecursive(particle, layerNumber);
