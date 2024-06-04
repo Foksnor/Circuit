@@ -15,10 +15,24 @@ public static class ValidateGridPosition
         GridCube startingPos = GridPositions._GridCubes[startingNum];
         GridCube destinationPos = GridPositions._GridCubes[destinationNum];
 
-        // Cannot move when a character occupies destination
-        if (destinationPos.CharacterOnThisGrid != null)
-            if (!destinationPos.CharacterOnThisGrid.IsCharacterRelatedToMe(targetCharacter))
-                return false;
+        bool checkForSimulation = false;
+        if (targetCharacter.CharacterSimulation == null)
+            checkForSimulation = true; // Target character is a simulation
+
+        if (!checkForSimulation)
+        {
+            // Cannot move when a character occupies destination
+            if (destinationPos.CharacterOnThisGrid != null)
+                if (!destinationPos.CharacterOnThisGrid.IsCharacterRelatedToMe(targetCharacter))
+                    return false;
+        }
+        else
+        {
+            // Cannot move when a simulation occupies destination
+            if (destinationPos.SimulationOnThisGrid != null)
+                if (!destinationPos.SimulationOnThisGrid.IsCharacterRelatedToMe(targetCharacter))
+                    return false;
+        }
 
         // Can move 1 step if destination is 1 step away
         if ((startingPos.transform.position - destinationPos.transform.position).magnitude <= 1)
@@ -43,10 +57,24 @@ public static class ValidateGridPosition
         GridCube startingPos = GridPositions._GridCubes[startingNum];
         GridCube destinationPos = GridPositions._GridCubes[destinationNum];
 
-        // Cannot move when a character occupies destination
-        if (destinationPos.CharacterOnThisGrid != null)
-            if (!destinationPos.CharacterOnThisGrid.IsCharacterRelatedToMe(targetCharacter))
-                return false;
+        bool checkForSimulation = false;
+        if (targetCharacter.CharacterSimulation == null)
+            checkForSimulation = true; // Target character is a simulation
+
+        if (!checkForSimulation)
+        {
+            // Cannot move when a character occupies destination
+            if (destinationPos.CharacterOnThisGrid != null)
+                if (!destinationPos.CharacterOnThisGrid.IsCharacterRelatedToMe(targetCharacter))
+                    return false;
+        }
+        else
+        {
+            // Cannot move when a simulation occupies destination
+            if (destinationPos.SimulationOnThisGrid != null)
+                if (!destinationPos.SimulationOnThisGrid.IsCharacterRelatedToMe(targetCharacter))
+                    return false;
+        }
 
         // Can move 1 step if destination is 1 step away
         if ((startingPos.transform.position - destinationPos.transform.position).magnitude <= 1)
