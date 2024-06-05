@@ -70,7 +70,7 @@ public class Entity_Spawner : MonoBehaviour
     {
         Character p = Instantiate(player);
         p.transform.position = GridPositions._GridCubes[startingPosition].transform.position;
-        p.ChangeDestinationGridNumber(startingPosition);
+        p.ChangeDestinationGridNumber(startingPosition, 1);
         return p;
     }
 
@@ -80,7 +80,7 @@ public class Entity_Spawner : MonoBehaviour
         int rngRow = (int)Random.Range(1, GridPositions._GridSize.x);
         int enemySpawnPos = GridPositions._GridCubes.Count - rngRow;
         e.transform.position = GridPositions._GridCubes[enemySpawnPos].transform.position;
-        e.ChangeDestinationGridNumber(enemySpawnPos);
+        e.ChangeDestinationGridNumber(enemySpawnPos, 1);
         return e;
     }
 }

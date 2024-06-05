@@ -60,6 +60,11 @@ public class CircuitBoard : MonoBehaviour
         {
             activeCards[activeCardNumber].ActivateCard(targetCharacter);
             timeBetweenCardsPlayed = activeCards[activeCardNumber].MaxTimeInUse;
+
+            // If character is a simulation, up their card play speed
+            if (targetCharacter.CharacterSimulation == null)
+                timeBetweenCardsPlayed /= targetCharacter.cardSimulationSpeedModifier;
+
             activeCardNumber++;
             return true;
         }

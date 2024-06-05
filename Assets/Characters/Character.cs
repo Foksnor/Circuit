@@ -17,7 +17,8 @@ public class Character : MonoBehaviour
     private List<GameObject> ActiveCardPrevisTiles = new List<GameObject>();
     public int Health { private set; get; } = 1;
     protected bool isInvulnerable = false;
-    private float speed = 1;
+    private float cardPlaySpeed = 1;
+    public float cardSimulationSpeedModifier { private set; get; } = 2;
 
     private void Start()
     {
@@ -29,11 +30,16 @@ public class Character : MonoBehaviour
         MoveCharacter();
     }
 
-    public void ChangeDestinationGridNumber(int newDestinationInGrid)
+    public void ChangeDestinationGridNumber(int newDestinationInGrid, float speedModifier)
     {
         GridPositions._GridCubes[PositionInGrid].RemoveCharacterOnGrid(this);
         GridPositions._GridCubes[newDestinationInGrid].SetCharacterOnGrid(this);
         PositionInGrid = newDestinationInGrid;
+        cardPlaySpeed = 1 / speedModifier;
+
+        // If character is a simulation, up their card play speed
+        if (CharacterSimulation == null)
+            cardPlaySpeed *= cardSimulationSpeedModifier;
     }
 
     private void MoveCharacter()
@@ -41,7 +47,7 @@ public class Character : MonoBehaviour
         if (Vector3.Distance(transform.position, GridPositions._GridCubes[PositionInGrid].transform.position) > 0.01f)
         {
             characterAnimator.SetBool("isMoving", true);
-            transform.position = Vector3.MoveTowards(transform.position, GridPositions._GridCubes[PositionInGrid].transform.position, Time.deltaTime * speed);
+            transform.position = Vector3.MoveTowards(transform.position, GridPositions._GridCubes[PositionInGrid].transform.position, Time.deltaTime * cardPlaySpeed);
         }
         else
             characterAnimator.SetBool("isMoving", false);
@@ -92,7 +98,7 @@ public class Character : MonoBehaviour
     {
         InstancedCharacterSimulation = Instantiate(CharacterSimulation, transform);
         InstancedCharacterSimulation.SetCharacterSimInfo(this, characterSpriteRenderer);
-        InstancedCharacterSimulation.ChangeDestinationGridNumber(PositionInGrid);
+        InstancedCharacterSimulation.ChangeDestinationGridNumber(PositionInGrid, cardPlaySpeed * cardSimulationSpeedModifier);
     }
 
     public virtual void ToggleCardPrevis(bool isShowingPrevis, GameObject tilevisual, float angle)

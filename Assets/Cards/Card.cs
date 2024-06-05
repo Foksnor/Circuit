@@ -275,7 +275,7 @@ public class Card : MonoBehaviour
 
     private void HandleMovement(Character instigator)
     {
-        instigator.ChangeDestinationGridNumber(targetedGridForMovement);
+        instigator.ChangeDestinationGridNumber(targetedGridForMovement, MaxTimeInUse);
     }
 
     private void HandleAttack(Character instigator)

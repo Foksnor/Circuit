@@ -26,4 +26,4 @@ MonoBehaviour:
   AttackOffset: 1
   Value: 0
   Description: Frontal cleave attack.
-  CardHighlightTime: 0.5
+  MaxTimeInUse: 0.5

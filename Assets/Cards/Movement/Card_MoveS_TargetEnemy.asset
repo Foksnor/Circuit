@@ -26,4 +26,4 @@ MonoBehaviour:
   AttackOffset: 0
   Value: 0
   Description: Moves the player 1 step south.
-  MaxTimeInUse: 1
+  MaxTimeInUse: 0.5
