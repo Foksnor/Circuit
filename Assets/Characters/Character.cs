@@ -10,6 +10,8 @@ public class Character : MonoBehaviour
     [SerializeField] protected SpriteRenderer characterSpriteRenderer = null;
     [SerializeField] protected Animator characterAnimator = null;
     [SerializeField] private DeathVFX deathVFX = null;
+    [SerializeField] private GameObject ExperiencePoint = null;
+    [SerializeField] private int ExperienceAmountOnDeath = 3;
     public CharacterSimulation CharacterSimulation = null;
     public CharacterSimulation InstancedCharacterSimulation { private set; get; } = null;
     [HideInInspector] public bool isSimulationMarkedForDeath;
@@ -69,6 +71,13 @@ public class Character : MonoBehaviour
         bool isSimulation = InstancedCharacterSimulation == null;
         DeathVFX deathobj = Instantiate(deathVFX, transform.position, transform.rotation);
         deathobj.SetDeathVFXCharacterVisual(characterSpriteRenderer.sprite, isSimulation);
+
+        // Experience drop on death
+        for (int i = ExperienceAmountOnDeath; i > 0; i--)
+        {
+            Instantiate(ExperiencePoint, transform.position, transform.rotation);
+        }
+
         Destroy(gameObject);
     }
 

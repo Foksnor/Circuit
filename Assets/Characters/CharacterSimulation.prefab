@@ -5083,7 +5083,10 @@ MonoBehaviour:
   characterSpriteRenderer: {fileID: 7022178285850042869}
   characterAnimator: {fileID: 6486095623281261906}
   deathVFX: {fileID: 6365781379737220186, guid: 6be02c20730e74749bb93c43639905cb, type: 3}
+  ExperiencePoint: {fileID: 0}
+  ExperienceAmountOnDeath: 0
   CharacterSimulation: {fileID: 0}
+  isSimulationMarkedForDeath: 0
   VisualRootAnimator: {fileID: 6413219162792801199}
 --- !u!95 &6486095623281261906
 Animator:

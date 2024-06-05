@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa4d4e6f0cc6a24b8c71fdc8c37ebe1, type: 3}
+  m_Name: PlayerLevel5
+  m_EditorClassIdentifier: 
+  unlocksLevel: 5
+  experienceRequirement: 50
+  possibleNewCardRewards:
+  - {fileID: 11400000, guid: d0908e0ccafa3d94289e8fae073eb708, type: 2}
+  - {fileID: 11400000, guid: e5fa2d1ee1c20094f9c23764add936c0, type: 2}
+  - {fileID: 11400000, guid: d3fc687195eb6a04b99a06c93bf541aa, type: 2}
+  - {fileID: 11400000, guid: 0ab56dfea13abac46811ea582c8e04a8, type: 2}

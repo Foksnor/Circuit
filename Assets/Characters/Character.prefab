@@ -137,7 +137,10 @@ MonoBehaviour:
   characterSpriteRenderer: {fileID: 1227327109424664455}
   characterAnimator: {fileID: 139656261983382513}
   deathVFX: {fileID: 6365781379737220186, guid: 6be02c20730e74749bb93c43639905cb, type: 3}
+  ExperiencePoint: {fileID: 6649261707910977894, guid: c2a193ce76f91f343820b7b179602084, type: 3}
+  ExperienceAmountOnDeath: 3
   CharacterSimulation: {fileID: 5176291571335548904, guid: a812bdf64b4d9e245ae6a4d13d02009a, type: 3}
+  isSimulationMarkedForDeath: 0
 --- !u!95 &139656261983382513
 Animator:
   serializedVersion: 7

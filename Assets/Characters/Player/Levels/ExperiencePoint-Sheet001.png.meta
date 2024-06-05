@@ -1,0 +1,339 @@
+fileFormatVersion: 2
+guid: 57eb7bf591ce4a74caef0337b85bda86
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5598693163143696923
+    second: ExperiencePoint-Sheet001_0
+  - first:
+      213: 2247781400663125132
+    second: ExperiencePoint-Sheet001_1
+  - first:
+      213: 2335350406283676076
+    second: ExperiencePoint-Sheet001_2
+  - first:
+      213: 2364413591107926312
+    second: ExperiencePoint-Sheet001_3
+  - first:
+      213: -4417455816122029988
+    second: ExperiencePoint-Sheet001_4
+  - first:
+      213: -5329793456958816249
+    second: ExperiencePoint-Sheet001_5
+  - first:
+      213: 4695389132474117092
+    second: ExperiencePoint-Sheet001_6
+  - first:
+      213: -2494909761677538379
+    second: ExperiencePoint-Sheet001_7
+  - first:
+      213: -1901449751639106892
+    second: ExperiencePoint-Sheet001_8
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ExperiencePoint-Sheet001_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 9
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ed69643b327d42b0800000000000000
+      internalID: -5598693163143696923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExperiencePoint-Sheet001_1
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 9
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8c614f4649b13f10800000000000000
+      internalID: 2247781400663125132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExperiencePoint-Sheet001_2
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 9
+        width: 38
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca94a9042d4d86020800000000000000
+      internalID: 2335350406283676076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExperiencePoint-Sheet001_3
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 9
+        width: 29
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 829f71842a510d020800000000000000
+      internalID: 2364413591107926312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExperiencePoint-Sheet001_4
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 10
+        width: 17
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c582015075b02b2c0800000000000000
+      internalID: -4417455816122029988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExperiencePoint-Sheet001_5
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 14
+        width: 9
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 700c4cfd615c806b0800000000000000
+      internalID: -5329793456958816249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExperiencePoint-Sheet001_6
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 10
+        width: 17
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eb695be98f592140800000000000000
+      internalID: 4695389132474117092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExperiencePoint-Sheet001_7
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 9
+        width: 29
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bb4e845acc406dd0800000000000000
+      internalID: -2494909761677538379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExperiencePoint-Sheet001_8
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 9
+        width: 38
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4badb437681bc95e0800000000000000
+      internalID: -1901449751639106892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      ExperiencePoint-Sheet001_0: -5598693163143696923
+      ExperiencePoint-Sheet001_1: 2247781400663125132
+      ExperiencePoint-Sheet001_2: 2335350406283676076
+      ExperiencePoint-Sheet001_3: 2364413591107926312
+      ExperiencePoint-Sheet001_4: -4417455816122029988
+      ExperiencePoint-Sheet001_5: -5329793456958816249
+      ExperiencePoint-Sheet001_6: 4695389132474117092
+      ExperiencePoint-Sheet001_7: -2494909761677538379
+      ExperiencePoint-Sheet001_8: -1901449751639106892
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
