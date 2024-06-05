@@ -4,3 +4,17 @@ Circuit/
 /UserSettings/
 /Temp/
 /obj/Debug/
+AssetInventory.Examples.csproj
+AssetInventory.Examples.Editor.csproj
+AssetInventory.Editor.csproj
+AssetCleaner.csproj
+Assembly-CSharp.csproj
+Assembly-CSharp-Editor.csproj
+Plugins.csproj
+SingularityGroup.HotReload.Editor.csproj
+SingularityGroup.HotReload.Runtime.csproj
+SingularityGroup.HotReload.Runtime.Public.csproj
+Sirenix.OdinInspector.Modules.UnityMathematics.csproj
+Plugins.csproj
+JD.EditorAudioUtils.Editor.csproj
+CodeStage.Package2Folder.csproj
