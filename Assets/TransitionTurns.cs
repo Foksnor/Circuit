@@ -30,7 +30,8 @@ public class TransitionTurns : MonoBehaviour
 
     private void Update()
     {
-        SetTurnTimer();
+        // Turn timer disabled for now
+        //SetTurnTimer();
         if (isPlayerTurnActive)
         {
             ResetSimulationProcessing(CharacterTeams._PlayerTeamCharacters);
