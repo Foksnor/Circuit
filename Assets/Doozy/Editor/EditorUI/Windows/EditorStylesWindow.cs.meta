@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 09262c73d47d4c42836f1d4af36c44fd
 timeCreated: 1618164923
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/EditorUI/Windows/EditorStylesWindow.cs
+  uploadId: 605732

@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: f3a8f1fcb8164337a23ba5a7792ba964
 timeCreated: 1616948401
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Colors/ThemeColor.cs
+  uploadId: 605732

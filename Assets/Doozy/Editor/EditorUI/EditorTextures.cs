@@ -22,67 +22,6 @@ namespace Doozy.Editor.EditorUI
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public static class EditorTextures
     {
-        public static class Bindy
-        {
-            public static class Icons
-            {
-                private static EditorDataTextureGroup s_textureGroup;
-                private static EditorDataTextureGroup textureGroup =>
-                    s_textureGroup
-                        ? s_textureGroup
-                        : s_textureGroup = EditorDataTextureDatabase.GetTextureGroup("Bindy","Icons");
-
-                public static Texture2D GetTexture2D(TextureName textureName) =>
-                    textureGroup.GetTexture(textureName.ToString());
-
-                public enum TextureName
-                {
-                    Bidirectional,
-                    Bind,
-                    Bindables,
-                    Binder,
-                    Bindy,
-                    BindyDatabase,
-                    FrameBased,
-                    RealTime,
-                    Receiver,
-                    Sender,
-                    TimeBased,
-                    Transformer
-                }
-                
-
-                private static Texture2D s_Bidirectional;
-                public static Texture2D Bidirectional => s_Bidirectional ? s_Bidirectional : s_Bidirectional = GetTexture2D(TextureName.Bidirectional);
-                private static Texture2D s_Bind;
-                public static Texture2D Bind => s_Bind ? s_Bind : s_Bind = GetTexture2D(TextureName.Bind);
-                private static Texture2D s_Bindables;
-                public static Texture2D Bindables => s_Bindables ? s_Bindables : s_Bindables = GetTexture2D(TextureName.Bindables);
-                private static Texture2D s_Binder;
-                public static Texture2D Binder => s_Binder ? s_Binder : s_Binder = GetTexture2D(TextureName.Binder);
-                private static Texture2D s_Bindy;
-                public static Texture2D Bindy => s_Bindy ? s_Bindy : s_Bindy = GetTexture2D(TextureName.Bindy);
-                private static Texture2D s_BindyDatabase;
-                public static Texture2D BindyDatabase => s_BindyDatabase ? s_BindyDatabase : s_BindyDatabase = GetTexture2D(TextureName.BindyDatabase);
-                private static Texture2D s_FrameBased;
-                public static Texture2D FrameBased => s_FrameBased ? s_FrameBased : s_FrameBased = GetTexture2D(TextureName.FrameBased);
-                private static Texture2D s_RealTime;
-                public static Texture2D RealTime => s_RealTime ? s_RealTime : s_RealTime = GetTexture2D(TextureName.RealTime);
-                private static Texture2D s_Receiver;
-                public static Texture2D Receiver => s_Receiver ? s_Receiver : s_Receiver = GetTexture2D(TextureName.Receiver);
-                private static Texture2D s_Sender;
-                public static Texture2D Sender => s_Sender ? s_Sender : s_Sender = GetTexture2D(TextureName.Sender);
-                private static Texture2D s_TimeBased;
-                public static Texture2D TimeBased => s_TimeBased ? s_TimeBased : s_TimeBased = GetTexture2D(TextureName.TimeBased);
-                private static Texture2D s_Transformer;
-                public static Texture2D Transformer => s_Transformer ? s_Transformer : s_Transformer = GetTexture2D(TextureName.Transformer);
-                
-            }
-
-
-        }
-
-
         public static class Dashboard
         {
             public static class Backgrounds
@@ -969,58 +908,6 @@ namespace Doozy.Editor.EditorUI
                 public static Texture2D SignalStream => s_SignalStream ? s_SignalStream : s_SignalStream = GetTexture2D(TextureName.SignalStream);
                 private static Texture2D s_StreamDatabase;
                 public static Texture2D StreamDatabase => s_StreamDatabase ? s_StreamDatabase : s_StreamDatabase = GetTexture2D(TextureName.StreamDatabase);
-                
-            }
-
-
-        }
-
-
-        public static class Soundy
-        {
-            public static class Icons
-            {
-                private static EditorDataTextureGroup s_textureGroup;
-                private static EditorDataTextureGroup textureGroup =>
-                    s_textureGroup
-                        ? s_textureGroup
-                        : s_textureGroup = EditorDataTextureDatabase.GetTextureGroup("Soundy","Icons");
-
-                public static Texture2D GetTexture2D(TextureName textureName) =>
-                    textureGroup.GetTexture(textureName.ToString());
-
-                public enum TextureName
-                {
-                    AudioEngine,
-                    AudioPlayer,
-                    Music,
-                    MusicLibrary,
-                    MusicNode,
-                    Sound,
-                    SoundLibrary,
-                    SoundNode,
-                    Soundy
-                }
-                
-
-                private static Texture2D s_AudioEngine;
-                public static Texture2D AudioEngine => s_AudioEngine ? s_AudioEngine : s_AudioEngine = GetTexture2D(TextureName.AudioEngine);
-                private static Texture2D s_AudioPlayer;
-                public static Texture2D AudioPlayer => s_AudioPlayer ? s_AudioPlayer : s_AudioPlayer = GetTexture2D(TextureName.AudioPlayer);
-                private static Texture2D s_Music;
-                public static Texture2D Music => s_Music ? s_Music : s_Music = GetTexture2D(TextureName.Music);
-                private static Texture2D s_MusicLibrary;
-                public static Texture2D MusicLibrary => s_MusicLibrary ? s_MusicLibrary : s_MusicLibrary = GetTexture2D(TextureName.MusicLibrary);
-                private static Texture2D s_MusicNode;
-                public static Texture2D MusicNode => s_MusicNode ? s_MusicNode : s_MusicNode = GetTexture2D(TextureName.MusicNode);
-                private static Texture2D s_Sound;
-                public static Texture2D Sound => s_Sound ? s_Sound : s_Sound = GetTexture2D(TextureName.Sound);
-                private static Texture2D s_SoundLibrary;
-                public static Texture2D SoundLibrary => s_SoundLibrary ? s_SoundLibrary : s_SoundLibrary = GetTexture2D(TextureName.SoundLibrary);
-                private static Texture2D s_SoundNode;
-                public static Texture2D SoundNode => s_SoundNode ? s_SoundNode : s_SoundNode = GetTexture2D(TextureName.SoundNode);
-                private static Texture2D s_Soundy;
-                public static Texture2D Soundy => s_Soundy ? s_Soundy : s_Soundy = GetTexture2D(TextureName.Soundy);
                 
             }
 

@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: d32850ed8f904422a6cada662084727f
 timeCreated: 1631724689
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/UIManager/Enums/CommandToggle.cs
+  uploadId: 605732

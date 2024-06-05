@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 037126434d93462c8c43d917c458ee58
 timeCreated: 1668301671
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Common/Events/Vector4Event.cs
+  uploadId: 605732

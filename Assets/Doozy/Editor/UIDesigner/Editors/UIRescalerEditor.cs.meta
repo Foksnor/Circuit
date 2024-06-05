@@ -1,3 +1,10 @@
 fileFormatVersion: 2
 guid: 59a184f6e9964f09a135205d0713c505
 timeCreated: 1667327378
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIDesigner/Editors/UIRescalerEditor.cs
+  uploadId: 605732

@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 4ef676bafe824847832a611a5e6499ac
 timeCreated: 1648504785
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/Reactor/Reflection/Drawers/ReflectedVector3Drawer.cs
+  uploadId: 605732

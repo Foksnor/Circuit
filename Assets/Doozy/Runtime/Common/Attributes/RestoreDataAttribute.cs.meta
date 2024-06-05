@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 6a1bc7e473554facaa998767706b9788
 timeCreated: 1677812460
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Common/Attributes/RestoreDataAttribute.cs
+  uploadId: 605732

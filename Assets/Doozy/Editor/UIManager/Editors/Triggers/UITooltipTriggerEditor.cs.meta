@@ -1,3 +1,10 @@
 fileFormatVersion: 2
 guid: efa3c9be89574abe8b29a948f5115249
 timeCreated: 1654684141
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Editors/Triggers/UITooltipTriggerEditor.cs
+  uploadId: 605732

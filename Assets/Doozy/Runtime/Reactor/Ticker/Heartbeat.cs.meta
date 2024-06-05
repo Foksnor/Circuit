@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: bdc8501ca4c249c88c78fe4f60744fcd
 timeCreated: 1620312632
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Reactor/Ticker/Heartbeat.cs
+  uploadId: 605732

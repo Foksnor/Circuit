@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 97404ee314cc4ac18bb25a7dd3d7a670
 timeCreated: 1624374175
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/EditorUI/Components/FluidPlaceholder.cs
+  uploadId: 605732

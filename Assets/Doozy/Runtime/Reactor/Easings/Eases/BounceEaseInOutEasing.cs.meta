@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 621217cc59574913b64373daeee14b40
 timeCreated: 1617907665
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Reactor/Easings/Eases/BounceEaseInOutEasing.cs
+  uploadId: 605732

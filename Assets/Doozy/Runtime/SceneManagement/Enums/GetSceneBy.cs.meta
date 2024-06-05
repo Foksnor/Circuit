@@ -1,3 +1,10 @@
 fileFormatVersion: 2
 guid: d68d45b5f5c64180b832665f676c935f
 timeCreated: 1643046364
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/SceneManagement/Enums/GetSceneBy.cs
+  uploadId: 605732

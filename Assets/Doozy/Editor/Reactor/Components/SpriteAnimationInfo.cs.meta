@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: c908e306c28446678b4ec50bf4488432
 timeCreated: 1629730693
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/Reactor/Components/SpriteAnimationInfo.cs
+  uploadId: 605732

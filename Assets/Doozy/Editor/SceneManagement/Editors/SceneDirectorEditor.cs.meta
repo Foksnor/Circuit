@@ -1,3 +1,10 @@
 fileFormatVersion: 2
 guid: bc9bd5f02d3249d3896287d607ca9aad
 timeCreated: 1647987271
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/SceneManagement/Editors/SceneDirectorEditor.cs
+  uploadId: 605732

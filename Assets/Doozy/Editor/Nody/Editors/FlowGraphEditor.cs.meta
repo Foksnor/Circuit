@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: d15131cd6c8d411b9eab03fcf4d24ddf
 timeCreated: 1631014297
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/Nody/Editors/FlowGraphEditor.cs
+  uploadId: 605732

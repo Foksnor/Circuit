@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: dc8e5fc1c12b4170b3acd6b1bda8e46f
 timeCreated: 1667481906
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/UIManager/Content/Internal/DateTimeComponent.cs
+  uploadId: 605732

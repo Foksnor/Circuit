@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: a5f7c083a2314c9283de4155f934cfff
 timeCreated: 1619190989
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/EditorUI/Components/FluidField.cs
+  uploadId: 605732

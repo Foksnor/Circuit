@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 67055bfc0f2543b89459b01099079bed
 timeCreated: 1625126595
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/Signals/Layouts/SignalsSettingsWindowLayout.cs
+  uploadId: 605732

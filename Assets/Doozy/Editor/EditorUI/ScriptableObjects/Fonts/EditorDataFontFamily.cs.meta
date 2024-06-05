@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 0cab4e994137470bb284175feb36c9d7
 timeCreated: 1616401096
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/EditorUI/ScriptableObjects/Fonts/EditorDataFontFamily.cs
+  uploadId: 605732

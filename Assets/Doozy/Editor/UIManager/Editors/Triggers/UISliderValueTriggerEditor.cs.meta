@@ -1,3 +1,10 @@
 fileFormatVersion: 2
 guid: 38ea4bef6ac148e093bf6337eeb8688e
 timeCreated: 1667301776
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Editors/Triggers/UISliderValueTriggerEditor.cs
+  uploadId: 605732

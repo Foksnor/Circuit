@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: f3028ec5be9944a0be9c3c7f8be88573
 timeCreated: 1624110811
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Mody/Actions/Texture2DModyAction.cs
+  uploadId: 605732

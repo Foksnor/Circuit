@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: f55a1e54526940b7a7c7756628c635ce
 timeCreated: 1631569861
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/Nody/NodyCreateNodeWindw.cs
+  uploadId: 605732

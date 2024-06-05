@@ -48,40 +48,6 @@ namespace Doozy.Editor.EditorUI
             private static Color Light => (Color)(s_Light = s_Light ?? GetColor(ColorName.Light));
         }
     
-        public static class Bindy
-        {
-            private static EditorDataColorPalette s_colorPalette;
-            private static EditorDataColorPalette colorPalette =>
-                s_colorPalette != null
-                    ? s_colorPalette
-                    : s_colorPalette = EditorDataColorDatabase.GetColorPalette("Bindy");
-            
-            public static Color GetColor(ColorName colorName) =>
-                colorPalette.GetColor(colorName.ToString());
-                
-            public enum ColorName
-            {
-                Bidirectional,
-                Color,
-                Receiver,
-                Sender,
-                Ticker
-            }
-            
-
-            private static Color? s_Bidirectional;
-            public static Color Bidirectional => (Color) (s_Bidirectional ?? (s_Bidirectional = GetColor(ColorName.Bidirectional)));
-            private static Color? s_Color;
-            public static Color Color => (Color) (s_Color ?? (s_Color = GetColor(ColorName.Color)));
-            private static Color? s_Receiver;
-            public static Color Receiver => (Color) (s_Receiver ?? (s_Receiver = GetColor(ColorName.Receiver)));
-            private static Color? s_Sender;
-            public static Color Sender => (Color) (s_Sender ?? (s_Sender = GetColor(ColorName.Sender)));
-            private static Color? s_Ticker;
-            public static Color Ticker => (Color) (s_Ticker ?? (s_Ticker = GetColor(ColorName.Ticker)));
-          
-        }
-
         public static class Brands
         {
             private static EditorDataColorPalette s_colorPalette;
@@ -556,28 +522,6 @@ namespace Doozy.Editor.EditorUI
             public static Color Signal => (Color) (s_Signal ?? (s_Signal = GetColor(ColorName.Signal)));
             private static Color? s_Stream;
             public static Color Stream => (Color) (s_Stream ?? (s_Stream = GetColor(ColorName.Stream)));
-          
-        }
-
-        public static class Soundy
-        {
-            private static EditorDataColorPalette s_colorPalette;
-            private static EditorDataColorPalette colorPalette =>
-                s_colorPalette != null
-                    ? s_colorPalette
-                    : s_colorPalette = EditorDataColorDatabase.GetColorPalette("Soundy");
-            
-            public static Color GetColor(ColorName colorName) =>
-                colorPalette.GetColor(colorName.ToString());
-                
-            public enum ColorName
-            {
-                Color
-            }
-            
-
-            private static Color? s_Color;
-            public static Color Color => (Color) (s_Color ?? (s_Color = GetColor(ColorName.Color)));
           
         }
 

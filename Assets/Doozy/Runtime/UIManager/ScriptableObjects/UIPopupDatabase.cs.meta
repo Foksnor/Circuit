@@ -1,3 +1,10 @@
 fileFormatVersion: 2
 guid: 3bd76c0fc98e49b88d5146f8747eae7f
 timeCreated: 1655661992
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/UIManager/ScriptableObjects/UIPopupDatabase.cs
+  uploadId: 605732

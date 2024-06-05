@@ -1,3 +1,10 @@
 fileFormatVersion: 2
 guid: 9e7ebce4bf1842b596ba560679ba9a65
 timeCreated: 1640102160
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/Reactor/Editors/Targets/AnimatorProgressTargetEditor.cs
+  uploadId: 605732

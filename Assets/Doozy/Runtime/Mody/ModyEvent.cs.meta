@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 5890b409dfd94dd9b3fba5ed7f20475f
 timeCreated: 1615226036
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Mody/ModyEvent.cs
+  uploadId: 605732

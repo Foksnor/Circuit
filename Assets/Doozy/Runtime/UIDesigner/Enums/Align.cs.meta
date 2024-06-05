@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: ae5be76a0e0647a085c2075bdb676c3a
 timeCreated: 1649511803
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/UIDesigner/Enums/Align.cs
+  uploadId: 605732

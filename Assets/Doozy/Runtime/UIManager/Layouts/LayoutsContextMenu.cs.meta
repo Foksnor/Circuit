@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 77f4e0ffaf6c4acb8e19e1ed9c91bb50
 timeCreated: 1648685509
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/UIManager/Layouts/LayoutsContextMenu.cs
+  uploadId: 605732

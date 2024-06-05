@@ -1,3 +1,10 @@
 fileFormatVersion: 2
 guid: 193a3f6cf5bb44e9ba07e7c8fe1b6e3e
 timeCreated: 1646043870
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/UIMenu/UIMenuWindow.cs
+  uploadId: 605732

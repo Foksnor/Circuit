@@ -1,3 +1,10 @@
 fileFormatVersion: 2
 guid: e5216eb4c3a74b49b470054325941eea
 timeCreated: 1641386846
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/UIManager/Input/Enums/LegacyInputMode.cs
+  uploadId: 605732

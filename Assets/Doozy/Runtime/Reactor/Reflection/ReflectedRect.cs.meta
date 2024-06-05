@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: b8bb4d2715f240d28ae6d635fe62dd7e
 timeCreated: 1648418792
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Reactor/Reflection/ReflectedRect.cs
+  uploadId: 605732

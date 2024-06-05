@@ -1,3 +1,10 @@
 fileFormatVersion: 2
 guid: defe2424e2294add87e7fc8f38137ba9
 timeCreated: 1648124265
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/Nody/ScriptableObjects/NodySettings.cs
+  uploadId: 605732

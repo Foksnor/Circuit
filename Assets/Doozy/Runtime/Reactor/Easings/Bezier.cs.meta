@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: eef97d0fceb341a1b6b118908ebfd4c7
 timeCreated: 1617891054
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Reactor/Easings/Bezier.cs
+  uploadId: 605732

@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 9cd25f81dbf049059ab279ad79dc9427
 timeCreated: 1678189907
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Common/Attributes/DefineSymbolsAttribute.cs
+  uploadId: 605732

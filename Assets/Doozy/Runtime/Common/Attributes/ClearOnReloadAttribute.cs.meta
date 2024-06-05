@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: cf9db276af0f4c339c5ef1d90dce764b
 timeCreated: 1640628686
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Common/Attributes/ClearOnReloadAttribute.cs
+  uploadId: 605732

@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 4672d26f986b40f8918b51b988538fe9
 timeCreated: 1648342832
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Reactor/Animations/FloatAnimation.cs
+  uploadId: 605732

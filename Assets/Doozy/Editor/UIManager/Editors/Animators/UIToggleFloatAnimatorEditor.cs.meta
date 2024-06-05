@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 84d7739722f94f55af2af616604ce74f
 timeCreated: 1665671140
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Editors/Animators/UIToggleFloatAnimatorEditor.cs
+  uploadId: 605732

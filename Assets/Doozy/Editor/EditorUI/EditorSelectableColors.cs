@@ -19,46 +19,6 @@ namespace Doozy.Editor.EditorUI
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public static class EditorSelectableColors
     {
-        public static class Bindy
-        {
-            private static EditorDataSelectableColorPalette s_selectableColorPalette;
-            private static EditorDataSelectableColorPalette selectableColorPalette =>
-                s_selectableColorPalette != null
-                    ? s_selectableColorPalette
-                    : s_selectableColorPalette = EditorDataSelectableColorDatabase.GetSelectableColorPalette("Bindy");
-
-            public static Color GetColor(ColorName colorName, SelectionState state) =>
-                selectableColorPalette.GetColor(colorName.ToString(), state);
-
-            public static EditorThemeColor GetThemeColor(ColorName colorName, SelectionState state) =>
-                selectableColorPalette.GetThemeColor(colorName.ToString(), state);
-
-            public static EditorSelectableColorInfo GetSelectableColorInfo(ColorName colorName) =>
-                selectableColorPalette.GetSelectableColorInfo(colorName.ToString());
-            
-            public enum ColorName
-            {
-                Bidirectional,
-                Color,
-                Receiver,
-                Sender,
-                Ticker
-            }
-            
-
-            private static EditorSelectableColorInfo s_Bidirectional;
-            public static EditorSelectableColorInfo Bidirectional => s_Bidirectional ?? (s_Bidirectional = GetSelectableColorInfo(ColorName.Bidirectional));
-            private static EditorSelectableColorInfo s_Color;
-            public static EditorSelectableColorInfo Color => s_Color ?? (s_Color = GetSelectableColorInfo(ColorName.Color));
-            private static EditorSelectableColorInfo s_Receiver;
-            public static EditorSelectableColorInfo Receiver => s_Receiver ?? (s_Receiver = GetSelectableColorInfo(ColorName.Receiver));
-            private static EditorSelectableColorInfo s_Sender;
-            public static EditorSelectableColorInfo Sender => s_Sender ?? (s_Sender = GetSelectableColorInfo(ColorName.Sender));
-            private static EditorSelectableColorInfo s_Ticker;
-            public static EditorSelectableColorInfo Ticker => s_Ticker ?? (s_Ticker = GetSelectableColorInfo(ColorName.Ticker));
-            
-        }
-
         public static class Brands
         {
             private static EditorDataSelectableColorPalette s_selectableColorPalette;
@@ -494,34 +454,6 @@ namespace Doozy.Editor.EditorUI
             public static EditorSelectableColorInfo Signal => s_Signal ?? (s_Signal = GetSelectableColorInfo(ColorName.Signal));
             private static EditorSelectableColorInfo s_Stream;
             public static EditorSelectableColorInfo Stream => s_Stream ?? (s_Stream = GetSelectableColorInfo(ColorName.Stream));
-            
-        }
-
-        public static class Soundy
-        {
-            private static EditorDataSelectableColorPalette s_selectableColorPalette;
-            private static EditorDataSelectableColorPalette selectableColorPalette =>
-                s_selectableColorPalette != null
-                    ? s_selectableColorPalette
-                    : s_selectableColorPalette = EditorDataSelectableColorDatabase.GetSelectableColorPalette("Soundy");
-
-            public static Color GetColor(ColorName colorName, SelectionState state) =>
-                selectableColorPalette.GetColor(colorName.ToString(), state);
-
-            public static EditorThemeColor GetThemeColor(ColorName colorName, SelectionState state) =>
-                selectableColorPalette.GetThemeColor(colorName.ToString(), state);
-
-            public static EditorSelectableColorInfo GetSelectableColorInfo(ColorName colorName) =>
-                selectableColorPalette.GetSelectableColorInfo(colorName.ToString());
-            
-            public enum ColorName
-            {
-                Color
-            }
-            
-
-            private static EditorSelectableColorInfo s_Color;
-            public static EditorSelectableColorInfo Color => s_Color ?? (s_Color = GetSelectableColorInfo(ColorName.Color));
             
         }
 

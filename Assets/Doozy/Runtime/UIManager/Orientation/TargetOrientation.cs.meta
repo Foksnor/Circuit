@@ -1,3 +1,10 @@
 fileFormatVersion: 2
 guid: 47322bc7028447a78a0869870de23e18
 timeCreated: 1670333126
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/UIManager/Orientation/TargetOrientation.cs
+  uploadId: 605732

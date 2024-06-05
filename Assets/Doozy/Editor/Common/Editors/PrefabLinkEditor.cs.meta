@@ -1,3 +1,10 @@
 fileFormatVersion: 2
 guid: 7f2939877cb34574899df2e3ed71992f
 timeCreated: 1654685154
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/Common/Editors/PrefabLinkEditor.cs
+  uploadId: 605732

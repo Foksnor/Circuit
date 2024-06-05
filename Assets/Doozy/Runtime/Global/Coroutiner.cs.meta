@@ -1,3 +1,10 @@
 fileFormatVersion: 2
 guid: 021412396be44a1991be6e365b68ea05
 timeCreated: 1645181350
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Global/Coroutiner.cs
+  uploadId: 605732

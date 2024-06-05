@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: fe8cd5567b16466391081fe47a7fe9ec
 timeCreated: 1617719891
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/EditorUI/Components/FluidToggleButtonTab.cs
+  uploadId: 605732

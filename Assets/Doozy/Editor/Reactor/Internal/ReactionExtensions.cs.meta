@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: e40b6b27f5134ea4984f338802e35bc3
 timeCreated: 1620669344
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/Reactor/Internal/ReactionExtensions.cs
+  uploadId: 605732

@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: d6c232ebfb2b4c668caf73db7aca02c2
 timeCreated: 1627900142
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Drawers/Ids/UIButtonIdDrawer.cs
+  uploadId: 605732

@@ -1,3 +1,10 @@
 fileFormatVersion: 2
 guid: 7ff9a0ec6fe7447c817ac994924e3d18
 timeCreated: 1643027357
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/SceneManagement/Events/SceneLoadedEvent.cs
+  uploadId: 605732

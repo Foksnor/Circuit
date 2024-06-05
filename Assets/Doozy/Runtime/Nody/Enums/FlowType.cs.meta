@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: a796887773754f9b9399718c0c86b41c
 timeCreated: 1631661159
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Nody/Enums/FlowType.cs
+  uploadId: 605732

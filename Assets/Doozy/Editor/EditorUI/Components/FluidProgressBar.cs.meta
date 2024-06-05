@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 6736554b11054c71873ff552a12d99e8
 timeCreated: 1626031170
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/EditorUI/Components/FluidProgressBar.cs
+  uploadId: 605732

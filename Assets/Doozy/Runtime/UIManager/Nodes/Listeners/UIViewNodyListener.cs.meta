@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 15d0190437d24d0d8bb8386a2f0d1598
 timeCreated: 1632085150
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/UIManager/Nodes/Listeners/UIViewNodyListener.cs
+  uploadId: 605732

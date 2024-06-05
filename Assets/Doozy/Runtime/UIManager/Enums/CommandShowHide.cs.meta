@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: bd4491a2f8bd4a68beac07d2afe79bfc
 timeCreated: 1631811786
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/UIManager/Enums/CommandShowHide.cs
+  uploadId: 605732

@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 315e3f9cded24836a1c80cd27fd30db0
 timeCreated: 1648594745
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/Reactor/Components/UIAnimationTab.cs
+  uploadId: 605732

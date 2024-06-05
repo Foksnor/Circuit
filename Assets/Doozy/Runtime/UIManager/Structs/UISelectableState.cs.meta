@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 919608f2c0e34d04984c81ee5a6e4370
 timeCreated: 1629198021
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/UIManager/Structs/UISelectableState.cs
+  uploadId: 605732

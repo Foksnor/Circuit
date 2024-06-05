@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 7d025de11fea4d6387bc638608d8779c
 timeCreated: 1649513492
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIDesigner/Windows/AlignWindow.cs
+  uploadId: 605732

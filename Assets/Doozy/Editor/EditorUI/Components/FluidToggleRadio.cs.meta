@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 7c35f83fb10b41b2a8f371806717e819
 timeCreated: 1617711867
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/EditorUI/Components/FluidToggleRadio.cs
+  uploadId: 605732

@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: b9ebcab6676c4f4a947879f4bb82f390
 timeCreated: 1650226616
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIDesigner/Windows/SizeWindow.cs
+  uploadId: 605732

@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: a2bfcd5f78a94206a8d5865bd915d681
 timeCreated: 1625856632
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/EditorUI/Events/FluidEventBase.cs
+  uploadId: 605732

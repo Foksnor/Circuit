@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 7b159a72f55c4c8594ffb7d0af543ebb
 timeCreated: 1617898111
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Reactor/Easings/Eases/CircularEaseOutEasing.cs
+  uploadId: 605732

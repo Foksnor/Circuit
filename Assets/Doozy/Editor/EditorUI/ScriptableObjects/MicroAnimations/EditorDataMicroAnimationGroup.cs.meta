@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: a94087bd7a2546bc94c3596839dca04a
 timeCreated: 1611926214
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/EditorUI/ScriptableObjects/MicroAnimations/EditorDataMicroAnimationGroup.cs
+  uploadId: 605732

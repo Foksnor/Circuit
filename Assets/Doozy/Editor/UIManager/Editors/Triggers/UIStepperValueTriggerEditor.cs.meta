@@ -1,3 +1,10 @@
 fileFormatVersion: 2
 guid: f1b2f8f655614a7cb385272d6f652a99
 timeCreated: 1667301784
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Editors/Triggers/UIStepperValueTriggerEditor.cs
+  uploadId: 605732

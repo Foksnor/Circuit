@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: d91d2829d43b4a3bbe9c05c0ee5f0333
 timeCreated: 1648744291
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Components/ContainerReactionControls.cs
+  uploadId: 605732

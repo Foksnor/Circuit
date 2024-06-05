@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 25c48196b044437b8180d9b90a4b9d90
 timeCreated: 1631185640
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Nody/Enums/PortDirection.cs
+  uploadId: 605732

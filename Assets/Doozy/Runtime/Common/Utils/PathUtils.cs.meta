@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 15c6c3f30b624471be459fbe1a92f608
 timeCreated: 1645695867
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Common/Utils/PathUtils.cs
+  uploadId: 605732

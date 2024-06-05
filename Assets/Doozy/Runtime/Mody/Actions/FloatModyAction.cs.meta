@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: a77a00e117ce459ba52a87a7f229abca
 timeCreated: 1624110237
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Mody/Actions/FloatModyAction.cs
+  uploadId: 605732

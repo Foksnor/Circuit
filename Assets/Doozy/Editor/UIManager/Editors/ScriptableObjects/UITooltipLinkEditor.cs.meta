@@ -1,3 +1,10 @@
 fileFormatVersion: 2
 guid: 5dd414025e2441b98506055f55170d2f
 timeCreated: 1654684526
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Editors/ScriptableObjects/UITooltipLinkEditor.cs
+  uploadId: 605732

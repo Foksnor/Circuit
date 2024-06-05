@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 6eb6d560d0aa4e34aa1d4f8be3145c1a
 timeCreated: 1614181460
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Reactor/Ticker/IUseTickService.cs
+  uploadId: 605732

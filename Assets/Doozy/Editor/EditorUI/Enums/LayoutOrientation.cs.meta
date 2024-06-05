@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 508afddd8a2745708ac252173b58e3c9
 timeCreated: 1617721360
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/EditorUI/Enums/LayoutOrientation.cs
+  uploadId: 605732

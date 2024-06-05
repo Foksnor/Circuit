@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 4cc464e9106047d1ac26d660ab723cc5
 timeCreated: 1617723561
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/EditorUI/Enums/ButtonAnimationTrigger.cs
+  uploadId: 605732

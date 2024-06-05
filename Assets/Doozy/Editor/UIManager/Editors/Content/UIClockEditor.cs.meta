@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 758a061e1c2f480f926c51fae9b9e1b9
 timeCreated: 1667999434
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Editors/Content/UIClockEditor.cs
+  uploadId: 605732

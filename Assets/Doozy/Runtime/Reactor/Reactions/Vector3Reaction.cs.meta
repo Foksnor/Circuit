@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: a9412075de2547de9111697a75d429ce
 timeCreated: 1620300163
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Reactor/Reactions/Vector3Reaction.cs
+  uploadId: 605732

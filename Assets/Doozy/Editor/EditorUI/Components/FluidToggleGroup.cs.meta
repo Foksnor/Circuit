@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: f4c77561954645f8911e745dd56e46a1
 timeCreated: 1617631594
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/EditorUI/Components/FluidToggleGroup.cs
+  uploadId: 605732

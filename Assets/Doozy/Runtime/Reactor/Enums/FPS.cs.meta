@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 29e9085569f9404a980d31b44332ea00
 timeCreated: 1624016500
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Reactor/Enums/FPS.cs
+  uploadId: 605732

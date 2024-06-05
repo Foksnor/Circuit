@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 978a752229e64b09b58f9ceee2eb3c46
 timeCreated: 1632349200
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Editors/Listeners/SignalListenerEditor.cs
+  uploadId: 605732

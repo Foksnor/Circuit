@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: aa28ca1fae5f441782983b61f958f1b1
 timeCreated: 1629468379
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Reactor/Targets/Internal/ReactorMetaColorTarget.cs
+  uploadId: 605732

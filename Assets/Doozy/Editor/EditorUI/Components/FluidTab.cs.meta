@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 16518a357c00415c8b068600eaf45021
 timeCreated: 1648474071
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/EditorUI/Components/FluidTab.cs
+  uploadId: 605732

@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 471182e389f64b0c8a28a4842bfe28d1
 timeCreated: 1626610992
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/Mody/Drawers/ModyActionRunnerDrawer.cs
+  uploadId: 605732

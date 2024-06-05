@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: bad1a3a93e7a47989c86856265f88cda
 timeCreated: 1617722594
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/EditorUI/Enums/TabContent.cs
+  uploadId: 605732

@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 0cc3c4bbe3784c57b71f802703f45c61
 timeCreated: 1626361315
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/UIManager/Events/VisibilityStateEvent.cs
+  uploadId: 605732

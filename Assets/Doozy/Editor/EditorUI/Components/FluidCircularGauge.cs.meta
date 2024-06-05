@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 7d10fef62a1c4ba6ad7069434d220323
 timeCreated: 1631785809
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/EditorUI/Components/FluidCircularGauge.cs
+  uploadId: 605732

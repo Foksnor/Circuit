@@ -1,3 +1,10 @@
 fileFormatVersion: 2
 guid: 7f9beb15e8304121a4dd267e1536172c
 timeCreated: 1666929441
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Editors/Audio/UIToggleAudioEditor.cs
+  uploadId: 605732

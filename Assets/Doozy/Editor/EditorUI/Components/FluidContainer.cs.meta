@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: f9f03a96737548bb9237470e5bc8322f
 timeCreated: 1627476566
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/EditorUI/Components/FluidContainer.cs
+  uploadId: 605732

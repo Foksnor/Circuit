@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 9d09bcfcdd7a41afbc36f958768a0954
 timeCreated: 1665940178
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Layouts/Databases/SteppersDatabaseWindowLayout.cs
+  uploadId: 605732

@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 52721576f11c4b47bebaa4d795d7f894
 timeCreated: 1624189120
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/Signals/Layouts/StreamsConsoleWindowLayout.cs
+  uploadId: 605732

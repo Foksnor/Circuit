@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 9efdcf0b3f694547a4c845895bd7307e
 timeCreated: 1630347666
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/Reactor/Components/Texture2DAnimationInfo.cs
+  uploadId: 605732

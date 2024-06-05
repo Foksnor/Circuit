@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 9ecea3ab757742e6a2f43d1602f0ae91
 timeCreated: 1618233328
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/EditorUI/Components/FluidSideMenu.cs
+  uploadId: 605732

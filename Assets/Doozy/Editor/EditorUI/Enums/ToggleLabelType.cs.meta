@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 6c595946c77842079de651c6d2a6be31
 timeCreated: 1624565353
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/EditorUI/Enums/ToggleLabelType.cs
+  uploadId: 605732

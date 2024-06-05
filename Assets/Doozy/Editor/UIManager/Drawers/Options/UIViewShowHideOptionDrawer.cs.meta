@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: a603a9fe5bc049c4a62be6184d128342
 timeCreated: 1631741640
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Drawers/Options/UIViewShowHideOptionDrawer.cs
+  uploadId: 605732

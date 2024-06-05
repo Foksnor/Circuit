@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 26093705498149a9832bce6be963f2cf
 timeCreated: 1623088960
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Reactor/ScriptableObjects/UIAnimationPreset.cs
+  uploadId: 605732

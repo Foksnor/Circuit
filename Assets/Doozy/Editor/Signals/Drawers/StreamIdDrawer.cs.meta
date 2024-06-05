@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: c851c328b37843c3aedbca66cf04435b
 timeCreated: 1625568453
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/Signals/Drawers/StreamIdDrawer.cs
+  uploadId: 605732

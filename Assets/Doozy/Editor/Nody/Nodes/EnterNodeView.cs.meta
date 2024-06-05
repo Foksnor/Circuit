@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: b3f4d54c084d486b86e08289d3c914d0
 timeCreated: 1631019993
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/Nody/Nodes/EnterNodeView.cs
+  uploadId: 605732

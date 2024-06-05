@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 72ec1ed5cdfd4d4aa55f07e54ad78862
 timeCreated: 1620975922
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Reactor/ProgressTarget.cs
+  uploadId: 605732

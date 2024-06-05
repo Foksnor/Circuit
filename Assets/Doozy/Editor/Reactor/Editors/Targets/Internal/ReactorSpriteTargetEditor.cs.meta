@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 07549a8e9f744bd5a5b68bef4f11d415
 timeCreated: 1629892217
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/Reactor/Editors/Targets/Internal/ReactorSpriteTargetEditor.cs
+  uploadId: 605732

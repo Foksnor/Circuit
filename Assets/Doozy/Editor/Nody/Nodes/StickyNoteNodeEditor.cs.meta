@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 7b7b7a9e69724af4a7029ac46d403076
 timeCreated: 1631544950
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/Nody/Nodes/StickyNoteNodeEditor.cs
+  uploadId: 605732

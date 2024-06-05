@@ -15,7 +15,6 @@ MonoBehaviour:
   DatabaseName: Editor Textures
   DatabaseDescription: Collection of Textures used in the Editor
   Database:
-  - {fileID: 11400000, guid: 40260dd3187850e4ba55bfa145e708ff, type: 2}
   - {fileID: 11400000, guid: 9a5adb9bb6ce4584d94d152695e4d681, type: 2}
   - {fileID: 11400000, guid: 54fc8207348e6da4fbabaf4c4d95c42b, type: 2}
   - {fileID: 11400000, guid: b4142c3bc2d62984fa63e559281341f1, type: 2}
@@ -30,7 +29,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 821e42e22f9bb824cb0a33129c6a3a59, type: 2}
   - {fileID: 11400000, guid: c1903a27f1ea32541a9f8916f7d99c9c, type: 2}
   - {fileID: 11400000, guid: 32cc7b0682f8d0349afaf97df07f6986, type: 2}
-  - {fileID: 11400000, guid: c12309ec7bc3daf42863ee8a8099bd2f, type: 2}
   - {fileID: 11400000, guid: 954d610b1f407424fae4c2751272bf67, type: 2}
   - {fileID: 11400000, guid: 34ae48c4110448546bb0413a96f03cae, type: 2}
   - {fileID: 11400000, guid: 1c11dd9f49d1c2444bc72051736df7bb, type: 2}

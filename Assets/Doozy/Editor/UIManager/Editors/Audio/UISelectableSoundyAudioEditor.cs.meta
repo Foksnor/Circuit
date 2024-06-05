@@ -1,3 +1,10 @@
 fileFormatVersion: 2
 guid: c58d0b476763424e8346a4e4a8ae9ee0
 timeCreated: 1689328688
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Editors/Audio/UISelectableSoundyAudioEditor.cs
+  uploadId: 605732

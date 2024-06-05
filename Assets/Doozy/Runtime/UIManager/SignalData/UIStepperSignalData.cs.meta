@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 8f169280fc7041d0a20e0f46f86b2588
 timeCreated: 1665942210
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/UIManager/SignalData/UIStepperSignalData.cs
+  uploadId: 605732

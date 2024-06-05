@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 14230ebcf3fa4155a662abdb934841c2
 timeCreated: 1650020908
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/EditorUI/Components/FluidRangeSlider.cs
+  uploadId: 605732

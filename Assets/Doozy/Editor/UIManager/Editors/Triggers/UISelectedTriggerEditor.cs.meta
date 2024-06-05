@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 49f74a1865d94138827952b0785e0d80
 timeCreated: 1628162639
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Editors/Triggers/UISelectedTriggerEditor.cs
+  uploadId: 605732

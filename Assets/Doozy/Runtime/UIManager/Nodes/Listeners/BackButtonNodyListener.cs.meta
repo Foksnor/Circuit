@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 7488fbb088fb47d4a8be0afb31ed858d
 timeCreated: 1631913557
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/UIManager/Nodes/Listeners/BackButtonNodyListener.cs
+  uploadId: 605732

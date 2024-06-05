@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 61bc1d21a9dc460f9a65de63528fe24b
 timeCreated: 1624564192
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/EditorUI/Interfaces/IToggle.cs
+  uploadId: 605732

@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: fe81fc6810c44b4f96e314a8309619d9
 timeCreated: 1620303554
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Reactor/Extensions/RectTransformExtensions.cs
+  uploadId: 605732

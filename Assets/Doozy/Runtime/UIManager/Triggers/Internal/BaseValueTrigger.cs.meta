@@ -1,3 +1,10 @@
 fileFormatVersion: 2
 guid: 2acf73fb798242928a3fcd616766c827
 timeCreated: 1666946759
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/UIManager/Triggers/Internal/BaseValueTrigger.cs
+  uploadId: 605732

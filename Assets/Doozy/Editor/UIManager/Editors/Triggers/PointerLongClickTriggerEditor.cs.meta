@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 863e1122e3164177a41d66c93c99f672
 timeCreated: 1628093924
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Editors/Triggers/PointerLongClickTriggerEditor.cs
+  uploadId: 605732

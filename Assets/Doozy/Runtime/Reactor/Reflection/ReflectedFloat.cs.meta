@@ -1,3 +1,10 @@
 fileFormatVersion: 2
 guid: 2f7c667c96ff457d8b2f743c1fea2235
 timeCreated: 1648227366
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Reactor/Reflection/ReflectedFloat.cs
+  uploadId: 605732

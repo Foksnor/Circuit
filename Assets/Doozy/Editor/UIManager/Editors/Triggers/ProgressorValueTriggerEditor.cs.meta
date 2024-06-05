@@ -1,3 +1,10 @@
 fileFormatVersion: 2
 guid: f79c8ffbebd34d22a9b7a6a40ddbf925
 timeCreated: 1667246320
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Editors/Triggers/ProgressorValueTriggerEditor.cs
+  uploadId: 605732

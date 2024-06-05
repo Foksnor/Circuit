@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 8e5776f164f04335b34cd51459a213de
 timeCreated: 1631914637
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Nodes/PortData/GoBackInputPortDataView.cs
+  uploadId: 605732

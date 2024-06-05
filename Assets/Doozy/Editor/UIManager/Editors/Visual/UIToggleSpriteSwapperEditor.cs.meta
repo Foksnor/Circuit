@@ -1,3 +1,10 @@
 fileFormatVersion: 2
 guid: 1f0e9ac38eea458791e362edccc551e7
 timeCreated: 1666929762
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Editors/Visual/UIToggleSpriteSwapperEditor.cs
+  uploadId: 605732

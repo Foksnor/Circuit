@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 45e3acb9f6b14699a98d7e575a645ba9
 timeCreated: 1650213987
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/UIDesigner/Enums/Space.cs
+  uploadId: 605732

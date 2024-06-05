@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: f4ca92e5e18b47d8b0650bb8bd21ea91
 timeCreated: 1624131196
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Signals/MetaSignal.cs
+  uploadId: 605732

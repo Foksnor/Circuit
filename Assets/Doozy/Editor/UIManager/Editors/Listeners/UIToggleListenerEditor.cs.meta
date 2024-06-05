@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: de919481233040978d752d9cdddb6fac
 timeCreated: 1632347337
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Editors/Listeners/UIToggleListenerEditor.cs
+  uploadId: 605732

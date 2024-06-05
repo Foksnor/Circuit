@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 2017f70078eb41538aea064f5e6182e1
 timeCreated: 1628093736
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Editors/Triggers/PointerExitTriggerEditor.cs
+  uploadId: 605732

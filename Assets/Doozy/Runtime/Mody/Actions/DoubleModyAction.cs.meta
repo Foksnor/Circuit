@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 8d9889ca8f964efcb05538ea1b47bed7
 timeCreated: 1628668101
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Mody/Actions/DoubleModyAction.cs
+  uploadId: 605732

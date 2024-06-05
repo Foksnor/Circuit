@@ -1,3 +1,10 @@
 fileFormatVersion: 2
 guid: 5d80998472004567bea153fca10d9e8b
 timeCreated: 1640095674
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/Reactor/Editors/Targets/TextMeshProProgressTargetEditor.cs
+  uploadId: 605732

@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 11b34cf822df426f8fde1bb800966ac7
 timeCreated: 1611578770
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/Enums/GenericFontWeight.cs
+  uploadId: 605732

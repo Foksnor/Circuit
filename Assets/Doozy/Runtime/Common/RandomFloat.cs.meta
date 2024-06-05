@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 94a0bd72421f4a1bb23e1e1f1723a59d
 timeCreated: 1617922525
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Common/RandomFloat.cs
+  uploadId: 605732

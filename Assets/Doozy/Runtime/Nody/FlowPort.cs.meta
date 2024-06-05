@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: b7a2a901d3b949da8866280fc0eeaac3
 timeCreated: 1631185466
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Nody/FlowPort.cs
+  uploadId: 605732

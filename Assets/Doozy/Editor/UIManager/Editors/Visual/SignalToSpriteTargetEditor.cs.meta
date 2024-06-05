@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 3f4ce7cfeae54274b3cb6173dab953f7
 timeCreated: 1637606106
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Editors/Visual/SignalToSpriteTargetEditor.cs
+  uploadId: 605732

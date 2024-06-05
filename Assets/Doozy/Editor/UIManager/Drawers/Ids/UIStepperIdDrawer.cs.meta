@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 246382a9c87b4f4abda2562a9342ef87
 timeCreated: 1665951451
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Drawers/Ids/UIStepperIdDrawer.cs
+  uploadId: 605732

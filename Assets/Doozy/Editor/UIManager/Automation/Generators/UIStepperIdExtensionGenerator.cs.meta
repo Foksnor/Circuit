@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: f79e029583f94167b34f2b56e1c5bc4a
 timeCreated: 1665939900
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Automation/Generators/UIStepperIdExtensionGenerator.cs
+  uploadId: 605732

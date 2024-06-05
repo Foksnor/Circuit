@@ -1,3 +1,10 @@
 fileFormatVersion: 2
 guid: 7d6f071009b04549a882a853219b0528
 timeCreated: 1648199731
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Editors/Triggers/InputBackButtonTriggerEditor.cs
+  uploadId: 605732

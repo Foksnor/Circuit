@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: ccba76e5efbe4843a59171266fc39c13
 timeCreated: 1616949497
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/EditorUI/Editor/ThemeColor.uss
+  uploadId: 605732

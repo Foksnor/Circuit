@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: a36ca9e19d134927bcb652e52998e13a
 timeCreated: 1628093494
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Editors/Triggers/PointerDownTriggerEditor.cs
+  uploadId: 605732

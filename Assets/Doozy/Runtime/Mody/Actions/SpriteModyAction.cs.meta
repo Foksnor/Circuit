@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: c7f031d60e424f6fafaadb8eee0af08f
 timeCreated: 1628668385
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/Mody/Actions/SpriteModyAction.cs
+  uploadId: 605732

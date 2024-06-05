@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 64afea8a2b0f45c48a52b93bb8233f21
 timeCreated: 1616698011
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/EditorUI/Drawers/EditorColorInfoDrawer.cs
+  uploadId: 605732

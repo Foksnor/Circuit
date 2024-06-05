@@ -15,7 +15,6 @@ MonoBehaviour:
   DatabaseName: Editor Colors
   DatabaseDescription: Collections of Colors used in the Editor
   Database:
-  - {fileID: 11400000, guid: 7c3b0c463497e644d96f1ec70a93c063, type: 2}
   - {fileID: 11400000, guid: ab84a950b6837974a84244f70b2c4dba, type: 2}
   - {fileID: 11400000, guid: c22609bfe63e3a74681c85c4119d0eae, type: 2}
   - {fileID: 11400000, guid: 5e576459bef7bde408e40affc1fa0898, type: 2}
@@ -25,7 +24,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1266caa45597d8a45a108143e34617b3, type: 2}
   - {fileID: 11400000, guid: 6b78d633d7e82b14eab693b75ba6aa98, type: 2}
   - {fileID: 11400000, guid: ed0965bdca9f8ae46998c1febb8b20df, type: 2}
-  - {fileID: 11400000, guid: 7fb07497fa973504c93708d9db21b05e, type: 2}
   - {fileID: 11400000, guid: a4ecabf25ccd50f4e940cb9c43bed529, type: 2}
   - {fileID: 11400000, guid: 2e6af9a8d5f66da45bcf38449daea187, type: 2}
   - {fileID: 11400000, guid: f8b7d94c24361d54ca347499c8196e4d, type: 2}

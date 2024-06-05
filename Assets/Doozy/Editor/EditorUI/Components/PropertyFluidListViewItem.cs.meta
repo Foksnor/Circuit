@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: a47cee12b783472d9730262bd8ac04b5
 timeCreated: 1618668648
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/EditorUI/Components/PropertyFluidListViewItem.cs
+  uploadId: 605732

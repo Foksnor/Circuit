@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 9790df34ae6c4f05aeee2c5fdcb0e8c6
 timeCreated: 1630146508
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Editors/Animators/Internal/BaseTargetComponentAnimatorEditor.cs
+  uploadId: 605732

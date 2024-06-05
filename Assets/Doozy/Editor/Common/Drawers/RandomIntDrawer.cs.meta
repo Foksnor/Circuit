@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: a052473cb93b4010a3ad6c5c3feae155
 timeCreated: 1620982363
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/Common/Drawers/RandomIntDrawer.cs
+  uploadId: 605732

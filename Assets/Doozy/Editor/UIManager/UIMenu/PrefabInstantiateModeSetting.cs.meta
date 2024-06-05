@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 09351cca28654376883e8239f29cf8fd
 timeCreated: 1630578361
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/UIMenu/PrefabInstantiateModeSetting.cs
+  uploadId: 605732

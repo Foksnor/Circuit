@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: e5992a05fc1148d3bc2022e67df09be5
 timeCreated: 1625511200
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Layouts/Databases/TogglesDatabaseWindowLayout.cs
+  uploadId: 605732

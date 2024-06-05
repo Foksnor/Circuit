@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: c443d417831d47b39c95b588830b3188
 timeCreated: 1617140218
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/EditorUI/Editors/EditorDataTextureGroupEditor.cs
+  uploadId: 605732

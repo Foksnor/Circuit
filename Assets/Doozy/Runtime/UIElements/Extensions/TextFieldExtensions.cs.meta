@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 569fee0f3804449eb2b936a34fa9e289
 timeCreated: 1625588536
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Runtime/UIElements/Extensions/TextFieldExtensions.cs
+  uploadId: 605732

@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 2b932f72b1ae420c9103c047f2488fc9
 timeCreated: 1629402479
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/UIManager/Editors/Animators/UISelectableColorAnimatorEditor.cs
+  uploadId: 605732

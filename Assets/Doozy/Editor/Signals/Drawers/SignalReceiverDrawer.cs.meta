@@ -1,3 +1,10 @@
 ﻿fileFormatVersion: 2
 guid: 7cbd77681cf34683828a27c3403e37ba
 timeCreated: 1615994597
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249738
+  packageName: Doozy UI Manager
+  packageVersion: 2023.1.2
+  assetPath: Assets/Doozy/Editor/Signals/Drawers/SignalReceiverDrawer.cs
+  uploadId: 605732
