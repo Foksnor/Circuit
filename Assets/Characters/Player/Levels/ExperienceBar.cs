@@ -2,7 +2,6 @@ using Doozy.Runtime.Reactor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ExperienceBar : MonoBehaviour
 {
