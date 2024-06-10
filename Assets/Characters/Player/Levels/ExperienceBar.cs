@@ -9,7 +9,7 @@ public class ExperienceBar : MonoBehaviour
     private Progressor progressor;
     private float experiencePoints;
     private int currentPlayerLevel = 0;
-    public float curExpFill { private set; get; }
+    public float curExpFill { private set; get; } = 0f;
     [SerializeField]
     private PlayerLevelScriptableObject[] playerlevels;
 
@@ -31,5 +31,8 @@ public class ExperienceBar : MonoBehaviour
     private void GoToNextLevel()
     {
         currentPlayerLevel += 1;
+
+        // Correct xp bar progress with new level requirement
+        AddExperiencePoints(0);
     }
 }

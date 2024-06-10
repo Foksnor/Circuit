@@ -10,35 +10,60 @@ public class ExperiencePoint : MonoBehaviour
     [SerializeField]
     private float moveSpeed = 1.0f;
     private float startTime;
+    private float curTime;
     private bool isMovingToEXPBar = false;
+    private float timeBeforeMovingToXPBar = 1;
 
     private void Awake()
     {
-        Invoke(nameof(MoveToExperienceBar), 1);
         float randomDist = Random.Range(spawnSpreadDistance.x, spawnSpreadDistance.y);
         Vector3 randomAngle = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
         spawnSpreadTargetLocation = transform.position + (randomDist * randomAngle);
         startTime = Time.time;
+        // Random offset to movespeed
+        moveSpeed *= Random.Range(0.9f, 1.1f);
     }
 
     private void Update()
     {
-        float curTime = Time.time - startTime;
-        if (!isMovingToEXPBar)
-            transform.position = Vector3.Lerp(transform.position, spawnSpreadTargetLocation, curTime * moveSpeed);
+        curTime = Time.time - startTime;
+
+        // XP moves to XP bar
+        if (timeBeforeMovingToXPBar <= 0)
+        {
+            if (isMovingToEXPBar)
+                MoveToExperienceBar();
+            else
+            {
+                // Reset startTime for lerp position calculation when moving to XP bar
+                isMovingToEXPBar = true;
+                startTime = Time.time;
+            }
+        }
         else
         {
-            float curExpFillWidth = Screen.width / PlayerStats.ExperienceBar.curExpFill;
-            // QQQ TODO: Currently x and y are swapped because the camera is at an 90 degree angle for PC build
-            Vector3 xpBarPos = Camera.main.ScreenToWorldPoint(new Vector3(Screen.height, curExpFillWidth, 0));
-            transform.position = Vector3.Lerp(transform.position, xpBarPos, curTime * moveSpeed);
+            timeBeforeMovingToXPBar -= Time.deltaTime;
+            // XP spread when spawned
+            transform.position = Vector3.Lerp(transform.position, spawnSpreadTargetLocation, curTime * moveSpeed);
         }
     }
 
     private void MoveToExperienceBar()
     {
-        PlayerStats.ExperienceBar.AddExperiencePoints(1);
-        isMovingToEXPBar = true;
-        startTime = Time.time;
+        float curExpFill = PlayerStats.ExperienceBar.curExpFill;
+        if (curExpFill >= 0)
+            curExpFill *= Screen.width;
+
+        // QQQ TODO: Currently x and y are swapped because the camera is at an 90 degree angle for PC build
+        Vector3 xpBarPos = Camera.main.ScreenToWorldPoint(new Vector3(Screen.height, curExpFill, 0));
+        transform.position = Vector3.Lerp(transform.position, xpBarPos, curTime * moveSpeed);
+
+        // Add XP to player once it reaches the XP bar
+        float dist = Vector3.Distance(transform.position, xpBarPos);
+        if (dist <= 0.5f)
+        {
+            PlayerStats.ExperienceBar.AddExperiencePoints(1);
+            Destroy(gameObject);
+        }
     }
 }
