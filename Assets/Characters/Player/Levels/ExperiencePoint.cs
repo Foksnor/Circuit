@@ -14,6 +14,9 @@ public class ExperiencePoint : MonoBehaviour
     private bool isMovingToEXPBar = false;
     private float timeBeforeMovingToXPBar = 1;
 
+    [SerializeField]
+    private GameObject particleWhenHittingXPBar;
+
     private void Awake()
     {
         float randomDist = Random.Range(spawnSpreadDistance.x, spawnSpreadDistance.y);
@@ -54,8 +57,7 @@ public class ExperiencePoint : MonoBehaviour
         if (curExpFill >= 0)
             curExpFill *= Screen.width;
 
-        // QQQ TODO: Currently x and y are swapped because the camera is at an 90 degree angle for PC build
-        Vector3 xpBarPos = Camera.main.ScreenToWorldPoint(new Vector3(Screen.height, curExpFill, 0));
+        Vector3 xpBarPos = Camera.main.ScreenToWorldPoint(new Vector3(curExpFill, Screen.height, 0));
         transform.position = Vector3.Lerp(transform.position, xpBarPos, curTime * moveSpeed);
 
         // Add XP to player once it reaches the XP bar
@@ -63,6 +65,7 @@ public class ExperiencePoint : MonoBehaviour
         if (dist <= 0.5f)
         {
             PlayerStats.ExperienceBar.AddExperiencePoints(1);
+            Instantiate(particleWhenHittingXPBar, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

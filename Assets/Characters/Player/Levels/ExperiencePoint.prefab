@@ -115,3 +115,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnSpreadDistance: {x: 0.8, y: 1}
   moveSpeed: 0.2
+  particleWhenHittingXPBar: {fileID: 6385985958197607867, guid: f07c938c6ccd46444b77e4282e430aa1, type: 3}

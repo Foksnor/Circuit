@@ -30,9 +30,9 @@ public class ExperienceBar : MonoBehaviour
 
     private void GoToNextLevel()
     {
+        experiencePoints = 0;
         currentPlayerLevel += 1;
-
-        // Correct xp bar progress with new level requirement
+        // Correct xp bar visual progression with the new level requirement
         AddExperiencePoints(0);
     }
 }

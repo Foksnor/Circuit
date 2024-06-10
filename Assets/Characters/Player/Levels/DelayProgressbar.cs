@@ -19,17 +19,21 @@ public class DelayProgressbar : MonoBehaviour
     {
         timer -= Time.deltaTime;
 
-        if (timer <= 0)
-        {
-            if (progressbarImage.fillAmount < progressor.currentValue)
-                progressbarImage.fillAmount += Time.deltaTime * speed;
-        }
-
         // If progressor value changed since last frame
         if (progressorValueLastFrame != progressor.currentValue)
         {
             timer = delayTime;
             progressorValueLastFrame = progressor.currentValue;
         }
+
+        if (timer <= 0)
+        {
+            if (progressbarImage.fillAmount < progressor.currentValue)
+                progressbarImage.fillAmount += Time.deltaTime * speed;
+        }
+
+        // Reset the delayed fill when the progressor value is either lower or has been reset
+        if (progressor.currentValue == 0)
+            progressbarImage.fillAmount = 0;
     }
 }
