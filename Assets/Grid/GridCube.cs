@@ -79,4 +79,11 @@ public class GridCube : MonoBehaviour
                 textMeshSimulationRef.text = "";
         }
     }
+
+    public void ToggleDebugText()
+    {
+        textMeshGridNumber.gameObject.SetActive(!textMeshGridNumber.gameObject.activeSelf);
+        textMeshCharacterRef.gameObject.SetActive(!textMeshCharacterRef.gameObject.activeSelf);
+        textMeshSimulationRef.gameObject.SetActive(!textMeshSimulationRef.gameObject.activeSelf);
+    }
 }
