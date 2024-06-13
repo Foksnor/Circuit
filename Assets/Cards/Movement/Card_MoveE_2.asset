@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f596eff5112c554089c6d028bd0e335, type: 3}
-  m_Name: Card_Attack_Horizontal_3
+  m_Name: Card_MoveE_2
   m_EditorClassIdentifier: 
-  CardType: 1
+  CardType: 0
   CardRarity: 1
-  CardName: Cleave
+  CardName: Move East
   Cost: 0
-  Sprite: {fileID: 21300000, guid: 1e170bfc936c8ca4aa41a06e6ea04d68, type: 3}
+  Sprite: {fileID: 21300000, guid: 68bb39977eceafc4b807e4df592ee27e, type: 3}
   Sound: {fileID: 0}
-  Particle: {fileID: 5493082302257829311, guid: d1815482534fbca4d8307719bc8f28df, type: 3}
+  Particle: {fileID: 0}
   ParticleLocation: 0
   TargetType: 0
-  MoveSteps: {x: 0, y: 0}
-  AttackSteps: {x: 3, y: 1}
+  MoveSteps: {x: 2, y: 0}
+  AttackSteps: {x: 0, y: 0}
   AutoTargetNearest: 0
-  AttackOffset: 1
+  AttackOffset: 0
   Value: 0
-  Description: Frontal cleave attack.
+  Description: Moves the player 1 step east.
   MaxTimeInUse: 0.5

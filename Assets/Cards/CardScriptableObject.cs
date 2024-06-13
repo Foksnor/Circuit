@@ -8,6 +8,8 @@ public class CardScriptableObject : ScriptableObject
 {
     public _CardType CardType;
     public enum _CardType { Movement, Attack};
+    public _CardRarity CardRarity;
+    public enum _CardRarity { Basic, Rare, Epic };
     public string CardName;
     public int Cost;
     public Sprite Sprite;

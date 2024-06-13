@@ -10,20 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f596eff5112c554089c6d028bd0e335, type: 3}
-  m_Name: Card_MoveN2
+  m_Name: Card_Attack_VerticalShoot
   m_EditorClassIdentifier: 
-  CardType: 0
-  CardName: Move Special
+  CardType: 1
+  CardRarity: 2
+  CardName: Bow
   Cost: 0
-  Sprite: {fileID: 21300000, guid: 9da6b774dd55ef841bb376f284b55897, type: 3}
+  Sprite: {fileID: 21300000, guid: 1e170bfc936c8ca4aa41a06e6ea04d68, type: 3}
   Sound: {fileID: 0}
-  Particle: {fileID: 0}
+  Particle: {fileID: 5493082302257829311, guid: d1815482534fbca4d8307719bc8f28df, type: 3}
   ParticleLocation: 0
   TargetType: 0
-  MoveSteps: {x: 0, y: 2}
-  AttackSteps: {x: 0, y: 0}
+  MoveSteps: {x: 0, y: 0}
+  AttackSteps: {x: 1, y: 10}
   AutoTargetNearest: 0
-  AttackOffset: 0
+  AttackOffset: 1
   Value: 0
-  Description: Moves the player 1 step forward.
+  Description: Shoots a projectile.
   MaxTimeInUse: 0.5
