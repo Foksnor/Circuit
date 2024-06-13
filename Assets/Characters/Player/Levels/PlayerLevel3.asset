@@ -14,8 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlocksLevel: 3
   experienceRequirement: 30
-  possibleNewCardRewards:
-  - {fileID: 11400000, guid: d0908e0ccafa3d94289e8fae073eb708, type: 2}
-  - {fileID: 11400000, guid: e5fa2d1ee1c20094f9c23764add936c0, type: 2}
-  - {fileID: 11400000, guid: d3fc687195eb6a04b99a06c93bf541aa, type: 2}
-  - {fileID: 11400000, guid: 0ab56dfea13abac46811ea582c8e04a8, type: 2}
+  possibleNewCardRewards: []

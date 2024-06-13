@@ -15,7 +15,9 @@ MonoBehaviour:
   unlocksLevel: 2
   experienceRequirement: 20
   possibleNewCardRewards:
-  - {fileID: 11400000, guid: d0908e0ccafa3d94289e8fae073eb708, type: 2}
-  - {fileID: 11400000, guid: e5fa2d1ee1c20094f9c23764add936c0, type: 2}
-  - {fileID: 11400000, guid: d3fc687195eb6a04b99a06c93bf541aa, type: 2}
-  - {fileID: 11400000, guid: 0ab56dfea13abac46811ea582c8e04a8, type: 2}
+  - {fileID: 11400000, guid: 284b1026e7c97004ca29a855ad5252a0, type: 2}
+  - {fileID: 11400000, guid: a6342f7a113e94d438cb436cc69b005d, type: 2}
+  - {fileID: 11400000, guid: 6f956d39004e7a2419bcf2df7f771abd, type: 2}
+  - {fileID: 11400000, guid: 899520572961c264cb8bce1d9cf32682, type: 2}
+  - {fileID: 11400000, guid: d7f46f3febe13ae4b8b782ed7e6a9a5c, type: 2}
+  - {fileID: 11400000, guid: 19311d196bd50614a88e4d6ea71b90ce, type: 2}
