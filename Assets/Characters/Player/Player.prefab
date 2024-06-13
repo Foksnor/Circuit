@@ -2616,19 +2616,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 775048000424466565, guid: 79400dba8b537f644b024885426bbb76, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 775048000424466565, guid: 79400dba8b537f644b024885426bbb76, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 775048000424466565, guid: 79400dba8b537f644b024885426bbb76, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 640.13245
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 775048000424466565, guid: 79400dba8b537f644b024885426bbb76, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -359.99997
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1924682129380595219, guid: 79400dba8b537f644b024885426bbb76, type: 3}
       propertyPath: m_Name
@@ -2636,7 +2636,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1924682129380595219, guid: 79400dba8b537f644b024885426bbb76, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5519660604814200816, guid: 79400dba8b537f644b024885426bbb76, type: 3}
       propertyPath: m_Pivot.x
@@ -2844,13 +2844,13 @@ MonoBehaviour:
   activeSockets: []
   startingCards:
   - {fileID: 11400000, guid: e5fa2d1ee1c20094f9c23764add936c0, type: 2}
-  - {fileID: 11400000, guid: d0908e0ccafa3d94289e8fae073eb708, type: 2}
+  - {fileID: 11400000, guid: f1bee7ec5bec90242a51d0845a5c554b, type: 2}
   - {fileID: 11400000, guid: 0ab56dfea13abac46811ea582c8e04a8, type: 2}
   - {fileID: 11400000, guid: e5fa2d1ee1c20094f9c23764add936c0, type: 2}
   - {fileID: 11400000, guid: e5fa2d1ee1c20094f9c23764add936c0, type: 2}
   startingCardsInDeck:
   - {fileID: 11400000, guid: e5fa2d1ee1c20094f9c23764add936c0, type: 2}
-  - {fileID: 11400000, guid: d0908e0ccafa3d94289e8fae073eb708, type: 2}
+  - {fileID: 11400000, guid: f1bee7ec5bec90242a51d0845a5c554b, type: 2}
   - {fileID: 11400000, guid: 0ab56dfea13abac46811ea582c8e04a8, type: 2}
   - {fileID: 11400000, guid: d3fc687195eb6a04b99a06c93bf541aa, type: 2}
   - {fileID: 11400000, guid: d3fc687195eb6a04b99a06c93bf541aa, type: 2}

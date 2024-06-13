@@ -30,6 +30,7 @@ public class ExperienceBar : MonoBehaviour
 
     private void GoToNextLevel()
     {
+        PlayerStats.RewardScreen.GiveCardReward(playerlevels[currentPlayerLevel].possibleNewCardRewards);
         experiencePoints = 0;
         currentPlayerLevel += 1;
         // Correct xp bar visual progression with the new level requirement

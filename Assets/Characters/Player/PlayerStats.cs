@@ -4,5 +4,6 @@ using UnityEngine;
 
 public static class PlayerStats
 {
-    public static ExperienceBar ExperienceBar;
+    public static ExperienceBar ExperienceBar { set; get; }
+    public static RewardScreen RewardScreen { set; get; }
 }
