@@ -169,11 +169,11 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {r: 1, g: 1, b: 1, a: 1}
+      FromValue: {r: 1, g: 1, b: 1, a: 0}
       ToValue: {r: 1, g: 1, b: 1, a: 0}
       CurrentValue: {r: 1, g: 1, b: 1, a: 1}
       Enabled: 1
-      StartColor: {r: 1, g: 1, b: 1, a: 1}
+      StartColor: {r: 1, g: 1, b: 1, a: 0}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {r: 1, g: 1, b: 1, a: 1}
@@ -251,11 +251,11 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {r: 1, g: 1, b: 1, a: 1}
+      FromValue: {r: 1, g: 1, b: 1, a: 0}
       ToValue: {r: 1, g: 1, b: 1, a: 1}
       CurrentValue: {r: 1, g: 1, b: 1, a: 1}
       Enabled: 1
-      StartColor: {r: 1, g: 1, b: 1, a: 1}
+      StartColor: {r: 1, g: 1, b: 1, a: 0}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {r: 1, g: 1, b: 1, a: 1}
@@ -333,11 +333,11 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {r: 1, g: 1, b: 1, a: 1}
+      FromValue: {r: 1, g: 1, b: 1, a: 0}
       ToValue: {r: 0.9, g: 0.9, b: 0.9, a: 0}
       CurrentValue: {r: 1, g: 1, b: 1, a: 1}
       Enabled: 1
-      StartColor: {r: 1, g: 1, b: 1, a: 1}
+      StartColor: {r: 1, g: 1, b: 1, a: 0}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {r: 1, g: 1, b: 1, a: 1}
@@ -415,11 +415,11 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {r: 1, g: 1, b: 1, a: 1}
+      FromValue: {r: 1, g: 1, b: 1, a: 0}
       ToValue: {r: 1, g: 1, b: 1, a: 0}
       CurrentValue: {r: 1, g: 1, b: 1, a: 1}
       Enabled: 1
-      StartColor: {r: 1, g: 1, b: 1, a: 1}
+      StartColor: {r: 1, g: 1, b: 1, a: 0}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {r: 1, g: 1, b: 1, a: 1}
@@ -497,11 +497,11 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {r: 1, g: 1, b: 1, a: 1}
+      FromValue: {r: 1, g: 1, b: 1, a: 0}
       ToValue: {r: 1, g: 1, b: 1, a: 0}
       CurrentValue: {r: 1, g: 1, b: 1, a: 1}
       Enabled: 1
-      StartColor: {r: 1, g: 1, b: 1, a: 1}
+      StartColor: {r: 1, g: 1, b: 1, a: 0}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {r: 1, g: 1, b: 1, a: 1}
@@ -665,6 +665,7 @@ GameObject:
   - component: {fileID: 984599748015754797}
   - component: {fileID: 9136228513319110858}
   - component: {fileID: 6067239926052492893}
+  - component: {fileID: 2682811221911937021}
   m_Layer: 5
   m_Name: CardReward
   m_TagString: Untagged
@@ -685,7 +686,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7152276021962474605}
-  - {fileID: 309167389973296360}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -700,7 +700,7 @@ CanvasGroup:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3307843213943380450}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
@@ -757,7 +757,7 @@ MonoBehaviour:
   NormalState:
     StateType: 0
     StateEvent:
-      EventName: Unnamed
+      EventName: Normal State
       Runners: []
       Event:
         m_PersistentCalls:
@@ -765,7 +765,7 @@ MonoBehaviour:
   HighlightedState:
     StateType: 1
     StateEvent:
-      EventName: Unnamed
+      EventName: Highlighted State
       Runners: []
       Event:
         m_PersistentCalls:
@@ -773,15 +773,27 @@ MonoBehaviour:
   PressedState:
     StateType: 2
     StateEvent:
-      EventName: Unnamed
+      EventName: Pressed State
       Runners: []
       Event:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 6067239926052492893}
+            m_TargetAssemblyTypeName: CardReward, Assembly-CSharp
+            m_MethodName: AddCardToDeck
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
   SelectedState:
     StateType: 3
     StateEvent:
-      EventName: Unnamed
+      EventName: Selected State
       Runners: []
       Event:
         m_PersistentCalls:
@@ -789,7 +801,7 @@ MonoBehaviour:
   DisabledState:
     StateType: 4
     StateEvent:
-      EventName: Unnamed
+      EventName: Disabled State
       Runners: []
       Event:
         m_PersistentCalls:
@@ -2185,6 +2197,29 @@ MonoBehaviour:
   Type: {fileID: 1415372138342568560}
   Description: {fileID: 278246782025149974}
   Icon: {fileID: 7931083645677005712}
+  animator: {fileID: 2682811221911937021}
+--- !u!95 &2682811221911937021
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3307843213943380450}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6c548c347bd492e4589f33f484027b5a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4173696462747493898
 GameObject:
   m_ObjectHideFlags: 0
@@ -2472,7 +2507,7 @@ GameObject:
   - component: {fileID: 4297480027387110545}
   - component: {fileID: 5304966138953404433}
   m_Layer: 5
-  m_Name: Background
+  m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2491,6 +2526,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8876777153678160556}
+  - {fileID: 309167389973296360}
   m_Father: {fileID: 4622383211065196787}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2985,7 +3021,7 @@ GameObject:
   m_Component:
   - component: {fileID: 309167389973296360}
   m_Layer: 5
-  m_Name: CardContainer
+  m_Name: Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2998,7 +3034,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6472448659827386806}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3007,7 +3043,7 @@ RectTransform:
   - {fileID: 4107769343152526650}
   - {fileID: 4836285763362081178}
   - {fileID: 4416395447405294786}
-  m_Father: {fileID: 4622383211065196787}
+  m_Father: {fileID: 7152276021962474605}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

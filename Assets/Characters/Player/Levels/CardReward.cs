@@ -10,6 +10,8 @@ public class CardReward : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI Name, Type, Description;
     [SerializeField] Image Icon;
+    [SerializeField] Animator animator;
+    private bool canBeInteractedWith = true;
 
     public void SetCardRewardInfo(CardScriptableObject cardScriptableObject)
     {
@@ -18,5 +20,24 @@ public class CardReward : MonoBehaviour
         Icon.sprite = CardScriptableObject.Sprite;
         Type.text = CardScriptableObject.CardType.ToString();
         Description.text = CardScriptableObject.Description;
+    }
+
+    public void AddCardToDeck()
+    {
+        PlayerDeck.CurrentCardsInDeck.Add(CardScriptableObject);
+        PlayerStats.RewardScreen.RemoveCardRewardOptions(CardScriptableObject);
+    }
+
+    public void RemoveFromRewardScreen(bool isClaimed)
+    {
+        animator.SetBool("isRemovedFromRewardScreen", true);
+        animator.SetBool("isClaimed", isClaimed);
+        canBeInteractedWith = false;
+        Invoke(nameof(Destroy), 1);
+    }
+
+    private void Destroy()
+    {
+        Destroy(gameObject);
     }
 }

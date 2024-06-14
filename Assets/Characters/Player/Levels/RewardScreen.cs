@@ -13,6 +13,7 @@ public class RewardScreen : MonoBehaviour
     private List<CardScriptableObject> tempBasicCardPool = new List<CardScriptableObject>();
     private List<CardScriptableObject> tempRareCardPool = new List<CardScriptableObject>();
     private List<CardScriptableObject> tempEpicCardPool = new List<CardScriptableObject>();
+    private List<CardReward> currentCardRewardOptions = new List<CardReward>();
 
     // Odds gets increased each time the player does not get a card of this type
     private float chanceForRareCard;
@@ -29,7 +30,7 @@ public class RewardScreen : MonoBehaviour
         chanceForEpicCard = defaultChanceForEpicCard;
     }
 
-    public void GiveCardReward(CardScriptableObject[] possibleNewCardRewards)
+    public void GiveCardRewardOptions(CardScriptableObject[] possibleNewCardRewards)
     {
         // Add the cards to the possible pool for the future level ups, avoiding duplicates
         for (int i = 0; i < possibleNewCardRewards.Length; i++)
@@ -86,8 +87,21 @@ public class RewardScreen : MonoBehaviour
 
             // Populate that card in the reward screen, and remove it from the available options
             chosenList.Remove(cardScript);
-            cardReward = Instantiate(cardReward, transform.position, transform.rotation, gameObject.transform);
-            cardReward.SetCardRewardInfo(cardScript);
+            CardReward cardOption = Instantiate(cardReward, transform.position, transform.rotation, gameObject.transform);
+            cardOption.SetCardRewardInfo(cardScript);
+            currentCardRewardOptions.Add(cardOption);
         }
+    }
+
+    public void RemoveCardRewardOptions(CardScriptableObject chosenReward)
+    {
+        for (int i = 0; i < currentCardRewardOptions.Count; i++)
+        {
+            if (chosenReward == currentCardRewardOptions[i].CardScriptableObject)
+                currentCardRewardOptions[i].RemoveFromRewardScreen(true);
+            else
+                currentCardRewardOptions[i].RemoveFromRewardScreen(false);
+        }
+        currentCardRewardOptions.Clear();
     }
 }
