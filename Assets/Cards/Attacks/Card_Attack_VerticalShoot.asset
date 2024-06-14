@@ -16,7 +16,7 @@ MonoBehaviour:
   CardRarity: 2
   CardName: Bow
   Cost: 0
-  Sprite: {fileID: 21300000, guid: 1e170bfc936c8ca4aa41a06e6ea04d68, type: 3}
+  Sprite: {fileID: 21300000, guid: 5869661d784f03a4f8f4cc70dcfaaf4b, type: 3}
   Sound: {fileID: 0}
   Particle: {fileID: 5493082302257829311, guid: d1815482534fbca4d8307719bc8f28df, type: 3}
   ParticleLocation: 0

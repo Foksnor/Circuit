@@ -16,7 +16,7 @@ MonoBehaviour:
   CardRarity: 1
   CardName: Move East
   Cost: 0
-  Sprite: {fileID: 21300000, guid: 68bb39977eceafc4b807e4df592ee27e, type: 3}
+  Sprite: {fileID: 21300000, guid: 686dbaa4eff7c3747a80feda273aac07, type: 3}
   Sound: {fileID: 0}
   Particle: {fileID: 0}
   ParticleLocation: 0
