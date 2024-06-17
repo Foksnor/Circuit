@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Card_MoveN
   m_EditorClassIdentifier: 
   CardType: 0
-  CardName: Move North
+  CardRarity: 0
+  CardName: Move
   Cost: 0
   Sprite: {fileID: 21300000, guid: 3088e55232f26414e89c33f55c40ca6b, type: 3}
   Sound: {fileID: 0}
@@ -25,5 +26,5 @@ MonoBehaviour:
   AutoTargetNearest: 0
   AttackOffset: 0
   Value: 0
-  Description: Moves the player 1 step forward.
+  Description: Moves the player 1 step.
   MaxTimeInUse: 0.5

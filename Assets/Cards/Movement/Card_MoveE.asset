@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Card_MoveE
   m_EditorClassIdentifier: 
   CardType: 0
-  CardName: Move East
+  CardRarity: 0
+  CardName: Move
   Cost: 0
   Sprite: {fileID: 21300000, guid: 68bb39977eceafc4b807e4df592ee27e, type: 3}
   Sound: {fileID: 0}
@@ -25,5 +26,5 @@ MonoBehaviour:
   AutoTargetNearest: 0
   AttackOffset: 0
   Value: 0
-  Description: Moves the player 1 step east.
+  Description: Moves the player 1 step.
   MaxTimeInUse: 0.5

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardType: 0
   CardRarity: 0
-  CardName: Charge Enemy
+  CardName: Move
   Cost: 0
   Sprite: {fileID: 21300000, guid: 22d788f7e04b30a4ea84135444221dae, type: 3}
   Sound: {fileID: 0}
@@ -26,5 +26,5 @@ MonoBehaviour:
   AutoTargetNearest: 1
   AttackOffset: 0
   Value: 0
-  Description: Moves the player 1 step south.
+  Description: Moves the player 2 steps.
   MaxTimeInUse: 0.5

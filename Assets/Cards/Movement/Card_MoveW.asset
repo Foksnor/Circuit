@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Card_MoveW
   m_EditorClassIdentifier: 
   CardType: 0
-  CardName: Move West
+  CardRarity: 0
+  CardName: Move
   Cost: 0
   Sprite: {fileID: 21300000, guid: 9da6b774dd55ef841bb376f284b55897, type: 3}
   Sound: {fileID: 0}
@@ -25,5 +26,5 @@ MonoBehaviour:
   AutoTargetNearest: 0
   AttackOffset: 0
   Value: 0
-  Description: Moves the player 1 step west.
+  Description: Moves the player 1 step.
   MaxTimeInUse: 0.5
