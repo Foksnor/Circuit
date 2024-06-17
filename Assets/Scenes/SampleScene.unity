@@ -1076,7 +1076,7 @@ MonoBehaviour:
   ct5: {fileID: 0}
   gridSize: {x: 5, y: 20}
   player: {fileID: 9076684052481418224, guid: 60eff325b3bb1654db28c9d760edd514, type: 3}
-  startingPosition: 37
+  startingPosition: {x: 2, y: 3}
   enemyWeakMelee: {fileID: 1957793412199929724, guid: 69023d50af278324b87b5202712490ae, type: 3}
   enemyWeakRanged: {fileID: 0}
 --- !u!114 &961207207

@@ -126,7 +126,7 @@ public class CircuitBoard : MonoBehaviour
     public void CalculateAllCards(Character targetCharacter, bool isSetupPhase)
     {
         targetCharacter.ToggleCharacterSimulation(isSetupPhase);
-        int previsGridNumber = targetCharacter.PositionInGrid;
+        GridCube previsGrid = targetCharacter.AssignedGridCube;
         for (int cardNumber = 0; cardNumber < activeCards.Count; cardNumber++)
         {
             if (isSetupPhase)
@@ -135,7 +135,7 @@ public class CircuitBoard : MonoBehaviour
                 AllignCardOnCircuitBoard(cardNumber);
             }
             // TODO: voeg toe dat spelers aan het begin van hun beurt een nieuwe hand van kaarten uit hun deck trekt, en dan er een mogen kiezen, daarna moet deze onderstaande functie aangeroepen worden. :)
-            previsGridNumber = activeCards[cardNumber].CalculateCard(targetCharacter, previsGridNumber, isSetupPhase);
+            previsGrid = activeCards[cardNumber].CalculateGridCubeDestination(targetCharacter, previsGrid, isSetupPhase);
             ToggleInteractableCardStateOnCircuitBoard(cardNumber, isSetupPhase);
         }
     }

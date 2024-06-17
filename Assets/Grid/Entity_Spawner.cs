@@ -7,7 +7,7 @@ public class Entity_Spawner : MonoBehaviour
     [SerializeField] private GridCube cubeDefault, cubeWater, ct1, ct2, ct3, ct4, ct5;
     public Vector2 gridSize = new Vector2(5, 15);
     [SerializeField] private Character player;
-    [SerializeField] private int startingPosition;
+    [SerializeField] private Vector2 startingPosition;
     private Vector2 currentPositionForNewCube = Vector2.zero;
     [SerializeField] private Character enemyWeakMelee, enemyWeakRanged;
 
@@ -46,7 +46,7 @@ public class Entity_Spawner : MonoBehaviour
 
     public void SpawnCube(GridCube cubeType, Vector2 position)
     {
-        GridPositions._GridCubes.Add(Instantiate(cubeType, position, transform.rotation));
+        GridPositions._GridCubes.Add(Instantiate(cubeType, position, transform.rotation, transform));
         cubeType.SetGridReferenceNumber(GridPositions._GridCubes.Count);
     }
 
@@ -69,8 +69,9 @@ public class Entity_Spawner : MonoBehaviour
     public Character SpawnPlayer()
     {
         Character p = Instantiate(player);
-        p.transform.position = GridPositions._GridCubes[startingPosition].transform.position;
-        p.ChangeDestinationGridNumber(startingPosition, 1);
+        GridCube playerSpawnPos = GridPositions.GetGridByPosition(startingPosition);
+        p.transform.position = playerSpawnPos.transform.position;
+        p.ChangeDestinationGrid(playerSpawnPos, 1);
         return p;
     }
 
@@ -78,9 +79,9 @@ public class Entity_Spawner : MonoBehaviour
     {
         Character e = Instantiate(enemyWeakMelee);
         int rngRow = (int)Random.Range(1, GridPositions._GridSize.x);
-        int enemySpawnPos = GridPositions._GridCubes.Count - rngRow;
-        e.transform.position = GridPositions._GridCubes[enemySpawnPos].transform.position;
-        e.ChangeDestinationGridNumber(enemySpawnPos, 1);
+        GridCube enemySpawnPos = GridPositions._GridCubes[GridPositions._GridCubes.Count - rngRow];
+        e.transform.position = enemySpawnPos.transform.position;
+        e.ChangeDestinationGrid(enemySpawnPos, 1);
         return e;
     }
 }

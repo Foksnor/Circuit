@@ -390,7 +390,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2673307325574003035}
-  m_Text: 100
+  m_Text: 200
   m_OffsetZ: -0.3
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -627,7 +627,6 @@ MonoBehaviour:
   - {fileID: -194356407, guid: 908b71c3ba81cba4286a9ba3b14df1da, type: 3}
   - {fileID: -1408947363, guid: 908b71c3ba81cba4286a9ba3b14df1da, type: 3}
   - {fileID: -977639588, guid: 908b71c3ba81cba4286a9ba3b14df1da, type: 3}
-  Height: 0
   visualElevation: {fileID: 4188762518496040149}
   MovementIndicator: {fileID: 8241887014076314334}
   DamageIndicator: {fileID: 6215937111264494818}

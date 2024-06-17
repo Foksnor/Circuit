@@ -19,7 +19,7 @@ public class Card : MonoBehaviour
     [SerializeField] private Animator feedbackAnimator;
     public Card_PointerInteraction CardPointerInteraction;
     private List<GridCube> attackedGridTargets = new List<GridCube>();
-    private int targetedGridForMovement = 0;
+    private GridCube targetedGridForMovement;
     public float MaxTimeInUse { get; private set; } = 0;
     private bool isCardActivated = false;
     private bool hasParticleSpawnedOnSelf = false;
@@ -98,18 +98,18 @@ public class Card : MonoBehaviour
         hasParticleSpawnedOnSelf = false;
     }
 
-    private int GetGridOfClosestTarget(int savedGridUsedByPreviousCard)
+    private GridCube GetGridOfClosestTarget(GridCube savedGridUsedByPreviousCard)
     {
         float closestTargetDistance = 99;
-        int pCGridNumber = savedGridUsedByPreviousCard;
+        GridCube pCGridNumber = savedGridUsedByPreviousCard;
 
         // QQQ TODO make it so it only targets the opposing team instead of only player team, in case the player gets auto target cards
         // Cycles through all characters and checks which one is closer, then return that as reference if possible
         for (int pC = 0; pC < CharacterTeams._PlayerTeamCharacters.Count; pC++)
         {
-            pCGridNumber = CharacterTeams._PlayerTeamCharacters[pC].PositionInGrid;
-            Vector3 curPos = GridPositions._GridCubes[savedGridUsedByPreviousCard].transform.position;
-            Vector3 tarPos = GridPositions._GridCubes[pCGridNumber].transform.position;
+            pCGridNumber = CharacterTeams._PlayerTeamCharacters[pC].AssignedGridCube;
+            Vector3 curPos = savedGridUsedByPreviousCard.Position;
+            Vector3 tarPos = pCGridNumber.Position;
 
             if (Vector3.Distance(curPos, tarPos) < closestTargetDistance)
                 closestTargetDistance = Vector3.Distance(curPos, tarPos);
@@ -117,7 +117,7 @@ public class Card : MonoBehaviour
         return pCGridNumber;
     }
 
-    public Vector2Int RotateCardTowardsTarget(int targetGrid, int savedGridUsedByPreviousCard, Vector2Int steps)
+    public Vector2Int RotateCardTowardsTarget(GridCube targetGrid, GridCube savedGridUsedByPreviousCard, Vector2Int steps)
     {
         float targetAngle = GetDirectionAngleBetweenGrids(targetGrid, savedGridUsedByPreviousCard);
         if (Mathf.Abs(targetAngle) < 172)
@@ -129,15 +129,15 @@ public class Card : MonoBehaviour
         return steps;
     }
 
-    public int CalculateCard(Character targetCharacter, int savedGridUsedByPreviousCard, bool isSetupPhase)
+    public GridCube CalculateGridCubeDestination(Character targetCharacter, GridCube savedGridUsedByPreviousCard, bool isSetupPhase)
     {
-        int targetedGrid = savedGridUsedByPreviousCard;
+        GridCube targetedGrid = savedGridUsedByPreviousCard;
         Vector2Int attackSteps = cardScriptableObject.AttackSteps;
         Vector2Int moveSteps = cardScriptableObject.MoveSteps;
 
         if (cardScriptableObject.AutoTargetNearest)
         {
-            int newTargetGrid = GetGridOfClosestTarget(savedGridUsedByPreviousCard);
+            GridCube newTargetGrid = GetGridOfClosestTarget(savedGridUsedByPreviousCard);
             attackSteps = RotateCardTowardsTarget(newTargetGrid, savedGridUsedByPreviousCard, attackSteps);
             moveSteps = RotateCardTowardsTarget(newTargetGrid, savedGridUsedByPreviousCard, moveSteps);
         }
@@ -148,13 +148,7 @@ public class Card : MonoBehaviour
             for (int attackStepY = 1; attackStepY < attackSteps.y + 1; attackStepY++)
             {
                 // Handles the Y steps in the attack
-                int attackLength = (int)GridPositions._GridSize.x;
-                attackLength *= attackStepY;
-                targetedGrid = savedGridUsedByPreviousCard + attackLength;
-
-                // Offset the attack width so the attack is always centered
-                int attackWidth = Mathf.FloorToInt(attackSteps.x / 2);
-                targetedGrid -= attackWidth;
+                Vector2 attackPosAfterStepY = new Vector2 (savedGridUsedByPreviousCard.Position.x, savedGridUsedByPreviousCard.Position.y + attackStepY);
 
                 if (isSetupPhase)
                 {
@@ -162,18 +156,26 @@ public class Card : MonoBehaviour
                     // List gets cleared everytime because the character can be updating their position before commiting to the attack
                     attackedGridTargets.Clear();
 
+                    // Offset the attack width so the attack is always centered
+                    int attackWidthOffset = 1 + Mathf.CeilToInt(attackSteps.x / 2);
+
                     for (int attackStepX = 1; attackStepX < attackSteps.x + 1; attackStepX++)
                     {
-                        // Handles X steps in the attack
-                        if (ValidateGridPosition.CanAttack(savedGridUsedByPreviousCard, targetedGrid, attackStepY))
+                        Vector2 attackPosAfterStepX = new Vector2 (attackPosAfterStepY.x - attackWidthOffset + attackStepX, attackPosAfterStepY.y);
+                        GridCube result = GridPositions.GetGridByPosition(attackPosAfterStepX);
+                        if (result != null)
                         {
-                            // Tile based previs
-                            GameObject tilevisual = GridPositions._GridCubes[targetedGrid].GetIndicatorVisual(cardScriptableObject);
-                            targetCharacter.ToggleCardPrevis(isSetupPhase, tilevisual, 0);
-                            if (isSetupPhase)
-                                attackedGridTargets.Add(GridPositions._GridCubes[targetedGrid]);
+                            // Handles X steps in the attack
+                            if (ValidateGridPosition.CanAttack(savedGridUsedByPreviousCard, result, attackStepY))
+                            {
+                                targetedGrid = result;
+                                // Tile based previs
+                                GameObject tilevisual = targetedGrid.GetIndicatorVisual(cardScriptableObject);
+                                targetCharacter.ToggleCardPrevis(isSetupPhase, tilevisual, 0);
+                                if (isSetupPhase)
+                                    attackedGridTargets.Add(targetedGrid);
+                            }
                         }
-                        targetedGrid++;
                     }
                 }
             }
@@ -189,19 +191,19 @@ public class Card : MonoBehaviour
             for (int stepLength = 0; stepLength < Mathf.Abs(moveSteps.y); stepLength++)
             {
                 // Handles the Y steps in the movement
-                targetedGrid = GetMovementGridNumber(targetCharacter, targetedGrid, moveSteps);
+                targetedGrid = GetMovementGrid(targetCharacter, targetedGrid, moveSteps);
                 float dirAngle = GetDirectionAngleBetweenGrids(targetedGrid, savedGridUsedByPreviousCard);
                 // Tile based previs
-                GameObject tilevisual = GridPositions._GridCubes[targetedGrid].GetIndicatorVisual(cardScriptableObject);
+                GameObject tilevisual = targetedGrid.GetIndicatorVisual(cardScriptableObject);
                 targetCharacter.ToggleCardPrevis(isSetupPhase, tilevisual, dirAngle);
             }
             for (int stepWidth = 0; stepWidth < Mathf.Abs(moveSteps.x); stepWidth++)
             {
                 // Handles X steps in the movement
-                targetedGrid = GetMovementGridNumber(targetCharacter, targetedGrid, moveSteps);
+                targetedGrid = GetMovementGrid(targetCharacter, targetedGrid, moveSteps);
                 float dirAngle = GetDirectionAngleBetweenGrids(targetedGrid, savedGridUsedByPreviousCard);
                 // Tile based previs
-                GameObject tilevisual = GridPositions._GridCubes[targetedGrid].GetIndicatorVisual(cardScriptableObject);
+                GameObject tilevisual = targetedGrid.GetIndicatorVisual(cardScriptableObject);
                 targetCharacter.ToggleCardPrevis(isSetupPhase, tilevisual, dirAngle);
             }
 
@@ -218,52 +220,46 @@ public class Card : MonoBehaviour
         return targetedGrid;
     }
 
-    private int GetMovementGridNumber(Character targetCharacter, int startingGridNumber, Vector2Int moveSteps)
+    private GridCube GetMovementGrid(Character targetCharacter, GridCube startingGrid, Vector2Int moveSteps)
     {
-        int offsetFromInstigator = 0;
+        GridCube destinationGrid = startingGrid;
         SetCardFeedback("isInvalid", false);
+        Vector2Int moveIncrement = moveSteps.ConvertVector2IntToIncrement();
 
         // Move X
-        Vector2Int moveIncrement = moveSteps.ConvertVector2IntToIncrement();
-        int moveX = moveIncrement.x;
-        if (moveX != 0)
+        if (moveSteps.x != 0)
         {
-            if (ValidateGridPosition.CanStepX(targetCharacter, startingGridNumber, startingGridNumber + moveX))
-                offsetFromInstigator += moveX;
+            int moveX = moveIncrement.x;
+            Vector2 targetPos = new Vector2(startingGrid.Position.x + moveX, startingGrid.Position.y);
+            GridCube result = GridPositions.GetGridByPosition(targetPos);
+
+            if (ValidateGridPosition.CanStepX(targetCharacter, startingGrid, result))
+                destinationGrid = result;
             else
                 SetCardFeedback("isInvalid", true);
         }
 
         // Move Y
-        // Since the grid is generated horizontally; a step in the Y axis needs to take the entire grid with into account
         if (moveSteps.y != 0)
         {
-            int moveY = (int)GridPositions._GridSize.x;
-            if (moveSteps.y < 0)
-                moveY = -moveY;
+            int moveY = moveIncrement.y;
+            Vector2 targetPos = new Vector2(startingGrid.Position.x, startingGrid.Position.y + moveY);
+            GridCube result = GridPositions.GetGridByPosition(targetPos);
 
-            if (startingGridNumber + moveY <= GridPositions._GridCubes.Count)
-            {
-                if (ValidateGridPosition.CanStepY(targetCharacter, startingGridNumber, startingGridNumber + moveY))
-                    offsetFromInstigator += moveY;
-                else
-                    SetCardFeedback("isInvalid", true);
-            }
-            else // If the targeted grid number does not exist, fall back to starting grid
-            {
+            if (ValidateGridPosition.CanStepY(targetCharacter, startingGrid, result))
+                destinationGrid = result;
+            else
                 SetCardFeedback("isInvalid", true);
-                return startingGridNumber;
-            }
         }
 
-        return startingGridNumber + offsetFromInstigator;
+        return destinationGrid;
     }
 
-    private float GetDirectionAngleBetweenGrids(int grid1, int grid2)
+    private float GetDirectionAngleBetweenGrids(GridCube grid1, GridCube grid2)
     {
         // Calculates the angle between two grids, used for changing the angle of the previs if needed
-        Vector3 pos1 = GridPositions._GridCubes[grid1].transform.position;
-        Vector3 pos2 = GridPositions._GridCubes[grid2].transform.position;
+        Vector3 pos1 = grid1.Position;
+        Vector3 pos2 = grid2.Position;
         float angle = Vector3.Angle(pos1 - pos2, transform.up);
 
         // Vector3.Angle always returns an absolute number, so checking whether pos1 is left or right of pos2 to see if the angle needs to be set to a negative        
@@ -275,7 +271,7 @@ public class Card : MonoBehaviour
 
     private void HandleMovement(Character instigator)
     {
-        instigator.ChangeDestinationGridNumber(targetedGridForMovement, MaxTimeInUse);
+        instigator.ChangeDestinationGrid(targetedGridForMovement, MaxTimeInUse);
     }
 
     private void HandleAttack(Character instigator)

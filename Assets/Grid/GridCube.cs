@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GridCube : MonoBehaviour
 {
+    public Vector2 Position { get; private set; }
+    public float Height { get; private set; }
     [SerializeField] private TextMesh textMeshGridNumber;
     [SerializeField] private TextMesh textMeshCharacterRef;
     [SerializeField] private TextMesh textMeshSimulationRef;
@@ -11,7 +13,6 @@ public class GridCube : MonoBehaviour
     [SerializeField] private float lowestElevation;
     [SerializeField] private SpriteRenderer floorSprite;
     [SerializeField] private Sprite[] randomFloorSprite;
-    [HideInInspector] public float Height;
     [SerializeField] private GameObject visualElevation = null;
     public Character CharacterOnThisGrid { private set; get; }
     public Character SimulationOnThisGrid { private set; get; }
@@ -19,6 +20,8 @@ public class GridCube : MonoBehaviour
 
     private void Awake()
     {
+        Position = transform.position;
+        Height = transform.position.z;
         floorSprite.sprite = randomFloorSprite[Random.Range(0, randomFloorSprite.Length)];
         floorSprite.transform.eulerAngles = new Vector3(0, 0, Random.Range(0, 3) * 90);
     }

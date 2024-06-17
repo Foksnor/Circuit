@@ -6,7 +6,7 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public CircuitBoard CircuitBoard;
-    [HideInInspector] public int PositionInGrid { private set; get; }
+    public GridCube AssignedGridCube { private set; get; }
     [SerializeField] protected SpriteRenderer characterSpriteRenderer = null;
     [SerializeField] protected Animator characterAnimator = null;
     [SerializeField] private DeathVFX deathVFX = null;
@@ -32,11 +32,12 @@ public class Character : MonoBehaviour
         MoveCharacter();
     }
 
-    public void ChangeDestinationGridNumber(int newDestinationInGrid, float speedModifier)
+    public void ChangeDestinationGrid(GridCube newDestinationInGrid, float speedModifier)
     {
-        GridPositions._GridCubes[PositionInGrid].RemoveCharacterOnGrid(this);
-        GridPositions._GridCubes[newDestinationInGrid].SetCharacterOnGrid(this);
-        PositionInGrid = newDestinationInGrid;
+        if (AssignedGridCube != null)
+            AssignedGridCube.RemoveCharacterOnGrid(this);
+        newDestinationInGrid.SetCharacterOnGrid(this);
+        AssignedGridCube = newDestinationInGrid;
         cardPlaySpeed = 1 / speedModifier;
 
         // If character is a simulation, up their card play speed
@@ -46,10 +47,10 @@ public class Character : MonoBehaviour
 
     private void MoveCharacter()
     {
-        if (Vector3.Distance(transform.position, GridPositions._GridCubes[PositionInGrid].transform.position) > 0.01f)
+        if (Vector3.Distance(transform.position, AssignedGridCube.transform.position) > 0.01f)
         {
             characterAnimator.SetBool("isMoving", true);
-            transform.position = Vector3.MoveTowards(transform.position, GridPositions._GridCubes[PositionInGrid].transform.position, Time.deltaTime * cardPlaySpeed);
+            transform.position = Vector3.MoveTowards(transform.position, AssignedGridCube.transform.position, Time.deltaTime * cardPlaySpeed);
         }
         else
             characterAnimator.SetBool("isMoving", false);
@@ -86,7 +87,7 @@ public class Character : MonoBehaviour
         // Remove character from their list before destroying it to prevent null references.
         CharacterTeams._PlayerTeamCharacters.Remove(this);
         CharacterTeams._EnemyTeamCharacters.Remove(this);
-        GridPositions._GridCubes[PositionInGrid].RemoveCharacterOnGrid(this);
+        AssignedGridCube.RemoveCharacterOnGrid(this);
     }
 
     public virtual void RefreshCharacterSimulation()
@@ -107,7 +108,7 @@ public class Character : MonoBehaviour
     {
         InstancedCharacterSimulation = Instantiate(CharacterSimulation, transform);
         InstancedCharacterSimulation.SetCharacterSimInfo(this, characterSpriteRenderer);
-        InstancedCharacterSimulation.ChangeDestinationGridNumber(PositionInGrid, cardPlaySpeed * cardSimulationSpeedModifier);
+        InstancedCharacterSimulation.ChangeDestinationGrid(AssignedGridCube, cardPlaySpeed * cardSimulationSpeedModifier);
     }
 
     public virtual void ToggleCardPrevis(bool isShowingPrevis, GameObject tilevisual, float angle)
