@@ -32,7 +32,11 @@ public class ExperienceBar : MonoBehaviour
     {
         PlayerStats.RewardScreen.GiveCardRewardOptions(playerlevels[currentPlayerLevel].possibleNewCardRewards);
         experiencePoints = 0;
-        currentPlayerLevel += 1;
+
+        // Only advance levels when the player has not reached max level rewards yet
+        // Player is still able to collect exp to repeatedly get the max level reward
+        if (currentPlayerLevel < playerlevels.Length - 1)
+            currentPlayerLevel += 1;
         // Correct xp bar visual progression with the new level requirement
         AddExperiencePoints(0);
     }
