@@ -145,6 +145,10 @@ public class Card : MonoBehaviour
         // Attack
         if (cardScriptableObject.CardType == CardScriptableObject._CardType.Attack)
         {
+            // Empty the list before adding attack positions
+            // List gets cleared everytime because the character can be updating their position before commiting to the attack
+            attackedGridTargets.Clear();
+
             for (int attackStepY = 1; attackStepY < attackSteps.y + 1; attackStepY++)
             {
                 // Handles the Y steps in the attack
@@ -152,10 +156,6 @@ public class Card : MonoBehaviour
 
                 if (isSetupPhase)
                 {
-                    // Empty the list before adding attack positions
-                    // List gets cleared everytime because the character can be updating their position before commiting to the attack
-                    attackedGridTargets.Clear();
-
                     // Offset the attack width so the attack is always centered
                     int attackWidthOffset = 1 + Mathf.CeilToInt(attackSteps.x / 2);
 
