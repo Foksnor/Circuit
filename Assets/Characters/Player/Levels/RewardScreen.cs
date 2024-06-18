@@ -54,9 +54,9 @@ public class RewardScreen : MonoBehaviour
 
         // Add the reward pools to temporary versions
         // This is used so we can remove an entry from the temp pool to avoid selecting the same card multiple times during the reward screen
-        tempBasicCardPool = basicCardRewardPool;
-        tempRareCardPool = rareCardRewardPool;
-        tempEpicCardPool = epicCardRewardPool;
+        tempBasicCardPool.AddRange(basicCardRewardPool);
+        tempRareCardPool.AddRange(rareCardRewardPool);
+        tempEpicCardPool.AddRange(epicCardRewardPool);
 
         // Pick random cards to be in included for this reward screen
         for (int i = 0; i < amountOfRewardOptions; i++)
@@ -91,6 +91,11 @@ public class RewardScreen : MonoBehaviour
             cardOption.SetCardRewardInfo(cardScript);
             currentCardRewardOptions.Add(cardOption);
         }
+
+        // Empty temp lists so we can populate them again with new rewards to avoid duplicates during reward selection
+        tempBasicCardPool.Clear();
+        tempRareCardPool.Clear();
+        tempEpicCardPool.Clear();
     }
 
     public void RemoveCardRewardOptions(CardScriptableObject chosenReward)
