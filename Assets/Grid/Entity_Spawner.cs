@@ -4,61 +4,40 @@ using UnityEngine;
 
 public class Entity_Spawner : MonoBehaviour
 {
-    [SerializeField] private GridCube cubeDefault, cubeWater, ct1, ct2, ct3, ct4, ct5;
-    public Vector2 gridSize = new Vector2(5, 15);
+    [SerializeField] private List<BiomeScriptableObject> biomes = new List<BiomeScriptableObject>();
     [SerializeField] private Character player;
+    private GridCube furthestGridCubeSpawned;
+    [SerializeField] float distanceBetweenPlayerAndLastGridCubeBeforeNewChunkSpawns = 11;
     [SerializeField] private Vector2 startingPosition;
-    private Vector2 currentPositionForNewCube = Vector2.zero;
     [SerializeField] private Character enemyWeakMelee, enemyWeakRanged;
 
-    private void Awake()
+
+    public void InitiateFirstChunk()
     {
-        // Set grid size for static positions
-        GridPositions._GridSize = gridSize;
+        BiomeChunk firstChunk = biomes[0].GetStartingChunk();
+        firstChunk = Instantiate(firstChunk, transform.position, transform.rotation, transform);
+        furthestGridCubeSpawned = firstChunk.GetFurthestGridCube();
     }
 
-    public void InitiateGrid()
+    public void InitiateChunk(Vector3 previousLocation)
     {
-        for (int gridLength = 0; gridLength < gridSize.y; gridLength++)
-        {
-            for (int gridWidth = 0; gridWidth < gridSize.x; gridWidth++)
-            {
-                currentPositionForNewCube = new Vector2(gridWidth, gridLength);
-                SpawnCube(cubeDefault, currentPositionForNewCube);
-            }
-        }
-        SortGrid();
+        // Adds an offset to the y coordinate so that the new grid doesn't spawn right on top of the previous one
+        previousLocation = new Vector3(0, previousLocation.y + 1, previousLocation.z);
+        BiomeChunk chunk = biomes[0].GetRandomChunk();
+        chunk = Instantiate(chunk, previousLocation, transform.rotation, transform);
+        furthestGridCubeSpawned = chunk.GetFurthestGridCube();
+    }
+
+    private void Update()
+    {
+        float dist = furthestGridCubeSpawned.Position.y - player.transform.position.y;
+        if (dist <= distanceBetweenPlayerAndLastGridCubeBeforeNewChunkSpawns)
+            InitiateChunk(furthestGridCubeSpawned.transform.position);
     }
 
     public void AddRow(int rowAmount)
     {
-        for (int i = rowAmount; i > 0; i--)
-        {
-            currentPositionForNewCube = new Vector2(currentPositionForNewCube.x, currentPositionForNewCube.y + 1);
-            for (int gridWidth = 0; gridWidth < gridSize.x; gridWidth++)
-            {
-                currentPositionForNewCube = new Vector2(gridWidth, currentPositionForNewCube.y);
-                SpawnCube(cubeDefault, currentPositionForNewCube);
-            }
-        }
-        SortGrid();
-    }
 
-    public void SpawnCube(GridCube cubeType, Vector2 position)
-    {
-        GridPositions._GridCubes.Add(Instantiate(cubeType, position, transform.rotation, transform));
-        cubeType.SetGridReferenceNumber(GridPositions._GridCubes.Count);
-    }
-
-    void SortGrid()
-    {
-        /*
-        // Position cubes on the right spot of the grid
-        for (int i = 0; i < GridPositions._GridPositions.Count; i++)
-        {
-            GridPositions._GridCubes[i].SetHeight(GridPositions._GridPositions[i]);
-        }
-        */
     }
 
     public void SortCharacterHeight()
@@ -68,17 +47,17 @@ public class Entity_Spawner : MonoBehaviour
 
     public Character SpawnPlayer()
     {
-        Character p = Instantiate(player);
+        player = Instantiate(player);
         GridCube playerSpawnPos = GridPositions.GetGridByPosition(startingPosition);
-        p.transform.position = playerSpawnPos.transform.position;
-        p.ChangeDestinationGrid(playerSpawnPos, 1);
-        return p;
+        player.transform.position = playerSpawnPos.transform.position;
+        player.ChangeDestinationGrid(playerSpawnPos, 1);
+        return player;
     }
 
     public Character SpawnEnemy()
     {
         Character e = Instantiate(enemyWeakMelee);
-        int rngRow = (int)Random.Range(1, GridPositions._GridSize.x);
+        int rngRow = (int)Random.Range(1, 5);
         GridCube enemySpawnPos = GridPositions._GridCubes[GridPositions._GridCubes.Count - rngRow];
         e.transform.position = enemySpawnPos.transform.position;
         e.ChangeDestinationGrid(enemySpawnPos, 1);

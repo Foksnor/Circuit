@@ -6,6 +6,7 @@ public class GridCube : MonoBehaviour
 {
     public Vector2 Position { get; private set; }
     public float Height { get; private set; }
+    [SerializeField] private bool enableTileVisuals = true;
     [SerializeField] private TextMesh textMeshGridNumber;
     [SerializeField] private TextMesh textMeshCharacterRef;
     [SerializeField] private TextMesh textMeshSimulationRef;
@@ -22,13 +23,20 @@ public class GridCube : MonoBehaviour
     {
         Position = transform.position;
         Height = transform.position.z;
-        floorSprite.sprite = randomFloorSprite[Random.Range(0, randomFloorSprite.Length)];
-        floorSprite.transform.eulerAngles = new Vector3(0, 0, Random.Range(0, 3) * 90);
+        if (enableTileVisuals)
+        {
+            floorSprite.sprite = randomFloorSprite[Random.Range(0, randomFloorSprite.Length)];
+            floorSprite.transform.eulerAngles = new Vector3(0, 0, Random.Range(0, 3) * 90);
+        }
+        else
+            floorSprite.gameObject.SetActive(false);
+        SetGridReferenceNumber();
     }
 
-    public void SetGridReferenceNumber(int numberInGrid)
+    public void SetGridReferenceNumber()
     {
-        textMeshGridNumber.text = numberInGrid.ToString();
+        GridPositions._GridCubes.Add(this);
+        textMeshGridNumber.text = Position.x + "," + Position.y;
     }
 
     public void SetHeight(Vector3 gridPosition)

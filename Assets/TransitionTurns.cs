@@ -5,6 +5,7 @@ using UnityEngine;
 public class TransitionTurns : MonoBehaviour
 {
     [SerializeField] private Entity_Spawner entitySpawner;
+    private Character player;
 
     [SerializeField] private float maxTurnTime = 8;
     private float curTurnTime;
@@ -117,8 +118,9 @@ public class TransitionTurns : MonoBehaviour
 
     private void InitiateFirstTurn()
     {
-        entitySpawner.InitiateGrid();
-        CharacterTeams._PlayerTeamCharacters.Add(entitySpawner.SpawnPlayer());
+        entitySpawner.InitiateFirstChunk();
+        player = entitySpawner.SpawnPlayer();
+        CharacterTeams._PlayerTeamCharacters.Add(player);
         curTurnTime = maxTurnTime;
     }
 
@@ -192,6 +194,6 @@ public class TransitionTurns : MonoBehaviour
 
     private void PlayerDrawPhase()
     {
-        CharacterTeams._PlayerTeamCharacters[0].CircuitBoard.PlayerDrawPhase();
+        player.CircuitBoard.PlayerDrawPhase();
     }
 }
