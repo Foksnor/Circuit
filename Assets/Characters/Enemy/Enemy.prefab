@@ -454,5 +454,4 @@ MonoBehaviour:
   startingCards:
   - {fileID: 11400000, guid: 9e642dcb6953f384c80b0519ab34c90c, type: 2}
   - {fileID: 11400000, guid: 9e642dcb6953f384c80b0519ab34c90c, type: 2}
-  timerText: {fileID: 0}
-  timerFill: {fileID: 0}
+  - {fileID: 11400000, guid: f1bee7ec5bec90242a51d0845a5c554b, type: 2}

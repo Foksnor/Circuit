@@ -17,10 +17,18 @@ public class Character : MonoBehaviour
     [HideInInspector] public bool isSimulationMarkedForDeath;
     private GameObject cardPrevisBinder = null;
     private List<GameObject> ActiveCardPrevisTiles = new List<GameObject>();
-    public int Health { private set; get; } = 1;
+    public int Health { get { return health; } private set { health = value; } }
+    [SerializeField] int health = 4;
+    [SerializeField] private HealthPanel healthPanel = null;
     protected bool isInvulnerable = false;
     private float cardPlaySpeed = 1;
     public float cardSimulationSpeedModifier { private set; get; } = 2;
+
+    private void Awake()
+    {
+        if (healthPanel != null)
+            healthPanel.InstantiateHealthPanelVisuals(Health);
+    }
 
     private void Start()
     {
@@ -61,6 +69,7 @@ public class Character : MonoBehaviour
         if (isInvulnerable)
             return;
 
+        healthPanel.UpdateHealthPanel(Health, amount);
         Health -= amount;
         if (Health <= 0)
             Die();
