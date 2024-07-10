@@ -135,11 +135,21 @@ public class Card : MonoBehaviour
         Vector2Int attackSteps = cardScriptableObject.AttackSteps;
         Vector2Int moveSteps = cardScriptableObject.MoveSteps;
 
-        if (cardScriptableObject.AutoTargetNearest)
+        int directionMultiplier = 1;
+        switch (cardScriptableObject.TargetType)
         {
-            GridCube newTargetGrid = GetGridOfClosestTarget(savedGridUsedByPreviousCard);
-            attackSteps = RotateCardTowardsTarget(newTargetGrid, savedGridUsedByPreviousCard, attackSteps);
-            moveSteps = RotateCardTowardsTarget(newTargetGrid, savedGridUsedByPreviousCard, moveSteps);
+            case CardScriptableObject._TargetType.Self:
+            case CardScriptableObject._TargetType.ForwardOfCharacter:
+                break;
+            case CardScriptableObject._TargetType.BackwardOfCharacter:
+                directionMultiplier = -1;
+                break;
+            case CardScriptableObject._TargetType.NearestAlly:
+            case CardScriptableObject._TargetType.NearestEnemy:
+                GridCube newTargetGrid = GetGridOfClosestTarget(savedGridUsedByPreviousCard);
+                attackSteps = RotateCardTowardsTarget(newTargetGrid, savedGridUsedByPreviousCard, attackSteps);
+                moveSteps = RotateCardTowardsTarget(newTargetGrid, savedGridUsedByPreviousCard, moveSteps);
+                break;
         }
 
         // Attack
@@ -152,7 +162,7 @@ public class Card : MonoBehaviour
             for (int attackStepY = 1; attackStepY < attackSteps.y + 1; attackStepY++)
             {
                 // Handles the Y steps in the attack
-                Vector2 attackPosAfterStepY = new Vector2 (savedGridUsedByPreviousCard.Position.x, savedGridUsedByPreviousCard.Position.y + attackStepY);
+                Vector2 attackPosAfterStepY = new Vector2 (savedGridUsedByPreviousCard.Position.x, savedGridUsedByPreviousCard.Position.y + (attackStepY * directionMultiplier));
 
                 if (isSetupPhase)
                 {

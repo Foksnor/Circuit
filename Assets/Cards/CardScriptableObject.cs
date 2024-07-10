@@ -18,10 +18,9 @@ public class CardScriptableObject : ScriptableObject
     public _ParticleLocation ParticleLocation; 
     public enum _ParticleLocation { OnSelf, OnDamageTiles, OnMovementTiles };
     public _TargetType TargetType;
-    public enum _TargetType { InFrontOfPlayer, NearestEnemy };
+    public enum _TargetType { ForwardOfCharacter, BackwardOfCharacter, NearestAlly, NearestEnemy, Self };
     public Vector2Int MoveSteps;
     public Vector2Int AttackSteps;
-    public bool AutoTargetNearest;
     public int AttackOffset;
     public int Value;
     public string Description;

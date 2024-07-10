@@ -339,7 +339,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1079
 --- !u!222 &2709265240683970655
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -452,6 +452,6 @@ MonoBehaviour:
   activeCards: []
   activeSockets: []
   startingCards:
-  - {fileID: 11400000, guid: 9e642dcb6953f384c80b0519ab34c90c, type: 2}
-  - {fileID: 11400000, guid: 9e642dcb6953f384c80b0519ab34c90c, type: 2}
-  - {fileID: 11400000, guid: f1bee7ec5bec90242a51d0845a5c554b, type: 2}
+  - {fileID: 11400000, guid: 6ffeb5a1dbbebec44a81e86ed3c12c91, type: 2}
+  - {fileID: 11400000, guid: 6ffeb5a1dbbebec44a81e86ed3c12c91, type: 2}
+  - {fileID: 11400000, guid: db0bebdf9825b2a46b1c60bdd8828bd1, type: 2}

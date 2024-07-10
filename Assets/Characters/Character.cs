@@ -69,7 +69,7 @@ public class Character : MonoBehaviour
         if (isInvulnerable)
             return;
 
-        healthPanel.UpdateHealthPanel(Health, amount);
+        healthPanel?.UpdateHealthPanel(Health, amount);
         Health -= amount;
         if (Health <= 0)
             Die();
