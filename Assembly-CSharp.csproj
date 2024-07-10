@@ -55,537 +55,63 @@
     <UnityVersion>2023.2.20f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-    <Analyzer Include="D:\Work\Unity\2023.2.20f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
-    <Analyzer Include="D:\Work\Unity\2023.2.20f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
-    <Analyzer Include="D:\Work\Unity\2023.2.20f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="D:\Unity\2023.2.20f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
+    <Analyzer Include="D:\Unity\2023.2.20f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
+    <Analyzer Include="D:\Unity\2023.2.20f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Reactions\ReflectedVector3Reaction.cs" />
     <Compile Include="Assets\Characters\TransformBillboard.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Orientation\DetectedOrientation.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\QuinticEaseInEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\Actions\Vector2ModyAction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\Nodes\ApplicationQuitNode.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\FormattedLabel.cs" />
-    <Compile Include="Assets\Doozy\Runtime\SceneManagement\SceneLoader.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Interfaces\ILogger.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Targets\SpriteTargets\SpriteRendererSpriteTarget.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Animators\UIContainerVector2Animator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Enums\FPS.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\MetaProgressTarget.cs" />
     <Compile Include="Assets\Cards\CardSelect.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Enums\PlayDirection.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Layouts\Internal\UILayoutGroup.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\FlowGraph.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\ElasticEaseInOutEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Listeners\StringSignalListener.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\ScriptableObjects\Internal\PrefabLinkDatabase.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\SignalData\UIButtonSignalData.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Signals\SignalProviderExtension.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Audio\UIToggleAudio.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Events\Vector3Event.cs" />
-    <Compile Include="Assets\Cards\Deck\PlayerDeck.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Animators\UISelectableSpriteAnimator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\SceneManagement\ScriptableObjects\SceneManagementSettings.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Reactions\UIScaleReaction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\Nodes\System\ExitNode.cs" />
     <Compile Include="Assets\Characters\Player\Feedback Interactions\FeedbackPanelScriptableObject.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\NodyUtils.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Animators\UIToggleVector2Animator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\Nodes\TimeScaleNode.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Content\UIClock.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Signals\Signals.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Enums\Timescale.cs" />
     <Compile Include="Assets\GridPositions.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Enums\ShowHideMode.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Reactions\Texture2DReaction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Colors\SelectableColor.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Reactions\IntReaction.cs" />
     <Compile Include="Assets\Grid\Entity_Spawner.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Listeners\IntSignalListener.cs" />
     <Compile Include="Assets\Cards\CircuitBoard.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Colors\ColorUtils.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Audio\UISelectableSoundyAudio.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Enums\SlideDirection.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Models\SingletonBehaviour.cs" />
     <Compile Include="Assets\Cards\Card.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Triggers\ProgressorValueTrigger.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Listeners\UIButtonListener.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Reactions\ColorTargetReaction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Input\InputToSignal.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Ids\UIViewId.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\Modules\AudioSourceModule.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Layouts\UIBehaviourHandler.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Components\UITag.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\Nodes\StickyNoteNode.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Signals\SignalReceiver.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\ScriptableObjects\UIAnimationPresetDatabase.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Animations\UIAnimation.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Utils\GameObjectUtils.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Extensions\Vector3Extensions.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Nodes\Listeners\UIButtonNodyListener.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Visual\SignalToColorTarget.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Extensions\VisualElementExtensions.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\Enums\NodeState.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Animators\UIContainerFloatAnimator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Animations\ColorAnimation.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\Actions\IntModyAction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Ids\UIToggleId.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Extensions\ListExtensions.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Nodes\PortalNode.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Signals\SignalProvider.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Visual\UISelectableSpriteSwapper.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\CubicEaseInOutEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Triggers\UISliderValueTrigger.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\NodyMenuPathAttribute.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\LinearEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Events\QuaternionEvent.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Components\UITab.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Animators\IntAnimator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\CubicEaseInEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\RandomFloat.cs" />
     <Compile Include="Assets\Doozy\_Examples\E22 - Popup - without Buttons\ShowSimplePopup.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Visual\UIContainerSpriteSwapper.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\CategoryNameItem.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Targets\ProgressTargets\TextProgressTarget.cs" />
     <Compile Include="Assets\Characters\Player\Feedback Interactions\FeedbackPanel.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\ModyModule.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\QuadraticEaseOutEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\Enums\SystemNodeType.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Listeners\Internal\BaseListener.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Triggers\PointerClickTrigger.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\Actions\ColorModyAction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\Actions\SimpleModyAction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Targets\ColorTargets\ImageColorTarget.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\FlowController.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Utils\ReflectionUtils.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Ticker\Heartbeat.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Input\BackButton.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Signals\Interfaces\ISignalReceiver.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Reactions\SpriteTargetReaction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Reactions\ReflectedIntReaction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Reflection\ReflectedRect.cs" />
+    <Compile Include="Assets\Characters\Player\Levels\RewardScreen.cs" />
+    <Compile Include="Assets\Grid\Biome\BiomeScriptableObject.cs" />
     <Compile Include="Assets\Characters\CharacterSimulation.cs" />
     <Compile Include="Assets\EditorScripts\CardCreatorInspector.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Internal\PropertySetter.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Extensions\Vector3Extensions.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\Nodes\PortData\RandomNodeOutputPortData.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\Actions\TextureModyAction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\Nodes\DebugNode.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Targets\ColorTargets\TextColorTarget.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Components\UIStepper.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Enums\StepperState.cs" />
+    <Compile Include="Assets\Grid\Biome\BiomeChunk.cs" />
     <Compile Include="Assets\Characters\Enemy\EnemySpawner.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\Actions\GameObjectModyAction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\SineEaseInEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\SignalData\UIStepperSignalData.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Behaviours\UIBehaviour.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Attributes\DefineSymbolsAttribute.cs" />
-    <Compile Include="Assets\Doozy\Runtime\SceneManagement\SceneUtils.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIDesigner\Enums\Axis.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Input\Enums\InputHandling.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\Modules\UnityEventModule.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Triggers\PointerDoubleClickTrigger.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Pooler\IPoolable.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Reflection\ReflectedVector3.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Audio\BaseUISelectableAudio.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Events\IntEvent.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Content\UITimer.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Triggers\PointerExitTrigger.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\Nodes\System\EnterNode.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Containers\Internal\UIContainerComponent.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Targets\ProgressTargets\AudioMixerProgressTarget.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\Actions\ScriptableObjectModyAction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\ReactorController.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Animators\Internal\ReflectedValueAnimator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\Actions\MonoBehaviourModyAction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\ReactionSettings.cs" />
     <Compile Include="Assets\Characters\CharacterTeams.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Nodes\PortData\GoBackInputPortData.cs" />
     <Compile Include="Assets\Doozy\_Examples\E24 - Popup - with Two Buttons\ShowTwoButtonsPopup.cs" />
-    <Compile Include="Assets\Doozy\Runtime\SceneManagement\SceneLoaderSignalData.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Listeners\Vector4SignalListener.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Ticker\RuntimeHeartbeat.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\CircularEaseInEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\QuarticEaseInOutEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Nodes\SignalNode.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\Enums\PortCapacity.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Input\Enums\UIInputActionName.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Internal\ReactionPool.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\Actions\FloatModyAction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Colors\SelectionState.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Reactions\Vector2Reaction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Triggers\PointerDownTrigger.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\BounceEaseInEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Colors\SelectableColorExtensions.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Signals\SignalPool.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Interfaces\IValueChangedEvent.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Reflection\ReflectedInt.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Events\UISelectionStateEvent.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\UIMenu\UIMenuCamera.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Signals\Components\SignalToAudioSource.cs" />
+    <Compile Include="Assets\UI\DebugMenu.cs" />
     <Compile Include="Assets\Grid\ValidateGridPosition.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Signals\BaseStreamListener.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Extensions\RectTransformExtensions.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Extensions\IntExtensions.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\Nodes\RandomNode.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Reactions\UIMoveReaction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Targets\ProgressTargets\AnimatorProgressTarget.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Nodes\Listeners\UIViewNodyListener.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\SyncContext.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\EasyEaseEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Listeners\BoolSignalListener.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\ScriptableObjects\UIPopupDatabase.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\Enums\ActionState.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\CircularEaseOutEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Animations\Internal\UIAnimationSettings.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Attributes\RestoreDataAttribute.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Reflection\ReflectedVector2.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Animations\Internal\ReactorAnimation.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Enums\ShowHideExecute.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Animators\UIContainerIntAnimator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Animators\UIContainerSpriteAnimator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Behaviours\UIBehaviourExtension.cs" />
-    <Compile Include="Assets\Doozy\Runtime\SceneManagement\Nodes\LoadSceneNode.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Internal\DynamicReaction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Extensions\FloatExtensions.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\FlowPort.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Ids\UIButtonId.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\ScriptableObjects\UIAnimationPreset.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Animators\SpriteAnimator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Reactions\UIRotateReaction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\ExponentialEaseOutEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Animators\Internal\BaseTargetComponentAnimator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Enums\AnimatorBehaviour.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\EasyEaseOutEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\EasyEaseInEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Visual\SignalToSpriteTarget.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Triggers\PointerMiddleClickTrigger.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Targets\Internal\ReactorMetaSpriteTarget.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Events\VisibilityStateEvent.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\ScriptableObjects\UIManagerSettings.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Containers\UIContainer.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Audio\UISelectableAudio.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\EasyEaseInOutEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Signals\Enums\ProviderType.cs" />
-    <Compile Include="Assets\Doozy\Runtime\SceneManagement\Events\SceneLoadedEvent.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Interfaces\IListDatabase.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Enums\CommandShowHide.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Enums\FrameReferenceValue.cs" />
-    <Compile Include="Assets\Doozy\Runtime\RuntimePath.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Enums\PlayMode.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Enums\UIAnimationType.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\Actions\Color32ModyAction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Audio\UIContainerAudio.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\ScriptableObjects\UIPopupLink.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\Nodes\Internal\GlobalNode.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Content\Internal\DateTimeComponent.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Listeners\FloatSignalListener.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Utils\UnityDebug.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Enums\MoveDirection.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\SignalData\InputSignalData.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Extensions\GameObjectExtensions.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIElements\Extensions\TextElementExtensions.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Nodes\Listeners\BackButtonNodyListener.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Signals\ProviderAttributes.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Signals\MetaSignal.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Components\UIScrollbar.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\SpringEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Easer.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIDesigner\Enums\AlignMode.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\EaseMode.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Events\ValueChangedEventBase.cs" />
+    <Compile Include="Assets\Characters\Player\PlayerStats.cs" />
     <Compile Include="Assets\Doozy\_ReactorExamples\Scripts\Runtime\IntAnimatorExample.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\CategoryNameId.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\QuarticEaseOutEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\Enums\FlowDirection.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\SineEaseOutEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\BounceEaseOutEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\SceneManagement\Events\ActiveSceneChangedEvent.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Signals\MultiSignalsReceiver.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\Enums\GraphState.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\ExponentialEaseInEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\SineEaseInOutEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Content\UIStopwatch.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Targets\Internal\ReactorMetaColorTarget.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Animators\UIToggleVector3Animator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Signals\ProviderId.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Signals\Components\SignalSender.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Enums\ReferenceValue.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Targets\ProgressTargets\TextMeshProProgressTarget.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Attributes\ExecuteOnReloadAttribute.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Utils\MultipleDisplayUtilities.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIDesigner\Utils\DesignerUtils.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Animators\UIToggleFloatAnimator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Enums\Anchor.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\ProgressTarget.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\QuadraticEaseInEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Orientation\TargetOrientation.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Nodes\Listeners\UIToggleNodyListener.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Containers\UITooltip.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Extensions\TransformExtensions.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\Actions\Vector3ModyAction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Signals\StreamId.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Global\Coroutiner.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Ids\ProgressorId.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Reflection\Enums\ValueDetails.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\Enums\NodeType.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\Actions\LongModyAction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Animators\Internal\ReactorAnimator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIDesigner\Enums\Align.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Utils\ByteArraySerializer.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\Actions\GenericModyAction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Visual\UIToggleSpriteSwapper.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Triggers\InputBackButtonTrigger.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Events\BoolEvent.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Animators\UISelectableVector3Animator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Events\FloatEvent.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Animators\Internal\BaseUISelectableAnimator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Utils\PathUtils.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Signals\Enums\StreamConnection.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Listeners\UIViewListener.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Progressor.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Animators\UIContainerVector3Animator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Nodes\UINode.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Colors\Models\HSL.cs" />
+    <Compile Include="Assets\Characters\Player\Deck\PlayerDeck.cs" />
     <Compile Include="Assets\Cards\Card_PointerInteraction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Targets\ColorTargets\TextMeshProColorTarget.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\ReactorUtils.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Utils\ObjectNames.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Listeners\Vector3SignalListener.cs" />
     <Compile Include="Assets\Grid\Grid_Manager.cs" />
     <Compile Include="Assets\UI\CardSocket.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\Enums\PortDirection.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Extensions.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Listeners\ColorSignalListener.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Animations\SpriteAnimation.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Bezier.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\ModyActionRunner.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\Actions\DoubleModyAction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\Actions\Vector4ModyAction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Enums\ButtonTrigger.cs" />
+    <Compile Include="Assets\DestroyGameObjectLifetime.cs" />
+    <Compile Include="Assets\Characters\Player\Levels\ExperiencePoint.cs" />
     <Compile Include="Assets\HelperFunctions.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\FlowNode.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\QuarticEaseInEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\Nodes\Internal\SimpleNode.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\SignalData\UISliderSignalData.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Colors\ThemeColor.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\ScriptableObjects\UITooltipLink.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Ticker\IUseTickService.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Animators\UIAnimator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Targets\ProgressTargets\ImageProgressTarget.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\Enums\FlowType.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\MetaModyAction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\Actions\StringModyAction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\SceneManagement\Nodes\ActivateLoadedScenesNode.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Input\InputStream.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\ModyEventBase.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Enums\Axis.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Colors\ColorExtensions.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIDesigner\Enums\AlignTo.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Events\PointerEventDataEvent.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Components\UISlider.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Layouts\UIRadialLayout.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Animations\IntAnimation.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Internal\Reaction.cs" />
     <Compile Include="Assets\Doozy\_Examples\E23 - Popup - with One Button\ShowOneButtonPopup.cs" />
     <Compile Include="Assets\Characters\Character.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\ProgressorGroup.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Modules\AnimatorModule.cs" />
     <Compile Include="Assets\Doozy\_Examples\E25 - Toggle - UIToggle Animators\ExampleUIToggleAnimators.cs" />
     <Compile Include="Assets\Cards\EnemyCircuitBoard.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\CategoryNameGroup.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Animators\UIToggleColorAnimator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Targets\SpriteTargets\SpriteMaskSpriteTarget.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\Enums\ProviderState.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Signals\Interfaces\ISignalProvider.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\ScriptableObjects\Internal\UIAnimationPresetGroup.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Animators\Internal\BaseUIContainerAnimator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Colors\Models\RGB.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Events\BaseEventDataEvent.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Triggers\UISelectedTrigger.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Internal\ReactionCallback.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Ticker\TickService.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Orientation\OrientationDetector.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Structs\UISelectableState.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Animations\Vector2Animation.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Colors\ColorEvent.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Triggers\PointerUpTrigger.cs" />
-    <Compile Include="Assets\Doozy\Runtime\SceneManagement\SceneDirector.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\ListDatabase.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\ScriptableObjects\ReactorSettings.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Events\UIToggleEvent.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Signals\SignalsService.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\ScriptableObjects\UIManagerInputSettings.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Behaviours\UIBehaviours.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\Actions\Texture2DModyAction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Enums\CommandToggle.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\QuinticEaseInOutEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\CircularEaseInOutEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Events\StringEvent.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Enums\UISelectionState.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\SignalData\UIToggleSignalData.cs" />
+    <Compile Include="Assets\Characters\Player\Levels\CardReward.cs" />
+    <Compile Include="Assets\Characters\Player\HealthPanel\HealthSegment.cs" />
+    <Compile Include="Assets\Cards\PlayerLevelScriptableObject.cs" />
     <Compile Include="Assets\Grid\IntExtensions.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Triggers\PointerEnterTrigger.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\BackEaseOutEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Enums\VisibilityState.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Colors\Models\HSV.cs" />
     <Compile Include="Assets\TransitionTurns.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Triggers\PointerRightClickTrigger.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Enums\ReactionState.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Triggers\UIStepperValueTrigger.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Triggers\UIDeselectedTrigger.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Animators\Internal\BaseUIToggleAnimator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Internal\ReactionExtensions.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Nodes\Listeners\StreamNodyListener.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Components\UIToggleGroup.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Reactions\ReflectedVector2Reaction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\BasePathFinder.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\BackEaseInOutEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Utils\TypeUtis.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\CubicEaseOutEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Audio\UIToggleSoundyAudio.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\ScriptableObjects\SingletonRuntimeScriptableObject.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\ExponentialEaseInOutEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Layouts\LayoutsContextMenu.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Triggers\Internal\BaseValueTrigger.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\EasingFunction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Targets\ProgressTargets\UnityEventProgressTarget.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\ModyAction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\EaseFactory.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Interfaces\IProgressTarget.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Attributes\ClearOnReloadAttribute.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Containers\UIPopup.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIDesigner\Components\UIRescaler.cs" />
+    <Compile Include="Assets\Characters\Player\Levels\ExperienceBar.cs" />
     <Compile Include="Assets\Characters\Player\Button_TransitionTurn.cs" />
     <Compile Include="Assets\GameSettings.cs" />
     <Compile Include="Assets\Doozy\_Examples\Common\Runtime\Scripts\PrintToConsole.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Enums\ContainerBehaviour.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\Interfaces\IHaveActions.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Listeners\UIToggleListener.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Pooler\PoolService.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Ease.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Animations\Vector3Animation.cs" />
     <Compile Include="Assets\Cards\CardPrevis.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Ticker\RuntimeTicker.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Nodes\Listeners\Internal\BaseNodyListener.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Animators\ColorAnimator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\ModyEvent.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\Nodes\Internal\SystemNode.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Animators\UISelectableVector2Animator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Animators\UISelectableIntAnimator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Internal\ReactionDictionary.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Animators\FloatAnimator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Components\UISelectable.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Signals\SignalStream.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Utils\LayoutUtils.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Reactions\ColorReaction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Attributes\RefreshDataAttribute.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Animators\UIToggleUIAnimator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Enums\TimerBehaviour.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Components\Internal\UISelectableComponent.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Debugger.cs" />
+    <Compile Include="Assets\Characters\Player\HealthPanel\HealthPanel.cs" />
     <Compile Include="Assets\Cards\PlayerCircuitBoard.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Nodes\BackButtonNode.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Reactions\ReflectedFloatReaction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Input\Enums\LegacyInputMode.cs" />
     <Compile Include="Assets\EditorScripts\CardCreator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Extensions\StringExtensions.cs" />
-    <Compile Include="Assets\Doozy\Runtime\SceneManagement\Nodes\UnloadSceneNode.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\RandomInt.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Reflection\ReflectedFloat.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIElements\Extensions\TextFieldExtensions.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Nodes\PortData\UIOutputPortData.cs" />
     <Compile Include="Assets\UI\FreezeXTransformPosition.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Components\UIToggle.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Enums\VisibilityBehaviour.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Layouts\Internal\SetPropertyUtility.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Triggers\PointerLeftClickTrigger.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\ScriptableObjects\UITooltipDatabase.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Signals\SignalPayload.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Events\ToggleValueChangedEvent.cs" />
     <Compile Include="Assets\Cards\Attacks\Lifetime.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Targets\Internal\ReactorSpriteTarget.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Reflection\Internal\MetaReflectedValue.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Enums\SliderState.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIDesigner\RectTransformExtensions.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Extensions\RectTransformExtensions.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Extensions\DoubleExtensions.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\ElasticEaseInEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Extensions\RectTransformExtensions.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIDesigner\Enums\Distribute.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Reactor.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Orientation\DetectedOrientationEvent.cs" />
     <Compile Include="Assets\Characters\DeathVFX\DeathVFX.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Triggers\UISubmitTrigger.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Targets\SpriteTargets\ImageSpriteTarget.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Signals\Signal.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\BackEaseInEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Internal\PropertyGetter.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Ids\UIStepperId.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\TestValues.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\Actions\SpriteModyAction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\SceneManagement\Events\SceneUnloadedEvent.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\IEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Animations\FloatAnimation.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Animators\UISelectableUIAnimator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Reactions\UIFadeReaction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\BounceEaseInOutEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Listeners\SignalListener.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Ids\UITagId.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\ScriptableObjects\Internal\PresetCategory.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Options\UIViewShowHideOption.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Triggers\PointerLongClickTrigger.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Events\Vector2Event.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Reactions\Vector3Reaction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\Enums\ControllerBehaviour.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Triggers\UITooltipTrigger.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Enums\ResetValue.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Extensions\EnumerableExtensions.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\QuadraticEaseInOutEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Targets\Internal\ReactorColorTarget.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Input\Interfaces\IUseMultiplayerInfo.cs" />
     <Compile Include="Assets\Grid\GridCube.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\RuntimeUIManagerPath.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIDesigner\Enums\Space.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\PrefabLink.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\QuinticEaseOutEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\Enums\ModuleState.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Reflection\Internal\ReflectedValue.cs" />
+    <Compile Include="Assets\Characters\Player\Levels\DelayProgressbar.cs" />
     <Compile Include="Assets\Cards\CardScriptableObject.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Animators\UIToggleSpriteAnimator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Reactions\SpriteReaction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIElements\EdgeValues.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Input\MultiplayerInfo.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Animators\UIToggleIntAnimator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIElements\UIElementsUtils.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Events\Vector4Event.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\SignalData\UIViewSignalData.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Ids\UISliderId.cs" />
-    <Compile Include="Assets\Doozy\Runtime\SceneManagement\Enums\GetSceneBy.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\Enums\RunAction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Animators\UISelectableFloatAnimator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Animators\Vector2Animator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\Nodes\System\StartNode.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIElements\Extensions\VisualElementExtensions.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\GraphStateEvent.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Nody\Nodes\PivotNode.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Animators\UISelectableColorAnimator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Audio\UIContainerSoundyAudio.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Animators\UIContainerUIAnimator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Animators\UIContainerColorAnimator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Reactions\FloatReaction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Extensions\Vector2Extensions.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Components\UIButton.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Animators\Vector3Animator.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\UISettings.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Containers\UIView.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Signals\SignalEvent.cs" />
-    <Compile Include="Assets\Doozy\Runtime\UIManager\Listeners\Vector2SignalListener.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Reactor\Easings\Eases\ElasticEaseOutEasing.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Mody\Actions\BoolModyAction.cs" />
-    <Compile Include="Assets\Doozy\Runtime\Common\Utils\CodeExampleUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Doozy\_Extras\Fonts\UFL.txt" />
@@ -597,443 +123,443 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.AIModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.AIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.ARModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.ARModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.ARModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AccessibilityModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.AccessibilityModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.AccessibilityModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AndroidJNIModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.AndroidJNIModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.AndroidJNIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AnimationModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.AnimationModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.AnimationModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AssetBundleModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.AssetBundleModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.AssetBundleModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AudioModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.AudioModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.AudioModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.ClothModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.ClothModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.ClothModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.ClusterInputModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.ClusterInputModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.ClusterInputModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.ClusterRendererModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.ClusterRendererModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.ClusterRendererModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.CommandStateObserverModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.CommandStateObserverModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.CommandStateObserverModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.ContentLoadModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.ContentLoadModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.ContentLoadModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.CrashReportingModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.CrashReportingModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.CrashReportingModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.DSPGraphModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.DSPGraphModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.DSPGraphModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.DirectorModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.DirectorModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.DirectorModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.GIModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.GIModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.GIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.GameCenterModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.GameCenterModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.GameCenterModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.GraphToolsFoundationModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.GraphToolsFoundationModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.GraphToolsFoundationModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.GridModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.GridModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.GridModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.HierarchyCoreModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.HierarchyCoreModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.HierarchyCoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.HotReloadModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.HotReloadModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.HotReloadModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.IMGUIModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.IMGUIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.ImageConversionModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.ImageConversionModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.ImageConversionModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.InputModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.InputModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.InputModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.InputForUIModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.InputForUIModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.InputForUIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.InputLegacyModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.InputLegacyModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.InputLegacyModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.JSONSerializeModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.JSONSerializeModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.JSONSerializeModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.LocalizationModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.LocalizationModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.LocalizationModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.MarshallingModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.MarshallingModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.MarshallingModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.MultiplayerModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.MultiplayerModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.MultiplayerModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.ParticleSystemModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.ParticleSystemModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.ParticleSystemModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.PerformanceReportingModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.PerformanceReportingModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.PerformanceReportingModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.PhysicsModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.PhysicsModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.PhysicsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.Physics2DModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.Physics2DModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.Physics2DModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.ProfilerModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.ProfilerModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.ProfilerModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.PropertiesModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.PropertiesModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.PropertiesModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.ScreenCaptureModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.ScreenCaptureModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.ScreenCaptureModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.SharedInternalsModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.SharedInternalsModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.SharedInternalsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.SpriteMaskModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.SpriteMaskModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.SpriteMaskModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.SpriteShapeModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.SpriteShapeModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.SpriteShapeModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.StreamingModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.StreamingModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.StreamingModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.SubstanceModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.SubstanceModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.SubstanceModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.SubsystemsModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.SubsystemsModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.SubsystemsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TLSModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.TLSModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.TLSModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TerrainModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.TerrainModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.TerrainModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TerrainPhysicsModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.TerrainPhysicsModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.TerrainPhysicsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TextCoreFontEngineModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.TextCoreFontEngineModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.TextCoreFontEngineModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TextCoreTextEngineModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.TextCoreTextEngineModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.TextCoreTextEngineModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.TextRenderingModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.TextRenderingModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TilemapModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.TilemapModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.TilemapModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UIModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.UIModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.UIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UIElementsModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.UIElementsModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.UIElementsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UmbraModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.UmbraModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.UmbraModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityAnalyticsModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityAnalyticsModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityAnalyticsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityAnalyticsCommonModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityAnalyticsCommonModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityAnalyticsCommonModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityConnectModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityConnectModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityConnectModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityCurlModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityCurlModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityCurlModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityTestProtocolModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityTestProtocolModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityTestProtocolModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestAudioModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestTextureModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestWWWModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.VFXModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.VFXModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.VFXModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.VRModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.VRModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.VRModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.VehiclesModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.VehiclesModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.VehiclesModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.VideoModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.VideoModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.VideoModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.VirtualTexturingModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.VirtualTexturingModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.VirtualTexturingModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.WindModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.WindModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.WindModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.XRModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.XRModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.XRModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.AccessibilityModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.AccessibilityModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.AccessibilityModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.AdaptivePerformanceModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.AdaptivePerformanceModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.AdaptivePerformanceModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.CoreModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.CoreModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.DeviceSimulatorModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.DeviceSimulatorModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.DeviceSimulatorModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.DiagnosticsModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.DiagnosticsModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.DiagnosticsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.EditorToolbarModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.EditorToolbarModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.EditorToolbarModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.GraphToolsFoundationModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.GraphToolsFoundationModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.GraphToolsFoundationModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.GraphViewModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.GraphViewModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.GraphViewModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.GridAndSnapModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.GridAndSnapModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.GridAndSnapModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.GridModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.GridModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.GridModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.Physics2DModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.Physics2DModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.Physics2DModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.PhysicsModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.PhysicsModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.PhysicsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.PresetsUIModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.PresetsUIModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.PresetsUIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.PropertiesModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.PropertiesModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.PropertiesModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.QuickSearchModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.QuickSearchModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.QuickSearchModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.SafeModeModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.SafeModeModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.SafeModeModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.SceneTemplateModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.SceneTemplateModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.SceneTemplateModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.SceneViewModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.SceneViewModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.SceneViewModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.ShaderFoundryModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.ShaderFoundryModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.ShaderFoundryModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.SketchUpModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.SketchUpModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.SketchUpModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.SpriteMaskModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.SpriteMaskModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.SpriteMaskModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.SpriteShapeModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.SpriteShapeModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.SpriteShapeModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.TerrainModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.TerrainModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.TerrainModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.TextCoreFontEngineModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.TextCoreFontEngineModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.TextCoreFontEngineModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.TextCoreTextEngineModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.TextCoreTextEngineModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.TextCoreTextEngineModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.TextRenderingModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.TextRenderingModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.TextRenderingModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.TilemapModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.TilemapModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.TilemapModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.TreeModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.TreeModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.TreeModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.UIAutomationModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.UIAutomationModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.UIAutomationModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.UIBuilderModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.UIBuilderModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.UIBuilderModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.UIElementsModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.UIElementsModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.UIElementsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.UIElementsSamplesModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.UIElementsSamplesModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.UIElementsSamplesModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.UnityConnectModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.VFXModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.VFXModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.VFXModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.VideoModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.VideoModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.VideoModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.XRModule">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.XRModule.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\Managed\UnityEngine\UnityEditor.XRModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Sirenix.Reflection.Editor">
@@ -1092,492 +618,500 @@
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinValidator.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Android.Types">
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Android.Gradle">
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="netstandard">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Win32.Primitives">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\Microsoft.Win32.Primitives.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\Microsoft.Win32.Primitives.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.AppContext">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.AppContext.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.AppContext.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Buffers">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Buffers.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Buffers.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Collections.Concurrent">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Collections.Concurrent.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Collections.Concurrent.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Collections">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Collections.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Collections.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Collections.NonGeneric">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Collections.NonGeneric.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Collections.NonGeneric.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Collections.Specialized">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Collections.Specialized.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Collections.Specialized.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.ComponentModel">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.ComponentModel.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.ComponentModel.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.ComponentModel.EventBasedAsync">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.ComponentModel.EventBasedAsync.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.ComponentModel.EventBasedAsync.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.ComponentModel.Primitives">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.ComponentModel.Primitives.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.ComponentModel.Primitives.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.ComponentModel.TypeConverter">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.ComponentModel.TypeConverter.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.ComponentModel.TypeConverter.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Console">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Console.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Console.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Data.Common">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Data.Common.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Data.Common.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Diagnostics.Contracts">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Diagnostics.Contracts.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Diagnostics.Contracts.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Diagnostics.Debug">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Diagnostics.Debug.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Diagnostics.Debug.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Diagnostics.FileVersionInfo">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Diagnostics.FileVersionInfo.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Diagnostics.FileVersionInfo.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Diagnostics.Process">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Diagnostics.Process.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Diagnostics.Process.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Diagnostics.StackTrace">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Diagnostics.StackTrace.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Diagnostics.StackTrace.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Diagnostics.TextWriterTraceListener">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Diagnostics.TextWriterTraceListener.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Diagnostics.TextWriterTraceListener.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Diagnostics.Tools">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Diagnostics.Tools.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Diagnostics.Tools.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Diagnostics.TraceSource">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Diagnostics.TraceSource.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Diagnostics.TraceSource.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Diagnostics.Tracing">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Diagnostics.Tracing.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Diagnostics.Tracing.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Drawing.Primitives">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Drawing.Primitives.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Drawing.Primitives.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Dynamic.Runtime">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Dynamic.Runtime.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Dynamic.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Globalization.Calendars">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Globalization.Calendars.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Globalization.Calendars.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Globalization">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Globalization.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Globalization.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Globalization.Extensions">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Globalization.Extensions.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Globalization.Extensions.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.IO.Compression">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.Compression.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.Compression.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.IO.Compression.ZipFile">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.Compression.ZipFile.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.Compression.ZipFile.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.IO">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.IO.FileSystem">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.FileSystem.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.FileSystem.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.IO.FileSystem.DriveInfo">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.FileSystem.DriveInfo.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.FileSystem.DriveInfo.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.IO.FileSystem.Primitives">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.FileSystem.Primitives.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.FileSystem.Primitives.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.IO.FileSystem.Watcher">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.FileSystem.Watcher.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.FileSystem.Watcher.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.IO.IsolatedStorage">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.IsolatedStorage.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.IsolatedStorage.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.IO.MemoryMappedFiles">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.MemoryMappedFiles.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.MemoryMappedFiles.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.IO.Pipes">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.Pipes.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.Pipes.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.IO.UnmanagedMemoryStream">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.UnmanagedMemoryStream.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.IO.UnmanagedMemoryStream.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Linq">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Linq.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Linq.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Linq.Expressions">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Linq.Expressions.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Linq.Expressions.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Linq.Parallel">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Linq.Parallel.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Linq.Parallel.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Linq.Queryable">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Linq.Queryable.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Linq.Queryable.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Memory">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Memory.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Memory.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Net.Http">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.Http.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.Http.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Net.NameResolution">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.NameResolution.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.NameResolution.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Net.NetworkInformation">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.NetworkInformation.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.NetworkInformation.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Net.Ping">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.Ping.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.Ping.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Net.Primitives">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.Primitives.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.Primitives.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Net.Requests">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.Requests.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.Requests.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Net.Security">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.Security.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.Security.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Net.Sockets">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.Sockets.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.Sockets.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Net.WebHeaderCollection">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.WebHeaderCollection.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.WebHeaderCollection.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Net.WebSockets.Client">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.WebSockets.Client.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.WebSockets.Client.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Net.WebSockets">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.WebSockets.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Net.WebSockets.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Numerics.Vectors">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Numerics.Vectors.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Numerics.Vectors.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.ObjectModel">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.ObjectModel.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.ObjectModel.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Reflection.DispatchProxy">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Reflection.DispatchProxy.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Reflection.DispatchProxy.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Reflection">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Reflection.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Reflection.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Reflection.Emit">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Reflection.Emit.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Reflection.Emit.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Reflection.Emit.ILGeneration">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Reflection.Emit.ILGeneration.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Reflection.Emit.ILGeneration.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Reflection.Emit.Lightweight">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Reflection.Emit.Lightweight.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Reflection.Emit.Lightweight.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Reflection.Extensions">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Reflection.Extensions.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Reflection.Extensions.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Reflection.Primitives">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Reflection.Primitives.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Reflection.Primitives.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Resources.Reader">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Resources.Reader.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Resources.Reader.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Resources.ResourceManager">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Resources.ResourceManager.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Resources.ResourceManager.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Resources.Writer">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Resources.Writer.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Resources.Writer.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.VisualC">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.CompilerServices.VisualC.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.CompilerServices.VisualC.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Runtime">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Runtime.Extensions">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.Extensions.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.Extensions.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Runtime.Handles">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.Handles.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.Handles.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Runtime.InteropServices">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.InteropServices.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.InteropServices.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Runtime.Numerics">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.Numerics.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.Numerics.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Runtime.Serialization.Formatters">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.Serialization.Formatters.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.Serialization.Formatters.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Runtime.Serialization.Json">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.Serialization.Json.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.Serialization.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Runtime.Serialization.Primitives">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.Serialization.Primitives.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.Serialization.Primitives.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Runtime.Serialization.Xml">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.Serialization.Xml.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Runtime.Serialization.Xml.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Security.Claims">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Security.Claims.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Security.Claims.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Security.Cryptography.Algorithms">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Security.Cryptography.Algorithms.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Security.Cryptography.Csp">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Security.Cryptography.Csp.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Security.Cryptography.Csp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Security.Cryptography.Encoding">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Security.Cryptography.Encoding.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Security.Cryptography.Encoding.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Security.Cryptography.Primitives">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Security.Cryptography.Primitives.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Security.Cryptography.Primitives.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Security.Cryptography.X509Certificates">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Security.Cryptography.X509Certificates.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Security.Principal">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Security.Principal.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Security.Principal.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Security.SecureString">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Security.SecureString.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Security.SecureString.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Text.Encoding">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Text.Encoding.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Text.Encoding.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Text.Encoding.Extensions">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Text.Encoding.Extensions.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Text.Encoding.Extensions.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Text.RegularExpressions">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Text.RegularExpressions.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Text.RegularExpressions.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Threading">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Threading.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Threading.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Threading.Overlapped">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Threading.Overlapped.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Threading.Overlapped.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Threading.Tasks">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Threading.Tasks.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Threading.Tasks.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Threading.Tasks.Extensions">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Threading.Tasks.Extensions.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Threading.Tasks.Extensions.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Threading.Tasks.Parallel">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Threading.Tasks.Parallel.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Threading.Tasks.Parallel.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Threading.Thread">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Threading.Thread.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Threading.Thread.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Threading.ThreadPool">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Threading.ThreadPool.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Threading.ThreadPool.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Threading.Timer">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Threading.Timer.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Threading.Timer.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.ValueTuple">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.ValueTuple.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.ValueTuple.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Xml.ReaderWriter">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Xml.ReaderWriter.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Xml.ReaderWriter.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Xml.XDocument">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Xml.XDocument.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Xml.XDocument.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Xml.XmlDocument">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Xml.XmlDocument.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Xml.XmlDocument.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Xml.XmlSerializer">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Xml.XmlSerializer.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Xml.XmlSerializer.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Xml.XPath">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Xml.XPath.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Xml.XPath.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Xml.XPath.XDocument">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Xml.XPath.XDocument.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Xml.XPath.XDocument.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Runtime.InteropServices.WindowsRuntime">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\Extensions\2.0.0\System.Runtime.InteropServices.WindowsRuntime.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\Extensions\2.0.0\System.Runtime.InteropServices.WindowsRuntime.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="mscorlib">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\mscorlib.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\mscorlib.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.ComponentModel.Composition">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.ComponentModel.Composition.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.ComponentModel.Composition.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Core">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Core.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Data">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Data.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Data.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Drawing">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Drawing.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Drawing.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.IO.Compression.FileSystem">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.IO.Compression.FileSystem.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.IO.Compression.FileSystem.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Net">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Net.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Net.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Numerics">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Numerics.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Numerics.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Runtime.Serialization">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Runtime.Serialization.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Runtime.Serialization.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.ServiceModel.Web">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.ServiceModel.Web.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.ServiceModel.Web.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Transactions">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Transactions.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Transactions.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Web">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Web.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Web.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Windows">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Windows.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Windows.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Xml">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Xml.Linq">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Linq.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Linq.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Xml.Serialization">
-      <HintPath>D:\Work\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
+      <HintPath>D:\Unity\2023.2.20f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="com.unity.cinemachine.editor">
@@ -1858,6 +1392,10 @@
       <Project>{1B38C5A4-90DC-54BB-9668-8C7A257E1412}</Project>
       <Name>SingularityGroup.HotReload.Runtime.Public</Name>
     </ProjectReference>
+    <ProjectReference Include="DoozyRuntime.csproj">
+      <Project>{7B843EFA-FBDE-1ACD-46C9-1C5D868AA0FA}</Project>
+      <Name>DoozyRuntime</Name>
+    </ProjectReference>
     <ProjectReference Include="CodeStage.Package2Folder.csproj">
       <Project>{F98C5489-0CF2-1F43-4E2F-FBBDEBD570C2}</Project>
       <Name>CodeStage.Package2Folder</Name>
@@ -1881,6 +1419,10 @@
     <ProjectReference Include="Plugins.csproj">
       <Project>{FA22D948-385A-6790-289A-463704EF5E9F}</Project>
       <Name>Plugins</Name>
+    </ProjectReference>
+    <ProjectReference Include="DoozyEditor.csproj">
+      <Project>{7A02897D-8D04-9E27-9C5A-53FA3E67925B}</Project>
+      <Name>DoozyEditor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
