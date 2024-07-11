@@ -298,10 +298,10 @@ public class Card : MonoBehaviour
 
             // Attack character if instigator is a character
             if (instigator.CharacterSimulation != null && charOnThisGrid != null)
-                charOnThisGrid.ChangeHealth(1, instigator);
+                charOnThisGrid.ChangeHealth(cardScriptableObject.Value, instigator);
             // Attack simulation if instigator is a simulation
             if (instigator.CharacterSimulation == null && simOnThisGrid != null)
-                simOnThisGrid.ChangeHealth(1, instigator);
+                simOnThisGrid.ChangeHealth(cardScriptableObject.Value, instigator);
 
             SpawnParticleEffectAtGridCube(instigator, attackedGridTargets[i]);
         }

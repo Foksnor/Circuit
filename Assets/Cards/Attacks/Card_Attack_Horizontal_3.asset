@@ -23,8 +23,7 @@ MonoBehaviour:
   TargetType: 0
   MoveSteps: {x: 0, y: 0}
   AttackSteps: {x: 3, y: 1}
-  AutoTargetNearest: 0
   AttackOffset: 1
-  Value: 0
+  Value: 4
   Description: Frontal cleave attack.
   MaxTimeInUse: 0.5

@@ -24,6 +24,6 @@ MonoBehaviour:
   MoveSteps: {x: 0, y: 0}
   AttackSteps: {x: 1, y: 1}
   AttackOffset: 1
-  Value: 0
+  Value: 4
   Description: Frontal attack.
   MaxTimeInUse: 0.5
