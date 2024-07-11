@@ -23,6 +23,7 @@ public class CharacterSimulation : Character
     public void SetCharacterSimInfo(Character owner, SpriteRenderer spriteRenderer)
     {
         ownerOfThisSimulation = owner;
+        health = owner.Health;
         characterSpriteRenderer.sprite = spriteRenderer.sprite;
     }
 

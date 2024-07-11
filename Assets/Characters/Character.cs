@@ -13,12 +13,12 @@ public class Character : MonoBehaviour
     [SerializeField] private GameObject ExperiencePoint = null;
     [SerializeField] private int ExperienceAmountOnDeath = 3;
     public CharacterSimulation CharacterSimulation = null;
-    public CharacterSimulation InstancedCharacterSimulation { private set; get; } = null;
+    public CharacterSimulation InstancedCharacterSimulation { get; private set; } = null;
     [HideInInspector] public bool isSimulationMarkedForDeath;
     private GameObject cardPrevisBinder = null;
     private List<GameObject> ActiveCardPrevisTiles = new List<GameObject>();
-    public int Health { get { return health; } private set { health = value; } }
-    [SerializeField] int health = 4;
+    public int Health { get { return health; } set { health = value; } }
+    [SerializeField] protected int health;
     [SerializeField] private HealthPanel healthPanel = null;
     protected bool isInvulnerable = false;
     private float cardPlaySpeed = 1;
@@ -27,7 +27,7 @@ public class Character : MonoBehaviour
     private void Awake()
     {
         if (healthPanel != null)
-            healthPanel.InstantiateHealthPanelVisuals(Health);
+            healthPanel.InstantiateHealthPanelVisuals(health);
     }
 
     private void Start()
@@ -69,9 +69,9 @@ public class Character : MonoBehaviour
         if (isInvulnerable)
             return;
 
-        healthPanel?.UpdateHealthPanel(Health, amount);
-        Health -= amount;
-        if (Health <= 0)
+        healthPanel?.UpdateHealthPanel(health, amount);
+        health -= amount;
+        if (health <= 0)
             Die();
     }
 
