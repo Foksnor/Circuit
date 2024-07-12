@@ -1,9 +1,12 @@
 fileFormatVersion: 2
-guid: 908b71c3ba81cba4286a9ba3b14df1da
+guid: 25a16ab4cb51a564c8c3b058e0af2c84
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -436359942603198564
+    second: T_Grid_Stone_0
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -34,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 148
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,19 +72,6 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -120,7 +110,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Server
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -140,18 +130,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 450
-        width: 150
-        height: 150
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7bf56c3825e9a254e9b765b680ded681
-      internalID: 901999767
+      spriteID: c9f2de2b1fcb1f9f0800000000000000
+      internalID: -436359942603198564
       vertices: []
       indices: 
       edges: []
@@ -160,10 +150,10 @@ TextureImporter:
       name: T_Grid_Stone_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 150
-        height: 150
+        x: 32
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6112fbfff0f0d94e848f26c3a0c77de
-      internalID: -1237844123
+      spriteID: c5c9476017d8bda45872b920dcb07fc0
+      internalID: -1946033983
       vertices: []
       indices: 
       edges: []
@@ -181,10 +171,10 @@ TextureImporter:
       name: T_Grid_Stone_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 150
-        width: 148
-        height: 150
+        x: 64
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95260881c07de6848a1468c87c8fffaf
-      internalID: -845600258
+      spriteID: 4d39dfa181b5104489f6cb9896264768
+      internalID: 1117062989
       vertices: []
       indices: 
       edges: []
@@ -202,10 +192,10 @@ TextureImporter:
       name: T_Grid_Stone_3
       rect:
         serializedVersion: 2
-        x: 150
-        y: 0
-        width: 149
-        height: 150
+        x: 96
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af2b1a3a167b13744ac2b368b2980e35
-      internalID: 150404572
+      spriteID: ba71b61cdd39dde40bd36334072df669
+      internalID: 955012290
       vertices: []
       indices: 
       edges: []
@@ -223,10 +213,10 @@ TextureImporter:
       name: T_Grid_Stone_4
       rect:
         serializedVersion: 2
-        x: 299
-        y: 0
-        width: 150
-        height: 150
+        x: 0
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 109dfae9a77179943908c38718764bf4
-      internalID: -504598471
+      spriteID: 276f1ba59ef29344598b292da994504c
+      internalID: -2064626384
       vertices: []
       indices: 
       edges: []
@@ -244,10 +234,10 @@ TextureImporter:
       name: T_Grid_Stone_5
       rect:
         serializedVersion: 2
-        x: 298
-        y: 150
-        width: 151
-        height: 150
+        x: 32
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,8 +245,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9cfe929b86ea09840882a2d2079954a1
-      internalID: -881665259
+      spriteID: ce9962a24c3540344b2ff8a9f8afad3e
+      internalID: -855646477
       vertices: []
       indices: 
       edges: []
@@ -265,10 +255,10 @@ TextureImporter:
       name: T_Grid_Stone_6
       rect:
         serializedVersion: 2
-        x: 148
-        y: 150
-        width: 150
-        height: 150
+        x: 64
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,8 +266,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 705f77449fb323347badfc377dcdcf9e
-      internalID: 1906161406
+      spriteID: 137d19e7e69e913428b50673f670554b
+      internalID: -1540507362
       vertices: []
       indices: 
       edges: []
@@ -286,10 +276,10 @@ TextureImporter:
       name: T_Grid_Stone_7
       rect:
         serializedVersion: 2
-        x: 0
-        y: 300
-        width: 149
-        height: 150
+        x: 96
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -297,8 +287,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6c6505bfddfa074bbc126cede7f5cff
-      internalID: -1175883359
+      spriteID: da9782a98455a2441b696daf1b2cf40c
+      internalID: 368953021
       vertices: []
       indices: 
       edges: []
@@ -307,10 +297,10 @@ TextureImporter:
       name: T_Grid_Stone_8
       rect:
         serializedVersion: 2
-        x: 149
-        y: 300
-        width: 150
-        height: 150
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -318,8 +308,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6f341f46948800448e568a475e6b7bd
-      internalID: 2005962807
+      spriteID: af32b144477ce7f4eb3b86380139b7b9
+      internalID: 2011111648
       vertices: []
       indices: 
       edges: []
@@ -328,10 +318,10 @@ TextureImporter:
       name: T_Grid_Stone_9
       rect:
         serializedVersion: 2
-        x: 299
-        y: 300
-        width: 150
-        height: 150
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -339,8 +329,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: deb80adb345efb84585d39232d64afce
-      internalID: -194356407
+      spriteID: 22beace1cb64a784ba99dc18b7bc81a9
+      internalID: -1730137766
       vertices: []
       indices: 
       edges: []
@@ -349,10 +339,10 @@ TextureImporter:
       name: T_Grid_Stone_10
       rect:
         serializedVersion: 2
-        x: 150
-        y: 450
-        width: 148
-        height: 150
+        x: 64
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -360,8 +350,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9bb1e3e9c89960498042b046f1152b1
-      internalID: -1408947363
+      spriteID: 68c2f1fbef2399e4c8ab1f5aa3b9dc4f
+      internalID: -341078794
       vertices: []
       indices: 
       edges: []
@@ -370,10 +360,10 @@ TextureImporter:
       name: T_Grid_Stone_11
       rect:
         serializedVersion: 2
-        x: 298
-        y: 450
-        width: 151
-        height: 150
+        x: 96
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -381,8 +371,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01f58f0a5f3738345ac13e558af5a1de
-      internalID: -977639588
+      spriteID: f47cced49bdde7c4b8f630c51f32c985
+      internalID: -1333792172
       vertices: []
       indices: 
       edges: []
@@ -390,7 +380,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: fe43a8bdcfe145a4a917314f78f3f997
     internalID: 0
     vertices: []
     indices: 
@@ -398,18 +388,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      T_Grid_Stone_0: 901999767
-      T_Grid_Stone_1: -1237844123
-      T_Grid_Stone_10: -1408947363
-      T_Grid_Stone_11: -977639588
-      T_Grid_Stone_2: -845600258
-      T_Grid_Stone_3: 150404572
-      T_Grid_Stone_4: -504598471
-      T_Grid_Stone_5: -881665259
-      T_Grid_Stone_6: 1906161406
-      T_Grid_Stone_7: -1175883359
-      T_Grid_Stone_8: 2005962807
-      T_Grid_Stone_9: -194356407
+      T_Grid_Stone_0: -436359942603198564
+      T_Grid_Stone_1: -1946033983
+      T_Grid_Stone_10: -341078794
+      T_Grid_Stone_11: -1333792172
+      T_Grid_Stone_2: 1117062989
+      T_Grid_Stone_3: 955012290
+      T_Grid_Stone_4: -2064626384
+      T_Grid_Stone_5: -855646477
+      T_Grid_Stone_6: -1540507362
+      T_Grid_Stone_7: 368953021
+      T_Grid_Stone_8: 2011111648
+      T_Grid_Stone_9: -1730137766
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
