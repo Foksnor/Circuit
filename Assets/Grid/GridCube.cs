@@ -17,7 +17,8 @@ public class GridCube : MonoBehaviour
     [SerializeField] private GameObject visualElevation = null;
     public Character CharacterOnThisGrid { private set; get; }
     public Character SimulationOnThisGrid { private set; get; }
-    public GameObject MovementIndicator, DamageIndicator;
+    public GameObject MovementPlayerIndicator, DamagePlayerIndicator,
+                        MovementEnemyIndicator, DamageEnemyIndicator;
 
     private void Awake()
     {
@@ -45,17 +46,24 @@ public class GridCube : MonoBehaviour
         visualElevation.transform.position = gridPosition + new Vector3(0, 0, Height);
     }
 
-    public GameObject GetIndicatorVisual(CardScriptableObject cardScriptable)
+    public GameObject GetIndicatorVisual(Character targetCharacter, CardScriptableObject cardScriptable)
     {
         GameObject indicatorvisual;
+
         switch (cardScriptable.CardType)
         {
             default:
             case CardScriptableObject._CardType.Movement:
-                indicatorvisual = MovementIndicator;
+                if (targetCharacter.TeamType == Character._TeamType.Player)
+                    indicatorvisual = MovementPlayerIndicator;
+                else
+                    indicatorvisual = MovementEnemyIndicator;
                 break;
             case CardScriptableObject._CardType.Attack:
-                indicatorvisual = DamageIndicator;
+                if (targetCharacter.TeamType == Character._TeamType.Player)
+                    indicatorvisual = DamagePlayerIndicator;
+                else
+                    indicatorvisual = DamageEnemyIndicator;
                 break;
         }
         return indicatorvisual;

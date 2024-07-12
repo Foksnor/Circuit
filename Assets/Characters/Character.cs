@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    public _TeamType TeamType;
+    public enum _TeamType { Player, Enemy, Neutral };
     public CircuitBoard CircuitBoard;
     public GridCube AssignedGridCube { private set; get; }
     [SerializeField] protected SpriteRenderer characterSpriteRenderer = null;
@@ -22,6 +24,7 @@ public class Character : MonoBehaviour
     [SerializeField] private HealthPanel healthPanel = null;
     protected bool isInvulnerable = false;
     private float cardPlaySpeed = 1;
+    
     public float cardSimulationSpeedModifier { private set; get; } = 2;
 
     private void Awake()
@@ -118,18 +121,32 @@ public class Character : MonoBehaviour
         InstancedCharacterSimulation = Instantiate(CharacterSimulation, transform);
         InstancedCharacterSimulation.SetCharacterSimInfo(this, characterSpriteRenderer);
         InstancedCharacterSimulation.ChangeDestinationGrid(AssignedGridCube, cardPlaySpeed * cardSimulationSpeedModifier);
+        isSimulationMarkedForDeath = false;
     }
 
-    public virtual void ToggleCardPrevis(bool isShowingPrevis, GameObject tilevisual, float angle)
+    public virtual void ToggleCardPrevis(bool isShowingPrevis, int cardNumber, GameObject tilevisual, float angle)
     {
         if (cardPrevisBinder == null)
             cardPrevisBinder = new GameObject("CardPrevisBinder");
+
+        // Cannot show card previs when simulation is marked for death
+        if (isSimulationMarkedForDeath)
+            isShowingPrevis = false;
 
         if (isShowingPrevis)
         {
             if (!ActiveCardPrevisTiles.Contains(tilevisual))
             {
-                ActiveCardPrevisTiles.Add(tilevisual);
+                if (cardNumber < ActiveCardPrevisTiles.Count && ActiveCardPrevisTiles.Count > 0)
+                {
+                    // Remove tile previs at index
+                    // This can happen when a character changes the card calculation of someone else
+                    // E.g. Player is walking on the same path as an enemy, preventing the enemy from reaching it's destination
+                    Destroy(cardPrevisBinder.transform.GetChild(cardNumber).gameObject);
+                    ActiveCardPrevisTiles[cardNumber] = tilevisual;
+                }
+                else
+                    ActiveCardPrevisTiles.Add(tilevisual);
                 tilevisual = Instantiate(tilevisual, tilevisual.transform.position, transform.rotation);
                 tilevisual.transform.eulerAngles = new Vector3(0, 0, angle);
                 tilevisual.transform.parent = cardPrevisBinder.transform;

@@ -51,6 +51,7 @@ public class Entity_Spawner : MonoBehaviour
         GridCube playerSpawnPos = GridPositions.GetGridByPosition(startingPosition);
         player.transform.position = playerSpawnPos.transform.position;
         player.ChangeDestinationGrid(playerSpawnPos, 1);
+        player.TeamType = Character._TeamType.Player;
         return player;
     }
 
@@ -61,6 +62,7 @@ public class Entity_Spawner : MonoBehaviour
         GridCube enemySpawnPos = GridPositions._GridCubes[GridPositions._GridCubes.Count - rngRow];
         e.transform.position = enemySpawnPos.transform.position;
         e.ChangeDestinationGrid(enemySpawnPos, 1);
+        e.TeamType = Character._TeamType.Enemy;
         return e;
     }
 }
