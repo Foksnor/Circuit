@@ -163,27 +163,23 @@ public class Card : MonoBehaviour
                 // Handles the Y steps in the attack
                 Vector2 attackPosAfterStepY = new Vector2 (savedGridUsedByPreviousCard.Position.x, savedGridUsedByPreviousCard.Position.y + (attackStepY * directionMultiplier));
 
-                if (isSetupPhase)
-                {
-                    // Offset the attack width so the attack is always centered
-                    int attackWidthOffset = 1 + Mathf.CeilToInt(attackSteps.x / 2);
+                // Offset the attack width so the attack is always centered
+                int attackWidthOffset = 1 + Mathf.CeilToInt(attackSteps.x / 2);
 
-                    for (int attackStepX = 1; attackStepX < attackSteps.x + 1; attackStepX++)
+                for (int attackStepX = 1; attackStepX < attackSteps.x + 1; attackStepX++)
+                {
+                    Vector2 attackPosAfterStepX = new Vector2 (attackPosAfterStepY.x - attackWidthOffset + attackStepX, attackPosAfterStepY.y);
+                    GridCube result = GridPositions.GetGridByPosition(attackPosAfterStepX);
+                    if (result != null)
                     {
-                        Vector2 attackPosAfterStepX = new Vector2 (attackPosAfterStepY.x - attackWidthOffset + attackStepX, attackPosAfterStepY.y);
-                        GridCube result = GridPositions.GetGridByPosition(attackPosAfterStepX);
-                        if (result != null)
+                        // Handles X steps in the attack
+                        if (ValidateGridPosition.CanAttack(savedGridUsedByPreviousCard, result, attackStepY))
                         {
-                            // Handles X steps in the attack
-                            if (ValidateGridPosition.CanAttack(savedGridUsedByPreviousCard, result, attackStepY))
-                            {
-                                targetedGrid = result;
-                                // Tile based previs
-                                GameObject tilevisual = targetedGrid.GetIndicatorVisual(targetCharacter, cardScriptableObject);
-                                targetCharacter.ToggleCardPrevis(isSetupPhase, cardNumber, tilevisual, 0);
-                                if (isSetupPhase)
-                                    attackedGridTargets.Add(targetedGrid);
-                            }
+                            targetedGrid = result;
+                            // Tile based previs
+                            GameObject tilevisual = targetedGrid.GetIndicatorVisual(targetCharacter, cardScriptableObject);
+                            targetCharacter.ToggleCardPrevis(isSetupPhase, cardNumber, tilevisual, 0);
+                            attackedGridTargets.Add(targetedGrid);
                         }
                     }
                 }
@@ -304,7 +300,6 @@ public class Card : MonoBehaviour
 
             SpawnParticleEffectAtGridCube(instigator, attackedGridTargets[i]);
         }
-        attackedGridTargets.Clear();
     }
 
     private void SpawnParticleEffectAtGridCube(Character instigator, GridCube cube)

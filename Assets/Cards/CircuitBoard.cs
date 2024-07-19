@@ -133,9 +133,9 @@ public class CircuitBoard : MonoBehaviour
             {
                 UpdateCardOrder();
                 AllignCardOnCircuitBoard(cardNumber);
+                // TODO: voeg toe dat spelers aan het begin van hun beurt een nieuwe hand van kaarten uit hun deck trekt, en dan er een mogen kiezen, daarna moet deze onderstaande functie aangeroepen worden. :)
+                previsGrid = activeCards[cardNumber].CalculateGridCubeDestination(targetCharacter, previsGrid, cardNumber, isSetupPhase);
             }
-            // TODO: voeg toe dat spelers aan het begin van hun beurt een nieuwe hand van kaarten uit hun deck trekt, en dan er een mogen kiezen, daarna moet deze onderstaande functie aangeroepen worden. :)
-            previsGrid = activeCards[cardNumber].CalculateGridCubeDestination(targetCharacter, previsGrid, cardNumber, isSetupPhase);
             ToggleInteractableCardStateOnCircuitBoard(cardNumber, isSetupPhase);
         }
     }
