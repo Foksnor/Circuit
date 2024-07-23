@@ -9,6 +9,9 @@ public static class ValidateGridPosition
         if (IsDestinationOccupiedByARelative(targetCharacter, startingCube, destinationCube, checkForSimulation))
             return false;
 
+        if (IsDesitionationTooHigh(startingCube, destinationCube))
+            return false;
+
         // Can move 1 step if destination is 1 step away
         if ((startingCube.transform.position - destinationCube.transform.position).magnitude <= 1)
             return true;
@@ -24,7 +27,10 @@ public static class ValidateGridPosition
     public static bool CanStepY(Character targetCharacter, GridCube startingCube, GridCube destinationCube, bool checkForSimulation)
     {
         if (IsDestinationOccupiedByARelative(targetCharacter, startingCube, destinationCube, checkForSimulation))
-            return false;        
+            return false;
+
+        if (IsDesitionationTooHigh(startingCube, destinationCube))
+            return false;
 
         // Can move 1 step if destination is 1 step away
         if ((startingCube.transform.position - destinationCube.transform.position).magnitude <= 1)
@@ -66,6 +72,18 @@ public static class ValidateGridPosition
         }
 
         return false;
+    }
+
+    private static bool IsDesitionationTooHigh(GridCube startingCube, GridCube destinationCube)
+    {
+        // Elevation in this project is determined by how far a gridcube goes to the front of the camera, which is a number that goes into the negative
+        // A higher negative value means a higher elevation
+        // Characters cannot walk up tiles that are higher than 1 meter
+        if (Mathf.Abs(startingCube.Height - destinationCube.Height) >= 1 &&
+            startingCube.Height >= destinationCube.Height)
+            return true;
+    
+        return false; 
     }
 }
 
