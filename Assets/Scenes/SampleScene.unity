@@ -576,7 +576,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cf87098e1c387647919044a66f95ceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entitySpawner: {fileID: 961207206}
   maxTurnTime: 999
   enemySpawnEveryXRounds: 2
 --- !u!114 &961207206

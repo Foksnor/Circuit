@@ -135,7 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TeamType: 0
   CircuitBoard: {fileID: 0}
-  characterSpriteRenderer: {fileID: 1227327109424664455}
+  CharacterSpriteRenderer: {fileID: 1227327109424664455}
   characterAnimator: {fileID: 139656261983382513}
   deathVFX: {fileID: 6365781379737220186, guid: 6be02c20730e74749bb93c43639905cb, type: 3}
   ExperiencePoint: {fileID: 6649261707910977894, guid: c2a193ce76f91f343820b7b179602084, type: 3}

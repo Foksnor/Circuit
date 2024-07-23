@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TransitionTurns : MonoBehaviour
 {
-    [SerializeField] private Entity_Spawner entitySpawner;
     private Character player;
 
     [SerializeField] private float maxTurnTime = 8;
@@ -118,8 +117,8 @@ public class TransitionTurns : MonoBehaviour
 
     private void InitiateFirstTurn()
     {
-        entitySpawner.InitiateFirstChunk();
-        player = entitySpawner.SpawnPlayer();
+        SpawnerFunctions.Instance.InitiateFirstChunk();
+        player = SpawnerFunctions.Instance.SpawnPlayer();
         CharacterTeams._PlayerTeamCharacters.Add(player);
         curTurnTime = maxTurnTime;
     }
@@ -142,7 +141,7 @@ public class TransitionTurns : MonoBehaviour
         ForceResetCardProcessing(CharacterTeams._EnemyTeamCharacters);
 
         // QQQ TODO: number of rows being added needs to be the same as the amount of Y steps the player took this turn
-        entitySpawner.AddRow(4);
+        SpawnerFunctions.Instance.AddRow(4);
     }
 
     private void DecideEnemySpawn()
@@ -151,7 +150,7 @@ public class TransitionTurns : MonoBehaviour
         if (enemySpawnCooldown < 0)
         {
             enemySpawnCooldown = enemySpawnEveryXRounds;
-            CharacterTeams._EnemyTeamCharacters.Add(entitySpawner.SpawnEnemy());
+            CharacterTeams._EnemyTeamCharacters.Add(SpawnerFunctions.Instance.SpawnEnemyAtLevelEdge());
         }
     }
 

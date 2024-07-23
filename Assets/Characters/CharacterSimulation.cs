@@ -24,7 +24,7 @@ public class CharacterSimulation : Character
     {
         ownerOfThisSimulation = owner;
         health = owner.Health;
-        characterSpriteRenderer.sprite = spriteRenderer.sprite;
+        CharacterSpriteRenderer.sprite = spriteRenderer.sprite;
     }
 
     public void ToggleCharacterSimHighlight(bool isHighlighted)

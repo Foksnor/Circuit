@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Entity_Spawner : MonoBehaviour
@@ -11,6 +12,10 @@ public class Entity_Spawner : MonoBehaviour
     [SerializeField] private Vector2 startingPosition;
     [SerializeField] private Character enemyWeakMelee, enemyWeakRanged;
 
+    private void Awake()
+    {
+        SpawnerFunctions.Instance = this;
+    }
 
     public void InitiateFirstChunk()
     {
@@ -48,21 +53,36 @@ public class Entity_Spawner : MonoBehaviour
     public Character SpawnPlayer()
     {
         player = Instantiate(player);
-        GridCube playerSpawnPos = GridPositions.GetGridByPosition(startingPosition);
-        player.transform.position = playerSpawnPos.transform.position;
-        player.ChangeDestinationGrid(playerSpawnPos, 1);
+        GridCube cubePlayerSpawnsOnTopOff = GridPositions.GetGridByPosition(startingPosition);
+        player.transform.position = cubePlayerSpawnsOnTopOff.transform.position;
+        player.ChangeDestinationGrid(cubePlayerSpawnsOnTopOff, 1);
         player.TeamType = Character._TeamType.Player;
         return player;
     }
 
-    public Character SpawnEnemy()
+    public Character SpawnEnemyAtLevelEdge()
     {
         Character e = Instantiate(enemyWeakMelee);
         int rngRow = (int)Random.Range(1, 5);
-        GridCube enemySpawnPos = GridPositions._GridCubes[GridPositions._GridCubes.Count - rngRow];
-        e.transform.position = enemySpawnPos.transform.position;
-        e.ChangeDestinationGrid(enemySpawnPos, 1);
+        GridCube cubeEnemySpawnsOnTopOff = GridPositions._GridCubes[GridPositions._GridCubes.Count - rngRow];
+        e.transform.position = cubeEnemySpawnsOnTopOff.transform.position;
+        e.ChangeDestinationGrid(cubeEnemySpawnsOnTopOff, 1);
         e.TeamType = Character._TeamType.Enemy;
         return e;
     }
+
+    public Character SpawnSpecificCharacter(Character character, Vector2 position, Character._TeamType teamType)
+    {
+        Character c = Instantiate(character);
+        GridCube cubeCharacterSpawnsOnTopOff = GridPositions.GetGridByPosition(position);
+        c.transform.position = cubeCharacterSpawnsOnTopOff.transform.position;
+        c.ChangeDestinationGrid(cubeCharacterSpawnsOnTopOff, 1);
+        c.TeamType = teamType;
+        return c;
+    }
+}
+
+public static class SpawnerFunctions
+{
+    public static Entity_Spawner Instance { get; set; } = null;
 }
