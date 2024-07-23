@@ -18,3 +18,17 @@ Sirenix.OdinInspector.Modules.UnityMathematics.csproj
 Plugins.csproj
 JD.EditorAudioUtils.Editor.csproj
 CodeStage.Package2Folder.csproj
+Assembly-CSharp.csproj
+AssetCleaner.csproj
+AssetInventory.Editor.csproj
+AssetInventory.Examples.csproj
+AssetInventory.Examples.Editor.csproj
+CodeStage.Package2Folder.csproj
+DoozyEditor.csproj
+DoozyRuntime.csproj
+JD.EditorAudioUtils.Editor.csproj
+Plugins.csproj
+SingularityGroup.HotReload.Editor.csproj
+SingularityGroup.HotReload.Runtime.csproj
+SingularityGroup.HotReload.Runtime.Public.csproj
+Sirenix.OdinInspector.Modules.UnityMathematics.csproj
