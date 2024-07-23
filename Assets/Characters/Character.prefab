@@ -54,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a9f8aeb8701fcd740aba1ca41b19864e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 05c489fbe4f4c6845a4a5d748ba82eda, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce308b8946f13b7458749534942ec6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TeamType: 0
   CircuitBoard: {fileID: 0}
   characterSpriteRenderer: {fileID: 1227327109424664455}
   characterAnimator: {fileID: 139656261983382513}
@@ -141,6 +142,8 @@ MonoBehaviour:
   ExperienceAmountOnDeath: 3
   CharacterSimulation: {fileID: 5176291571335548904, guid: a812bdf64b4d9e245ae6a4d13d02009a, type: 3}
   isSimulationMarkedForDeath: 0
+  health: 0
+  healthPanel: {fileID: 0}
 --- !u!95 &139656261983382513
 Animator:
   serializedVersion: 7

@@ -610,8 +610,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16e4f234c70187348b900d0499df6b27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpriteTransformOrientation: {x: 0, y: -30, z: 90}
-  SpriteTransformOffset: {x: 0, y: 0, z: 0.3}
+  SpriteTransformOrientation: {x: 0, y: -55, z: 90}
+  SpriteTransformOffset: {x: 0.4, y: 0, z: -0.4}
 --- !u!1 &1689630847
 GameObject:
   m_ObjectHideFlags: 0

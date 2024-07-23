@@ -5000,7 +5000,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a9f8aeb8701fcd740aba1ca41b19864e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5079,6 +5079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e76a1869853284f9056030a7d28cfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TeamType: 0
   CircuitBoard: {fileID: 0}
   characterSpriteRenderer: {fileID: 7022178285850042869}
   characterAnimator: {fileID: 6486095623281261906}
@@ -5087,6 +5088,8 @@ MonoBehaviour:
   ExperienceAmountOnDeath: 0
   CharacterSimulation: {fileID: 0}
   isSimulationMarkedForDeath: 0
+  health: 0
+  healthPanel: {fileID: 0}
   VisualRootAnimator: {fileID: 6413219162792801199}
 --- !u!95 &6486095623281261906
 Animator:
