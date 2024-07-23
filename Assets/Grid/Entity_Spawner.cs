@@ -56,7 +56,7 @@ public class Entity_Spawner : MonoBehaviour
         GridCube cubePlayerSpawnsOnTopOff = GridPositions.GetGridByPosition(startingPosition);
         player.transform.position = cubePlayerSpawnsOnTopOff.transform.position;
         player.ChangeDestinationGrid(cubePlayerSpawnsOnTopOff, 1);
-        player.TeamType = Character._TeamType.Player;
+        CharacterTeams._PlayerTeamCharacters.Add(player);
         return player;
     }
 
@@ -67,7 +67,7 @@ public class Entity_Spawner : MonoBehaviour
         GridCube cubeEnemySpawnsOnTopOff = GridPositions._GridCubes[GridPositions._GridCubes.Count - rngRow];
         e.transform.position = cubeEnemySpawnsOnTopOff.transform.position;
         e.ChangeDestinationGrid(cubeEnemySpawnsOnTopOff, 1);
-        e.TeamType = Character._TeamType.Enemy;
+        CharacterTeams._EnemyTeamCharacters.Add(e);
         return e;
     }
 
@@ -78,6 +78,18 @@ public class Entity_Spawner : MonoBehaviour
         c.transform.position = cubeCharacterSpawnsOnTopOff.transform.position;
         c.ChangeDestinationGrid(cubeCharacterSpawnsOnTopOff, 1);
         c.TeamType = teamType;
+        switch (teamType)
+        {
+            case Character._TeamType.Player:
+                CharacterTeams._PlayerTeamCharacters.Add(c);
+                break;
+            case Character._TeamType.Enemy:
+                CharacterTeams._EnemyTeamCharacters.Add(c);
+                break;
+            case Character._TeamType.Neutral:
+                CharacterTeams._EnemyTeamCharacters.Add(c);
+                break;
+        }
         return c;
     }
 }

@@ -119,7 +119,6 @@ public class TransitionTurns : MonoBehaviour
     {
         SpawnerFunctions.Instance.InitiateFirstChunk();
         player = SpawnerFunctions.Instance.SpawnPlayer();
-        CharacterTeams._PlayerTeamCharacters.Add(player);
         curTurnTime = maxTurnTime;
     }
 
@@ -150,7 +149,7 @@ public class TransitionTurns : MonoBehaviour
         if (enemySpawnCooldown < 0)
         {
             enemySpawnCooldown = enemySpawnEveryXRounds;
-            CharacterTeams._EnemyTeamCharacters.Add(SpawnerFunctions.Instance.SpawnEnemyAtLevelEdge());
+            SpawnerFunctions.Instance.SpawnEnemyAtLevelEdge();
         }
     }
 
