@@ -12,7 +12,7 @@ public class CharacterSpawnpoint : MonoBehaviour
     [SerializeField] private Transform[] positions;
     private Rect gizmoRect;
 
-    private void Awake()
+    private void Start()
     {
         // If no positions are defined, default to the transform where this component is attached to
         if (positions.IsNullOrEmpty())
@@ -26,7 +26,10 @@ public class CharacterSpawnpoint : MonoBehaviour
 
         // Spawn character if the odds meet at the selected position
         if (UnityEngine.Random.Range(0, 100) <= appareanceChance)
+        {
             SpawnerFunctions.Instance.SpawnSpecificCharacter(characterToSpawnHere, positions[i].position, characterToSpawnHere.TeamType);
+            Destroy(gameObject);
+        }
     }
 
     private void OnDrawGizmos()
