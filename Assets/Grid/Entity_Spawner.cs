@@ -53,6 +53,7 @@ public class Entity_Spawner : MonoBehaviour
     public Character SpawnPlayer()
     {
         player = Instantiate(player);
+		player.CircuitBoard.CalculateAllCards(player, false);
         GridCube cubePlayerSpawnsOnTopOff = GridPositions.GetGridByPosition(startingPosition);
         player.transform.position = cubePlayerSpawnsOnTopOff.transform.position;
         player.ChangeDestinationGrid(cubePlayerSpawnsOnTopOff, 1);
@@ -63,6 +64,7 @@ public class Entity_Spawner : MonoBehaviour
     public Character SpawnEnemyAtLevelEdge()
     {
         Character e = Instantiate(enemyWeakMelee);
+		e.CircuitBoard.CalculateAllCards(e, false);
         int rngRow = (int)Random.Range(1, 5);
         GridCube cubeEnemySpawnsOnTopOff = GridPositions._GridCubes[GridPositions._GridCubes.Count - rngRow];
         e.transform.position = cubeEnemySpawnsOnTopOff.transform.position;
@@ -71,10 +73,11 @@ public class Entity_Spawner : MonoBehaviour
         return e;
     }
 
-    public Character SpawnSpecificCharacter(Character character, Vector2 position, Character._TeamType teamType)
+    public Character SpawnSpecificCharacter(Character character, Vector2 spawnPosition, Character._TeamType teamType)
     {
         Character c = Instantiate(character);
-        GridCube cubeCharacterSpawnsOnTopOff = GridPositions.GetGridByPosition(position);
+        c.CircuitBoard.CalculateAllCards(c, false);
+        GridCube cubeCharacterSpawnsOnTopOff = GridPositions.GetGridByPosition(spawnPosition);
         c.transform.position = cubeCharacterSpawnsOnTopOff.transform.position;
         c.ChangeDestinationGrid(cubeCharacterSpawnsOnTopOff, 1);
         c.TeamType = teamType;

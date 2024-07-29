@@ -75,7 +75,6 @@
     <Compile Include="Assets\Characters\CharacterSimulation.cs" />
     <Compile Include="Assets\EditorScripts\CardCreatorInspector.cs" />
     <Compile Include="Assets\Grid\Biome\BiomeChunk.cs" />
-    <Compile Include="Assets\Characters\Enemy\EnemySpawner.cs" />
     <Compile Include="Assets\Characters\CharacterTeams.cs" />
     <Compile Include="Assets\Doozy\_Examples\E24 - Popup - with Two Buttons\ShowTwoButtonsPopup.cs" />
     <Compile Include="Assets\UI\DebugMenu.cs" />
@@ -109,6 +108,7 @@
     <Compile Include="Assets\UI\FreezeXTransformPosition.cs" />
     <Compile Include="Assets\Cards\Attacks\Lifetime.cs" />
     <Compile Include="Assets\Characters\DeathVFX\DeathVFX.cs" />
+    <Compile Include="Assets\Characters\CharacterSpawnpoint.cs" />
     <Compile Include="Assets\Grid\GridCube.cs" />
     <Compile Include="Assets\Characters\Player\Levels\DelayProgressbar.cs" />
     <Compile Include="Assets\Cards\CardScriptableObject.cs" />
