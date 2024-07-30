@@ -309,12 +309,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78b33527d79de2479f690dfe2126d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterToSpawnHere: {fileID: 1957793412199929724, guid: 69023d50af278324b87b5202712490ae, type: 3}
-  appareanceChance: 50
+  charactersToSpawnHere:
+  - {fileID: 1957793412199929724, guid: 69023d50af278324b87b5202712490ae, type: 3}
+  appareanceChance: 100
   positions:
   - {fileID: 7469790459440600152}
   - {fileID: 135698979946422320}
   - {fileID: 2546383815692972460}
+  - {fileID: 6872229352122563065}
 --- !u!1 &4973320125599817224
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +361,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78b33527d79de2479f690dfe2126d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterToSpawnHere: {fileID: 1957793412199929724, guid: 328226dd3127c204bb314fbfbba17cef, type: 3}
+  charactersToSpawnHere:
+  - {fileID: 1957793412199929724, guid: 328226dd3127c204bb314fbfbba17cef, type: 3}
   appareanceChance: 50
   positions: []
 --- !u!1 &5259027602630858055
@@ -607,7 +610,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78b33527d79de2479f690dfe2126d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterToSpawnHere: {fileID: 1957793412199929724, guid: 328226dd3127c204bb314fbfbba17cef, type: 3}
+  charactersToSpawnHere:
+  - {fileID: 1957793412199929724, guid: 328226dd3127c204bb314fbfbba17cef, type: 3}
   appareanceChance: 50
   positions: []
 --- !u!1 &7920823141764030714
@@ -654,7 +658,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78b33527d79de2479f690dfe2126d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterToSpawnHere: {fileID: 1957793412199929724, guid: 328226dd3127c204bb314fbfbba17cef, type: 3}
+  charactersToSpawnHere:
+  - {fileID: 1957793412199929724, guid: 328226dd3127c204bb314fbfbba17cef, type: 3}
   appareanceChance: 50
   positions: []
 --- !u!1 &9076224296904915623
@@ -719,7 +724,7 @@ Transform:
   m_GameObject: {fileID: 9182836052441255803}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 8, z: 0}
+  m_LocalPosition: {x: 1, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -741,12 +746,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78b33527d79de2479f690dfe2126d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterToSpawnHere: {fileID: 1957793412199929724, guid: 69023d50af278324b87b5202712490ae, type: 3}
-  appareanceChance: 50
+  charactersToSpawnHere:
+  - {fileID: 1957793412199929724, guid: 69023d50af278324b87b5202712490ae, type: 3}
+  appareanceChance: 100
   positions:
   - {fileID: 4637216321959128288}
   - {fileID: 124982198150175006}
   - {fileID: 2828645377547146724}
+  - {fileID: 4813434886567844095}
 --- !u!1001 &153799775011188742
 PrefabInstance:
   m_ObjectHideFlags: 0

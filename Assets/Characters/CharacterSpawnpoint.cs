@@ -7,38 +7,51 @@ using UnityEngine;
 public class CharacterSpawnpoint : MonoBehaviour
 {
     // TODO QQQ: Gradualy spawn more enemies when difficulty should increase
-    [SerializeField] private Character characterToSpawnHere;
+    [SerializeField] private Character[] charactersToSpawnHere;
     [Range(1, 100)] public int appareanceChance = 50;
-    [SerializeField] private Transform[] positions;
+    [SerializeField] private List<Transform> positions = new List<Transform>();
     private Rect gizmoRect;
 
     private void Start()
     {
         // If no positions are defined, default to the transform where this component is attached to
         if (positions.IsNullOrEmpty())
-        {
-            positions = new Transform[1];
-            positions[0] = transform;
-        }
+            positions.Add(transform);
 
-        // Select a random position
-        int i = UnityEngine.Random.Range(1, positions.Length) - 1;
-
-        // Spawn character if the odds meet at the selected position
-        if (UnityEngine.Random.Range(0, 100) <= appareanceChance)
+        // Cycles through a rotation of spawn functions for the charactersToSpawnHere array
+        for (int characterNumber = 0; characterNumber < charactersToSpawnHere.Length; characterNumber++)
         {
-            SpawnerFunctions.Instance.SpawnSpecificCharacter(characterToSpawnHere, positions[i].position, characterToSpawnHere.TeamType);
-            Destroy(gameObject);
+            // Ignore any positions that already have a character on top of it
+            for (int i = 0; i < positions.Count; i++)
+            {
+                GridCube cubeCharacterSpawnsOnTopOff = GridPositions.GetGridByPosition(positions[i].position);
+
+                // Remove this position from the list if (another) character is on top of the position already
+                if (cubeCharacterSpawnsOnTopOff.CharacterOnThisGrid != null)
+                    positions.RemoveAt(i);
+            }
+
+            // Select a random position from the list of positions
+            int chosenPositionIndex = UnityEngine.Random.Range(1, positions.Count) - 1;
+
+            // Spawn character if the odds meet at the selected position
+            if (UnityEngine.Random.Range(0, 100) <= appareanceChance)
+            {
+                SpawnerFunctions.Instance.SpawnSpecificCharacter(charactersToSpawnHere[characterNumber], positions[chosenPositionIndex].position, charactersToSpawnHere[characterNumber].TeamType);
+                // After spawning that character, remove that position from the available spawn points
+                positions.RemoveAt(chosenPositionIndex);
+            }
         }
+        Destroy(gameObject);
     }
 
     private void OnDrawGizmos()
     {
-        // Draws the sprite of the character as a gizmo
-        if (characterToSpawnHere != null)
+        // Draws the sprite of the character as a gizmo on this transform
+        if (!charactersToSpawnHere.IsNullOrEmpty())
         {
             gizmoRect = new Rect(transform.position, Vector2.zero);
-            Gizmos.DrawGUITexture(gizmoRect, characterToSpawnHere.CharacterSpriteRenderer.sprite.texture, 1, 1, 1, 1);
+            Gizmos.DrawGUITexture(gizmoRect, charactersToSpawnHere[0].CharacterSpriteRenderer.sprite.texture, 1, 1, 1, 1);
         }
     }
 }
