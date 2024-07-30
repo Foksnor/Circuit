@@ -45,10 +45,20 @@ public class Character : MonoBehaviour
 
     public void ChangeDestinationGrid(GridCube newDestinationInGrid, float speedModifier)
     {
+        // Cannot change destination if no destination is passed
+        if (newDestinationInGrid == null)
+            return;
+
+        // Remove character reference on grid
+        // First time this function has passed, the character hasn't been assigned a gridcube yet
         if (AssignedGridCube != null)
             AssignedGridCube.RemoveCharacterOnGrid(this);
+
+        // Place character reference on the new grid
         newDestinationInGrid.SetCharacterOnGrid(this);
         AssignedGridCube = newDestinationInGrid;
+
+        // cardplayspeed is used for things such as time required for the character to reach it's destination cube
         cardPlaySpeed = 1 / speedModifier;
 
         // If character is a simulation, up their card play speed
