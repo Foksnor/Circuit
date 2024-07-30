@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Doozy.Runtime.Reactor;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,7 @@ public class DelayProgressbar : MonoBehaviour
 {
     [SerializeField]
     private Progressor progressor;
-    private float progressorValueLastFrame;
+    private float progressorValueLastFrame, progressbarImageValueBeforeLerp;
     [SerializeField]
     private Image progressbarImage;
     [SerializeField]
@@ -17,20 +18,19 @@ public class DelayProgressbar : MonoBehaviour
 
     private void Update()
     {
-        timer -= Time.deltaTime;
+        timer += Time.deltaTime;
 
         // If progressor value changed since last frame
         if (progressorValueLastFrame != progressor.currentValue)
         {
-            timer = delayTime;
+            timer = -delayTime;
+            progressbarImageValueBeforeLerp = progressbarImage.fillAmount;
             progressorValueLastFrame = progressor.currentValue;
         }
 
-        if (timer <= 0)
-        {
-            if (progressbarImage.fillAmount < progressor.currentValue)
-                progressbarImage.fillAmount += Time.deltaTime * speed;
-        }
+        if (timer >= 0 &&
+            progressbarImage.fillAmount != progressor.currentValue)
+            progressbarImage.fillAmount = Mathf.Lerp(progressbarImageValueBeforeLerp, progressor.currentValue, timer * speed);
 
         // Reset the delayed fill when the progressor value is either lower or has been reset
         if (progressor.currentValue == 0)

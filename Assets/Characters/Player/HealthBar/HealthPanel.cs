@@ -23,8 +23,8 @@ public class HealthPanel : MonoBehaviour
     {
         // Update the sprite animator values when health changes in current segment
         int curSegment = Mathf.CeilToInt(Health / 4);
-        int curHealthInSegment = (curSegment * 4) - Health;
-        healthSegments[curSegment].UpdateAnimator(curHealthInSegment, HealthLost);
+        int curHealthInSegment = Health - ((curSegment - 1) * 4);
+        healthSegments[curSegment - 1].UpdateAnimator(curHealthInSegment, Mathf.Max(0, HealthLost));
 
         // Checking to see if the health lost results in changes in a different segment
         int newHealth = Health - HealthLost;
@@ -33,9 +33,8 @@ public class HealthPanel : MonoBehaviour
         // When last statement is true; continue this process for the next health segment
         if (newSegment < curSegment)
         {
-            curHealthInSegment = (newSegment * 4) - newHealth;
-            int remainingHealthLost = 4 - curHealthInSegment;
-            healthSegments[curSegment].UpdateAnimator(curHealthInSegment, remainingHealthLost);
+            curHealthInSegment = newHealth - ((newSegment - 1) * 4);
+            healthSegments[curSegment - 1].UpdateAnimator(curHealthInSegment, curHealthInSegment);
         }
     }
 }
