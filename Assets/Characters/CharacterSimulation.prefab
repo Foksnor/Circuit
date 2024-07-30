@@ -5089,7 +5089,8 @@ MonoBehaviour:
   CharacterSimulation: {fileID: 0}
   isSimulationMarkedForDeath: 0
   health: 0
-  healthPanel: {fileID: 0}
+  maxHealth: 0
+  healthBar: {fileID: 0}
   VisualRootAnimator: {fileID: 6413219162792801199}
 --- !u!95 &6486095623281261906
 Animator:
@@ -5125,4 +5126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a23896d3bc42dd4baf14dd614829ff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Transform: {fileID: 2380046256169473881}
+  Transform:
+  - {fileID: 2380046256169473881}
+  - {fileID: 640148993590131480}

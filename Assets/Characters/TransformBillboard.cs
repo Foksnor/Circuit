@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class TransformToBillboard : MonoBehaviour
 {
-    [SerializeField] Transform Transform = null;
+    [SerializeField] Transform[] Transform = null;
 
     void Start()
     {
-        Transform.eulerAngles = GlobalSettings.SpriteBillboardVector;
-        Transform.position += GlobalSettings.SpriteOffsetVector;
+        for (int i = 0; i < Transform.Length; i++)
+        {
+            Transform[i].eulerAngles = GlobalSettings.SpriteBillboardVector;
+            Transform[i].position += GlobalSettings.SpriteOffsetVector;
+        }
     }
 }

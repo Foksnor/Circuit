@@ -21,7 +21,8 @@ public class Character : MonoBehaviour
     private List<GameObject> ActiveCardPrevisTiles = new List<GameObject>();
     public int Health { get { return health; } set { health = value; } }
     [SerializeField] protected int health;
-    [SerializeField] private HealthPanel healthPanel = null;
+    [SerializeField] protected int maxHealth;
+    [SerializeField] private HealthBar healthBar = null;
     protected bool isInvulnerable = false;
     private float cardPlaySpeed = 1;
     
@@ -29,8 +30,7 @@ public class Character : MonoBehaviour
 
     private void Awake()
     {
-        if (healthPanel != null)
-            healthPanel.InstantiateHealthPanelVisuals(health);
+        maxHealth = health;
     }
 
     private void Start()
@@ -82,8 +82,8 @@ public class Character : MonoBehaviour
         if (isInvulnerable)
             return;
 
-        healthPanel?.UpdateHealthPanel(health, amount);
         health -= amount;
+        healthBar?.UpdateHealthBar(maxHealth, health, amount);
         if (health <= 0)
             Die();
     }
