@@ -366,7 +366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2985683909314406194, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
       propertyPath: TeamType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2985683909314406194, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
       propertyPath: CircuitBoard
