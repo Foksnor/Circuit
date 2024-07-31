@@ -14,16 +14,18 @@ public class CharacterSimulation : Character
         //isInvulnerable = true;
     }
 
-    protected override void Die()
+    protected override void Die(Character instigator)
     {
         ownerOfThisSimulation.isSimulationMarkedForDeath = true;
-        base.Die();
+        base.Die(instigator);
     }
 
     public void SetCharacterSimInfo(Character owner, SpriteRenderer spriteRenderer)
     {
         ownerOfThisSimulation = owner;
+        isSimulation = true;
         health = owner.Health;
+        TeamType = owner.TeamType;
         CharacterSpriteRenderer.sprite = spriteRenderer.sprite;
     }
 

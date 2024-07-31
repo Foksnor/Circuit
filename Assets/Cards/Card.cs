@@ -283,21 +283,38 @@ public class Card : MonoBehaviour
     {
         for (int i = 0; i < attackedGridTargets.Count; i++)
         {
-            Character charOnThisGrid = null;
-            Character simOnThisGrid = null;
+            if (instigator.isSimulation)
+            {
+                Character simOnThisGrid = null;
+                if (attackedGridTargets[i].SimulationOnThisGrid != null)
+                    simOnThisGrid = attackedGridTargets[i].SimulationOnThisGrid;
 
-            if (attackedGridTargets[i].CharacterOnThisGrid != null)
-                charOnThisGrid = attackedGridTargets[i].CharacterOnThisGrid;
-            if (attackedGridTargets[i].SimulationOnThisGrid != null)
-                simOnThisGrid = attackedGridTargets[i].SimulationOnThisGrid;
+                // Return if no simulations are hit
+                if (simOnThisGrid == null)
+                    return;
 
-            // Attack character if instigator is a character
-            if (instigator.CharacterSimulation != null && charOnThisGrid != null)
-                charOnThisGrid.ChangeHealth(cardScriptableObject.Value, instigator);
-            // Attack simulation if instigator is a simulation
-            if (instigator.CharacterSimulation == null && simOnThisGrid != null)
+                // No friendly fire allowed, stop damage function when this happens
+                if (simOnThisGrid.TeamType == instigator.TeamType)
+                    return;
+
                 simOnThisGrid.ChangeHealth(cardScriptableObject.Value, instigator);
+            }
+            else
+            {
+                Character charOnThisGrid = null;
+                if (attackedGridTargets[i].CharacterOnThisGrid != null)
+                    charOnThisGrid = attackedGridTargets[i].CharacterOnThisGrid;
 
+                // Return if no characters are hit
+                if (charOnThisGrid == null)
+                    return;
+                
+                // No friendly fire allowed, stop damage function when this happens
+                if (charOnThisGrid.TeamType == instigator.TeamType)
+                    return;
+
+                charOnThisGrid.ChangeHealth(cardScriptableObject.Value, instigator);
+            }
             SpawnParticleEffectAtGridCube(instigator, attackedGridTargets[i]);
         }
     }

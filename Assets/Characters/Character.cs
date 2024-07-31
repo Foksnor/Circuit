@@ -16,6 +16,7 @@ public class Character : MonoBehaviour
     [SerializeField] private int ExperienceAmountOnDeath = 3;
     public CharacterSimulation CharacterSimulation = null;
     public CharacterSimulation InstancedCharacterSimulation { get; private set; } = null;
+    public bool isSimulation { get; protected set; } = false;
     [HideInInspector] public bool isSimulationMarkedForDeath;
     private GameObject cardPrevisBinder = null;
     private List<GameObject> ActiveCardPrevisTiles = new List<GameObject>();
@@ -85,20 +86,22 @@ public class Character : MonoBehaviour
         health -= amount;
         healthBar?.UpdateHealthBar(maxHealth, health, amount);
         if (health <= 0)
-            Die();
+            Die(instigator);
     }
 
-    protected virtual void Die()
+    protected virtual void Die(Character instigator)
     {
         // Spawn death VFX
-        bool isSimulation = InstancedCharacterSimulation == null;
         DeathVFX deathobj = Instantiate(deathVFX, transform.position, transform.rotation);
         deathobj.SetDeathVFXCharacterVisual(CharacterSpriteRenderer.sprite, isSimulation);
 
-        // Experience drop on death
-        for (int i = ExperienceAmountOnDeath; i > 0; i--)
+        // Experience drop on death, if killed by player or environment
+        if (instigator.TeamType == _TeamType.Player || instigator == null)
         {
-            Instantiate(ExperiencePoint, transform.position, transform.rotation);
+            for (int i = ExperienceAmountOnDeath; i > 0; i--)
+            {
+                Instantiate(ExperiencePoint, transform.position, transform.rotation);
+            }
         }
 
         Destroy(gameObject);
