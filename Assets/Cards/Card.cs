@@ -283,6 +283,7 @@ public class Card : MonoBehaviour
     {
         for (int i = 0; i < attackedGridTargets.Count; i++)
         {
+            SpawnParticleEffectAtGridCube(instigator, attackedGridTargets[i]);
             if (instigator.isSimulation)
             {
                 Character simOnThisGrid = null;
@@ -315,7 +316,6 @@ public class Card : MonoBehaviour
 
                 charOnThisGrid.ChangeHealth(cardScriptableObject.Value, instigator);
             }
-            SpawnParticleEffectAtGridCube(instigator, attackedGridTargets[i]);
         }
     }
 
@@ -333,6 +333,10 @@ public class Card : MonoBehaviour
                 {
                     particle = Instantiate(cardScriptableObject.Particle, instigator.transform.position, transform.rotation);
                     hasParticleSpawnedOnSelf = true;
+
+                    // Mirrors the particle transform when the particle is playing backward of character
+                    if (cardScriptableObject.TargetType == CardScriptableObject._TargetType.BackwardOfCharacter)
+                        particle.transform.localScale = new Vector2(-1, 1);
                 }
                 break;
             case CardScriptableObject._ParticleLocation.OnDamageTiles:

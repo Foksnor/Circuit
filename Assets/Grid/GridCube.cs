@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GridCube : MonoBehaviour
 {
     public Vector2 Position { get; private set; }
     public float Height { get; private set; }
-    [SerializeField] private bool enableTileVisuals = true;
+    public _SurfaceEffect SurfaceEffect;
+    public enum _SurfaceEffect { None, Water, Oil };
+    [SerializeField] private GameObject waterVisual = null, oilVisual = null;
+    [SerializeField] private bool isStaircase = false;
     [SerializeField] private TextMesh textMeshGridNumber;
     [SerializeField] private TextMesh textMeshCharacterRef;
     [SerializeField] private TextMesh textMeshSimulationRef;
@@ -24,13 +28,11 @@ public class GridCube : MonoBehaviour
     {
         Position = transform.position;
         Height = transform.position.z;
-        if (enableTileVisuals)
+        if (!isStaircase)
         {
             floorSprite.sprite = randomFloorSprite[Random.Range(0, randomFloorSprite.Length)];
             floorSprite.transform.eulerAngles = new Vector3(0, 0, Random.Range(0, 3) * 90);
         }
-        else
-            floorSprite.gameObject.SetActive(false);
         SetGridReferenceNumber();
     }
 
@@ -99,10 +101,38 @@ public class GridCube : MonoBehaviour
         }
     }
 
+    public void ToggleSurfaceEffect(string surfaceEffect)
+    {
+        switch (surfaceEffect)
+        {
+            default:
+            case "None":
+                SurfaceEffect = _SurfaceEffect.None;
+                waterVisual.SetActive(false);
+                oilVisual.SetActive(false);
+                break;
+            case "Water":
+                SurfaceEffect = _SurfaceEffect.Water;
+                waterVisual.SetActive(true);
+                oilVisual.SetActive(false);
+                break;
+            case "Oil":
+                SurfaceEffect = _SurfaceEffect.Oil;
+                waterVisual.SetActive(false);
+                oilVisual.SetActive(true);
+                break;
+        }
+    }
+
     public void ToggleDebugText()
     {
         textMeshGridNumber.gameObject.SetActive(!textMeshGridNumber.gameObject.activeSelf);
         textMeshCharacterRef.gameObject.SetActive(!textMeshCharacterRef.gameObject.activeSelf);
         textMeshSimulationRef.gameObject.SetActive(!textMeshSimulationRef.gameObject.activeSelf);
+    }
+
+    private void OnGUI()
+    {
+        
     }
 }

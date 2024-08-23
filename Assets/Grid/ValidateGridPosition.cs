@@ -13,11 +13,11 @@ public static class ValidateGridPosition
             return false;
 
         // Can move 1 step if destination is 1 step away
-        if ((startingCube.transform.position - destinationCube.transform.position).magnitude <= 1)
+        if ((startingCube.Position - destinationCube.Position).magnitude <= 1)
             return true;
 
         // Can move horizontally when both positions share the same y positions
-        if (startingCube.transform.position.y == destinationCube.transform.position.y &&
+        if (startingCube.Position.y == destinationCube.Position.y &&
             startingCube != destinationCube)
             return true;
 
@@ -33,11 +33,11 @@ public static class ValidateGridPosition
             return false;
 
         // Can move 1 step if destination is 1 step away
-        if ((startingCube.transform.position - destinationCube.transform.position).magnitude <= 1)
+        if ((startingCube.Position - destinationCube.Position).magnitude <= 1)
             return true;
 
         // Can move vertically when both positions have different y positions
-        if (startingCube.transform.position.y != destinationCube.transform.position.y &&
+        if (startingCube.Position.y != destinationCube.Position.y &&
             startingCube != destinationCube)
             return true;
 
@@ -46,7 +46,8 @@ public static class ValidateGridPosition
 
     public static bool CanAttack(GridCube startingCube, GridCube destinationCube, int attackOffsetY)
     {
-        // QQQTODO: add checks to validate things like height, etc.
+        if (IsDesitionationTooHigh(startingCube, destinationCube))
+            return false;
         return true;
     }
 
