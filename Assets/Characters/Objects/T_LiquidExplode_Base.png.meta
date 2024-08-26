@@ -1,0 +1,386 @@
+fileFormatVersion: 2
+guid: 85ba9bc9b2309f34e87d3ec1005240a3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5010466628355098187
+    second: T_LiquidExplode_Base_0
+  - first:
+      213: -6506223468099947056
+    second: T_LiquidExplode_Base_1
+  - first:
+      213: -3086615548111594184
+    second: T_LiquidExplode_Base_2
+  - first:
+      213: -8030090280564732479
+    second: T_LiquidExplode_Base_3
+  - first:
+      213: -8796972261915819861
+    second: T_LiquidExplode_Base_4
+  - first:
+      213: 4974500376027412763
+    second: T_LiquidExplode_Base_5
+  - first:
+      213: 1296134494861579871
+    second: T_LiquidExplode_Base_6
+  - first:
+      213: 9014148189163758932
+    second: T_LiquidExplode_Base_7
+  - first:
+      213: 4929971692835030729
+    second: T_LiquidExplode_Base_8
+  - first:
+      213: 3003641157712119032
+    second: T_LiquidExplode_Base_9
+  - first:
+      213: 6536608866189814120
+    second: T_LiquidExplode_Base_10
+  - first:
+      213: -2886985731281792791
+    second: T_LiquidExplode_Base_11
+  - first:
+      213: -1082550586748277580
+    second: T_LiquidExplode_Base_12
+  - first:
+      213: -8856667663095374800
+    second: T_LiquidExplode_Base_13
+  - first:
+      213: 4110593638225056417
+    second: T_LiquidExplode_Base_14
+  - first:
+      213: 6907638955624772096
+    second: T_LiquidExplode_Base_15
+  - first:
+      213: 139151798403721664
+    second: T_LiquidExplode_Base_16
+  - first:
+      213: 7977881076130639994
+    second: T_LiquidExplode_Base_17
+  - first:
+      213: 2479053954380724652
+    second: T_LiquidExplode_Base_18
+  - first:
+      213: -5093680214636081339
+    second: T_LiquidExplode_Base_19
+  - first:
+      213: 6080290426242915686
+    second: T_LiquidExplode_Base_20
+  - first:
+      213: -8078177852313301786
+    second: T_LiquidExplode_Base_21
+  - first:
+      213: -4972823356979537311
+    second: T_LiquidExplode_Base_22
+  - first:
+      213: 7303857691941491669
+    second: T_LiquidExplode_Base_23
+  - first:
+      213: 3783419315452330899
+    second: T_LiquidExplode_Base_24
+  - first:
+      213: 8848450276867386484
+    second: T_LiquidExplode_Base_25
+  - first:
+      213: -177447059671935769
+    second: T_LiquidExplode_Base_26
+  - first:
+      213: 8533101208713828578
+    second: T_LiquidExplode_Base_27
+  - first:
+      213: -2738096856268897767
+    second: T_LiquidExplode_Base_28
+  - first:
+      213: -676913112397565107
+    second: T_LiquidExplode_Base_29
+  - first:
+      213: -7420911204054111083
+    second: T_LiquidExplode_Base_30
+  - first:
+      213: 6032065154208744605
+    second: T_LiquidExplode_Base_31
+  - first:
+      213: -1990183618635164353
+    second: T_LiquidExplode_Base_32
+  - first:
+      213: 7850025959769066571
+    second: T_LiquidExplode_Base_33
+  - first:
+      213: -1310099484576752030
+    second: T_LiquidExplode_Base_34
+  - first:
+      213: 1050432116884760472
+    second: T_LiquidExplode_Base_35
+  - first:
+      213: -2946759950059320516
+    second: T_LiquidExplode_Base_36
+  - first:
+      213: 6410349120305091385
+    second: T_LiquidExplode_Base_37
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: T_LiquidExplode_Base_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b460e061ad0c88540800000000000000
+      internalID: 5010466628355098187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_LiquidExplode_Base_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d5b79a2a3045b5a0800000000000000
+      internalID: -6506223468099947056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_LiquidExplode_Base_2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83d5c9833832a25d0800000000000000
+      internalID: -3086615548111594184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_LiquidExplode_Base_3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cd4f906f636f8090800000000000000
+      internalID: -8030090280564732479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_LiquidExplode_Base_4
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba00b8d0650eae580800000000000000
+      internalID: -8796972261915819861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_LiquidExplode_Base_5
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1939286cb9f80540800000000000000
+      internalID: 4974500376027412763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 7a05d7814dfacce48a0926748edc1231
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      T_LiquidExplode_Base_0: 5010466628355098187
+      T_LiquidExplode_Base_1: -6506223468099947056
+      T_LiquidExplode_Base_2: -3086615548111594184
+      T_LiquidExplode_Base_3: -8030090280564732479
+      T_LiquidExplode_Base_4: -8796972261915819861
+      T_LiquidExplode_Base_5: 4974500376027412763
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

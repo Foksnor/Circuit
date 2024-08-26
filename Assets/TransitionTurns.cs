@@ -50,7 +50,7 @@ public class TransitionTurns : MonoBehaviour
             CalculateTeamCards(CharacterTeams._EnemyTeamCharacters, false);
             isEnemyTurnActive = ProcessTeamCards(CharacterTeams._EnemyTeamCharacters, false);
 
-            // When finishing processing all of th enemy cards; decide if an enemy should spawn.
+            // When finishing processing all of the enemy cards; decide if an enemy should spawn.
             if (!isEnemyTurnActive)
                 DecideEnemySpawn();
         }
@@ -85,7 +85,7 @@ public class TransitionTurns : MonoBehaviour
             // When a new simulation is needed
             // E.g. player re-orders their cards in circuit
             if (TurnCalculation.needsNewSimulationCalculation)
-            {                
+            {
                 isPlayerSimulationTurnActive = true;
                 ResetSimulationProcessing(CharacterTeams._PlayerTeamCharacters);
                 ResetSimulationProcessing(CharacterTeams._EnemyTeamCharacters);
@@ -138,9 +138,6 @@ public class TransitionTurns : MonoBehaviour
         // Reseting the cooldown during a turn transition makes sure that the character plays their cards in the correct order and tempo
         ForceResetCardProcessing(CharacterTeams._PlayerTeamCharacters);
         ForceResetCardProcessing(CharacterTeams._EnemyTeamCharacters);
-
-        // QQQ TODO: number of rows being added needs to be the same as the amount of Y steps the player took this turn
-        SpawnerFunctions.Instance.AddRow(4);
     }
 
     private void DecideEnemySpawn()

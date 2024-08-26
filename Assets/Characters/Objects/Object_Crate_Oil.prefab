@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Object_Crate_Oil
       objectReference: {fileID: 0}
+    - target: {fileID: 1957793412199929724, guid: 328226dd3127c204bb314fbfbba17cef, type: 3}
+      propertyPath: spawnObjectOnDeath
+      value: 
+      objectReference: {fileID: 579001646526742816, guid: 64dc16272d376bb46b19f0699d8f1c6e, type: 3}
     - target: {fileID: 2543525051097481161, guid: 328226dd3127c204bb314fbfbba17cef, type: 3}
       propertyPath: m_Sprite
       value: 

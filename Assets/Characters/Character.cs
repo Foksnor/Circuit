@@ -12,6 +12,7 @@ public class Character : MonoBehaviour
     [SerializeField] public SpriteRenderer CharacterSpriteRenderer = null;
     [SerializeField] protected Animator characterAnimator = null;
     [SerializeField] private DeathVFX deathVFX = null;
+    [SerializeField] private GameObject spawnObjectOnDeath = null;
     [SerializeField] private GameObject ExperiencePoint = null;
     [SerializeField] private int ExperienceAmountOnDeath = 3;
     public CharacterSimulation CharacterSimulation = null;
@@ -94,6 +95,10 @@ public class Character : MonoBehaviour
         // Spawn death VFX
         DeathVFX deathobj = Instantiate(deathVFX, transform.position, transform.rotation);
         deathobj.SetDeathVFXCharacterVisual(CharacterSpriteRenderer.sprite, isSimulation);
+
+        // Spawn extra game objects on death
+        if (spawnObjectOnDeath != null)
+            Instantiate(spawnObjectOnDeath, transform.position, transform.rotation);        
 
         // Experience drop on death, if killed by player or environment
         if (instigator.TeamType == _TeamType.Player || instigator == null)

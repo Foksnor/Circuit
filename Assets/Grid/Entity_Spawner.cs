@@ -40,11 +40,6 @@ public class Entity_Spawner : MonoBehaviour
             InitiateChunk(furthestGridCubeSpawned.transform.position);
     }
 
-    public void AddRow(int rowAmount)
-    {
-
-    }
-
     public void SortCharacterHeight()
     {
     
