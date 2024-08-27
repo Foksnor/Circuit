@@ -11,7 +11,8 @@ public class Card : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI costText;
-    [SerializeField] private Image image;
+    [SerializeField] private Image cardBackground, cardimage;
+    [SerializeField] private Material fireMat, electricityMat, foilMat, goldenMat;
     [SerializeField] private AudioClip sound;
     [SerializeField] private TextMeshProUGUI valueText;
     [SerializeField] private TextMeshProUGUI descriptionText;
@@ -35,9 +36,36 @@ public class Card : MonoBehaviour
         isInHand = setInHand;
         //nameText.text = cardScriptableObject.name;
         //costText.text = cardScriptableObject.cost.ToString();
-        image.sprite = cardScriptableObject.Sprite;
+        cardimage.sprite = cardScriptableObject.Sprite;
         valueText.text = cardScriptableObject.Value.ToString();
         descriptionText.text = cardScriptableObject.Description;
+
+        // Sets the material for various images based on card parameters
+        switch (scriptableObject.CardRarity)
+        {
+            case CardScriptableObject._CardRarity.Rare:
+                break;
+            case CardScriptableObject._CardRarity.Epic:
+                break;
+        }
+        switch (scriptableObject.CardType)
+        {
+            case CardScriptableObject._CardType.ElementFire:
+                cardimage.material = fireMat;
+                break;
+            case CardScriptableObject._CardType.ElementElectricity:
+                cardimage.material = electricityMat;
+                break;
+        }
+        switch (scriptableObject.CardStyle)
+        {
+            case CardScriptableObject._CardStyle.Foil:
+                cardBackground.material = foilMat;
+                break;
+            case CardScriptableObject._CardStyle.Golden:
+                cardBackground.material = goldenMat;
+                break;
+        }
     }
 
     public CardScriptableObject GetCardInfo()
@@ -88,6 +116,8 @@ public class Card : MonoBehaviour
         // Movement
         else if (cardScriptableObject.CardType == CardScriptableObject._CardType.Movement)
             HandleMovement(instigator);
+        else
+            HandleBuffs(instigator);
     }
 
     public void DeactivateCard()
@@ -318,6 +348,18 @@ public class Card : MonoBehaviour
             }
         }
     }
+
+    private void HandleBuffs(Character instigator)
+    {
+        switch (cardScriptableObject.CardType)
+        {
+            case CardScriptableObject._CardType.ElementFire:
+            case CardScriptableObject._CardType.ElementElectricity:
+                ConnectedCircuitboard.AddBuff(instigator, cardScriptableObject.CardType, cardScriptableObject.Value);
+                break;
+        }
+    }
+
 
     private void SpawnParticleEffectAtGridCube(Character instigator, GridCube cube)
     {

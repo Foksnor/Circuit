@@ -308,7 +308,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 0}
   costText: {fileID: 0}
-  image: {fileID: 3273459895313985425}
+  cardBackground: {fileID: 9018569520754715711}
+  cardimage: {fileID: 3273459895313985425}
+  fireMat: {fileID: 2100000, guid: 82bb3aabc2f5b674198290bcb9459c4f, type: 2}
+  electricityMat: {fileID: 2100000, guid: 0deed2b6043f57e4dae8de87bbcc3f57, type: 2}
+  foilMat: {fileID: 2100000, guid: 69babe5a12222884394dd1a9f331f9e7, type: 2}
+  goldenMat: {fileID: 2100000, guid: 2e121c9c011cf914aadf8aff28251606, type: 2}
   sound: {fileID: 0}
   valueText: {fileID: 2319269296639445424}
   descriptionText: {fileID: 3977214859969708480}

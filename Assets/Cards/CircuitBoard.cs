@@ -17,6 +17,7 @@ public class CircuitBoard : MonoBehaviour
     private int activeCardNumber = 0;
     private float timeBetweenCardsPlayed = 0;
     private bool isReadyToProcessSimulation = true;
+    private int fireAttacks = 0, electricityAttacks = 0;
 
     protected bool needsNewCardCalculation { set; get; } = false;
 
@@ -137,6 +138,19 @@ public class CircuitBoard : MonoBehaviour
                 previsGrid = activeCards[cardNumber].CalculateGridCubeDestination(targetCharacter, previsGrid, cardNumber, isSetupPhase);
             }
             ToggleInteractableCardStateOnCircuitBoard(cardNumber, isSetupPhase);
+        }
+    }
+
+    public void AddBuff(Character targetCharacter, CardScriptableObject._CardType cardType, int buffAmount)
+    {
+        switch (cardType)
+        {
+            case CardScriptableObject._CardType.ElementFire:
+                fireAttacks += buffAmount;
+                break;
+            case CardScriptableObject._CardType.ElementElectricity:
+                electricityAttacks += buffAmount;
+                break;
         }
     }
 

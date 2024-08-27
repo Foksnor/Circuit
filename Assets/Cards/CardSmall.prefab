@@ -178,6 +178,10 @@ PrefabInstance:
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
       objectReference: {fileID: 0}
+    - target: {fileID: 4176996575385201184, guid: 875bf82bf24067243a05baee2b20c410, type: 3}
+      propertyPath: m_Transition
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4383898553168550268, guid: 875bf82bf24067243a05baee2b20c410, type: 3}
       propertyPath: m_Name
       value: CardSmall
