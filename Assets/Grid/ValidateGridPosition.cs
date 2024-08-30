@@ -4,12 +4,16 @@ using UnityEngine;
 
 public static class ValidateGridPosition
 {
-    public static bool CanStepX(Character targetCharacter, GridCube startingCube, GridCube destinationCube, bool checkForSimulation)
+    public static bool CanStepX(Character targetCharacter, GridCube startingCube, GridCube destinationCube, int cardNumber, bool checkForSimulation)
     {
         if (IsDestinationOccupiedByARelative(targetCharacter, startingCube, destinationCube, checkForSimulation))
             return false;
 
         if (IsDesitionationTooHigh(startingCube, destinationCube))
+            return false;
+
+        // Cannot move when a different character has priority to move on the same grid during the same action cycle
+        if (!destinationCube.GetCharacterMovementPriority(targetCharacter, cardNumber))
             return false;
 
         // Can move 1 step if destination is 1 step away
@@ -24,12 +28,16 @@ public static class ValidateGridPosition
         return false;
     }
 
-    public static bool CanStepY(Character targetCharacter, GridCube startingCube, GridCube destinationCube, bool checkForSimulation)
+    public static bool CanStepY(Character targetCharacter, GridCube startingCube, GridCube destinationCube, int cardNumber, bool checkForSimulation)
     {
         if (IsDestinationOccupiedByARelative(targetCharacter, startingCube, destinationCube, checkForSimulation))
             return false;
 
         if (IsDesitionationTooHigh(startingCube, destinationCube))
+            return false;
+
+        // Cannot move when a different character has priority to move on the same grid during the same action cycle
+        if (!destinationCube.GetCharacterMovementPriority(targetCharacter, cardNumber))
             return false;
 
         // Can move 1 step if destination is 1 step away

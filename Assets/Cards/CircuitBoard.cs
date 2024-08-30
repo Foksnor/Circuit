@@ -18,6 +18,7 @@ public class CircuitBoard : MonoBehaviour
     private float timeBetweenCardsPlayed = 0;
     private bool isReadyToProcessSimulation = true;
     private int fireAttacks = 0, electricityAttacks = 0;
+    [SerializeField] private List<GridCube> savedMovementGridCubes = new();
 
     protected bool needsNewCardCalculation { set; get; } = false;
 
@@ -122,6 +123,12 @@ public class CircuitBoard : MonoBehaviour
     {
         targetCharacter.RefreshCharacterSimulation();
         isReadyToProcessSimulation = true;
+
+        // Reset movement priority references
+        for (int i = 0; i < savedMovementGridCubes.Count; i++)
+        {
+            savedMovementGridCubes[i].ResetCharacterMovementPriority();
+        }
     }
 
     public void CalculateAllCards(Character targetCharacter, bool isSetupPhase)
@@ -152,6 +159,15 @@ public class CircuitBoard : MonoBehaviour
                 electricityAttacks += buffAmount;
                 break;
         }
+    }
+
+    public void SaveMovementGridCube(GridCube gridCube)
+    {
+        if (savedMovementGridCubes.Contains(gridCube))
+            return;
+
+        // Save grid cube reference so the priority of movement can be removed later after restarting simulations
+        savedMovementGridCubes.Add(gridCube);
     }
 
     public virtual void PlayerDrawPhase()

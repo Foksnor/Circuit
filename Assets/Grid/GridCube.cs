@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -23,6 +24,10 @@ public class GridCube : MonoBehaviour
     public Character SimulationOnThisGrid { private set; get; }
     public GameObject MovementPlayerIndicator, DamagePlayerIndicator,
                         MovementEnemyIndicator, DamageEnemyIndicator;
+
+    // Used for determining which character has priority to move on a gridcube
+    // E.g. Multiple characters that want to move on the same grid at the same time
+    private Dictionary<int, Character> charactersMovementActionNumber = new();
 
     private void Awake()
     {
@@ -122,6 +127,24 @@ public class GridCube : MonoBehaviour
                 oilVisual.SetActive(true);
                 break;
         }
+    }
+
+    public bool GetCharacterMovementPriority(Character character, int actionNumber)
+    {
+        // If the passed 'movement action number' is unique, add their character reference and save the number
+        if (!charactersMovementActionNumber.ContainsKey(actionNumber))
+            charactersMovementActionNumber.Add(actionNumber, character);
+
+        // Check if the accepted action number is from the same character. Allows characters to move on gridcubes they are previewing
+        // Other characters should not be able to move on the same grid during the same action number
+        if (charactersMovementActionNumber.FirstOrDefault(x => x.Value == character).Key == actionNumber)
+            return true;
+        return false;
+    }
+
+    public void ResetCharacterMovementPriority()
+    {
+        charactersMovementActionNumber.Clear();
     }
 
     public void ToggleDebugText()
