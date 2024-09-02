@@ -117,18 +117,18 @@ public class CircuitBoard : MonoBehaviour
         {
             activeCards[i].DeactivateCard();
         }
-    }
-
-    public void ResetSimulationProcessing(Character targetCharacter)
-    {
-        targetCharacter.RefreshCharacterSimulation();
-        isReadyToProcessSimulation = true;
 
         // Reset movement priority references
         for (int i = 0; i < savedMovementGridCubes.Count; i++)
         {
             savedMovementGridCubes[i].ResetCharacterMovementPriority();
         }
+    }
+
+    public void ResetSimulationProcessing(Character targetCharacter)
+    {
+        targetCharacter.RefreshCharacterSimulation();
+        isReadyToProcessSimulation = true;
     }
 
     public void CalculateAllCards(Character targetCharacter, bool isSetupPhase)

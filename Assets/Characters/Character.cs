@@ -18,7 +18,10 @@ public class Character : MonoBehaviour
     public CharacterSimulation CharacterSimulation = null;
     public CharacterSimulation InstancedCharacterSimulation { get; private set; } = null;
     public bool isSimulation { get; protected set; } = false;
-    [HideInInspector] public bool isSimulationMarkedForDeath;
+    
+    [HideInInspector]
+    public bool isSimulationMarkedForDeath { get; set; }
+    public bool isPotentialKill { get; private set; }
     private GameObject cardPrevisBinder = null;
     private List<GameObject> ActiveCardPrevisTiles = new List<GameObject>();
     public int Health { get { return health; } set { health = value; } }
@@ -77,6 +80,21 @@ public class Character : MonoBehaviour
         }
         else
             characterAnimator.SetBool("isMoving", false);
+    }
+
+    public bool MarkPotentialKillIfDamageWouldKill(int damageValue)
+    {
+        if (health <= damageValue)
+        {
+            isPotentialKill = true;
+            return true;
+        }
+        return false;
+    }
+
+    public void RemovePotentialKillMark()
+    {    
+        isPotentialKill = false; 
     }
 
     public void ChangeHealth(int amount, Character instigator)

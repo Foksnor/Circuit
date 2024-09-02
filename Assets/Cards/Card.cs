@@ -19,7 +19,8 @@ public class Card : MonoBehaviour
     [SerializeField] private Animator cardAnimator;
     [SerializeField] private Animator feedbackAnimator;
     public Card_PointerInteraction CardPointerInteraction;
-    private List<GridCube> attackedGridTargets = new List<GridCube>();
+    private List<GridCube> attackedGridTargets = new();
+    private List<Character> potentialKillTargets = new();
     private GridCube targetedGridForMovement;
     public float MaxTimeInUse { get; private set; } = 0;
     private bool isCardActivated = false;
@@ -125,6 +126,11 @@ public class Card : MonoBehaviour
         MaxTimeInUse = 0;
         isCardActivated = false;
         hasParticleSpawnedOnSelf = false;
+
+        // Remove potental kill references
+        for (int i = 0; i < potentialKillTargets.Count; i++)
+            potentialKillTargets[i].RemovePotentialKillMark();
+        potentialKillTargets.Clear();
     }
 
     private GridCube GetGridOfClosestTarget(GridCube savedGridUsedByPreviousCard)
@@ -158,7 +164,7 @@ public class Card : MonoBehaviour
         return steps;
     }
 
-    public GridCube CalculateGridCubeDestination(Character targetCharacter, GridCube savedGridUsedByPreviousCard, int cardNumber, bool isSetupPhase)
+    public GridCube CalculateGridCubeDestination(Character instigator, GridCube savedGridUsedByPreviousCard, int cardNumber, bool isSetupPhase)
     {
         GridCube targetedGrid = savedGridUsedByPreviousCard;
         Vector2Int attackSteps = cardScriptableObject.AttackSteps;
@@ -207,8 +213,8 @@ public class Card : MonoBehaviour
                         {
                             targetedGrid = result;
                             // Tile based previs
-                            GameObject tilevisual = targetedGrid.GetIndicatorVisual(targetCharacter, cardScriptableObject);
-                            targetCharacter.ToggleCardPrevis(isSetupPhase, cardNumber, tilevisual, 0);
+                            GameObject tilevisual = targetedGrid.GetIndicatorVisual(instigator, cardScriptableObject);
+                            instigator.ToggleCardPrevis(isSetupPhase, cardNumber, tilevisual, 0);
                             attackedGridTargets.Add(targetedGrid);
                         }
                     }
@@ -217,7 +223,10 @@ public class Card : MonoBehaviour
 
             // Save target location for movement during set up phase
             if (isSetupPhase)
+            {
                 targetedGridForMovement = savedGridUsedByPreviousCard;
+                CheckIfCharactersWouldDie(instigator, cardScriptableObject.Value);
+            }
 
             return savedGridUsedByPreviousCard;
         }
@@ -226,20 +235,20 @@ public class Card : MonoBehaviour
             for (int stepLength = 0; stepLength < Mathf.Abs(moveSteps.y); stepLength++)
             {
                 // Handles the Y steps in the movement
-                targetedGrid = GetMovementGrid(targetCharacter, targetedGrid, moveSteps, cardNumber, isSetupPhase);
+                targetedGrid = GetMovementGrid(instigator, targetedGrid, moveSteps, cardNumber, isSetupPhase);
                 float dirAngle = GetDirectionAngleBetweenGrids(targetedGrid, savedGridUsedByPreviousCard);
                 // Tile based previs
-                GameObject tilevisual = targetedGrid.GetIndicatorVisual(targetCharacter, cardScriptableObject);
-                targetCharacter.ToggleCardPrevis(isSetupPhase, cardNumber, tilevisual, dirAngle);
+                GameObject tilevisual = targetedGrid.GetIndicatorVisual(instigator, cardScriptableObject);
+                instigator.ToggleCardPrevis(isSetupPhase, cardNumber, tilevisual, dirAngle);
             }
             for (int stepWidth = 0; stepWidth < Mathf.Abs(moveSteps.x); stepWidth++)
             {
                 // Handles X steps in the movement
-                targetedGrid = GetMovementGrid(targetCharacter, targetedGrid, moveSteps, cardNumber, isSetupPhase);
+                targetedGrid = GetMovementGrid(instigator, targetedGrid, moveSteps, cardNumber, isSetupPhase);
                 float dirAngle = GetDirectionAngleBetweenGrids(targetedGrid, savedGridUsedByPreviousCard);
                 // Tile based previs
-                GameObject tilevisual = targetedGrid.GetIndicatorVisual(targetCharacter, cardScriptableObject);
-                targetCharacter.ToggleCardPrevis(isSetupPhase, cardNumber, tilevisual, dirAngle);
+                GameObject tilevisual = targetedGrid.GetIndicatorVisual(instigator, cardScriptableObject);
+                instigator.ToggleCardPrevis(isSetupPhase, cardNumber, tilevisual, dirAngle);
             }
 
             // Save target location for movement during set up phase
@@ -268,7 +277,7 @@ public class Card : MonoBehaviour
             Vector2 targetPos = new Vector2(startingGrid.Position.x + moveX, startingGrid.Position.y);
             GridCube result = GridPositions.GetGridByPosition(targetPos);
 
-            if (ValidateGridPosition.CanStepX(targetCharacter, startingGrid, result, cardNumber, isSetupPhase))
+            if (ValidateGridPosition.CanStep(targetCharacter, startingGrid, result, cardNumber, isSetupPhase))
             {
                 destinationGrid = result;
                 ConnectedCircuitboard.SaveMovementGridCube(result);
@@ -284,7 +293,7 @@ public class Card : MonoBehaviour
             Vector2 targetPos = new Vector2(startingGrid.Position.x, startingGrid.Position.y + moveY);
             GridCube result = GridPositions.GetGridByPosition(targetPos);
 
-            if (ValidateGridPosition.CanStepY(targetCharacter, startingGrid, result, cardNumber, isSetupPhase))
+            if (ValidateGridPosition.CanStep(targetCharacter, startingGrid, result, cardNumber, isSetupPhase))
             {
                 destinationGrid = result;
                 ConnectedCircuitboard.SaveMovementGridCube(result);
@@ -363,6 +372,31 @@ public class Card : MonoBehaviour
             case CardScriptableObject._CardType.ElementElectricity:
                 ConnectedCircuitboard.AddBuff(instigator, cardScriptableObject.CardType, cardScriptableObject.Value);
                 break;
+        }
+    }
+
+    private void CheckIfCharactersWouldDie(Character instigator, int damageValue)
+    {
+        for (int i = 0; i < attackedGridTargets.Count; i++)
+        {
+            Character charOnThisGrid = null;
+            if (attackedGridTargets[i].CharacterOnThisGrid != null)
+                charOnThisGrid = attackedGridTargets[i].CharacterOnThisGrid;
+
+            // Return if no characters are hit
+            if (charOnThisGrid == null)
+                return;
+
+            // No friendly fire allowed, stop damage function when this happens
+            if (charOnThisGrid.TeamType == instigator.TeamType)
+                return;
+
+            // Check if target would die to damage before actually dealing damage
+            // If that's true, then mark it as a potental kill and add them to the list
+            // In case of a card swap; the list will be used to remove potential kill references
+            if (charOnThisGrid.MarkPotentialKillIfDamageWouldKill(damageValue))
+                if (!potentialKillTargets.Contains(charOnThisGrid))
+                    potentialKillTargets.Add(charOnThisGrid);
         }
     }
 

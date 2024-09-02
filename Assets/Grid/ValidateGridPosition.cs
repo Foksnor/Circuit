@@ -4,52 +4,30 @@ using UnityEngine;
 
 public static class ValidateGridPosition
 {
-    public static bool CanStepX(Character targetCharacter, GridCube startingCube, GridCube destinationCube, int cardNumber, bool checkForSimulation)
+    public static bool CanStep(Character targetCharacter, GridCube startingCube, GridCube destinationCube, int cardNumber, bool checkForSimulation)
     {
-        if (IsDestinationOccupiedByARelative(targetCharacter, startingCube, destinationCube, checkForSimulation))
+        // Can move 1 step if destination is 1 step away
+        if ((startingCube.Position - destinationCube.Position).magnitude > 1)
             return false;
+
+        // Cannot move when a different character has priority to move on the same grid during the same action cycle
+        //if (!destinationCube.GetCharacterMovementPriority(targetCharacter, cardNumber))
+        //    return false;
 
         if (IsDesitionationTooHigh(startingCube, destinationCube))
             return false;
 
-        // Cannot move when a different character has priority to move on the same grid during the same action cycle
-        if (!destinationCube.GetCharacterMovementPriority(targetCharacter, cardNumber))
-            return false;
+        // Cannot move when there is a character that would still be alive at this part of the card sequence
+        if (destinationCube.CharacterOnThisGrid != null)
+            if (!destinationCube.CharacterOnThisGrid.isPotentialKill)
+                return false;
 
-        // Can move 1 step if destination is 1 step away
-        if ((startingCube.Position - destinationCube.Position).magnitude <= 1)
-            return true;
-
-        // Can move horizontally when both positions share the same y positions
-        if (startingCube.Position.y == destinationCube.Position.y &&
-            startingCube != destinationCube)
-            return true;
-
-        return false;
-    }
-
-    public static bool CanStepY(Character targetCharacter, GridCube startingCube, GridCube destinationCube, int cardNumber, bool checkForSimulation)
-    {
+        /*
         if (IsDestinationOccupiedByARelative(targetCharacter, startingCube, destinationCube, checkForSimulation))
             return false;
+        */
 
-        if (IsDesitionationTooHigh(startingCube, destinationCube))
-            return false;
-
-        // Cannot move when a different character has priority to move on the same grid during the same action cycle
-        if (!destinationCube.GetCharacterMovementPriority(targetCharacter, cardNumber))
-            return false;
-
-        // Can move 1 step if destination is 1 step away
-        if ((startingCube.Position - destinationCube.Position).magnitude <= 1)
-            return true;
-
-        // Can move vertically when both positions have different y positions
-        if (startingCube.Position.y != destinationCube.Position.y &&
-            startingCube != destinationCube)
-            return true;
-
-        return false;
+        return true;
     }
 
     public static bool CanAttack(GridCube startingCube, GridCube destinationCube, int attackOffsetY)
@@ -65,20 +43,10 @@ public static class ValidateGridPosition
             destinationCube == null)
             return true;
 
-        if (!checkForSimulation)
-        {
-            // Cannot move when a character occupies destination
-            if (destinationCube.CharacterOnThisGrid != null)
-                if (!destinationCube.CharacterOnThisGrid.IsCharacterRelatedToMe(targetCharacter))
-                    return true;
-        }
-        else if (targetCharacter.InstancedCharacterSimulation != null)
-        {
-            // Cannot move when a simulation occupies destination
-            if (destinationCube.SimulationOnThisGrid != null)
-                if (!destinationCube.SimulationOnThisGrid.IsCharacterRelatedToMe(targetCharacter))
-                    return true;
-        }
+        // Cannot move when a character occupies destination
+        if (destinationCube.CharacterOnThisGrid != null)
+            if (!destinationCube.CharacterOnThisGrid.IsCharacterRelatedToMe(targetCharacter))
+                return true;
 
         return false;
     }
