@@ -609,8 +609,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16e4f234c70187348b900d0499df6b27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpriteTransformOrientation: {x: 0, y: -55, z: 90}
-  SpriteTransformOffset: {x: 0.4, y: 0, z: -0.4}
+  globalSpriteTransformOrientation: {x: 0, y: -55, z: 90}
+  globalSpriteTransformOffset: {x: 0.4, y: 0, z: -0.4}
+  globalFireEffectObject: {fileID: 2562972092076098195, guid: ab3d0e6bb5fb849428bf2fee81fc6f8e, type: 3}
+  GlobalBurningEffectObject: {fileID: 2562972092076098195, guid: ef8df448f9255204da48e62bb93b5486, type: 3}
+  globalElectricEffectObject: {fileID: 2562972092076098195, guid: 6f5214aa739e9a54db1f8726c4656566, type: 3}
 --- !u!1 &1689630847
 GameObject:
   m_ObjectHideFlags: 0

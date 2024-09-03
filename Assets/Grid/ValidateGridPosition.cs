@@ -14,6 +14,7 @@ public static class ValidateGridPosition
         if ((startingCube.Position - destinationCube.Position).magnitude > 1)
             return false;
 
+        // QQQ TODO: add this later when you get to it
         // Cannot move when a different character has priority to move on the same grid during the same action cycle
         //if (!destinationCube.GetCharacterMovementPriority(targetCharacter, cardNumber))
         //    return false;
