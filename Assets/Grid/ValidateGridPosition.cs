@@ -6,6 +6,10 @@ public static class ValidateGridPosition
 {
     public static bool CanStep(Character targetCharacter, GridCube startingCube, GridCube destinationCube, int cardNumber, bool checkForSimulation)
     {
+        if (startingCube == null ||
+            destinationCube == null)
+            return false;
+
         // Can move 1 step if destination is 1 step away
         if ((startingCube.Position - destinationCube.Position).magnitude > 1)
             return false;
@@ -19,14 +23,12 @@ public static class ValidateGridPosition
 
         // Cannot move when there is a character that would still be alive at this part of the card sequence
         if (destinationCube.CharacterOnThisGrid != null)
-            if (!destinationCube.CharacterOnThisGrid.isPotentialKill)
-                return false;
+            if (destinationCube.CharacterOnThisGrid.isPotentialKill)
+                return true;
 
-        /*
         if (IsDestinationOccupiedByARelative(targetCharacter, startingCube, destinationCube, checkForSimulation))
             return false;
-        */
-
+        
         return true;
     }
 
@@ -39,10 +41,6 @@ public static class ValidateGridPosition
 
     private static bool IsDestinationOccupiedByARelative(Character targetCharacter, GridCube startingCube, GridCube destinationCube, bool checkForSimulation)
     {
-        if (startingCube == null ||
-            destinationCube == null)
-            return true;
-
         // Cannot move when a character occupies destination
         if (destinationCube.CharacterOnThisGrid != null)
             if (!destinationCube.CharacterOnThisGrid.IsCharacterRelatedToMe(targetCharacter))

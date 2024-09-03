@@ -143,8 +143,18 @@ public class CircuitBoard : MonoBehaviour
                 AllignCardOnCircuitBoard(cardNumber);
                 // TODO: voeg toe dat spelers aan het begin van hun beurt een nieuwe hand van kaarten uit hun deck trekt, en dan er een mogen kiezen, daarna moet deze onderstaande functie aangeroepen worden. :)
                 previsGrid = activeCards[cardNumber].CalculateGridCubeDestination(targetCharacter, previsGrid, cardNumber, isSetupPhase);
+
             }
             ToggleInteractableCardStateOnCircuitBoard(cardNumber, isSetupPhase);
+        }
+
+        // Remove temporary references after calculation
+        for (int cardNumber = 0; cardNumber < activeCards.Count; cardNumber++)
+        {
+            // Remove potental kill references, used by movement calculation
+            for (int i = 0; i < activeCards[cardNumber].potentialKillTargets.Count; i++)
+                activeCards[cardNumber].potentialKillTargets[i].RemovePotentialKillMark();
+            activeCards[cardNumber].potentialKillTargets.Clear();
         }
     }
 

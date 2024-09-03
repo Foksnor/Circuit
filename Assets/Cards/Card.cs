@@ -20,7 +20,7 @@ public class Card : MonoBehaviour
     [SerializeField] private Animator feedbackAnimator;
     public Card_PointerInteraction CardPointerInteraction;
     private List<GridCube> attackedGridTargets = new();
-    private List<Character> potentialKillTargets = new();
+    public List<Character> potentialKillTargets { private set; get; } = new();
     private GridCube targetedGridForMovement;
     public float MaxTimeInUse { get; private set; } = 0;
     private bool isCardActivated = false;
@@ -126,11 +126,6 @@ public class Card : MonoBehaviour
         MaxTimeInUse = 0;
         isCardActivated = false;
         hasParticleSpawnedOnSelf = false;
-
-        // Remove potental kill references
-        for (int i = 0; i < potentialKillTargets.Count; i++)
-            potentialKillTargets[i].RemovePotentialKillMark();
-        potentialKillTargets.Clear();
     }
 
     private GridCube GetGridOfClosestTarget(GridCube savedGridUsedByPreviousCard)
