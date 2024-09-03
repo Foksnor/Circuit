@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 4556463516517876696}
-  surfaceEffectToSpread: 0
+  surfaceEffectToSpread: 1
   spreadDiameter: 5
 --- !u!114 &4556463516517876696 stripped
 MonoBehaviour:

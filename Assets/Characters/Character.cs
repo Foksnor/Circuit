@@ -97,6 +97,20 @@ public class Character : MonoBehaviour
         isPotentialKill = false; 
     }
 
+    public void ApplyStatus(_StatusEffect status)
+    {
+        switch (status)
+        {
+            default:
+            case _StatusEffect.None:
+                break;
+            case _StatusEffect.Fire:
+                break;
+            case _StatusEffect.Shocked:
+                break;
+        }
+    }
+
     public void ChangeHealth(int amount, Character instigator)
     {
         if (isInvulnerable)

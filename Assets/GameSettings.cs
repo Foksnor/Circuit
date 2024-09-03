@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameSettings : MonoBehaviour
+
+public enum _SurfaceEffect { None, Water, Oil, Burning };
+public enum _StatusEffect { None, Fire, Shocked };
+
+public class GameSettings : MonoBehaviour 
 {
     [SerializeField] private Vector3 globalSpriteTransformOrientation = new (0, -55, 90);
     [SerializeField] private Vector3 globalSpriteTransformOffset = new (0.4f, 0, -0.4f);
-    [SerializeField] private GameObject globalFireEffectObject = null, GlobalBurningEffectObject = null;
+    [SerializeField] private GameObject globalFireEffectObject = null;
+    [SerializeField] private GameObject globalBurningEffectObject = null;
     [SerializeField] private GameObject globalElectricEffectObject = null;
 
     private void Awake()
@@ -14,7 +19,7 @@ public class GameSettings : MonoBehaviour
         GlobalSettings.SpriteBillboardVector = globalSpriteTransformOrientation;
         GlobalSettings.SpriteOffsetVector = globalSpriteTransformOffset;
         GlobalSettings.FireEffectObject = globalFireEffectObject;
-        GlobalSettings.BurningEffectObject = GlobalBurningEffectObject;
+        GlobalSettings.BurningEffectObject = globalBurningEffectObject;
         GlobalSettings.ElectricEffectObject = globalElectricEffectObject;
     }
 }

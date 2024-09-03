@@ -7,7 +7,6 @@ public class SpreadSurfaceEffectOnDeath : MonoBehaviour
 {
     [SerializeField] private Character character = null;
     [SerializeField] private _SurfaceEffect surfaceEffectToSpread;
-    private enum _SurfaceEffect { Water, Oil };
     [SerializeField] private int spreadDiameter = 5;
 
 
@@ -36,10 +35,10 @@ public class SpreadSurfaceEffectOnDeath : MonoBehaviour
                     {
                         float rng = Random.Range(0, 100);
                             if (rng < 50)
-                            affectedCube.ToggleSurfaceEffect(surfaceEffectToSpread.ToString());
+                            affectedCube.ToggleSurfaceEffect(surfaceEffectToSpread);
                     }
                     else
-                        affectedCube.ToggleSurfaceEffect(surfaceEffectToSpread.ToString());
+                        affectedCube.ToggleSurfaceEffect(surfaceEffectToSpread);
                 }
             }
         }

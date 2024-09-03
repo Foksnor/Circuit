@@ -97,5 +97,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 583478798300324525}
-  surfaceEffectToSpread: 1
+  surfaceEffectToSpread: 2
   spreadDiameter: 5

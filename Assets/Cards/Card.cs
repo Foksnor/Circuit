@@ -322,24 +322,35 @@ public class Card : MonoBehaviour
 
     private void HandleAttack(Character instigator)
     {
+        // Use elemental attack if available
+        bool fireAvailable = ConnectedCircuitboard.UseAvailableBuff(CardScriptableObject._CardType.ElementFire);
+        bool electricityAvailable = ConnectedCircuitboard.UseAvailableBuff(CardScriptableObject._CardType.ElementElectricity);
+
         for (int i = 0; i < attackedGridTargets.Count; i++)
         {
             SpawnParticleEffectAtGridCube(instigator, attackedGridTargets[i]);
+
+            if (fireAvailable)
+                attackedGridTargets[i].ToggleSurfaceStatus(_StatusEffect.Fire);
+            if (electricityAvailable)
+                attackedGridTargets[i].ToggleSurfaceStatus(_StatusEffect.Shocked);
+
+
             if (instigator.isSimulation)
             {
                 Character simOnThisGrid = null;
                 if (attackedGridTargets[i].SimulationOnThisGrid != null)
                     simOnThisGrid = attackedGridTargets[i].SimulationOnThisGrid;
 
-                // Return if no simulations are hit
-                if (simOnThisGrid == null)
-                    return;
-
-                // No friendly fire allowed, stop damage function when this happens
-                if (simOnThisGrid.TeamType == instigator.TeamType)
-                    return;
-
-                simOnThisGrid.ChangeHealth(cardScriptableObject.Value, instigator);
+                // Stop if no simulations are hit
+                if (simOnThisGrid != null)
+                {
+                    // No friendly fire allowed, stop damage function when this happens
+                    if (simOnThisGrid.TeamType != instigator.TeamType)
+                    {
+                        simOnThisGrid.ChangeHealth(cardScriptableObject.Value, instigator);
+                    }
+                }
             }
             else
             {
@@ -347,15 +358,15 @@ public class Card : MonoBehaviour
                 if (attackedGridTargets[i].CharacterOnThisGrid != null)
                     charOnThisGrid = attackedGridTargets[i].CharacterOnThisGrid;
 
-                // Return if no characters are hit
-                if (charOnThisGrid == null)
-                    return;
-                
-                // No friendly fire allowed, stop damage function when this happens
-                if (charOnThisGrid.TeamType == instigator.TeamType)
-                    return;
-
-                charOnThisGrid.ChangeHealth(cardScriptableObject.Value, instigator);
+                // Stop if no characters are hit
+                if (charOnThisGrid != null)
+                {
+                    // No friendly fire allowed, stop damage function when this happens
+                    if (charOnThisGrid.TeamType != instigator.TeamType)
+                    {
+                        charOnThisGrid.ChangeHealth(cardScriptableObject.Value, instigator);
+                    }
+                }
             }
         }
     }

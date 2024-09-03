@@ -8,8 +8,8 @@ public class GridCube : MonoBehaviour
 {
     public Vector2 Position { get; private set; }
     public float Height { get; private set; }
-    public _SurfaceEffect SurfaceEffect;
-    public enum _SurfaceEffect { None, Water, Oil };
+    private _SurfaceEffect SurfaceEffect;
+    private _StatusEffect SurfaceStatus;
     [SerializeField] private GameObject waterVisual = null, oilVisual = null;
     [SerializeField] private bool isStaircase = false;
     [SerializeField] private TextMesh textMeshGridNumber;
@@ -106,25 +106,45 @@ public class GridCube : MonoBehaviour
         }
     }
 
-    public void ToggleSurfaceEffect(string surfaceEffect)
+    public void ToggleSurfaceEffect(_SurfaceEffect surfaceEffect)
     {
+        SurfaceEffect = surfaceEffect;
         switch (surfaceEffect)
         {
             default:
-            case "None":
-                SurfaceEffect = _SurfaceEffect.None;
-                waterVisual.SetActive(false);
-                oilVisual.SetActive(false);
+            case _SurfaceEffect.None:
                 break;
-            case "Water":
-                SurfaceEffect = _SurfaceEffect.Water;
+            case _SurfaceEffect.Water:
                 waterVisual.SetActive(true);
                 oilVisual.SetActive(false);
                 break;
-            case "Oil":
-                SurfaceEffect = _SurfaceEffect.Oil;
+            case _SurfaceEffect.Oil:
                 waterVisual.SetActive(false);
                 oilVisual.SetActive(true);
+                break;
+            case _SurfaceEffect.Burning:
+                // QQQ TODO: pass this effect to other oil surfaces in the vicinity
+                break;
+        }
+    }
+
+    public void ToggleSurfaceStatus(_StatusEffect surfaceStatus)
+    {
+        SurfaceStatus = surfaceStatus;
+        switch (surfaceStatus)
+        {
+            default:
+            case _StatusEffect.None:
+                break;
+            case _StatusEffect.Fire:
+                Instantiate(GlobalSettings.FireEffectObject, transform);
+
+                // Ignite oil on this grid
+                if (SurfaceEffect == _SurfaceEffect.Oil)
+                    ToggleSurfaceEffect(_SurfaceEffect.Burning);
+                break;
+            case _StatusEffect.Shocked:
+                Instantiate(GlobalSettings.ElectricEffectObject, transform);
                 break;
         }
     }
