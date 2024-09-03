@@ -231,19 +231,11 @@ public class Card : MonoBehaviour
             {
                 // Handles the Y steps in the movement
                 targetedGrid = GetMovementGrid(instigator, targetedGrid, moveSteps, cardNumber, isSetupPhase);
-                float dirAngle = GetDirectionAngleBetweenGrids(targetedGrid, savedGridUsedByPreviousCard);
-                // Tile based previs
-                GameObject tilevisual = targetedGrid.GetIndicatorVisual(instigator, cardScriptableObject);
-                instigator.ToggleCardPrevis(isSetupPhase, cardNumber, tilevisual, dirAngle);
             }
             for (int stepWidth = 0; stepWidth < Mathf.Abs(moveSteps.x); stepWidth++)
             {
                 // Handles X steps in the movement
                 targetedGrid = GetMovementGrid(instigator, targetedGrid, moveSteps, cardNumber, isSetupPhase);
-                float dirAngle = GetDirectionAngleBetweenGrids(targetedGrid, savedGridUsedByPreviousCard);
-                // Tile based previs
-                GameObject tilevisual = targetedGrid.GetIndicatorVisual(instigator, cardScriptableObject);
-                instigator.ToggleCardPrevis(isSetupPhase, cardNumber, tilevisual, dirAngle);
             }
 
             // Save target location for movement during set up phase
@@ -259,7 +251,7 @@ public class Card : MonoBehaviour
         return targetedGrid;
     }
 
-    private GridCube GetMovementGrid(Character targetCharacter, GridCube startingGrid, Vector2Int moveSteps, int cardNumber, bool isSetupPhase)
+    private GridCube GetMovementGrid(Character instigator, GridCube startingGrid, Vector2Int moveSteps, int cardNumber, bool isSetupPhase)
     {
         GridCube destinationGrid = startingGrid;
         SetCardFeedback("isInvalid", false);
@@ -272,7 +264,7 @@ public class Card : MonoBehaviour
             Vector2 targetPos = new Vector2(startingGrid.Position.x + moveX, startingGrid.Position.y);
             GridCube result = GridPositions.GetGridByPosition(targetPos);
 
-            if (ValidateGridPosition.CanStep(targetCharacter, startingGrid, result, cardNumber, isSetupPhase))
+            if (ValidateGridPosition.CanStep(instigator, startingGrid, result, cardNumber, isSetupPhase))
             {
                 destinationGrid = result;
                 ConnectedCircuitboard.SaveMovementGridCube(result);
@@ -288,13 +280,22 @@ public class Card : MonoBehaviour
             Vector2 targetPos = new Vector2(startingGrid.Position.x, startingGrid.Position.y + moveY);
             GridCube result = GridPositions.GetGridByPosition(targetPos);
 
-            if (ValidateGridPosition.CanStep(targetCharacter, startingGrid, result, cardNumber, isSetupPhase))
+            if (ValidateGridPosition.CanStep(instigator, startingGrid, result, cardNumber, isSetupPhase))
             {
                 destinationGrid = result;
                 ConnectedCircuitboard.SaveMovementGridCube(result);
             }
             else
                 SetCardFeedback("isInvalid", true);
+        }
+
+        // Only execute tile previs if there is movement
+        if (destinationGrid != startingGrid)
+        {
+            // Tile based previs
+            GameObject tilevisual = destinationGrid.GetIndicatorVisual(instigator, cardScriptableObject);
+            float dirAngle = GetDirectionAngleBetweenGrids(destinationGrid, startingGrid);
+            instigator.ToggleCardPrevis(isSetupPhase, cardNumber, tilevisual, dirAngle);
         }
 
         return destinationGrid;
