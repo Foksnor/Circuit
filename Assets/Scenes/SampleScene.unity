@@ -612,8 +612,11 @@ MonoBehaviour:
   globalSpriteTransformOrientation: {x: 0, y: -55, z: 90}
   globalSpriteTransformOffset: {x: 0.4, y: 0, z: -0.4}
   globalFireEffectObject: {fileID: 2562972092076098195, guid: ab3d0e6bb5fb849428bf2fee81fc6f8e, type: 3}
-  GlobalBurningEffectObject: {fileID: 2562972092076098195, guid: ef8df448f9255204da48e62bb93b5486, type: 3}
-  globalElectricEffectObject: {fileID: 2562972092076098195, guid: 6f5214aa739e9a54db1f8726c4656566, type: 3}
+  globalBurningEffectObject: {fileID: 2562972092076098195, guid: ef8df448f9255204da48e62bb93b5486, type: 3}
+  globalShockEffectObject: {fileID: 2562972092076098195, guid: 6f5214aa739e9a54db1f8726c4656566, type: 3}
+  globalElectrifiedEffectObject: {fileID: 2562972092076098195, guid: defc76c49c9ceab45826a26b62c4f092, type: 3}
+  globalFireIcon: {fileID: -6073374272139994016, guid: b1ca5ae89d49cfc40a45d2f389bf17cc, type: 3}
+  globalShockIcon: {fileID: -170178176323120953, guid: 092f53a1f4068e942be98661bd2a0686, type: 3}
 --- !u!1 &1689630847
 GameObject:
   m_ObjectHideFlags: 0

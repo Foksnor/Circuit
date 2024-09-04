@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
-public class SpreadSurfaceEffectOnDeath : MonoBehaviour
+public class SpreadSurfaceTypeOnDeath : MonoBehaviour
 {
     [SerializeField] private Character character = null;
-    [SerializeField] private _SurfaceEffect surfaceEffectToSpread;
+    [SerializeField] private _SurfaceType surfaceEffectToSpread;
     [SerializeField] private int spreadDiameter = 5;
 
 
     private void OnDestroy()
     {
-        SpreadSurfaceEffect();
+        SpreadSurfaceType();
     }
 
-    private void SpreadSurfaceEffect()
+    private void SpreadSurfaceType()
     {
         // Starting position of the surface spread
         Vector2 startingPos = (Vector2)transform.position - (Vector2.one * Mathf.Round(spreadDiameter / 2));
@@ -35,10 +35,10 @@ public class SpreadSurfaceEffectOnDeath : MonoBehaviour
                     {
                         float rng = Random.Range(0, 100);
                             if (rng < 50)
-                            affectedCube.ToggleSurfaceEffect(surfaceEffectToSpread);
+                            affectedCube.ToggleSurface(character, surfaceEffectToSpread);
                     }
                     else
-                        affectedCube.ToggleSurfaceEffect(surfaceEffectToSpread);
+                        affectedCube.ToggleSurface(character, surfaceEffectToSpread);
                 }
             }
         }

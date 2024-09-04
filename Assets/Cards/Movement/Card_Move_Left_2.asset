@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f596eff5112c554089c6d028bd0e335, type: 3}
-  m_Name: Card_MoveS_TargetEnemy
+  m_Name: Card_Move_Left_2
   m_EditorClassIdentifier: 
   CardType: 0
-  CardRarity: 0
-  CardName: Move
+  CardRarity: 1
+  CardName: Move 2
   Cost: 0
-  Sprite: {fileID: 21300000, guid: 22d788f7e04b30a4ea84135444221dae, type: 3}
+  Sprite: {fileID: 21300000, guid: 54e1f4dce587bcf40a5e70e92597a8bd, type: 3}
   Sound: {fileID: 0}
   Particle: {fileID: 0}
   ParticleLocation: 0
-  TargetType: 3
-  MoveSteps: {x: 0, y: -1}
+  TargetType: 0
+  MoveSteps: {x: -1, y: 0}
   AttackSteps: {x: 0, y: 0}
-  AutoTargetNearest: 1
+  AutoTargetNearest: 0
   AttackOffset: 0
   Value: 0
   Description: Moves the player 2 steps.
-  MaxTimeInUse: 0.5
+  MaxTimeInUse: 1

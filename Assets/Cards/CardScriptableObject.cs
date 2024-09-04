@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class CardScriptableObject : ScriptableObject
 {
     public _CardType CardType;
-    public enum _CardType { Movement, Attack, ElementFire, ElementElectricity };
+    public enum _CardType { Movement, Attack, ElementFire, ElementShock };
     public _CardRarity CardRarity;
     public enum _CardRarity { Basic, Rare, Epic };
     public _CardStyle CardStyle;

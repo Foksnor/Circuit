@@ -97,16 +97,16 @@ public class Character : MonoBehaviour
         isPotentialKill = false; 
     }
 
-    public void ApplyStatus(_StatusEffect status)
+    public void ApplyStatus(_StatusType status)
     {
         switch (status)
         {
             default:
-            case _StatusEffect.None:
+            case _StatusType.None:
                 break;
-            case _StatusEffect.Fire:
+            case _StatusType.Fire:
                 break;
-            case _StatusEffect.Shocked:
+            case _StatusType.Shocked:
                 break;
         }
     }
@@ -174,7 +174,7 @@ public class Character : MonoBehaviour
         isSimulationMarkedForDeath = false;
     }
 
-    public virtual void ToggleCardPrevis(bool isShowingPrevis, int cardNumber, GameObject tilevisual, float angle)
+    public virtual GameObject ToggleCardPrevis(bool isShowingPrevis, int cardNumber, GameObject tilevisual, float angle)
     {
         if (cardPrevisBinder == null)
             cardPrevisBinder = new GameObject("CardPrevisBinder");
@@ -205,6 +205,8 @@ public class Character : MonoBehaviour
         }
         else
             RemoveCardPrevis();
+
+        return tilevisual;
     }
 
     private void RemoveCardPrevis()

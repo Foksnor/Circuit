@@ -8,9 +8,13 @@ public class GridCube : MonoBehaviour
 {
     public Vector2 Position { get; private set; }
     public float Height { get; private set; }
-    private _SurfaceEffect SurfaceEffect;
-    private _StatusEffect SurfaceStatus;
-    [SerializeField] private GameObject waterVisual = null, oilVisual = null;
+    private _SurfaceType SurfaceType;
+    private _StatusType StatusType;
+    [SerializeField] private MeshRenderer gridMeshRenderer = null;
+    [SerializeField] private Material gridMatWater = null, gridMatOil = null, gridMatBurning;
+    [SerializeField] private SpriteRenderer tileStatusEffectPrevis = null;
+    private GameObject instancedTilePrevis = null;
+
     [SerializeField] private bool isStaircase = false;
     [SerializeField] private TextMesh textMeshGridNumber;
     [SerializeField] private TextMesh textMeshCharacterRef;
@@ -106,47 +110,100 @@ public class GridCube : MonoBehaviour
         }
     }
 
-    public void ToggleSurfaceEffect(_SurfaceEffect surfaceEffect)
+    public void ToggleSurface(Character instigator, _SurfaceType surfaceEffect)
     {
-        SurfaceEffect = surfaceEffect;
+        SurfaceType = surfaceEffect;
+        gridMeshRenderer.enabled = false;
         switch (surfaceEffect)
         {
             default:
-            case _SurfaceEffect.None:
+            case _SurfaceType.None:
                 break;
-            case _SurfaceEffect.Water:
-                waterVisual.SetActive(true);
-                oilVisual.SetActive(false);
+            case _SurfaceType.Water:
+                gridMeshRenderer.enabled = true;
+                gridMeshRenderer.material = gridMatWater;
+                if (instigator.isSimulation)
+                {
+                    // Only set previs tile if not already initialized
+                    if (instancedTilePrevis == null)
+                    {
+                        tileStatusEffectPrevis.sprite = GlobalSettings.ShockIcon;
+                        Character simulationOwner = instigator.GetComponent<CharacterSimulation>().OwnerOfThisSimulation;
+                        instancedTilePrevis = simulationOwner.ToggleCardPrevis(true, 0, tileStatusEffectPrevis.gameObject, 90);
+                        SpreadStatus(instigator, _SurfaceType.Water, _StatusType.Shocked);
+                    }
+                }
                 break;
-            case _SurfaceEffect.Oil:
-                waterVisual.SetActive(false);
-                oilVisual.SetActive(true);
+            case _SurfaceType.Oil:
+                gridMeshRenderer.enabled = true;
+                gridMeshRenderer.material = gridMatOil;
+                if (instigator.isSimulation)
+                {
+                    // Only set previs tile if not already initialized
+                    if (instancedTilePrevis == null)
+                    {
+                        tileStatusEffectPrevis.sprite = GlobalSettings.FireIcon;
+                        Character simulationOwner = instigator.GetComponent<CharacterSimulation>().OwnerOfThisSimulation;
+                        instancedTilePrevis = simulationOwner.ToggleCardPrevis(true, 0, tileStatusEffectPrevis.gameObject, 90);
+                        SpreadStatus(instigator, _SurfaceType.Oil, _StatusType.Fire);
+                    }
+                }
                 break;
-            case _SurfaceEffect.Burning:
-                // QQQ TODO: pass this effect to other oil surfaces in the vicinity
+            case _SurfaceType.Burning:
+                gridMeshRenderer.enabled = true;
+                gridMeshRenderer.material = gridMatBurning;
+                Instantiate(GlobalSettings.BurningEffectObject, transform);
+                SpreadStatus(instigator, _SurfaceType.Oil, _StatusType.Fire);
+                break;
+            case _SurfaceType.Electrified:
+                gridMeshRenderer.enabled = true;
+                gridMeshRenderer.material = gridMatWater;
+                Instantiate(GlobalSettings.ElectrifiedEffectObject, transform);
+                SpreadStatus(instigator, _SurfaceType.Water, _StatusType.Shocked);
                 break;
         }
     }
 
-    public void ToggleSurfaceStatus(_StatusEffect surfaceStatus)
+    public void ToggleStatus(Character instigator, _StatusType surfaceStatus, bool isCausedByAttack)
     {
-        SurfaceStatus = surfaceStatus;
+        StatusType = surfaceStatus;
         switch (surfaceStatus)
         {
             default:
-            case _StatusEffect.None:
+            case _StatusType.None:
                 break;
-            case _StatusEffect.Fire:
-                Instantiate(GlobalSettings.FireEffectObject, transform);
+            case _StatusType.Fire:
+                if (isCausedByAttack)
+                    Instantiate(GlobalSettings.FireEffectObject, transform);
 
                 // Ignite oil on this grid
-                if (SurfaceEffect == _SurfaceEffect.Oil)
-                    ToggleSurfaceEffect(_SurfaceEffect.Burning);
+                if (SurfaceType == _SurfaceType.Oil)
+                    if (instigator.isSimulation)
+                        ToggleSurface(instigator, _SurfaceType.Oil);
+                    else
+                        ToggleSurface(instigator, _SurfaceType.Burning);
                 break;
-            case _StatusEffect.Shocked:
-                Instantiate(GlobalSettings.ElectricEffectObject, transform);
+            case _StatusType.Shocked:
+                if (isCausedByAttack)
+                    Instantiate(GlobalSettings.ShockEffectObject, transform);
+
+                // Shock water on this grid
+                if (SurfaceType == _SurfaceType.Water)
+                    if (instigator.isSimulation)
+                        ToggleSurface(instigator, _SurfaceType.Water);
+                    else
+                        ToggleSurface(instigator, _SurfaceType.Electrified);
                 break;
         }
+    }
+
+    private void SpreadStatus(Character instigator, _SurfaceType requiredSurface, _StatusType statusToSpread)
+    {
+        List<GridCube> vicinityCubes = new();
+        vicinityCubes.AddRange(HelperFunctions.GetVicinityGridCubes(this, 1));
+        for (int i = 0; i < vicinityCubes.Count; i++)
+            if (vicinityCubes[i].SurfaceType == requiredSurface)
+                vicinityCubes[i].ToggleStatus(instigator, statusToSpread, false);
     }
 
     public bool GetCharacterMovementPriority(Character character, int actionNumber)

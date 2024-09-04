@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f596eff5112c554089c6d028bd0e335, type: 3}
-  m_Name: Card_Element_Electricity
+  m_Name: Card_Move_Backward
   m_EditorClassIdentifier: 
-  CardType: 3
+  CardType: 0
   CardRarity: 0
-  CardStyle: 0
-  CardName: Electricity Enhancement
+  CardName: Move
   Cost: 0
-  Sprite: {fileID: 5820286478268577726, guid: c88b0fffaa4a08e4da31664b9c2a2942, type: 3}
+  Sprite: {fileID: 21300000, guid: 3304b67eb1333ab46b23f27ba47bf5ab, type: 3}
   Sound: {fileID: 0}
   Particle: {fileID: 0}
   ParticleLocation: 0
-  TargetType: 4
-  MoveSteps: {x: 0, y: 0}
+  TargetType: 0
+  MoveSteps: {x: 0, y: -1}
   AttackSteps: {x: 0, y: 0}
+  AutoTargetNearest: 1
   AttackOffset: 0
-  Value: 1
-  Description: Frontal attack.
+  Value: 0
+  Description: Moves the player 1 step.
   MaxTimeInUse: 0.5

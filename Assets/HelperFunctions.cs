@@ -31,4 +31,24 @@ public static class HelperFunctions
         }
         return areListsDifferent;
     }
+
+    public static List<GridCube> GetVicinityGridCubes(GridCube startingCube, int radiusSize)
+    {
+        List<GridCube>vicinityCubes = new();
+        // Double the range so it can be centered around the grid, and add 1 for the center point
+        int diameterSize = radiusSize + radiusSize + 1;
+
+        for (int x = -radiusSize; x < diameterSize; x++)
+        {
+            for (int y = -radiusSize; y < diameterSize; y++)
+            {
+                Vector2 nearbyPosition = new(startingCube.Position.x - x, startingCube.Position.y - y);
+                GridCube nearbyCube = GridPositions.GetGridByPosition(nearbyPosition);
+                if (nearbyCube != null)
+                    vicinityCubes.Add(nearbyCube);
+            }
+        }
+
+        return vicinityCubes;
+    }
 }

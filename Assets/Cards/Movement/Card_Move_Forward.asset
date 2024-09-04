@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f596eff5112c554089c6d028bd0e335, type: 3}
-  m_Name: Card_MoveE
+  m_Name: Card_Move_Forward
   m_EditorClassIdentifier: 
   CardType: 0
   CardRarity: 0
   CardName: Move
   Cost: 0
-  Sprite: {fileID: 21300000, guid: 68bb39977eceafc4b807e4df592ee27e, type: 3}
+  Sprite: {fileID: 21300000, guid: 3088e55232f26414e89c33f55c40ca6b, type: 3}
   Sound: {fileID: 0}
   Particle: {fileID: 0}
   ParticleLocation: 0
   TargetType: 0
-  MoveSteps: {x: 1, y: 0}
+  MoveSteps: {x: 0, y: 1}
   AttackSteps: {x: 0, y: 0}
   AutoTargetNearest: 0
   AttackOffset: 0

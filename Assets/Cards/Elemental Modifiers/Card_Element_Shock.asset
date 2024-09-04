@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f596eff5112c554089c6d028bd0e335, type: 3}
-  m_Name: Card_MoveW
+  m_Name: Card_Element_Shock
   m_EditorClassIdentifier: 
-  CardType: 0
+  CardType: 3
   CardRarity: 0
-  CardName: Move
+  CardStyle: 0
+  CardName: Electricity Enhancement
   Cost: 0
-  Sprite: {fileID: 21300000, guid: 9da6b774dd55ef841bb376f284b55897, type: 3}
+  Sprite: {fileID: 5820286478268577726, guid: c88b0fffaa4a08e4da31664b9c2a2942, type: 3}
   Sound: {fileID: 0}
   Particle: {fileID: 0}
   ParticleLocation: 0
-  TargetType: 0
-  MoveSteps: {x: -1, y: 0}
+  TargetType: 4
+  MoveSteps: {x: 0, y: 0}
   AttackSteps: {x: 0, y: 0}
-  AutoTargetNearest: 0
   AttackOffset: 0
-  Value: 0
-  Description: Moves the player 1 step.
+  Value: 1
+  Description: Your next attack uses Shock.
   MaxTimeInUse: 0.5

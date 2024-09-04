@@ -18,7 +18,7 @@ public class CircuitBoard : MonoBehaviour
     private float timeBetweenCardsPlayed = 0;
     private bool isReadyToProcessSimulation = true;
     public int FireAttacksAvailable { get; private set; }
-    public int ElectricityAttacksAvailable { get; private set; }
+    public int ShockAttacksAvailable { get; private set; }
     [SerializeField] private List<GridCube> savedMovementGridCubes = new();
 
     protected bool needsNewCardCalculation { set; get; } = false;
@@ -166,8 +166,8 @@ public class CircuitBoard : MonoBehaviour
             case CardScriptableObject._CardType.ElementFire:
                 FireAttacksAvailable += buffAmount;
                 break;
-            case CardScriptableObject._CardType.ElementElectricity:
-                ElectricityAttacksAvailable += buffAmount;
+            case CardScriptableObject._CardType.ElementShock:
+                ShockAttacksAvailable += buffAmount;
                 break;
         }
     }
@@ -183,10 +183,10 @@ public class CircuitBoard : MonoBehaviour
                     return true;
                 }
                 break;
-            case CardScriptableObject._CardType.ElementElectricity:
-                if (ElectricityAttacksAvailable > 0)
+            case CardScriptableObject._CardType.ElementShock:
+                if (ShockAttacksAvailable > 0)
                 {
-                    ElectricityAttacksAvailable -= 1;
+                    ShockAttacksAvailable -= 1;
                     return true;
                 }
                 break;

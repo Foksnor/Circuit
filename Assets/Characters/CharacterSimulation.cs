@@ -6,7 +6,7 @@ using UnityEngine;
 public class CharacterSimulation : Character
 {
     [SerializeField] private Animator VisualRootAnimator;
-    private Character ownerOfThisSimulation;
+    public Character OwnerOfThisSimulation { get; private set; }
 
     private void Awake()
     {
@@ -16,13 +16,13 @@ public class CharacterSimulation : Character
 
     protected override void Die(Character instigator)
     {
-        ownerOfThisSimulation.isSimulationMarkedForDeath = true;
+        OwnerOfThisSimulation.isSimulationMarkedForDeath = true;
         base.Die(instigator);
     }
 
     public void SetCharacterSimInfo(Character owner, SpriteRenderer spriteRenderer)
     {
-        ownerOfThisSimulation = owner;
+        OwnerOfThisSimulation = owner;
         isSimulation = true;
         health = owner.Health;
         TeamType = owner.TeamType;

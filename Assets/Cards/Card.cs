@@ -12,7 +12,7 @@ public class Card : MonoBehaviour
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI costText;
     [SerializeField] private Image cardBackground, cardimage;
-    [SerializeField] private Material fireMat, electricityMat, foilMat, goldenMat;
+    [SerializeField] private Material fireMat, shockMat, foilMat, goldenMat;
     [SerializeField] private AudioClip sound;
     [SerializeField] private TextMeshProUGUI valueText;
     [SerializeField] private TextMeshProUGUI descriptionText;
@@ -54,8 +54,8 @@ public class Card : MonoBehaviour
             case CardScriptableObject._CardType.ElementFire:
                 cardimage.material = fireMat;
                 break;
-            case CardScriptableObject._CardType.ElementElectricity:
-                cardimage.material = electricityMat;
+            case CardScriptableObject._CardType.ElementShock:
+                cardimage.material = shockMat;
                 break;
         }
         switch (scriptableObject.CardStyle)
@@ -324,16 +324,16 @@ public class Card : MonoBehaviour
     {
         // Use elemental attack if available
         bool fireAvailable = ConnectedCircuitboard.UseAvailableBuff(CardScriptableObject._CardType.ElementFire);
-        bool electricityAvailable = ConnectedCircuitboard.UseAvailableBuff(CardScriptableObject._CardType.ElementElectricity);
+        bool shockAvailable = ConnectedCircuitboard.UseAvailableBuff(CardScriptableObject._CardType.ElementShock);
 
         for (int i = 0; i < attackedGridTargets.Count; i++)
         {
             SpawnParticleEffectAtGridCube(instigator, attackedGridTargets[i]);
 
             if (fireAvailable)
-                attackedGridTargets[i].ToggleSurfaceStatus(_StatusEffect.Fire);
-            if (electricityAvailable)
-                attackedGridTargets[i].ToggleSurfaceStatus(_StatusEffect.Shocked);
+                attackedGridTargets[i].ToggleStatus(instigator, _StatusType.Fire, true);
+            if (shockAvailable)
+                attackedGridTargets[i].ToggleStatus(instigator, _StatusType.Shocked, true);
 
 
             if (instigator.isSimulation)
@@ -376,7 +376,7 @@ public class Card : MonoBehaviour
         switch (cardScriptableObject.CardType)
         {
             case CardScriptableObject._CardType.ElementFire:
-            case CardScriptableObject._CardType.ElementElectricity:
+            case CardScriptableObject._CardType.ElementShock:
                 ConnectedCircuitboard.AddBuff(instigator, cardScriptableObject.CardType, cardScriptableObject.Value);
                 break;
         }
