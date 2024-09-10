@@ -209,7 +209,7 @@ public class Card : MonoBehaviour
                             targetedGrid = result;
                             // Tile based previs
                             GameObject tilevisual = targetedGrid.GetIndicatorVisual(instigator, cardScriptableObject);
-                            instigator.ToggleCardPrevis(isSetupPhase, cardNumber, tilevisual, 0);
+                            instigator.ToggleTilePrevis(isSetupPhase, cardNumber, tilevisual, 0);
                             attackedGridTargets.Add(targetedGrid);
                         }
                     }
@@ -295,7 +295,7 @@ public class Card : MonoBehaviour
             // Tile based previs
             GameObject tilevisual = destinationGrid.GetIndicatorVisual(instigator, cardScriptableObject);
             float dirAngle = GetDirectionAngleBetweenGrids(destinationGrid, startingGrid);
-            instigator.ToggleCardPrevis(isSetupPhase, cardNumber, tilevisual, dirAngle);
+            instigator.ToggleTilePrevis(isSetupPhase, cardNumber, tilevisual, dirAngle);
         }
 
         return destinationGrid;

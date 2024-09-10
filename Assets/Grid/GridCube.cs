@@ -129,7 +129,7 @@ public class GridCube : MonoBehaviour
                     {
                         tileStatusEffectPrevis.sprite = GlobalSettings.ShockIcon;
                         Character simulationOwner = instigator.GetComponent<CharacterSimulation>().OwnerOfThisSimulation;
-                        instancedTilePrevis = simulationOwner.ToggleCardPrevis(true, 0, tileStatusEffectPrevis.gameObject, 90);
+                        instancedTilePrevis = simulationOwner.ToggleTilePrevis(true, int.MaxValue, tileStatusEffectPrevis.gameObject, 90);
                         SpreadStatus(instigator, _SurfaceType.Water, _StatusType.Shocked);
                     }
                 }
@@ -144,7 +144,7 @@ public class GridCube : MonoBehaviour
                     {
                         tileStatusEffectPrevis.sprite = GlobalSettings.FireIcon;
                         Character simulationOwner = instigator.GetComponent<CharacterSimulation>().OwnerOfThisSimulation;
-                        instancedTilePrevis = simulationOwner.ToggleCardPrevis(true, 0, tileStatusEffectPrevis.gameObject, 90);
+                        instancedTilePrevis = simulationOwner.ToggleTilePrevis(true, int.MaxValue, tileStatusEffectPrevis.gameObject, 90);
                         SpreadStatus(instigator, _SurfaceType.Oil, _StatusType.Fire);
                     }
                 }
@@ -229,10 +229,5 @@ public class GridCube : MonoBehaviour
         textMeshGridNumber.gameObject.SetActive(!textMeshGridNumber.gameObject.activeSelf);
         textMeshCharacterRef.gameObject.SetActive(!textMeshCharacterRef.gameObject.activeSelf);
         textMeshSimulationRef.gameObject.SetActive(!textMeshSimulationRef.gameObject.activeSelf);
-    }
-
-    private void OnGUI()
-    {
-        
     }
 }

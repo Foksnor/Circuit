@@ -174,7 +174,7 @@ public class Character : MonoBehaviour
         isSimulationMarkedForDeath = false;
     }
 
-    public virtual GameObject ToggleCardPrevis(bool isShowingPrevis, int cardNumber, GameObject tilevisual, float angle)
+    public virtual GameObject ToggleTilePrevis(bool isShowingPrevis, int cardNumber, GameObject tilevisual, float angle)
     {
         if (cardPrevisBinder == null)
             cardPrevisBinder = new GameObject("CardPrevisBinder");
