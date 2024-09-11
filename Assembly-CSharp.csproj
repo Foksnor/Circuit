@@ -55,12 +55,13 @@
     <UnityVersion>2023.2.20f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="D:\Unity\2023.2.20f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="D:\Unity\2023.2.20f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
     <Analyzer Include="D:\Unity\2023.2.20f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Characters\Player\ExperienceBar\RewardScreen.cs" />
     <Compile Include="Assets\Characters\TransformBillboard.cs" />
     <Compile Include="Assets\Cards\CardSelect.cs" />
     <Compile Include="Assets\Characters\Player\Feedback Interactions\FeedbackPanelScriptableObject.cs" />
@@ -70,48 +71,51 @@
     <Compile Include="Assets\Cards\Card.cs" />
     <Compile Include="Assets\Doozy\_Examples\E22 - Popup - without Buttons\ShowSimplePopup.cs" />
     <Compile Include="Assets\Characters\Player\Feedback Interactions\FeedbackPanel.cs" />
-    <Compile Include="Assets\Characters\Player\Levels\RewardScreen.cs" />
+    <Compile Include="Assets\Characters\CharacterHitFlash.cs" />
     <Compile Include="Assets\Grid\Biome\BiomeScriptableObject.cs" />
+    <Compile Include="Assets\Characters\ApplyMainCameraToCanvas.cs" />
     <Compile Include="Assets\Characters\CharacterSimulation.cs" />
     <Compile Include="Assets\EditorScripts\CardCreatorInspector.cs" />
     <Compile Include="Assets\Grid\Biome\BiomeChunk.cs" />
+    <Compile Include="Assets\Characters\Player\HealthBar\HealthBar.cs" />
     <Compile Include="Assets\Characters\CharacterTeams.cs" />
     <Compile Include="Assets\Doozy\_Examples\E24 - Popup - with Two Buttons\ShowTwoButtonsPopup.cs" />
     <Compile Include="Assets\UI\DebugMenu.cs" />
     <Compile Include="Assets\Grid\ValidateGridPosition.cs" />
     <Compile Include="Assets\Characters\Player\PlayerStats.cs" />
+    <Compile Include="Assets\Characters\Player\ExperienceBar\ExperienceBar.cs" />
+    <Compile Include="Assets\Characters\Player\ExperienceBar\ExperiencePoint.cs" />
     <Compile Include="Assets\Doozy\_ReactorExamples\Scripts\Runtime\IntAnimatorExample.cs" />
     <Compile Include="Assets\Characters\Player\Deck\PlayerDeck.cs" />
+    <Compile Include="Assets\Characters\Player\ExperienceBar\CardReward.cs" />
     <Compile Include="Assets\Cards\Card_PointerInteraction.cs" />
     <Compile Include="Assets\Grid\Grid_Manager.cs" />
     <Compile Include="Assets\UI\CardSocket.cs" />
     <Compile Include="Assets\DestroyGameObjectLifetime.cs" />
-    <Compile Include="Assets\Characters\Player\Levels\ExperiencePoint.cs" />
     <Compile Include="Assets\HelperFunctions.cs" />
+    <Compile Include="Assets\Characters\Player\HealthBar\HealthSegment.cs" />
     <Compile Include="Assets\Doozy\_Examples\E23 - Popup - with One Button\ShowOneButtonPopup.cs" />
     <Compile Include="Assets\Characters\Character.cs" />
     <Compile Include="Assets\Doozy\_Examples\E25 - Toggle - UIToggle Animators\ExampleUIToggleAnimators.cs" />
     <Compile Include="Assets\Cards\EnemyCircuitBoard.cs" />
-    <Compile Include="Assets\Characters\Player\Levels\CardReward.cs" />
-    <Compile Include="Assets\Characters\Player\HealthPanel\HealthSegment.cs" />
     <Compile Include="Assets\Cards\PlayerLevelScriptableObject.cs" />
     <Compile Include="Assets\Grid\IntExtensions.cs" />
     <Compile Include="Assets\TransitionTurns.cs" />
-    <Compile Include="Assets\Characters\Player\Levels\ExperienceBar.cs" />
     <Compile Include="Assets\Characters\Player\Button_TransitionTurn.cs" />
     <Compile Include="Assets\GameSettings.cs" />
     <Compile Include="Assets\Doozy\_Examples\Common\Runtime\Scripts\PrintToConsole.cs" />
     <Compile Include="Assets\Cards\CardPrevis.cs" />
-    <Compile Include="Assets\Characters\Player\HealthPanel\HealthPanel.cs" />
     <Compile Include="Assets\Cards\PlayerCircuitBoard.cs" />
     <Compile Include="Assets\EditorScripts\CardCreator.cs" />
     <Compile Include="Assets\UI\FreezeXTransformPosition.cs" />
+    <Compile Include="Assets\Characters\Player\ExperienceBar\DelayProgressbar.cs" />
     <Compile Include="Assets\Cards\Attacks\Lifetime.cs" />
     <Compile Include="Assets\Characters\DeathVFX\DeathVFX.cs" />
     <Compile Include="Assets\Characters\CharacterSpawnpoint.cs" />
     <Compile Include="Assets\Grid\GridCube.cs" />
-    <Compile Include="Assets\Characters\Player\Levels\DelayProgressbar.cs" />
     <Compile Include="Assets\Cards\CardScriptableObject.cs" />
+    <Compile Include="Assets\Characters\Player\HealthBar\HealthPanel.cs" />
+    <Compile Include="Assets\Characters\Objects\SpreadSurfaceTypeOnDeath.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Doozy\_Extras\Fonts\UFL.txt" />

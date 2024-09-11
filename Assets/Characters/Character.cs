@@ -11,26 +11,31 @@ public class Character : MonoBehaviour
     public GridCube AssignedGridCube { private set; get; }
     [SerializeField] public SpriteRenderer CharacterSpriteRenderer = null;
     [SerializeField] protected Animator characterAnimator = null;
-    [SerializeField] private DeathVFX deathVFX = null;
-    [SerializeField] private GameObject spawnObjectOnDeath = null;
-    [SerializeField] private GameObject ExperiencePoint = null;
-    [SerializeField] private int ExperienceAmountOnDeath = 3;
     public CharacterSimulation CharacterSimulation = null;
     public CharacterSimulation InstancedCharacterSimulation { get; private set; } = null;
     public bool isSimulation { get; protected set; } = false;
     
-    [HideInInspector]
-    public bool isSimulationMarkedForDeath { get; set; }
-    public bool isPotentialKill { get; private set; }
-    private GameObject cardPrevisBinder = null;
-    private List<GameObject> ActiveCardPrevisTiles = new List<GameObject>();
+    // Health
     public int Health { get { return health; } set { health = value; } }
     [SerializeField] protected int health;
     [SerializeField] protected int maxHealth;
     [SerializeField] private HealthBar healthBar = null;
+    [SerializeField] private CharacterHitFlash hitFlashComponent = null;
     protected bool isInvulnerable = false;
+
+    // Death
+    [SerializeField] private DeathVFX deathVFX = null;
+    [SerializeField] private GameObject spawnObjectOnDeath = null;
+    [SerializeField] private GameObject ExperiencePoint = null;
+    [SerializeField] private int ExperienceAmountOnDeath = 3;
+    [HideInInspector]
+    public bool isSimulationMarkedForDeath { get; set; }
+    public bool isPotentialKill { get; private set; }
+
+    // Cards
+    private GameObject cardPrevisBinder = null;
+    private List<GameObject> ActiveCardPrevisTiles = new List<GameObject>();
     private float cardPlaySpeed = 1;
-    
     public float cardSimulationSpeedModifier { private set; get; } = 2;
 
     private void Awake()
@@ -118,6 +123,7 @@ public class Character : MonoBehaviour
 
         health -= amount;
         healthBar?.UpdateHealthBar(maxHealth, health, amount);
+        hitFlashComponent.PlayHitFlash();
         if (health <= 0)
             Die(instigator);
     }

@@ -96,6 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3909557763706121143}
   - component: {fileID: 2985683909314406194}
+  - component: {fileID: 2738305021291942433}
   - component: {fileID: 139656261983382513}
   - component: {fileID: 454550534416935105}
   m_Layer: 0
@@ -138,14 +139,28 @@ MonoBehaviour:
   CircuitBoard: {fileID: 0}
   CharacterSpriteRenderer: {fileID: 1227327109424664455}
   characterAnimator: {fileID: 139656261983382513}
-  deathVFX: {fileID: 6365781379737220186, guid: 6be02c20730e74749bb93c43639905cb, type: 3}
-  ExperiencePoint: {fileID: 6649261707910977894, guid: c2a193ce76f91f343820b7b179602084, type: 3}
-  ExperienceAmountOnDeath: 3
   CharacterSimulation: {fileID: 5176291571335548904, guid: a812bdf64b4d9e245ae6a4d13d02009a, type: 3}
-  isSimulationMarkedForDeath: 0
   health: 0
   maxHealth: 0
   healthBar: {fileID: 8073275927757379373}
+  hitFlashComponent: {fileID: 2738305021291942433}
+  deathVFX: {fileID: 6365781379737220186, guid: 6be02c20730e74749bb93c43639905cb, type: 3}
+  spawnObjectOnDeath: {fileID: 0}
+  ExperiencePoint: {fileID: 6649261707910977894, guid: c2a193ce76f91f343820b7b179602084, type: 3}
+  ExperienceAmountOnDeath: 3
+--- !u!114 &2738305021291942433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4155326752025549204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bece00844a05a8d47ba229fe7f61bbc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 1227327109424664455}
 --- !u!95 &139656261983382513
 Animator:
   serializedVersion: 7

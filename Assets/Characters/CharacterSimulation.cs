@@ -8,12 +8,6 @@ public class CharacterSimulation : Character
     [SerializeField] private Animator VisualRootAnimator;
     public Character OwnerOfThisSimulation { get; private set; }
 
-    private void Awake()
-    {
-        // Character sim cannot be dealt damage
-        //isInvulnerable = true;
-    }
-
     protected override void Die(Character instigator)
     {
         OwnerOfThisSimulation.isSimulationMarkedForDeath = true;
