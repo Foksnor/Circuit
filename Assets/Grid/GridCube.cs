@@ -195,6 +195,10 @@ public class GridCube : MonoBehaviour
                         ToggleSurface(instigator, _SurfaceType.Electrified);
                 break;
         }
+
+        // Apply surface status to the characters on this grid
+        CharacterOnThisGrid.SetStatus(surfaceStatus);
+        SimulationOnThisGrid.SetStatus(surfaceStatus);
     }
 
     private void SpreadStatus(Character instigator, _SurfaceType requiredSurface, _StatusType statusToSpread)

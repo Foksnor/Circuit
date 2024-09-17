@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Animations;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public class Character : MonoBehaviour, IDamageable
 {
     public _TeamType TeamType;
     public enum _TeamType { Player, Enemy, Neutral };
@@ -14,7 +14,10 @@ public class Character : MonoBehaviour
     public CharacterSimulation CharacterSimulation = null;
     public CharacterSimulation InstancedCharacterSimulation { get; private set; } = null;
     public bool isSimulation { get; protected set; } = false;
-    
+
+    // Status Effects
+    [SerializeField] private StatusBar statusBar = null;
+
     // Health
     public int Health { get { return health; } set { health = value; } }
     [SerializeField] protected int health;
@@ -102,8 +105,9 @@ public class Character : MonoBehaviour
         isPotentialKill = false; 
     }
 
-    public void ApplyStatus(_StatusType status)
+    public void SetStatus(_StatusType status)
     {
+        statusBar.ToggleStatusIcon(status, true);
         switch (status)
         {
             default:
@@ -116,7 +120,7 @@ public class Character : MonoBehaviour
         }
     }
 
-    public void ChangeHealth(int amount, Character instigator)
+    public void SubtractHealth(int amount, Character instigator)
     {
         if (isInvulnerable)
             return;
