@@ -71,10 +71,6 @@ public class TransitionTurns : MonoBehaviour
         }
         else
         {
-            // Invokes all simulation end turn triggers
-            for (int i = 0; i < TurnSequence.TurnSequenceTriggerables.Count; i++)
-                TurnSequence.TurnSequenceTriggerables[i].OnEndSimulationTurn();
-
             // Player set up phase
             PlayerDrawPhase();
 
@@ -96,6 +92,10 @@ public class TransitionTurns : MonoBehaviour
                 // At the end of both player and enemy simulation, reset them to repeat the simulations
                 if (!isEnemySimulationTurnActive)
                 {
+                    // Invokes all simulation end turn triggers
+                    for (int i = 0; i < TurnSequence.TurnSequenceTriggerables.Count; i++)
+                        TurnSequence.TurnSequenceTriggerables[i].OnEndSimulationTurn();
+
                     ResetSimulationProcessing(CharacterTeams._PlayerTeamCharacters);
                     ResetSimulationProcessing(CharacterTeams._EnemyTeamCharacters);
                 }

@@ -242,9 +242,9 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
             case _SurfaceType.Oil:
                 // Remove fire and other status effects at the end of turn when there is no surface present
                 StatusType = _StatusType.None;
+                Destroy(instancedTilePrevis);
                 break;
             case _SurfaceType.Burning:
-            case _SurfaceType.Electrified:
                 if (!isSimulation)
                 {
                     surfaceDuration--;
@@ -257,6 +257,8 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
                     if (!TurnSequence.TurnSequenceTriggerables.Contains(this))
                         TurnSequence.TurnSequenceTriggerables.Add(this);
                 }
+                break;
+            case _SurfaceType.Electrified:
                 break;
         }
     }
