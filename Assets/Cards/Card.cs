@@ -225,6 +225,7 @@ public class Card : MonoBehaviour
 
             return savedGridUsedByPreviousCard;
         }
+        // Movement
         else if (cardScriptableObject.CardType == CardScriptableObject._CardType.Movement)
         {
             for (int stepLength = 0; stepLength < Mathf.Abs(moveSteps.y); stepLength++)
@@ -348,7 +349,7 @@ public class Card : MonoBehaviour
                     // No friendly fire allowed, stop damage function when this happens
                     if (simOnThisGrid.TeamType != instigator.TeamType)
                     {
-                        simOnThisGrid.ChangeHealth(cardScriptableObject.Value, instigator);
+                        simOnThisGrid.SubtractHealth(cardScriptableObject.Value, instigator);
                     }
                 }
             }
@@ -364,7 +365,7 @@ public class Card : MonoBehaviour
                     // No friendly fire allowed, stop damage function when this happens
                     if (charOnThisGrid.TeamType != instigator.TeamType)
                     {
-                        charOnThisGrid.ChangeHealth(cardScriptableObject.Value, instigator);
+                        charOnThisGrid.SubtractHealth(cardScriptableObject.Value, instigator);
                     }
                 }
             }

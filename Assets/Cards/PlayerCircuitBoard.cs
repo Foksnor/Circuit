@@ -135,7 +135,7 @@ public class PlayerCircuitBoard : CircuitBoard
         if (!needsNewCardCalculation)
         {
             needsNewCardCalculation = HelperFunctions.AreCardListsDifferent(CardOrderBeforeSort, activeCards);
-            TransitionTurns.TurnCalculation.needsNewSimulationCalculation = needsNewCardCalculation;
+            TurnSequence.NeedsNewSimulationCalculation = needsNewCardCalculation;
         }
     }
 

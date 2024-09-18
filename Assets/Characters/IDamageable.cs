@@ -5,5 +5,5 @@ using UnityEngine;
 public interface IDamageable
 {
     public void SubtractHealth(int amount, Character instigator);
-    public void SetStatus(_StatusType status);
+    public void SetStatus(_StatusType status, bool isActive);
 }

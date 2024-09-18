@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Animations;
 using UnityEngine;
 
-public class Character : MonoBehaviour, IDamageable
+public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
 {
     public _TeamType TeamType;
     public enum _TeamType { Player, Enemy, Neutral };
@@ -25,6 +25,7 @@ public class Character : MonoBehaviour, IDamageable
     [SerializeField] private HealthBar healthBar = null;
     [SerializeField] private CharacterHitFlash hitFlashComponent = null;
     protected bool isInvulnerable = false;
+    private _StatusType StatusType;
 
     // Death
     [SerializeField] private DeathVFX deathVFX = null;
@@ -105,15 +106,19 @@ public class Character : MonoBehaviour, IDamageable
         isPotentialKill = false; 
     }
 
-    public void SetStatus(_StatusType status)
+    public void SetStatus(_StatusType status, bool isActive)
     {
-        statusBar.ToggleStatusIcon(status, true);
+        StatusType = status;
+        statusBar.ToggleStatusWidget(status, isActive);
+
         switch (status)
         {
             default:
             case _StatusType.None:
                 break;
             case _StatusType.Fire:
+                //print("damage on " + this.gameObject.name + "   at:" + Time.time);
+                //SubtractHealth(GlobalSettings.FireStatus.Damage, this);
                 break;
             case _StatusType.Shocked:
                 break;
@@ -251,5 +256,41 @@ public class Character : MonoBehaviour, IDamageable
                 return true;
 
         return false;
+    }
+
+    // ITurnSequenceTriggerable interface
+    public void OnStartPlayerTurn()
+    {
+        SetStatus(_StatusType.Fire, false);
+    }
+
+    public void OnStartEnemyTurn()
+    {
+        return;
+    }
+
+    public void OnEndTurn()
+    {
+        return;
+    }
+
+    public void OnStartPlayerSimulationTurn()
+    {
+        SetStatus(_StatusType.Fire, false);
+    }
+
+    public void OnStartEnemySimulationTurn()
+    {
+        return;
+    }
+
+    public void OnEndSimulationTurn()
+    {
+        return;
+    }
+
+    public void SetStatus(_StatusType status)
+    {
+        throw new System.NotImplementedException();
     }
 }

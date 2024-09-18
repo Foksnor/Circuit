@@ -11,7 +11,6 @@ public class CardReward : MonoBehaviour
     [SerializeField] TextMeshProUGUI Name, Type, Description;
     [SerializeField] Image Icon;
     [SerializeField] Animator animator;
-    private bool canBeInteractedWith = true;
 
     public void SetCardRewardInfo(CardScriptableObject cardScriptableObject)
     {
@@ -32,7 +31,6 @@ public class CardReward : MonoBehaviour
     {
         animator.SetBool("isRemovedFromRewardScreen", true);
         animator.SetBool("isClaimed", isClaimed);
-        canBeInteractedWith = false;
         Invoke(nameof(Destroy), 1);
     }
 

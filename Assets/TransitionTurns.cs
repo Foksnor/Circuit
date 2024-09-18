@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TransitionTurns : MonoBehaviour
 {
@@ -17,15 +19,10 @@ public class TransitionTurns : MonoBehaviour
     [SerializeField] private int enemySpawnEveryXRounds = 5;
     private int enemySpawnCooldown = 0;
 
-    public static class TurnCalculation
-    {
-        public static bool needsNewSimulationCalculation = false;
-    }
-
-
     private void Awake()
     {
         InitiateFirstTurn();
+        TurnSequence.TransitionTurns = this;
     }
 
     private void Update()
@@ -36,6 +33,12 @@ public class TransitionTurns : MonoBehaviour
         {
             ResetSimulationProcessing(CharacterTeams._PlayerTeamCharacters);
             ResetSimulationProcessing(CharacterTeams._EnemyTeamCharacters);
+
+            for (int i = 0; i < TurnSequence.TurnSequenceTriggerables.Count; i++)
+            {
+                // Invokes all player start triggers
+                TurnSequence.TurnSequenceTriggerables[i].OnStartPlayerTurn();
+            }
 
             CalculateTeamCards(CharacterTeams._PlayerTeamCharacters, false);
             //CalculateTeamCards(CharacterTeams._EnemyTeamCharacters, true);
@@ -48,14 +51,30 @@ public class TransitionTurns : MonoBehaviour
         {
             CalculateTeamCards(CharacterTeams._PlayerTeamCharacters, false);
             CalculateTeamCards(CharacterTeams._EnemyTeamCharacters, false);
+
+            // Invokes all enemy start triggers
+            for (int i = 0; i < TurnSequence.TurnSequenceTriggerables.Count; i++)
+                TurnSequence.TurnSequenceTriggerables[i].OnStartEnemyTurn();
+
             isEnemyTurnActive = ProcessTeamCards(CharacterTeams._EnemyTeamCharacters, false);
 
-            // When finishing processing all of the enemy cards; decide if an enemy should spawn.
+            // When finishing processing all of the enemy cards; end turn
             if (!isEnemyTurnActive)
+            {
+                //decide if an enemy should spawn.
                 DecideEnemySpawn();
+
+                // Invokes all end turn triggers
+                for (int i = 0; i < TurnSequence.TurnSequenceTriggerables.Count; i++)
+                    TurnSequence.TurnSequenceTriggerables[i].OnEndTurn();
+            }
         }
         else
         {
+            // Invokes all simulation end turn triggers
+            for (int i = 0; i < TurnSequence.TurnSequenceTriggerables.Count; i++)
+                TurnSequence.TurnSequenceTriggerables[i].OnEndSimulationTurn();
+
             // Player set up phase
             PlayerDrawPhase();
 
@@ -84,12 +103,12 @@ public class TransitionTurns : MonoBehaviour
 
             // When a new simulation is needed
             // E.g. player re-orders their cards in circuit
-            if (TurnCalculation.needsNewSimulationCalculation)
+            if (TurnSequence.NeedsNewSimulationCalculation)
             {
                 isPlayerSimulationTurnActive = true;
                 ResetSimulationProcessing(CharacterTeams._PlayerTeamCharacters);
                 ResetSimulationProcessing(CharacterTeams._EnemyTeamCharacters);
-                TurnCalculation.needsNewSimulationCalculation = false;
+                TurnSequence.NeedsNewSimulationCalculation = false;
             }
         }
     }
@@ -191,4 +210,11 @@ public class TransitionTurns : MonoBehaviour
     {
         player.CircuitBoard.PlayerDrawPhase();
     }
+}
+
+public static class TurnSequence
+{
+    public static TransitionTurns TransitionTurns = null;
+    public static bool NeedsNewSimulationCalculation = false;
+    public static List<ITurnSequenceTriggerable> TurnSequenceTriggerables = new();
 }

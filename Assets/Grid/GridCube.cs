@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Doozy.Runtime.Mody;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class GridCube : MonoBehaviour
+public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
 {
     public Vector2 Position { get; private set; }
     public float Height { get; private set; }
     private _SurfaceType SurfaceType;
     private _StatusType StatusType;
+    private int surfaceDuration = 2;
     [SerializeField] private MeshRenderer gridMeshRenderer = null;
     [SerializeField] private Material gridMatWater = null, gridMatOil = null, gridMatBurning;
     [SerializeField] private SpriteRenderer tileStatusEffectPrevis = null;
@@ -92,6 +95,9 @@ public class GridCube : MonoBehaviour
             SimulationOnThisGrid = character;
             textMeshSimulationRef.text = character.name;
         }
+
+        // Transfer gridstatus effect to character
+        character.SetStatus(StatusType, true);
     }
 
     public void RemoveCharacterOnGrid(Character character)
@@ -114,6 +120,7 @@ public class GridCube : MonoBehaviour
     {
         SurfaceType = surfaceEffect;
         gridMeshRenderer.enabled = false;
+
         switch (surfaceEffect)
         {
             default:
@@ -127,7 +134,8 @@ public class GridCube : MonoBehaviour
                     // Only set previs tile if not already initialized
                     if (instancedTilePrevis == null)
                     {
-                        tileStatusEffectPrevis.sprite = GlobalSettings.ShockIcon;
+                        surfaceDuration = 2;
+                        tileStatusEffectPrevis.sprite = GlobalSettings.ShockStatus.Icon;
                         Character simulationOwner = instigator.GetComponent<CharacterSimulation>().OwnerOfThisSimulation;
                         instancedTilePrevis = simulationOwner.ToggleTilePrevis(true, int.MaxValue, tileStatusEffectPrevis.gameObject, 90);
                         SpreadStatus(instigator, _SurfaceType.Water, _StatusType.Shocked);
@@ -142,7 +150,8 @@ public class GridCube : MonoBehaviour
                     // Only set previs tile if not already initialized
                     if (instancedTilePrevis == null)
                     {
-                        tileStatusEffectPrevis.sprite = GlobalSettings.FireIcon;
+                        surfaceDuration = 2;
+                        tileStatusEffectPrevis.sprite = GlobalSettings.FireStatus.Icon;
                         Character simulationOwner = instigator.GetComponent<CharacterSimulation>().OwnerOfThisSimulation;
                         instancedTilePrevis = simulationOwner.ToggleTilePrevis(true, int.MaxValue, tileStatusEffectPrevis.gameObject, 90);
                         SpreadStatus(instigator, _SurfaceType.Oil, _StatusType.Fire);
@@ -164,10 +173,18 @@ public class GridCube : MonoBehaviour
         }
     }
 
-    public void ToggleStatus(Character instigator, _StatusType surfaceStatus, bool isCausedByAttack)
+    public void ToggleStatus(Character instigator, _StatusType status, bool isCausedByAttack)
     {
-        StatusType = surfaceStatus;
-        switch (surfaceStatus)
+        // Return when this status is already active
+        if (StatusType == status)
+            return;
+
+        // Updates new status effects when the end of turn triggers
+        if (!TurnSequence.TurnSequenceTriggerables.Contains(this))
+            TurnSequence.TurnSequenceTriggerables.Add(this);
+
+        StatusType = status;
+        switch (status)
         {
             default:
             case _StatusType.None:
@@ -197,8 +214,10 @@ public class GridCube : MonoBehaviour
         }
 
         // Apply surface status to the characters on this grid
-        CharacterOnThisGrid.SetStatus(surfaceStatus);
-        SimulationOnThisGrid.SetStatus(surfaceStatus);
+        if (instigator.isSimulation)
+            SimulationOnThisGrid?.SetStatus(status, true);
+        else
+            CharacterOnThisGrid?.SetStatus(status, true);
     }
 
     private void SpreadStatus(Character instigator, _SurfaceType requiredSurface, _StatusType statusToSpread)
@@ -208,6 +227,38 @@ public class GridCube : MonoBehaviour
         for (int i = 0; i < vicinityCubes.Count; i++)
             if (vicinityCubes[i].SurfaceType == requiredSurface)
                 vicinityCubes[i].ToggleStatus(instigator, statusToSpread, false);
+    }
+
+    private void UpdateStatusEffects(bool isSimulation)
+    {
+        // Remove itself so it no longer triggers subsequently
+        if (!isSimulation)
+            TurnSequence.TurnSequenceTriggerables.Remove(this);
+
+        switch (SurfaceType)
+        {
+            case _SurfaceType.None:
+            case _SurfaceType.Water:
+            case _SurfaceType.Oil:
+                // Remove fire and other status effects at the end of turn when there is no surface present
+                StatusType = _StatusType.None;
+                break;
+            case _SurfaceType.Burning:
+            case _SurfaceType.Electrified:
+                if (!isSimulation)
+                {
+                    surfaceDuration--;
+                    if (surfaceDuration <= 0)
+                    {
+                        ToggleSurface(null, _SurfaceType.None);
+                    }
+                    // Add end of turn trigger so the burning patch removes itself next turn
+                    // Updates new status effects when the end of turn triggers
+                    if (!TurnSequence.TurnSequenceTriggerables.Contains(this))
+                        TurnSequence.TurnSequenceTriggerables.Add(this);
+                }
+                break;
+        }
     }
 
     public bool GetCharacterMovementPriority(Character character, int actionNumber)
@@ -233,5 +284,36 @@ public class GridCube : MonoBehaviour
         textMeshGridNumber.gameObject.SetActive(!textMeshGridNumber.gameObject.activeSelf);
         textMeshCharacterRef.gameObject.SetActive(!textMeshCharacterRef.gameObject.activeSelf);
         textMeshSimulationRef.gameObject.SetActive(!textMeshSimulationRef.gameObject.activeSelf);
+    }
+
+    // ITurnSequenceTriggerable interface
+    public void OnStartPlayerTurn()
+    {
+        return;
+    }
+
+    public void OnStartEnemyTurn()
+    {
+        return;
+    }
+
+    public void OnEndTurn()
+    {
+        UpdateStatusEffects(true);
+    }
+
+    public void OnStartPlayerSimulationTurn()
+    {
+        return;
+    }
+
+    public void OnStartEnemySimulationTurn()
+    {
+        return;
+    }
+
+    public void OnEndSimulationTurn()
+    {
+        UpdateStatusEffects(false);
     }
 }

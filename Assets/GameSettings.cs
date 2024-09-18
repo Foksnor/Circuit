@@ -14,8 +14,8 @@ public class GameSettings : MonoBehaviour
     [SerializeField] private GameObject globalBurningEffectObject = null;
     [SerializeField] private GameObject globalShockEffectObject = null;
     [SerializeField] private GameObject globalElectrifiedEffectObject = null;
-    [SerializeField] private Sprite globalFireIcon = null;
-    [SerializeField] private Sprite globalShockIcon = null;
+    [SerializeField] private StatusEffect_ScriptableObject globalFireStatus = null;
+    [SerializeField] private StatusEffect_ScriptableObject globalShockStatus = null;
 
     private void Awake()
     {
@@ -25,8 +25,8 @@ public class GameSettings : MonoBehaviour
         GlobalSettings.BurningEffectObject = globalBurningEffectObject;
         GlobalSettings.ShockEffectObject = globalShockEffectObject;
         GlobalSettings.ElectrifiedEffectObject = globalElectrifiedEffectObject;
-        GlobalSettings.FireIcon = globalFireIcon;
-        GlobalSettings.ShockIcon = globalShockIcon;
+        GlobalSettings.FireStatus = globalFireStatus;
+        GlobalSettings.ShockStatus = globalShockStatus;
     }
 }
 
@@ -38,6 +38,6 @@ public static class GlobalSettings
     public static GameObject BurningEffectObject;
     public static GameObject ShockEffectObject;
     public static GameObject ElectrifiedEffectObject;
-    public static Sprite FireIcon;
-    public static Sprite ShockIcon;
+    public static StatusEffect_ScriptableObject FireStatus;
+    public static StatusEffect_ScriptableObject ShockStatus;
 }

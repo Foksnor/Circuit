@@ -129,12 +129,12 @@ TextureImporter:
       name: Icon_Element_Shock_BorderBlack_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 6
-        width: 38
-        height: 50
+        x: 8
+        y: 2
+        width: 49
+        height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

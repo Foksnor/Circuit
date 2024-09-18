@@ -9,11 +9,11 @@ public class StatusBar : MonoBehaviour
     private void Awake()
     {
         // Disable status icons by default
-        ToggleStatusIcon(_StatusType.Fire, false);
-        ToggleStatusIcon(_StatusType.Shocked, false);
+        ToggleStatusWidget(_StatusType.Fire, false);
+        ToggleStatusWidget(_StatusType.Shocked, false);
     }
 
-    public void ToggleStatusIcon(_StatusType status, bool isActive)
+    public void ToggleStatusWidget(_StatusType status, bool isActive)
     {
         switch (status)
         {
