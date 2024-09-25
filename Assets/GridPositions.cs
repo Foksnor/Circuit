@@ -4,7 +4,8 @@ using UnityEngine;
 
 public static class GridPositions
 {
-    public static List<GridCube> _GridCubes = new List<GridCube>();
+    public static List<GridCube> _GridCubes { get; set; } = new();
+    public static List<BiomeChunk> _ActiveBiomeChunks { get; set; } = new();
 
     public static GridCube GetGridByPosition(Vector2 GridPosition)
     {

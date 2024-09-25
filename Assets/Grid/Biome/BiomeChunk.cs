@@ -6,6 +6,13 @@ public class BiomeChunk : MonoBehaviour
 {
     [Range(1, 100)] public int ChunkAppareanceChance = 10;
     [SerializeField] private GameObject grid;
+    public bool IsSpawnedThroughLoadingSave { get; set; } = false;
+
+    private void Awake()
+    {
+        // Add this chunk to the biome list, used for save/loading game state
+        GridPositions._ActiveBiomeChunks.Add(this);
+    }
 
     public GridCube GetFurthestGridCube()
     {

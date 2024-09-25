@@ -541,6 +541,7 @@ GameObject:
   - component: {fileID: 961207204}
   - component: {fileID: 961207207}
   - component: {fileID: 961207205}
+  - component: {fileID: 961207208}
   - component: {fileID: 961207206}
   m_Layer: 0
   m_Name: GameObjectManager
@@ -576,6 +577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cf87098e1c387647919044a66f95ceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameDataLoader: {fileID: 961207208}
   maxTurnTime: 999
   enemySpawnEveryXRounds: 2
 --- !u!114 &961207206
@@ -595,8 +597,12 @@ MonoBehaviour:
   player: {fileID: 9076684052481418224, guid: 60eff325b3bb1654db28c9d760edd514, type: 3}
   distanceBetweenPlayerAndLastGridCubeBeforeNewChunkSpawns: 11
   startingPosition: {x: 2, y: 3}
-  enemyWeakMelee: {fileID: 1957793412199929724, guid: 69023d50af278324b87b5202712490ae, type: 3}
-  enemyWeakRanged: {fileID: 0}
+  AllPossibleCharacters:
+  - {fileID: 9076684052481418224, guid: 60eff325b3bb1654db28c9d760edd514, type: 3}
+  - {fileID: 1957793412199929724, guid: 69023d50af278324b87b5202712490ae, type: 3}
+  - {fileID: 1957793412199929724, guid: 328226dd3127c204bb314fbfbba17cef, type: 3}
+  - {fileID: 583478798300324525, guid: e5045917ce229394495b90dce82972ce, type: 3}
+  - {fileID: 4556463516517876696, guid: 87b068e03da57cf4799683b28c422381, type: 3}
 --- !u!114 &961207207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -617,6 +623,18 @@ MonoBehaviour:
   globalElectrifiedEffectObject: {fileID: 2562972092076098195, guid: defc76c49c9ceab45826a26b62c4f092, type: 3}
   globalFireStatus: {fileID: 11400000, guid: b02c736ff6f4f3b409755ff7a89b56eb, type: 2}
   globalShockStatus: {fileID: 11400000, guid: a225c0fbb44b81940b9fac7f173ff91e, type: 2}
+--- !u!114 &961207208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961207202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b0af41c706579946a6cafc60e5c6e61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1689630847
 GameObject:
   m_ObjectHideFlags: 0

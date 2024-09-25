@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class CharacterSpawnpoint : MonoBehaviour
 {
+    [SerializeField] private BiomeChunk biomeChunk;
     // TODO QQQ: Gradualy spawn more enemies when difficulty should increase
     [SerializeField] private Character[] charactersToSpawnHere;
     [Range(1, 100)] public int appareanceChance = 50;
@@ -14,6 +15,10 @@ public class CharacterSpawnpoint : MonoBehaviour
 
     private void Start()
     {
+        // Only execute the spawn sequence if the biome chunk is verified and not spawned through a save load
+        if (biomeChunk.IsSpawnedThroughLoadingSave)
+            return;
+
         // If no positions are defined, default to the transform where this component is attached to
         if (positions.IsNullOrEmpty())
             positions.Add(transform);

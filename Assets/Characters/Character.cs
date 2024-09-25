@@ -25,7 +25,7 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
     [SerializeField] private HealthBar healthBar = null;
     [SerializeField] private CharacterHitFlash hitFlashComponent = null;
     protected bool isInvulnerable = false;
-    private _StatusType StatusType;
+    public _StatusType StatusType { get; private set; }
 
     // Death
     [SerializeField] private DeathVFX deathVFX = null;

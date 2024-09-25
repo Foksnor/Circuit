@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class TransitionTurns : MonoBehaviour
 {
+    [SerializeField]
+    private GameDataLoader gameDataLoader;
     private Character player;
 
     [SerializeField] private float maxTurnTime = 8;
@@ -27,6 +30,17 @@ public class TransitionTurns : MonoBehaviour
 
     private void Update()
     {
+        // TEST FUNCTION
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            // Load the saved game state from a file
+            gameDataLoader.LoadGameState();
+        }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            gameDataLoader.SaveGameState();
+        }
+
         // Turn timer disabled for now
         //SetTurnTimer();
         if (isPlayerTurnActive)
@@ -38,6 +52,10 @@ public class TransitionTurns : MonoBehaviour
             {
                 // Invokes all player start triggers
                 TurnSequence.TurnSequenceTriggerables[i].OnStartPlayerTurn();
+
+                // Save the game state at the start of your turn
+                // QQQ TODO: better save state moment
+                //SaveGameState();
             }
 
             CalculateTeamCards(CharacterTeams._PlayerTeamCharacters, false);

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "BiomeScriptableObject", menuName = "ScriptableObject/New Biome")]
@@ -13,6 +14,12 @@ public class BiomeScriptableObject : ScriptableObject
     public BiomeChunk GetStartingChunk()
     {
         return BiomeStartingChunk;
+    }
+
+    public BiomeChunk GetChunkByName(string name)
+    {
+        BiomeChunk chunk = BiomeChunks.FirstOrDefault(obj => obj.name == name);
+        return chunk;
     }
 
     public BiomeChunk GetRandomChunk()

@@ -10,8 +10,8 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
 {
     public Vector2 Position { get; private set; }
     public float Height { get; private set; }
-    private _SurfaceType SurfaceType;
-    private _StatusType StatusType;
+    public _SurfaceType SurfaceType { get; private set; }
+    public _StatusType StatusType { get; private set; }
     private int surfaceDuration = 2;
     [SerializeField] private MeshRenderer gridMeshRenderer = null;
     [SerializeField] private Material gridMatWater = null, gridMatOil = null, gridMatBurning;
