@@ -365,8 +365,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2985683909314406194, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
+      propertyPath: health
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2985683909314406194, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
       propertyPath: TeamType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2985683909314406194, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
+      propertyPath: maxHealth
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2985683909314406194, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
       propertyPath: CircuitBoard
@@ -414,7 +422,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4155326752025549204, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
       propertyPath: m_Name
-      value: Enemy
+      value: Enemy_Melee_Weak
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -459,3 +467,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6ffeb5a1dbbebec44a81e86ed3c12c91, type: 2}
   - {fileID: 11400000, guid: 6ffeb5a1dbbebec44a81e86ed3c12c91, type: 2}
   - {fileID: 11400000, guid: db0bebdf9825b2a46b1c60bdd8828bd1, type: 2}
+  savedMovementGridCubes: []
