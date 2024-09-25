@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78b33527d79de2479f690dfe2126d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  biomeChunk: {fileID: 6240902184332228888}
   charactersToSpawnHere:
   - {fileID: 4556463516517876696, guid: 87b068e03da57cf4799683b28c422381, type: 3}
   appareanceChance: 100
@@ -216,6 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78b33527d79de2479f690dfe2126d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  biomeChunk: {fileID: 6240902184332228888}
   charactersToSpawnHere:
   - {fileID: 583478798300324525, guid: e5045917ce229394495b90dce82972ce, type: 3}
   appareanceChance: 100
@@ -397,6 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78b33527d79de2479f690dfe2126d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  biomeChunk: {fileID: 6240902184332228888}
   charactersToSpawnHere:
   - {fileID: 1957793412199929724, guid: 69023d50af278324b87b5202712490ae, type: 3}
   appareanceChance: 100
@@ -449,6 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78b33527d79de2479f690dfe2126d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  biomeChunk: {fileID: 6240902184332228888}
   charactersToSpawnHere:
   - {fileID: 1957793412199929724, guid: 328226dd3127c204bb314fbfbba17cef, type: 3}
   appareanceChance: 50
@@ -698,6 +702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78b33527d79de2479f690dfe2126d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  biomeChunk: {fileID: 6240902184332228888}
   charactersToSpawnHere:
   - {fileID: 1957793412199929724, guid: 328226dd3127c204bb314fbfbba17cef, type: 3}
   appareanceChance: 50
@@ -746,6 +751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78b33527d79de2479f690dfe2126d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  biomeChunk: {fileID: 6240902184332228888}
   charactersToSpawnHere:
   - {fileID: 1957793412199929724, guid: 328226dd3127c204bb314fbfbba17cef, type: 3}
   appareanceChance: 50
@@ -836,6 +842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78b33527d79de2479f690dfe2126d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  biomeChunk: {fileID: 6240902184332228888}
   charactersToSpawnHere:
   - {fileID: 1957793412199929724, guid: 69023d50af278324b87b5202712490ae, type: 3}
   appareanceChance: 100

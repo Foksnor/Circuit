@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78b33527d79de2479f690dfe2126d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  biomeChunk: {fileID: 1358215666583338369}
   charactersToSpawnHere:
   - {fileID: 1957793412199929724, guid: 69023d50af278324b87b5202712490ae, type: 3}
   - {fileID: 1957793412199929724, guid: 69023d50af278324b87b5202712490ae, type: 3}
@@ -500,6 +501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78b33527d79de2479f690dfe2126d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  biomeChunk: {fileID: 1358215666583338369}
   charactersToSpawnHere:
   - {fileID: 1957793412199929724, guid: 328226dd3127c204bb314fbfbba17cef, type: 3}
   - {fileID: 1957793412199929724, guid: 328226dd3127c204bb314fbfbba17cef, type: 3}
