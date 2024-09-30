@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Entity_Spawner : MonoBehaviour
 {
-    [SerializeField] private List<BiomeScriptableObject> biomes = new List<BiomeScriptableObject>();
+    [SerializeField] private List<BiomeScriptableObject> biomes = new();
     [SerializeField] private Character player;
     private GridCube furthestGridCubeSpawned;
     [SerializeField] float distanceBetweenPlayerAndLastGridCubeBeforeNewChunkSpawns = 11;
@@ -67,7 +67,7 @@ public class Entity_Spawner : MonoBehaviour
         GridCube cubePlayerSpawnsOnTopOff = Grid.GridPositions.GetGridByPosition(startingPosition);
         player.transform.position = cubePlayerSpawnsOnTopOff.transform.position;
         player.ChangeDestinationGrid(cubePlayerSpawnsOnTopOff, 1);
-        CharacterTeams._PlayerTeamCharacters.Add(player);
+        Teams.CharacterTeams.PlayerTeamCharacters.Add(player);
         return player;
     }
 
@@ -107,13 +107,13 @@ public class Entity_Spawner : MonoBehaviour
         switch (teamType)
         {
             case Character._TeamType.Player:
-                CharacterTeams._PlayerTeamCharacters.Add(c);
+                Teams.CharacterTeams.PlayerTeamCharacters.Add(c);
                 break;
             case Character._TeamType.Enemy:
-                CharacterTeams._EnemyTeamCharacters.Add(c);
+                Teams.CharacterTeams.EnemyTeamCharacters.Add(c);
                 break;
             case Character._TeamType.Neutral:
-                CharacterTeams._EnemyTeamCharacters.Add(c);
+                Teams.CharacterTeams.EnemyTeamCharacters.Add(c);
                 break;
         }
         return c;

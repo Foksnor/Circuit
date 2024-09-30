@@ -135,9 +135,9 @@ public class Card : MonoBehaviour
 
         // QQQ TODO make it so it only targets the opposing team instead of only player team, in case the player gets auto target cards
         // Cycles through all characters and checks which one is closer, then return that as reference if possible
-        for (int pC = 0; pC < CharacterTeams._PlayerTeamCharacters.Count; pC++)
+        for (int pC = 0; pC < Teams.CharacterTeams.PlayerTeamCharacters.Count; pC++)
         {
-            pCGridNumber = CharacterTeams._PlayerTeamCharacters[pC].AssignedGridCube;
+            pCGridNumber = Teams.CharacterTeams.PlayerTeamCharacters[pC].AssignedGridCube;
             Vector3 curPos = savedGridUsedByPreviousCard.Position;
             Vector3 tarPos = pCGridNumber.Position;
 

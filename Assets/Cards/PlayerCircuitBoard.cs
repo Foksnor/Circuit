@@ -21,6 +21,7 @@ public class PlayerCircuitBoard : CircuitBoard
     {
         base.Awake();
         SetUpPlayerDeck();
+        Teams.CharacterTeams.SetKing(transform.GetComponent<Character>());
     }
 
     private void SetUpPlayerDeck()

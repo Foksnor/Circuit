@@ -47,15 +47,15 @@ public class GameDataLoader : MonoBehaviour
         GameObjectDataCollection dataCollection = new GameObjectDataCollection();
 
         // Add Player Team Characters
-        for (int i = 0; i < CharacterTeams._PlayerTeamCharacters.Count; i++)
+        for (int i = 0; i < Teams.CharacterTeams.PlayerTeamCharacters.Count; i++)
         {
-            dataCollection.characterDataList.Add(new CharacterData(CharacterTeams._PlayerTeamCharacters[i]));
+            dataCollection.characterDataList.Add(new CharacterData(Teams.CharacterTeams.PlayerTeamCharacters[i]));
         }
 
         // Add Enemy Team Characters
-        for (int i = 0; i < CharacterTeams._EnemyTeamCharacters.Count; i++)
+        for (int i = 0; i < Teams.CharacterTeams.EnemyTeamCharacters.Count; i++)
         {
-            dataCollection.characterDataList.Add(new CharacterData(CharacterTeams._EnemyTeamCharacters[i]));
+            dataCollection.characterDataList.Add(new CharacterData(Teams.CharacterTeams.EnemyTeamCharacters[i]));
         }
 
         // Add Biome Chunks
@@ -149,6 +149,7 @@ public class GameDataLoader : MonoBehaviour
     private void UpdateGridCubes(GridCubeData gridCubeData)
     {
         GridCube gridCube = Grid.GridPositions.GetGridByPosition(gridCubeData.GetPosition());
+        print(gridCube + " " + Grid.GridPositions.GridCubes.Count);
         gridCube.UpdateGridCubeToSaveState(gridCubeData.Status, gridCubeData.Surface);
     }
 

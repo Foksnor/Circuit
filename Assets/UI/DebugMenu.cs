@@ -7,16 +7,9 @@ public class DebugMenu : MonoBehaviour
     [SerializeField]
     private ExperiencePoint experiencePoint;
 
-    private Character player;
-
-    private void Start()
-    {
-        player = CharacterTeams._PlayerTeamCharacters[0];
-    }
-
     public void SpawnXP()
     {
-        Instantiate(experiencePoint, player.transform.position, transform.rotation);
+        Instantiate(experiencePoint, Teams.CharacterTeams.PlayerTeamKing.transform.position, transform.rotation);
     }
 
     public void ToggleDebugText()

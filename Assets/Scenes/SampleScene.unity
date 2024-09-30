@@ -544,6 +544,7 @@ GameObject:
   - component: {fileID: 961207208}
   - component: {fileID: 961207206}
   - component: {fileID: 961207209}
+  - component: {fileID: 961207210}
   m_Layer: 0
   m_Name: GameObjectManager
   m_TagString: GameManager
@@ -580,6 +581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameDataLoader: {fileID: 961207208}
   maxTurnTime: 8
+  NeedsNewCardCalculation: 0
   enemySpawnEveryXRounds: 5
 --- !u!114 &961207206
 MonoBehaviour:
@@ -646,6 +648,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad76622fcb30774439ddbb7d9204f01a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &961207210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961207202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51a58fadb6685c64897b83296af2386f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1689630847

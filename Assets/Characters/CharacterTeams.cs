@@ -1,9 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public static class CharacterTeams
+public class CharacterTeams : MonoBehaviour
 {
-    public static List<Character> _PlayerTeamCharacters { get; set; } = new List<Character>();
-    public static List<Character> _EnemyTeamCharacters { get; set; } = new List<Character>();
+    public List<Character> PlayerTeamCharacters { get; set; }
+    public Character PlayerTeamKing { get; private set; }
+    public List<Character> EnemyTeamCharacters { get; set; }
+
+    private void Awake()
+    {
+        Teams.CharacterTeams = this;
+        PlayerTeamCharacters = new();
+        EnemyTeamCharacters = new();
+    }
+
+    public void SetKing(Character character)
+    {
+        PlayerTeamKing = character;
+    }
+}
+
+public static class Teams
+{
+    public static CharacterTeams CharacterTeams = null;
 }

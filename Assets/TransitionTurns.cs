@@ -57,23 +57,23 @@ public class TransitionTurns : MonoBehaviour
                 //SaveGameState();
             }
 
-            CalculateTeamCards(CharacterTeams._PlayerTeamCharacters, false);
+            CalculateTeamCards(Teams.CharacterTeams.PlayerTeamCharacters, false);
             //CalculateTeamCards(CharacterTeams._EnemyTeamCharacters, true);
-            isPlayerTurnActive = ProcessTeamCards(CharacterTeams._PlayerTeamCharacters);
+            isPlayerTurnActive = ProcessTeamCards(Teams.CharacterTeams.PlayerTeamCharacters);
 
             // This sets the enemy turn active as soon as the function ProcessTeamCards returns false when finishing processing player cards.
             isEnemyTurnActive = !isPlayerTurnActive;
         }
         else if (isEnemyTurnActive)
         {
-            CalculateTeamCards(CharacterTeams._PlayerTeamCharacters, false);
-            CalculateTeamCards(CharacterTeams._EnemyTeamCharacters, false);
+            CalculateTeamCards(Teams.CharacterTeams.PlayerTeamCharacters, false);
+            CalculateTeamCards(Teams.CharacterTeams.EnemyTeamCharacters, false);
 
             // Invokes all enemy start triggers
             for (int i = 0; i < TurnSequence.TurnSequenceTriggerables.Count; i++)
                 TurnSequence.TurnSequenceTriggerables[i].OnStartEnemyTurn();
 
-            isEnemyTurnActive = ProcessTeamCards(CharacterTeams._EnemyTeamCharacters);
+            isEnemyTurnActive = ProcessTeamCards(Teams.CharacterTeams.EnemyTeamCharacters);
 
             // When finishing processing all of the enemy cards; end turn
             if (!isEnemyTurnActive)
@@ -91,8 +91,8 @@ public class TransitionTurns : MonoBehaviour
             // Player set up phase
             PlayerDrawPhase();
 
-            CalculateTeamCards(CharacterTeams._PlayerTeamCharacters, true);
-            CalculateTeamCards(CharacterTeams._EnemyTeamCharacters, true);
+            CalculateTeamCards(Teams.CharacterTeams.PlayerTeamCharacters, true);
+            CalculateTeamCards(Teams.CharacterTeams.EnemyTeamCharacters, true);
         }
     }
 
@@ -101,12 +101,12 @@ public class TransitionTurns : MonoBehaviour
         if (isPlayerTurnActive || isEnemyTurnActive)
         {
             // Pause the turn timer visuals
-            CharacterTeams._PlayerTeamCharacters[0].CircuitBoard.SetCircuitDisplayTimer("| |", maxTurnTime);
+            Teams.CharacterTeams.PlayerTeamCharacters[0].CircuitBoard.SetCircuitDisplayTimer("| |", maxTurnTime);
         }
         else
         {
             // Set the graphical feedback of the turn timer button
-            CharacterTeams._PlayerTeamCharacters[0].CircuitBoard.SetCircuitDisplayTimer(Mathf.RoundToInt(curTurnTime).ToString(), curTurnTime / maxTurnTime);
+            Teams.CharacterTeams.PlayerTeamCharacters[0].CircuitBoard.SetCircuitDisplayTimer(Mathf.RoundToInt(curTurnTime).ToString(), curTurnTime / maxTurnTime);
 
             // Transitions the turn when timer reaches 0
             curTurnTime -= Time.deltaTime;
@@ -137,8 +137,8 @@ public class TransitionTurns : MonoBehaviour
         isPlayerTurnActive = true;
 
         // Reseting the cooldown during a turn transition makes sure that the character plays their cards in the correct order and tempo
-        ForceResetCardProcessing(CharacterTeams._PlayerTeamCharacters);
-        ForceResetCardProcessing(CharacterTeams._EnemyTeamCharacters);
+        ForceResetCardProcessing(Teams.CharacterTeams.PlayerTeamCharacters);
+        ForceResetCardProcessing(Teams.CharacterTeams.EnemyTeamCharacters);
     }
 
     private void DecideEnemySpawn()

@@ -147,8 +147,8 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
     private void OnDestroy()
     {
         // Remove character from their list before destroying it to prevent null references.
-        CharacterTeams._PlayerTeamCharacters.Remove(this);
-        CharacterTeams._EnemyTeamCharacters.Remove(this);
+        Teams.CharacterTeams.PlayerTeamCharacters.Remove(this);
+        Teams.CharacterTeams.EnemyTeamCharacters.Remove(this);
         AssignedGridCube.RemoveCharacterOnGrid(this);
     }
 
@@ -219,6 +219,6 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
 
     public void SetStatus(_StatusType status)
     {
-        throw new System.NotImplementedException();
+        //QQQ TODO ADD status effects
     }
 }
