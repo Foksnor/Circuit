@@ -75,7 +75,6 @@
     <Compile Include="Assets\Grid\Biome\BiomeScriptableObject.cs" />
     <Compile Include="Assets\Characters\ApplyMainCameraToCanvas.cs" />
     <Compile Include="Assets\Saves\JsonDataService.cs" />
-    <Compile Include="Assets\Characters\CharacterSimulation.cs" />
     <Compile Include="Assets\EditorScripts\CardCreatorInspector.cs" />
     <Compile Include="Assets\Grid\Biome\BiomeChunk.cs" />
     <Compile Include="Assets\Cards\Elemental Modifiers\StatusEffect_ScriptableObject.cs" />

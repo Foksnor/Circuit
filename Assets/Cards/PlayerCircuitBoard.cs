@@ -110,15 +110,11 @@ public class PlayerCircuitBoard : CircuitBoard
     {
         bool isProcessing = base.IsProcessingCards(targetCharacter);
 
-        // Only the player character can draw cards, not their simulation
-        if (targetCharacter.CharacterSimulation != null)
-        {
-            // Player discards their hand.
-            // Sets value to true so players can draw a single hand during their next draw phase.
-            if (!canPlayerDrawNewHand)
-                RemoveCardsFromHand();
-            canPlayerDrawNewHand = true;
-        }
+        // Player discards their hand.
+        // Sets value to true so players can draw a single hand during their next draw phase.
+        if (!canPlayerDrawNewHand)
+            RemoveCardsFromHand();
+        canPlayerDrawNewHand = true;
 
         return isProcessing;
     }
@@ -135,7 +131,7 @@ public class PlayerCircuitBoard : CircuitBoard
         if (!needsNewCardCalculation)
         {
             needsNewCardCalculation = HelperFunctions.AreCardListsDifferent(CardOrderBeforeSort, activeCards);
-            TurnSequence.NeedsNewSimulationCalculation = needsNewCardCalculation;
+            TurnSequence.TransitionTurns.NeedsNewCardCalculation = needsNewCardCalculation;
         }
     }
 

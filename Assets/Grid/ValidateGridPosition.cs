@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class ValidateGridPosition
 {
-    public static bool CanStep(Character targetCharacter, GridCube startingCube, GridCube destinationCube, int cardNumber, bool checkForSimulation)
+    public static bool CanStep(Character targetCharacter, GridCube startingCube, GridCube destinationCube, int cardNumber)
     {
         if (startingCube == null ||
             destinationCube == null)
@@ -27,7 +27,7 @@ public static class ValidateGridPosition
             if (destinationCube.CharacterOnThisGrid.isPotentialKill)
                 return true;
 
-        if (IsDestinationOccupiedByARelative(targetCharacter, startingCube, destinationCube, checkForSimulation))
+        if (IsDestinationOccupiedByARelative(targetCharacter, startingCube, destinationCube))
             return false;
         
         return true;
@@ -40,7 +40,7 @@ public static class ValidateGridPosition
         return true;
     }
 
-    private static bool IsDestinationOccupiedByARelative(Character targetCharacter, GridCube startingCube, GridCube destinationCube, bool checkForSimulation)
+    private static bool IsDestinationOccupiedByARelative(Character targetCharacter, GridCube startingCube, GridCube destinationCube)
     {
         // Cannot move when a character occupies destination
         if (destinationCube.CharacterOnThisGrid != null)

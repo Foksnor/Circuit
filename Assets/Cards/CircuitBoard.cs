@@ -16,11 +16,9 @@ public class CircuitBoard : MonoBehaviour
     public List<CardScriptableObject> startingCards = new List<CardScriptableObject>();
     private int activeCardNumber = 0;
     private float timeBetweenCardsPlayed = 0;
-    private bool isReadyToProcessSimulation = true;
     public int FireAttacksAvailable { get; private set; }
     public int ShockAttacksAvailable { get; private set; }
     [SerializeField] private List<GridCube> savedMovementGridCubes = new();
-
     protected bool needsNewCardCalculation { set; get; } = false;
 
     protected virtual void Awake()
@@ -63,11 +61,6 @@ public class CircuitBoard : MonoBehaviour
         {
             activeCards[activeCardNumber].ActivateCard(targetCharacter);
             timeBetweenCardsPlayed = activeCards[activeCardNumber].MaxTimeInUse;
-
-            // If character is a simulation, up their card play speed
-            if (targetCharacter.CharacterSimulation == null)
-                timeBetweenCardsPlayed /= targetCharacter.cardSimulationSpeedModifier;
-
             activeCardNumber++;
             return true;
         }
@@ -83,31 +76,6 @@ public class CircuitBoard : MonoBehaviour
             return false;
         }
         return true;
-    }
-
-    public bool IsProcessingSimulation(Character targetCharacter)
-    {
-        // Only process simulation when it's ready, and wait when there are enemy simulations happening
-        if (isReadyToProcessSimulation)
-        {
-            // If the simulation was destroyed before being able to process, or if the processing has finished; set simulation process to false
-            if (targetCharacter.InstancedCharacterSimulation != null)
-            {
-                isReadyToProcessSimulation = IsProcessingCards(targetCharacter.InstancedCharacterSimulation);
-                // Sets highlight to false once the function "IsProcessingCards" finished
-                targetCharacter.InstancedCharacterSimulation.ToggleCharacterSimHighlight(isReadyToProcessSimulation);
-            }
-            else
-                isReadyToProcessSimulation = false;
-        }
-
-        if (needsNewCardCalculation)
-        {
-            ResetCardProcessing();
-            targetCharacter.RefreshCharacterSimulation();
-            needsNewCardCalculation = false;
-        }
-        return isReadyToProcessSimulation;
     }
 
     public void ResetCardProcessing()
@@ -126,15 +94,8 @@ public class CircuitBoard : MonoBehaviour
         }
     }
 
-    public void ResetSimulationProcessing(Character targetCharacter)
-    {
-        targetCharacter.RefreshCharacterSimulation();
-        isReadyToProcessSimulation = true;
-    }
-
     public void CalculateAllCards(Character targetCharacter, bool isSetupPhase)
     {
-        targetCharacter.ToggleCharacterSimulation(isSetupPhase);
         GridCube previsGrid = targetCharacter.AssignedGridCube;
         for (int cardNumber = 0; cardNumber < activeCards.Count; cardNumber++)
         {

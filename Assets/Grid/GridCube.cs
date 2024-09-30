@@ -15,20 +15,17 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
     private int surfaceDuration = 2;
     [SerializeField] private MeshRenderer gridMeshRenderer = null;
     [SerializeField] private Material gridMatWater = null, gridMatOil = null, gridMatBurning;
-    [SerializeField] private SpriteRenderer tileStatusEffectPrevis = null;
     private GameObject instancedTilePrevis = null;
 
     [SerializeField] private bool isStaircase = false;
     [SerializeField] private TextMesh textMeshGridNumber;
     [SerializeField] private TextMesh textMeshCharacterRef;
-    [SerializeField] private TextMesh textMeshSimulationRef;
     [SerializeField] private float highestElevation;
     [SerializeField] private float lowestElevation;
     [SerializeField] private SpriteRenderer floorSprite;
     [SerializeField] private Sprite[] randomFloorSprite;
     [SerializeField] private GameObject visualElevation = null;
     public Character CharacterOnThisGrid { private set; get; }
-    public Character SimulationOnThisGrid { private set; get; }
     public GameObject MovementPlayerIndicator, DamagePlayerIndicator,
                         MovementEnemyIndicator, DamageEnemyIndicator;
 
@@ -85,16 +82,8 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
 
     public void SetCharacterOnGrid(Character character)
     {
-        if (character.CharacterSimulation != null)
-        {
-            CharacterOnThisGrid = character;
-            textMeshCharacterRef.text = character.name;
-        }
-        else
-        {
-            SimulationOnThisGrid = character;
-            textMeshSimulationRef.text = character.name;
-        }
+        CharacterOnThisGrid = character;
+        textMeshCharacterRef.text = character.name;
 
         // Transfer gridstatus effect to character
         character.SetStatus(StatusType, true);
@@ -107,12 +96,6 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
             CharacterOnThisGrid = null;
             if (textMeshCharacterRef != null)
                 textMeshCharacterRef.text = "";
-        }
-        else if (SimulationOnThisGrid == character)
-        {
-            SimulationOnThisGrid = null;
-            if (textMeshSimulationRef != null)
-                textMeshSimulationRef.text = "";
         }
     }
 
@@ -129,34 +112,10 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
             case _SurfaceType.Water:
                 gridMeshRenderer.enabled = true;
                 gridMeshRenderer.material = gridMatWater;
-                if (instigator.isSimulation)
-                {
-                    // Only set previs tile if not already initialized
-                    if (instancedTilePrevis == null)
-                    {
-                        surfaceDuration = 2;
-                        tileStatusEffectPrevis.sprite = GlobalSettings.ShockStatus.Icon;
-                        Character simulationOwner = instigator.GetComponent<CharacterSimulation>().OwnerOfThisSimulation;
-                        instancedTilePrevis = simulationOwner.ToggleTilePrevis(true, int.MaxValue, tileStatusEffectPrevis.gameObject, 90);
-                        SpreadStatus(instigator, _SurfaceType.Water, _StatusType.Shocked);
-                    }
-                }
                 break;
             case _SurfaceType.Oil:
                 gridMeshRenderer.enabled = true;
                 gridMeshRenderer.material = gridMatOil;
-                if (instigator.isSimulation)
-                {
-                    // Only set previs tile if not already initialized
-                    if (instancedTilePrevis == null)
-                    {
-                        surfaceDuration = 2;
-                        tileStatusEffectPrevis.sprite = GlobalSettings.FireStatus.Icon;
-                        Character simulationOwner = instigator.GetComponent<CharacterSimulation>().OwnerOfThisSimulation;
-                        instancedTilePrevis = simulationOwner.ToggleTilePrevis(true, int.MaxValue, tileStatusEffectPrevis.gameObject, 90);
-                        SpreadStatus(instigator, _SurfaceType.Oil, _StatusType.Fire);
-                    }
-                }
                 break;
             case _SurfaceType.Burning:
                 gridMeshRenderer.enabled = true;
@@ -195,10 +154,7 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
 
                 // Ignite oil on this grid
                 if (SurfaceType == _SurfaceType.Oil)
-                    if (instigator.isSimulation)
-                        ToggleSurface(instigator, _SurfaceType.Oil);
-                    else
-                        ToggleSurface(instigator, _SurfaceType.Burning);
+                    ToggleSurface(instigator, _SurfaceType.Burning);
                 break;
             case _StatusType.Shocked:
                 if (isCausedByAttack)
@@ -206,20 +162,14 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
 
                 // Shock water on this grid
                 if (SurfaceType == _SurfaceType.Water)
-                    if (instigator.isSimulation)
-                        ToggleSurface(instigator, _SurfaceType.Water);
-                    else
-                        ToggleSurface(instigator, _SurfaceType.Electrified);
+                    ToggleSurface(instigator, _SurfaceType.Electrified);
                 break;
         }
 
         if (instigator != null)
         {
             // Apply surface status to the characters on this grid
-            if (instigator.isSimulation)
-                SimulationOnThisGrid?.SetStatus(status, true);
-            else
-                CharacterOnThisGrid?.SetStatus(status, true);
+            CharacterOnThisGrid?.SetStatus(status, true);
         }
     }
 
@@ -232,11 +182,10 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
                 vicinityCubes[i].ToggleStatus(instigator, statusToSpread, false);
     }
 
-    private void UpdateStatusEffects(bool isSimulation)
+    private void UpdateStatusEffects()
     {
         // Remove itself so it no longer triggers subsequently
-        if (!isSimulation)
-            TurnSequence.TurnSequenceTriggerables.Remove(this);
+        TurnSequence.TurnSequenceTriggerables.Remove(this);
 
         switch (SurfaceType)
         {
@@ -248,18 +197,15 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
                 Destroy(instancedTilePrevis);
                 break;
             case _SurfaceType.Burning:
-                if (!isSimulation)
+                surfaceDuration--;
+                if (surfaceDuration <= 0)
                 {
-                    surfaceDuration--;
-                    if (surfaceDuration <= 0)
-                    {
-                        ToggleSurface(null, _SurfaceType.None);
-                    }
-                    // Add end of turn trigger so the burning patch removes itself next turn
-                    // Updates new status effects when the end of turn triggers
-                    if (!TurnSequence.TurnSequenceTriggerables.Contains(this))
-                        TurnSequence.TurnSequenceTriggerables.Add(this);
+                    ToggleSurface(null, _SurfaceType.None);
                 }
+                // Add end of turn trigger so the burning patch removes itself next turn
+                // Updates new status effects when the end of turn triggers
+                if (!TurnSequence.TurnSequenceTriggerables.Contains(this))
+                    TurnSequence.TurnSequenceTriggerables.Add(this);
                 break;
             case _SurfaceType.Electrified:
                 break;
@@ -288,7 +234,6 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
     {
         textMeshGridNumber.gameObject.SetActive(!textMeshGridNumber.gameObject.activeSelf);
         textMeshCharacterRef.gameObject.SetActive(!textMeshCharacterRef.gameObject.activeSelf);
-        textMeshSimulationRef.gameObject.SetActive(!textMeshSimulationRef.gameObject.activeSelf);
     }
 
     public void UpdateGridCubeToSaveState(_StatusType status, _SurfaceType surface)
@@ -310,21 +255,6 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
 
     public void OnEndTurn()
     {
-        UpdateStatusEffects(true);
-    }
-
-    public void OnStartPlayerSimulationTurn()
-    {
-        return;
-    }
-
-    public void OnStartEnemySimulationTurn()
-    {
-        return;
-    }
-
-    public void OnEndSimulationTurn()
-    {
-        UpdateStatusEffects(false);
+        UpdateStatusEffects();
     }
 }

@@ -11,9 +11,6 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
     public GridCube AssignedGridCube { private set; get; }
     [SerializeField] public SpriteRenderer CharacterSpriteRenderer = null;
     [SerializeField] protected Animator characterAnimator = null;
-    public CharacterSimulation CharacterSimulation = null;
-    public CharacterSimulation InstancedCharacterSimulation { get; private set; } = null;
-    public bool isSimulation { get; protected set; } = false;
 
     // Status Effects
     [SerializeField] private StatusBar statusBar = null;
@@ -24,6 +21,7 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
     [SerializeField] protected int maxHealth;
     [SerializeField] private HealthBar healthBar = null;
     [SerializeField] private CharacterHitFlash hitFlashComponent = null;
+    public bool isPotentialKill { get; private set; }
     protected bool isInvulnerable = false;
     public _StatusType StatusType { get; private set; }
 
@@ -32,24 +30,15 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
     [SerializeField] private GameObject spawnObjectOnDeath = null;
     [SerializeField] private GameObject ExperiencePoint = null;
     [SerializeField] private int ExperienceAmountOnDeath = 3;
-    [HideInInspector]
-    public bool isSimulationMarkedForDeath { get; set; }
-    public bool isPotentialKill { get; private set; }
 
     // Cards
     private GameObject cardPrevisBinder = null;
     private List<GameObject> ActiveCardPrevisTiles = new List<GameObject>();
     private float cardPlaySpeed = 1;
-    public float cardSimulationSpeedModifier { private set; get; } = 2;
 
     private void Awake()
     {
         maxHealth = health;
-    }
-
-    private void Start()
-    {
-        InstantiateCharacterSimulation();
     }
 
     private void Update()
@@ -74,21 +63,6 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
 
         // cardplayspeed is used for things such as time required for the character to reach it's destination cube
         cardPlaySpeed = 1 / speedModifier;
-
-        // If character is a simulation, up their card play speed
-        if (CharacterSimulation == null)
-            cardPlaySpeed *= cardSimulationSpeedModifier;
-    }
-
-    private void MoveCharacter()
-    {
-        if (Vector3.Distance(transform.position, AssignedGridCube.transform.position) > 0.01f)
-        {
-            characterAnimator.SetBool("isMoving", true);
-            transform.position = Vector3.MoveTowards(transform.position, AssignedGridCube.transform.position, Time.deltaTime * cardPlaySpeed);
-        }
-        else
-            characterAnimator.SetBool("isMoving", false);
     }
 
     public bool MarkPotentialKillIfDamageWouldKill(int damageValue)
@@ -102,8 +76,19 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
     }
 
     public void RemovePotentialKillMark()
-    {    
-        isPotentialKill = false; 
+    {
+        isPotentialKill = false;
+    }
+
+    private void MoveCharacter()
+    {
+        if (Vector3.Distance(transform.position, AssignedGridCube.transform.position) > 0.01f)
+        {
+            characterAnimator.SetBool("isMoving", true);
+            transform.position = Vector3.MoveTowards(transform.position, AssignedGridCube.transform.position, Time.deltaTime * cardPlaySpeed);
+        }
+        else
+            characterAnimator.SetBool("isMoving", false);
     }
 
     public void SetStatus(_StatusType status, bool isActive)
@@ -141,7 +126,7 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
     {
         // Spawn death VFX
         DeathVFX deathobj = Instantiate(deathVFX, transform.position, transform.rotation);
-        deathobj.SetDeathVFXCharacterVisual(CharacterSpriteRenderer.sprite, isSimulation);
+        deathobj.SetDeathVFXCharacterVisual(CharacterSpriteRenderer.sprite);
 
         // Spawn extra game objects on death
         if (spawnObjectOnDeath != null)
@@ -169,34 +154,13 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
 
     public virtual void RefreshCharacterSimulation()
     {
-        DestroyCharacterSimulation();
-        InstantiateCharacterSimulation();
         RemoveCardPrevis();
-    }
-
-    public void DestroyCharacterSimulation()
-    {
-        if (InstancedCharacterSimulation != null)
-            if (InstancedCharacterSimulation.gameObject != null)
-                Destroy(InstancedCharacterSimulation.gameObject);
-    }
-
-    public virtual void InstantiateCharacterSimulation()
-    {
-        InstancedCharacterSimulation = Instantiate(CharacterSimulation, transform);
-        InstancedCharacterSimulation.SetCharacterSimInfo(this, CharacterSpriteRenderer);
-        InstancedCharacterSimulation.ChangeDestinationGrid(AssignedGridCube, cardPlaySpeed * cardSimulationSpeedModifier);
-        isSimulationMarkedForDeath = false;
     }
 
     public virtual GameObject ToggleTilePrevis(bool isShowingPrevis, int cardNumber, GameObject tilevisual, float angle)
     {
         if (cardPrevisBinder == null)
             cardPrevisBinder = new GameObject("CardPrevisBinder");
-
-        // Cannot show card previs when simulation is marked for death
-        if (isSimulationMarkedForDeath)
-            isShowingPrevis = false;
 
         if (isShowingPrevis)
         {
@@ -230,31 +194,10 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
         ActiveCardPrevisTiles.Clear();
     }
 
-    public void ToggleCharacterSimulation(bool isSetupPhase)
-    {
-        if (isSetupPhase)
-        {
-            if (CharacterSimulation == null &&
-                !isSimulationMarkedForDeath)
-                InstantiateCharacterSimulation();
-        }
-        else
-        {
-            if (CharacterSimulation != null)
-                DestroyCharacterSimulation();
-            isSimulationMarkedForDeath = false;
-        }
-    }
-
     public bool IsCharacterRelatedToMe(Character comparisonCharacter)
     {
         if (comparisonCharacter.gameObject == gameObject)
             return true;
-
-        if (comparisonCharacter.InstancedCharacterSimulation != null)
-            if (comparisonCharacter.InstancedCharacterSimulation.gameObject == gameObject)
-                return true;
-
         return false;
     }
 
@@ -270,21 +213,6 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
     }
 
     public void OnEndTurn()
-    {
-        return;
-    }
-
-    public void OnStartPlayerSimulationTurn()
-    {
-        SetStatus(_StatusType.Fire, false);
-    }
-
-    public void OnStartEnemySimulationTurn()
-    {
-        return;
-    }
-
-    public void OnEndSimulationTurn()
     {
         return;
     }

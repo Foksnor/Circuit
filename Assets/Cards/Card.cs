@@ -265,7 +265,7 @@ public class Card : MonoBehaviour
             Vector2 targetPos = new Vector2(startingGrid.Position.x + moveX, startingGrid.Position.y);
             GridCube result = Grid.GridPositions.GetGridByPosition(targetPos);
 
-            if (ValidateGridPosition.CanStep(instigator, startingGrid, result, cardNumber, isSetupPhase))
+            if (ValidateGridPosition.CanStep(instigator, startingGrid, result, cardNumber))
             {
                 destinationGrid = result;
                 ConnectedCircuitboard.SaveMovementGridCube(result);
@@ -281,7 +281,7 @@ public class Card : MonoBehaviour
             Vector2 targetPos = new Vector2(startingGrid.Position.x, startingGrid.Position.y + moveY);
             GridCube result = Grid.GridPositions.GetGridByPosition(targetPos);
 
-            if (ValidateGridPosition.CanStep(instigator, startingGrid, result, cardNumber, isSetupPhase))
+            if (ValidateGridPosition.CanStep(instigator, startingGrid, result, cardNumber))
             {
                 destinationGrid = result;
                 ConnectedCircuitboard.SaveMovementGridCube(result);
@@ -336,37 +336,17 @@ public class Card : MonoBehaviour
             if (shockAvailable)
                 attackedGridTargets[i].ToggleStatus(instigator, _StatusType.Shocked, true);
 
+            Character charOnThisGrid = null;
+            if (attackedGridTargets[i].CharacterOnThisGrid != null)
+                charOnThisGrid = attackedGridTargets[i].CharacterOnThisGrid;
 
-            if (instigator.isSimulation)
+            // Stop if no characters are hit
+            if (charOnThisGrid != null)
             {
-                Character simOnThisGrid = null;
-                if (attackedGridTargets[i].SimulationOnThisGrid != null)
-                    simOnThisGrid = attackedGridTargets[i].SimulationOnThisGrid;
-
-                // Stop if no simulations are hit
-                if (simOnThisGrid != null)
+                // No friendly fire allowed, stop damage function when this happens
+                if (charOnThisGrid.TeamType != instigator.TeamType)
                 {
-                    // No friendly fire allowed, stop damage function when this happens
-                    if (simOnThisGrid.TeamType != instigator.TeamType)
-                    {
-                        simOnThisGrid.SubtractHealth(cardScriptableObject.Value, instigator);
-                    }
-                }
-            }
-            else
-            {
-                Character charOnThisGrid = null;
-                if (attackedGridTargets[i].CharacterOnThisGrid != null)
-                    charOnThisGrid = attackedGridTargets[i].CharacterOnThisGrid;
-
-                // Stop if no characters are hit
-                if (charOnThisGrid != null)
-                {
-                    // No friendly fire allowed, stop damage function when this happens
-                    if (charOnThisGrid.TeamType != instigator.TeamType)
-                    {
-                        charOnThisGrid.SubtractHealth(cardScriptableObject.Value, instigator);
-                    }
+                    charOnThisGrid.SubtractHealth(cardScriptableObject.Value, instigator);
                 }
             }
         }
@@ -433,14 +413,6 @@ public class Card : MonoBehaviour
             case CardScriptableObject._ParticleLocation.OnMovementTiles:
                 particle = Instantiate(cardScriptableObject.Particle, cube.transform.position, transform.rotation);
                 break;
-        }
-
-        // Sets the spawned particle in the "Simulation" layer
-        // This is needed because the simulation camera renders all simulation based events different than the main camera
-        if (particle != null && instigator.CharacterSimulation == null)
-        {
-            int layerNumber = LayerMask.NameToLayer("Simulation");
-            HelperFunctions.SetGameLayerRecursive(particle, layerNumber);
         }
     }
 }
