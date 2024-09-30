@@ -200,7 +200,7 @@ public class Card : MonoBehaviour
                 for (int attackStepX = 1; attackStepX < attackSteps.x + 1; attackStepX++)
                 {
                     Vector2 attackPosAfterStepX = new Vector2 (attackPosAfterStepY.x - attackWidthOffset + attackStepX, attackPosAfterStepY.y);
-                    GridCube result = GridPositions.GetGridByPosition(attackPosAfterStepX);
+                    GridCube result = Grid.GridPositions.GetGridByPosition(attackPosAfterStepX);
                     if (result != null)
                     {
                         // Handles X steps in the attack
@@ -263,7 +263,7 @@ public class Card : MonoBehaviour
         {
             int moveX = moveIncrement.x;
             Vector2 targetPos = new Vector2(startingGrid.Position.x + moveX, startingGrid.Position.y);
-            GridCube result = GridPositions.GetGridByPosition(targetPos);
+            GridCube result = Grid.GridPositions.GetGridByPosition(targetPos);
 
             if (ValidateGridPosition.CanStep(instigator, startingGrid, result, cardNumber, isSetupPhase))
             {
@@ -279,7 +279,7 @@ public class Card : MonoBehaviour
         {
             int moveY = moveIncrement.y;
             Vector2 targetPos = new Vector2(startingGrid.Position.x, startingGrid.Position.y + moveY);
-            GridCube result = GridPositions.GetGridByPosition(targetPos);
+            GridCube result = Grid.GridPositions.GetGridByPosition(targetPos);
 
             if (ValidateGridPosition.CanStep(instigator, startingGrid, result, cardNumber, isSetupPhase))
             {

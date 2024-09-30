@@ -2,14 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class GridPositions
+public class GridPositions : MonoBehaviour
 {
-    public static List<GridCube> _GridCubes { get; set; } = new();
-    public static List<BiomeChunk> _ActiveBiomeChunks { get; set; } = new();
+    public List<GridCube> GridCubes { get; set; } = new();
+    public List<BiomeChunk> ActiveBiomeChunks { get; set; } = new();
 
-    public static GridCube GetGridByPosition(Vector2 GridPosition)
+    public void Awake()
     {
-        GridCube result = _GridCubes.Find(x => x.Position == GridPosition);
+        Grid.GridPositions = this;
+    }
+
+    public GridCube GetGridByPosition(Vector2 GridPosition)
+    {
+        GridCube result = GridCubes.Find(x => x.Position == GridPosition);
         return result;
     }
+}
+
+public static class Grid
+{
+    public static GridPositions GridPositions = null;
 }

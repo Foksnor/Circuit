@@ -127,7 +127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78b33527d79de2479f690dfe2126d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  biomeChunk: {fileID: 1358215666583338369}
   charactersToSpawnHere:
   - {fileID: 1957793412199929724, guid: 69023d50af278324b87b5202712490ae, type: 3}
   - {fileID: 1957793412199929724, guid: 69023d50af278324b87b5202712490ae, type: 3}
@@ -185,6 +184,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChunkAppareanceChance: 30
   grid: {fileID: 667315887215020970}
+  characterSpawnPoints:
+  - {fileID: 1307284623674257949}
+  - {fileID: 244585168682463818}
+  - {fileID: 1616344722925800347}
 --- !u!1 &5576275399915870738
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,7 +266,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78b33527d79de2479f690dfe2126d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  biomeChunk: {fileID: 1358215666583338369}
   charactersToSpawnHere: []
   appareanceChance: 50
   positions:
@@ -343,7 +345,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78b33527d79de2479f690dfe2126d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  biomeChunk: {fileID: 1358215666583338369}
   charactersToSpawnHere: []
   appareanceChance: 50
   positions:

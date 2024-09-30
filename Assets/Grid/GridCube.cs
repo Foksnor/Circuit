@@ -50,7 +50,7 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
 
     public void SetGridReferenceNumber()
     {
-        GridPositions._GridCubes.Add(this);
+        Grid.GridPositions.GridCubes.Add(this);
         textMeshGridNumber.text = Position.x + "," + Position.y;
     }
 
@@ -213,11 +213,14 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
                 break;
         }
 
-        // Apply surface status to the characters on this grid
-        if (instigator.isSimulation)
-            SimulationOnThisGrid?.SetStatus(status, true);
-        else
-            CharacterOnThisGrid?.SetStatus(status, true);
+        if (instigator != null)
+        {
+            // Apply surface status to the characters on this grid
+            if (instigator.isSimulation)
+                SimulationOnThisGrid?.SetStatus(status, true);
+            else
+                CharacterOnThisGrid?.SetStatus(status, true);
+        }
     }
 
     private void SpreadStatus(Character instigator, _SurfaceType requiredSurface, _StatusType statusToSpread)
@@ -286,6 +289,12 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
         textMeshGridNumber.gameObject.SetActive(!textMeshGridNumber.gameObject.activeSelf);
         textMeshCharacterRef.gameObject.SetActive(!textMeshCharacterRef.gameObject.activeSelf);
         textMeshSimulationRef.gameObject.SetActive(!textMeshSimulationRef.gameObject.activeSelf);
+    }
+
+    public void UpdateGridCubeToSaveState(_StatusType status, _SurfaceType surface)
+    {
+        ToggleStatus(null, status, false);
+        ToggleSurface(null, surface);
     }
 
     // ITurnSequenceTriggerable interface

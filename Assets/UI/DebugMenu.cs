@@ -21,9 +21,9 @@ public class DebugMenu : MonoBehaviour
 
     public void ToggleDebugText()
     {
-        for (int i = 0; i < GridPositions._GridCubes.Count; i++)
+        for (int i = 0; i < Grid.GridPositions.GridCubes.Count; i++)
         {
-            GridPositions._GridCubes[i].ToggleDebugText();
+            Grid.GridPositions.GridCubes[i].ToggleDebugText();
         }
     }
 }

@@ -24,7 +24,6 @@ public class TransitionTurns : MonoBehaviour
 
     private void Awake()
     {
-        InitiateFirstTurn();
         TurnSequence.TransitionTurns = this;
     }
 
@@ -34,11 +33,15 @@ public class TransitionTurns : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             // Load the saved game state from a file
-            gameDataLoader.LoadGameState();
+            gameDataLoader.RestartScene();
         }
         if (Input.GetKeyDown(KeyCode.T))
         {
             gameDataLoader.SaveGameState();
+        }
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            gameDataLoader.DeleteGameState();
         }
 
         // Turn timer disabled for now
@@ -152,7 +155,7 @@ public class TransitionTurns : MonoBehaviour
         }
     }
 
-    private void InitiateFirstTurn()
+    public void InitiateFirstTurn()
     {
         SpawnerFunctions.Instance.InitiateFirstChunk();
         player = SpawnerFunctions.Instance.SpawnPlayer();
@@ -226,7 +229,8 @@ public class TransitionTurns : MonoBehaviour
 
     private void PlayerDrawPhase()
     {
-        player.CircuitBoard.PlayerDrawPhase();
+        if (player != null)
+            player.CircuitBoard.PlayerDrawPhase();
     }
 }
 

@@ -43,7 +43,7 @@ public static class HelperFunctions
             for (int y = -radiusSize; y < diameterSize; y++)
             {
                 Vector2 nearbyPosition = new(startingCube.Position.x - x, startingCube.Position.y - y);
-                GridCube nearbyCube = GridPositions.GetGridByPosition(nearbyPosition);
+                GridCube nearbyCube = Grid.GridPositions.GetGridByPosition(nearbyPosition);
                 if (nearbyCube != null)
                     vicinityCubes.Add(nearbyCube);
             }

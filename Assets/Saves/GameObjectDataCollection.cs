@@ -13,9 +13,9 @@ public class GameObjectDataCollection
 public class CharacterData
 {
     public string Name;
-    public int[] Position; // Position is saved as array. Json files can have a hard time reading vectors
     public int Health;
     public _StatusType Status;
+    public int[] Position; // Position is saved as array. Json files can have a hard time reading vectors
 
     public CharacterData(Character character)
     {
@@ -26,14 +26,14 @@ public class CharacterData
         Status = character.StatusType;
     }
 
-    public Vector3 GetPosition()
-    {
-        return new Vector3(Position[0], Position[1], Position[2]);
-    }
-
     public string GetName()
     {
         return Name;
+    }
+
+    public Vector3 GetPosition()
+    {
+        return new Vector3(Position[0], Position[1], Position[2]);
     }
 
     public int GetHealth()
@@ -51,23 +51,30 @@ public class CharacterData
 public class BiomeData
 {
     public string Name;
-    public int[] Position;
+    public int BiomeID;
+    public int[] Position; // Position is saved as array. Json files can have a hard time reading vectors
 
     public BiomeData(BiomeChunk biomeChunk)
     {
         Name = biomeChunk.name;
+        BiomeID = biomeChunk.biomeID;
         Vector3 pos = biomeChunk.transform.position;
         Position = new int[] { (int)pos.x, (int)pos.y, (int)pos.z };
-    }
-
-    public Vector3 GetPosition()
-    {
-        return new Vector3(Position[0], Position[1], Position[2]);
     }
 
     public string GetName()
     {
         return Name;
+    }
+
+    public int GetBiomeID()
+    {
+        return BiomeID;
+    }
+
+    public Vector3 GetPosition()
+    {
+        return new Vector3(Position[0], Position[1], Position[2]);
     }
 }
 
@@ -76,9 +83,9 @@ public class BiomeData
 public class GridCubeData
 {
     public string Name;
-    public int[] Position;
     public _StatusType Status;
     public _SurfaceType Surface;
+    public int[] Position; // Position is saved as array. Json files can have a hard time reading vectors
 
     public GridCubeData(GridCube cube)
     {
@@ -89,14 +96,14 @@ public class GridCubeData
         Surface = cube.SurfaceType;
     }
 
-    public Vector3 GetPosition()
-    {
-        return new Vector3(Position[0], Position[1], Position[2]);
-    }
-
     public string GetName()
     {
         return Name;
+    }
+
+    public Vector3 GetPosition()
+    {
+        return new Vector3(Position[0], Position[1], Position[2]);
     }
 
     public _StatusType GetStatus()

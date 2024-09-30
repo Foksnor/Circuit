@@ -6,19 +6,15 @@ using UnityEngine;
 
 public class CharacterSpawnpoint : MonoBehaviour
 {
-    [SerializeField] private BiomeChunk biomeChunk;
     // TODO QQQ: Gradualy spawn more enemies when difficulty should increase
     [SerializeField] private Character[] charactersToSpawnHere;
     [Range(1, 100)] public int appareanceChance = 50;
     [SerializeField] private List<Transform> positions = new List<Transform>();
     private Rect gizmoRect;
 
-    private void Start()
+    // Only execute the spawn sequence if the biome chunk is not spawned through a loading savefile
+    public void SpawnCharacter()
     {
-        // Only execute the spawn sequence if the biome chunk is verified and not spawned through a save load
-        if (biomeChunk.IsSpawnedThroughLoadingSave)
-            return;
-
         // If no positions are defined, default to the transform where this component is attached to
         if (positions.IsNullOrEmpty())
             positions.Add(transform);
@@ -29,7 +25,7 @@ public class CharacterSpawnpoint : MonoBehaviour
             // Ignore any positions that already have a character on top of it
             for (int i = 0; i < positions.Count; i++)
             {
-                GridCube cubeCharacterSpawnsOnTopOff = GridPositions.GetGridByPosition(positions[i].position);
+                GridCube cubeCharacterSpawnsOnTopOff = Grid.GridPositions.GetGridByPosition(positions[i].position);
 
                 // Remove this position from the list if (another) character is on top of the position already
                 if (cubeCharacterSpawnsOnTopOff.CharacterOnThisGrid != null)

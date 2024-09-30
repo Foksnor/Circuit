@@ -26,7 +26,7 @@ public class SpreadSurfaceTypeOnDeath : MonoBehaviour
             for (int length = 0; length < spreadDiameter; length++)
             {
                 gridPos = new Vector2(gridPos.x, startingPos.y + length);
-                GridCube affectedCube = GridPositions.GetGridByPosition(gridPos);
+                GridCube affectedCube = Grid.GridPositions.GetGridByPosition(gridPos);
                 if (affectedCube != null)
                 {
                     // Small chance for grids on the outside of the spread to not appear

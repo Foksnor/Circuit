@@ -2,9 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class GameDataLoader : MonoBehaviour
 {
+    private string filePath;
+
+    private void Awake()
+    {
+        filePath = $"{Application.persistentDataPath}/savefile.json";
+
+        // Check if the save file exists and is not empty
+        if (File.Exists(filePath))
+        {
+            // Read the content of the file
+            string fileContent = File.ReadAllText(filePath);
+
+            // Check if the file content is not empty or just white spaces
+            if (!string.IsNullOrWhiteSpace(fileContent))
+            {
+                // The file has valid content, so load the game state
+                LoadGameState();
+            }
+            else
+            {
+                // The file does not exist, so start a new game
+                StartNewGame();
+            }
+        }
+        else
+        {
+            // The file does not exist, so start a new game
+            StartNewGame();
+        }
+    }
+
+    private void StartNewGame()
+    {
+        TurnSequence.TransitionTurns.InitiateFirstTurn();
+    }
+
     public void SaveGameState()
     {
         GameObjectDataCollection dataCollection = new GameObjectDataCollection();
@@ -22,28 +59,26 @@ public class GameDataLoader : MonoBehaviour
         }
 
         // Add Biome Chunks
-        for (int i = 0; i < GridPositions._ActiveBiomeChunks.Count; i++)
+        for (int i = 0; i < Grid.GridPositions.ActiveBiomeChunks.Count; i++)
         {
-            dataCollection.biomeDataList.Add(new BiomeData(GridPositions._ActiveBiomeChunks[i]));
+            dataCollection.biomeDataList.Add(new BiomeData(Grid.GridPositions.ActiveBiomeChunks[i]));
         }
 
         // Add only GridCubes that are effected by either status effects or surface effects
-        for (int i = 0; i < GridPositions._GridCubes.Count; i++)
+        for (int i = 0; i < Grid.GridPositions.GridCubes.Count; i++)
         {
-            if (GridPositions._GridCubes[i].SurfaceType != _SurfaceType.None ||
-                GridPositions._GridCubes[i].StatusType != _StatusType.None)
-                dataCollection.gridCubeDataList.Add(new GridCubeData(GridPositions._GridCubes[i]));
+            if (Grid.GridPositions.GridCubes[i].SurfaceType != _SurfaceType.None ||
+                Grid.GridPositions.GridCubes[i].StatusType != _StatusType.None)
+                dataCollection.gridCubeDataList.Add(new GridCubeData(Grid.GridPositions.GridCubes[i]));
         }
 
         // Convert the entire collection to JSON and save it
         string jsonData = JsonUtility.ToJson(dataCollection, true); // 'true' for pretty formatting
-        string filePath = filePath = $"{Application.persistentDataPath}/savefile.json";
         System.IO.File.WriteAllText(filePath, jsonData);
     }
 
     public void LoadGameState()
     {
-        string filePath = filePath = $"{Application.persistentDataPath}/savefile.json";
         if (File.Exists(filePath))
         {
             // Read the JSON file
@@ -52,21 +87,38 @@ public class GameDataLoader : MonoBehaviour
             // Deserialize the data back into your GameObjectDataCollection (CharacterDataCollection)
             GameObjectDataCollection dataCollection = JsonUtility.FromJson<GameObjectDataCollection>(jsonData);
 
-            // Spawn characters and apply the loaded data
-            foreach (CharacterData characterData in dataCollection.characterDataList)
-            {
-                SpawnCharacter(characterData);
-            }
-
             // Spawn biomes
+            // This has to be called before the others load in so there's ground to alter and spawn characters on
             foreach (BiomeData biomeData in dataCollection.biomeDataList)
             {
                 SpawnBiome(biomeData);
+            }
+
+            // Update changed grid cubes
+            foreach (GridCubeData gridCubeData in dataCollection.gridCubeDataList)
+            {
+                UpdateGridCubes(gridCubeData);
+            }
+
+            // Spawn characters on the grid
+            foreach (CharacterData characterData in dataCollection.characterDataList)
+            {
+                SpawnCharacter(characterData);
             }
         }
         else
         {
             Debug.LogError("File not found: " + filePath);
+        }
+    }
+
+    public void DeleteGameState()
+    {
+        if (File.Exists(filePath))
+        {
+            // Delete the save file
+            File.Delete(filePath);
+            Debug.Log("Save file deleted.");
         }
     }
 
@@ -91,11 +143,18 @@ public class GameDataLoader : MonoBehaviour
 
     private void SpawnBiome(BiomeData biomeData)
     {
-        SpawnerFunctions.Instance.InitiateChunk(biomeData.GetPosition());
+        SpawnerFunctions.Instance.InstantiateChunkByName(biomeData.GetName(), biomeData.GetBiomeID(), biomeData.GetPosition(), false);
     }
 
     private void UpdateGridCubes(GridCubeData gridCubeData)
     {
+        GridCube gridCube = Grid.GridPositions.GetGridByPosition(gridCubeData.GetPosition());
+        gridCube.UpdateGridCubeToSaveState(gridCubeData.Status, gridCubeData.Surface);
+    }
 
+    public void RestartScene()
+    {
+        // Get the current active scene and reload it
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

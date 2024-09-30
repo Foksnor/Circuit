@@ -19,36 +19,43 @@ public class Entity_Spawner : MonoBehaviour
 
     public void InitiateFirstChunk()
     {
-        BiomeChunk firstChunk = biomes[0].GetStartingChunk();
-        firstChunk = Instantiate(firstChunk, transform.position, transform.rotation, transform);
-        furthestGridCubeSpawned = firstChunk.GetFurthestGridCube();
+        // Spawn the first start area in the game
+        BiomeChunk firstChunk = biomes[0].BiomeStartingChunk;
+        InstantiateChunk(firstChunk, 0, Vector3.zero, true);
     }
 
-    public void InitiateChunkByName(string name, Vector3 sp)
+    public void InstantiateChunkByName(string name, int biomeID, Vector3 spawnPosition, bool enableCharacterSpawners)
     {
-        // Make chunk spawn
+        // Get both the chunks from the biome as well as the starting chunk
+        // Add them both to a new list
+        List<BiomeChunk> chunksFromBiomeID = new();
+        chunksFromBiomeID = biomes[biomeID].BiomeChunks;
+        chunksFromBiomeID.Add(biomes[biomeID].BiomeStartingChunk);
 
-        public BiomeChunk GetChunkByName(string name)
-        {
-            BiomeChunk chunk = BiomeChunks.FirstOrDefault(obj => obj.name == name);
-            return chunk;
-        }
+        // Use that list to search for a matching name in the chunks and then spawn that chunk
+        BiomeChunk chunk = chunksFromBiomeID.FirstOrDefault(obj => obj.name == name);
+        if (chunk != null)
+            InstantiateChunk(chunk, biomeID, spawnPosition, enableCharacterSpawners);
+        else
+            Debug.LogError($"Cannot find chunk '{name}' to instantiate!");
     }
 
-    public void InitiateChunk(BiomeChunk chunk, Vector3 spawnPosition)
+    public void InstantiateChunk(BiomeChunk chunk, int biomeID, Vector3 spawnPosition, bool enableCharacterSpawners)
     {
-        // Adds an offset to the y coordinate so that the new grid doesn't spawn right on top of the previous one
-        spawnPosition = new Vector3(0, spawnPosition.y + 1, spawnPosition.z);
         BiomeChunk newChunk = Instantiate(chunk, spawnPosition, transform.rotation, transform);
         newChunk.name = chunk.name;
-        furthestGridCubeSpawned = chunk.GetFurthestGridCube();
+        newChunk.biomeID = biomeID;
+        furthestGridCubeSpawned = newChunk.GetFurthestGridCube();
+        if (enableCharacterSpawners)
+            newChunk.SpawnCharactersInChunk();
     }
 
     private void Update()
     {
+        // Spawn a new level chunk when a player character is nearing the end of a chunk
         float dist = furthestGridCubeSpawned.Position.y - player.transform.position.y;
         if (dist <= distanceBetweenPlayerAndLastGridCubeBeforeNewChunkSpawns)
-            InitiateChunk(biomes[0].GetRandomChunk(), furthestGridCubeSpawned.transform.position);
+            InstantiateChunk(biomes[0].GetRandomChunk(), 0, furthestGridCubeSpawned.transform.position, true);
     }
 
     public Character SpawnPlayer()
@@ -57,7 +64,7 @@ public class Entity_Spawner : MonoBehaviour
         p.name = player.name;
         player = p;
         player.CircuitBoard.CalculateAllCards(player, false);
-        GridCube cubePlayerSpawnsOnTopOff = GridPositions.GetGridByPosition(startingPosition);
+        GridCube cubePlayerSpawnsOnTopOff = Grid.GridPositions.GetGridByPosition(startingPosition);
         player.transform.position = cubePlayerSpawnsOnTopOff.transform.position;
         player.ChangeDestinationGrid(cubePlayerSpawnsOnTopOff, 1);
         CharacterTeams._PlayerTeamCharacters.Add(player);
@@ -93,7 +100,7 @@ public class Entity_Spawner : MonoBehaviour
         Character c = Instantiate(character);
         c.name = character.name;
         c.CircuitBoard.CalculateAllCards(c, false);
-        GridCube cubeCharacterSpawnsOnTopOff = GridPositions.GetGridByPosition(spawnPosition);
+        GridCube cubeCharacterSpawnsOnTopOff = Grid.GridPositions.GetGridByPosition(spawnPosition);
         c.transform.position = cubeCharacterSpawnsOnTopOff.transform.position;
         c.ChangeDestinationGrid(cubeCharacterSpawnsOnTopOff, 1);
         c.TeamType = teamType;

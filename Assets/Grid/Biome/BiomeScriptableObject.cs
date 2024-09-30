@@ -8,13 +8,9 @@ using UnityEngine;
 public class BiomeScriptableObject : ScriptableObject
 {
     // List is populated through the inspector
-    [SerializeField] private BiomeChunk BiomeStartingChunk;
-    [SerializeField] private List<BiomeChunk> BiomeChunks = new List<BiomeChunk>();
-
-    public BiomeChunk GetStartingChunk()
-    {
-        return BiomeStartingChunk;
-    }
+    public BiomeChunk BiomeStartingChunk { get { return biomeStartingChunk; } set { biomeStartingChunk = value; } }
+    [SerializeField] private BiomeChunk biomeStartingChunk;
+    public List<BiomeChunk> BiomeChunks = new List<BiomeChunk>();
 
     public BiomeChunk GetChunkByName(string name)
     {
