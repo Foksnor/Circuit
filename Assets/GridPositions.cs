@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class GridPositions : MonoBehaviour
 {
-    public List<GridCube> GridCubes { get; set; }
-    public List<BiomeChunk> ActiveBiomeChunks { get; set; }
+    public List<GridCube> GridCubes { get; set; } = new();
+    public List<BiomeChunk> ActiveBiomeChunks { get; set; } = new();
 
     public void Awake()
     {
         Grid.GridPositions = this;
-        GridCubes = new();
-        ActiveBiomeChunks = new();
+    }
+
+    public void ResetPositions()
+    {
+        GridCubes.Clear();
+        ActiveBiomeChunks.Clear();
     }
 
     public GridCube GetGridByPosition(Vector2 GridPosition)

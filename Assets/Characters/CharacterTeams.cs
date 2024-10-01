@@ -5,15 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class CharacterTeams : MonoBehaviour
 {
-    public List<Character> PlayerTeamCharacters { get; set; }
+    public List<Character> PlayerTeamCharacters { get; set; } = new();
     public Character PlayerTeamKing { get; private set; }
-    public List<Character> EnemyTeamCharacters { get; set; }
+    public List<Character> EnemyTeamCharacters { get; set; } = new();
 
     private void Awake()
     {
         Teams.CharacterTeams = this;
-        PlayerTeamCharacters = new();
-        EnemyTeamCharacters = new();
+    }
+
+    public void ResetTeams()
+    {
+        PlayerTeamCharacters.Clear();
+        EnemyTeamCharacters.Clear();
     }
 
     public void SetKing(Character character)

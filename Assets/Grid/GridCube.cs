@@ -139,8 +139,8 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
             return;
 
         // Updates new status effects when the end of turn triggers
-        if (!TurnSequence.TurnSequenceTriggerables.Contains(this))
-            TurnSequence.TurnSequenceTriggerables.Add(this);
+        if (!TurnSequence.TransitionTurns.TurnSequenceTriggerables.Contains(this))
+            TurnSequence.TransitionTurns.TurnSequenceTriggerables.Add(this);
 
         StatusType = status;
         switch (status)
@@ -185,7 +185,7 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
     private void UpdateStatusEffects()
     {
         // Remove itself so it no longer triggers subsequently
-        TurnSequence.TurnSequenceTriggerables.Remove(this);
+        TurnSequence.TransitionTurns.TurnSequenceTriggerables.Remove(this);
 
         switch (SurfaceType)
         {
@@ -204,8 +204,8 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
                 }
                 // Add end of turn trigger so the burning patch removes itself next turn
                 // Updates new status effects when the end of turn triggers
-                if (!TurnSequence.TurnSequenceTriggerables.Contains(this))
-                    TurnSequence.TurnSequenceTriggerables.Add(this);
+                if (!TurnSequence.TransitionTurns.TurnSequenceTriggerables.Contains(this))
+                    TurnSequence.TransitionTurns.TurnSequenceTriggerables.Add(this);
                 break;
             case _SurfaceType.Electrified:
                 break;

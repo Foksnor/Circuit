@@ -75,6 +75,8 @@ public class GameDataLoader : MonoBehaviour
         // Convert the entire collection to JSON and save it
         string jsonData = JsonUtility.ToJson(dataCollection, true); // 'true' for pretty formatting
         System.IO.File.WriteAllText(filePath, jsonData);
+
+        Debug.Log("Save file written.");
     }
 
     public void LoadGameState()
@@ -132,8 +134,6 @@ public class GameDataLoader : MonoBehaviour
         {
             characterComponent.Health = characterData.GetHealth();
             characterComponent.SetStatus(characterData.GetStatus());
-
-            Debug.Log($"Spawned character: {characterComponent.name}, Health: {characterComponent.Health}, Status: {characterComponent.StatusType}");
         }
         else
         {
@@ -149,7 +149,6 @@ public class GameDataLoader : MonoBehaviour
     private void UpdateGridCubes(GridCubeData gridCubeData)
     {
         GridCube gridCube = Grid.GridPositions.GetGridByPosition(gridCubeData.GetPosition());
-        print(gridCube + " " + Grid.GridPositions.GridCubes.Count);
         gridCube.UpdateGridCubeToSaveState(gridCubeData.Status, gridCubeData.Surface);
     }
 
@@ -157,5 +156,7 @@ public class GameDataLoader : MonoBehaviour
     {
         // Get the current active scene and reload it
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Teams.CharacterTeams.ResetTeams();
+        Grid.GridPositions.ResetPositions();
     }
 }

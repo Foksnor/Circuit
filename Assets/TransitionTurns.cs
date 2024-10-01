@@ -21,6 +21,9 @@ public class TransitionTurns : MonoBehaviour
     [SerializeField] private int enemySpawnEveryXRounds = 5;
     private int enemySpawnCooldown = 0;
 
+    // Keeping track of which scripts needs to trigger a function during a specific turn sequence
+    public List<ITurnSequenceTriggerable> TurnSequenceTriggerables = new();
+
     private void Awake()
     {
         TurnSequence.TransitionTurns = this;
@@ -47,10 +50,10 @@ public class TransitionTurns : MonoBehaviour
         //SetTurnTimer();
         if (isPlayerTurnActive)
         {
-            for (int i = 0; i < TurnSequence.TurnSequenceTriggerables.Count; i++)
+            for (int i = 0; i < TurnSequenceTriggerables.Count; i++)
             {
                 // Invokes all player start triggers
-                TurnSequence.TurnSequenceTriggerables[i].OnStartPlayerTurn();
+                TurnSequenceTriggerables[i].OnStartPlayerTurn();
 
                 // Save the game state at the start of your turn
                 // QQQ TODO: better save state moment
@@ -70,8 +73,8 @@ public class TransitionTurns : MonoBehaviour
             CalculateTeamCards(Teams.CharacterTeams.EnemyTeamCharacters, false);
 
             // Invokes all enemy start triggers
-            for (int i = 0; i < TurnSequence.TurnSequenceTriggerables.Count; i++)
-                TurnSequence.TurnSequenceTriggerables[i].OnStartEnemyTurn();
+            for (int i = 0; i < TurnSequenceTriggerables.Count; i++)
+                TurnSequenceTriggerables[i].OnStartEnemyTurn();
 
             isEnemyTurnActive = ProcessTeamCards(Teams.CharacterTeams.EnemyTeamCharacters);
 
@@ -82,8 +85,8 @@ public class TransitionTurns : MonoBehaviour
                 DecideEnemySpawn();
 
                 // Invokes all end turn triggers
-                for (int i = 0; i < TurnSequence.TurnSequenceTriggerables.Count; i++)
-                    TurnSequence.TurnSequenceTriggerables[i].OnEndTurn();
+                for (int i = 0; i < TurnSequenceTriggerables.Count; i++)
+                    TurnSequenceTriggerables[i].OnEndTurn();
             }
         }
         else
@@ -187,5 +190,4 @@ public class TransitionTurns : MonoBehaviour
 public static class TurnSequence
 {
     public static TransitionTurns TransitionTurns = null;
-    public static List<ITurnSequenceTriggerable> TurnSequenceTriggerables = new();
 }
