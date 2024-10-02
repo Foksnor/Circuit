@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cdd8dda84aac3e343b7c20664a843a7b
+guid: 975163facec063042a7e1ccbfddb6c13
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2648132306389260867
-    second: T_Test_0
+      213: 473143245106346060
+    second: Shape_Eliptical_Extreme_Inverse_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,43 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: T_Test_0
+      name: Shape_Eliptical_Extreme_Inverse_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1024
-        height: 1024
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 34a51906d4e00c420800000000000000
-      internalID: 2648132306389260867
+      spriteID: c48707c4641f09600800000000000000
+      internalID: 473143245106346060
       vertices: []
       indices: 
       edges: []
@@ -156,8 +130,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      T_Test_0: 2648132306389260867
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

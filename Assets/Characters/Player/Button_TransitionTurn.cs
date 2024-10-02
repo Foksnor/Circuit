@@ -12,10 +12,7 @@ public class Button_TransitionTurn : MonoBehaviour
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(() => TransitionTurn());
-        
-        tT = GameObject.FindWithTag("GameManager")?.GetComponent<TransitionTurns>();
-        if (tT == null)
-            Debug.LogError("Cannot find gameobject with tag GameManager and with a TransitionTurns script component on it.");
+        tT = TurnSequence.TransitionTurns;
     }
 
     private void TransitionTurn()

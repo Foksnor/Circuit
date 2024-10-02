@@ -7,13 +7,12 @@ using UnityEngine.Events;
 
 public class TransitionTurns : MonoBehaviour
 {
-    [SerializeField]
-    private GameDataLoader gameDataLoader;
     private Character player;
 
     [SerializeField] private float maxTurnTime = 8;
     private float curTurnTime;
     public bool NeedsNewCardCalculation = false;
+    private bool hasPlayerTurnStarted = false;
     private bool isPlayerTurnActive = false;
     private bool isEnemyTurnActive = false;
 
@@ -35,30 +34,23 @@ public class TransitionTurns : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             // Load the saved game state from a file
-            gameDataLoader.RestartScene();
+            GameData.Loader.RestartScene();
         }
         if (Input.GetKeyDown(KeyCode.T))
         {
-            gameDataLoader.SaveGameState();
+            GameData.Loader.SaveGameState();
         }
         if (Input.GetKeyDown(KeyCode.Y))
         {
-            gameDataLoader.DeleteGameState();
+            GameData.Loader.DeleteGameState();
         }
 
         // Turn timer disabled for now
         //SetTurnTimer();
         if (isPlayerTurnActive)
         {
-            for (int i = 0; i < TurnSequenceTriggerables.Count; i++)
-            {
-                // Invokes all player start triggers
-                TurnSequenceTriggerables[i].OnStartPlayerTurn();
-
-                // Save the game state at the start of your turn
-                // QQQ TODO: better save state moment
-                //SaveGameState();
-            }
+            // Call nesecary start of turn events
+            OnStartTurn();
 
             CalculateTeamCards(Teams.CharacterTeams.PlayerTeamCharacters, false);
             //CalculateTeamCards(CharacterTeams._EnemyTeamCharacters, true);
@@ -81,12 +73,8 @@ public class TransitionTurns : MonoBehaviour
             // When finishing processing all of the enemy cards; end turn
             if (!isEnemyTurnActive)
             {
-                //decide if an enemy should spawn.
-                DecideEnemySpawn();
-
-                // Invokes all end turn triggers
-                for (int i = 0; i < TurnSequenceTriggerables.Count; i++)
-                    TurnSequenceTriggerables[i].OnEndTurn();
+                // Call nesecary end of turn events
+                OnEndTurn();
             }
         }
         else
@@ -142,6 +130,36 @@ public class TransitionTurns : MonoBehaviour
         // Reseting the cooldown during a turn transition makes sure that the character plays their cards in the correct order and tempo
         ForceResetCardProcessing(Teams.CharacterTeams.PlayerTeamCharacters);
         ForceResetCardProcessing(Teams.CharacterTeams.EnemyTeamCharacters);
+    }
+
+    private void OnStartTurn()
+    {
+        if (!hasPlayerTurnStarted)
+        {
+            hasPlayerTurnStarted = true;
+
+            // Save the game state at the start of your turn
+            GameData.Loader.SaveGameState();
+
+            for (int i = 0; i < TurnSequenceTriggerables.Count; i++)
+            {
+                // Invokes all player start triggers
+                TurnSequenceTriggerables[i].OnStartPlayerTurn();
+            }
+        }
+    }
+
+    private void OnEndTurn()
+    {
+        // Reset turn start trigger
+        hasPlayerTurnStarted = false;
+
+        // Decide if an enemy should spawn
+        DecideEnemySpawn();
+
+        // Invokes all end turn triggers
+        for (int i = 0; i < TurnSequenceTriggerables.Count; i++)
+            TurnSequenceTriggerables[i].OnEndTurn();
     }
 
     private void DecideEnemySpawn()

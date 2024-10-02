@@ -10,6 +10,7 @@ public class GameDataLoader : MonoBehaviour
 
     private void Awake()
     {
+        GameData.Loader = this;
         filePath = $"{Application.persistentDataPath}/savefile.json";
 
         // Check if the save file exists and is not empty
@@ -86,7 +87,7 @@ public class GameDataLoader : MonoBehaviour
             // Read the JSON file
             string jsonData = File.ReadAllText(filePath);
 
-            // Deserialize the data back into your GameObjectDataCollection (CharacterDataCollection)
+            // Deserialize the data back into your GameObjectDataCollection
             GameObjectDataCollection dataCollection = JsonUtility.FromJson<GameObjectDataCollection>(jsonData);
 
             // Spawn biomes
@@ -159,4 +160,9 @@ public class GameDataLoader : MonoBehaviour
         Teams.CharacterTeams.ResetTeams();
         Grid.GridPositions.ResetPositions();
     }
+}
+
+public static class GameData
+{
+    public static GameDataLoader Loader;
 }

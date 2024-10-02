@@ -37,7 +37,9 @@ public class Entity_Spawner : MonoBehaviour
         if (chunk != null)
             InstantiateChunk(chunk, biomeID, spawnPosition, enableCharacterSpawners);
         else
+        {
             Debug.LogError($"Cannot find chunk '{name}' to instantiate!");
+        }
     }
 
     public void InstantiateChunk(BiomeChunk chunk, int biomeID, Vector3 spawnPosition, bool enableCharacterSpawners)
