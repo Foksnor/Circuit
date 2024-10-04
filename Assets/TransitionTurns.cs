@@ -16,6 +16,12 @@ public class TransitionTurns : MonoBehaviour
     private bool isPlayerTurnActive = false;
     private bool isEnemyTurnActive = false;
 
+    // Timers
+    private float upkeepDuration = 0.5f;
+    private float upkeepTime = 0;
+    private float endstepDuration = 0.5f;
+    private float endstepTime = 0;
+
     // Turns before a new enemy spawns
     [SerializeField] private int enemySpawnEveryXRounds = 5;
     private int enemySpawnCooldown = 0;
@@ -52,6 +58,10 @@ public class TransitionTurns : MonoBehaviour
             // Call nesecary start of turn events
             OnStartTurn();
 
+            upkeepTime += Time.deltaTime;
+            if (upkeepTime <= upkeepDuration)
+                return;
+
             CalculateTeamCards(Teams.CharacterTeams.PlayerTeamCharacters, false);
             //CalculateTeamCards(CharacterTeams._EnemyTeamCharacters, true);
             isPlayerTurnActive = ProcessTeamCards(Teams.CharacterTeams.PlayerTeamCharacters);
@@ -69,16 +79,18 @@ public class TransitionTurns : MonoBehaviour
                 TurnSequenceTriggerables[i].OnStartEnemyTurn();
 
             isEnemyTurnActive = ProcessTeamCards(Teams.CharacterTeams.EnemyTeamCharacters);
-
-            // When finishing processing all of the enemy cards; end turn
             if (!isEnemyTurnActive)
-            {
-                // Call nesecary end of turn events
-                OnEndTurn();
-            }
+                OnEndstep();
         }
         else
         {
+            endstepTime += Time.deltaTime;
+            if (endstepTime <= endstepDuration)
+                return;
+
+            // Call nesecary end of turn events
+            OnEndTurn();
+
             // Player set up phase
             PlayerDrawPhase();
 
@@ -134,6 +146,9 @@ public class TransitionTurns : MonoBehaviour
 
     private void OnStartTurn()
     {
+        // Reset endstep timer
+        endstepTime = 0;
+
         if (!hasPlayerTurnStarted)
         {
             hasPlayerTurnStarted = true;
@@ -149,10 +164,18 @@ public class TransitionTurns : MonoBehaviour
         }
     }
 
+    private void OnEndstep()
+    {
+        // Invokes all endstep triggers
+        for (int i = 0; i < TurnSequenceTriggerables.Count; i++)
+            TurnSequenceTriggerables[i].OnEndstep();
+    }
+
     private void OnEndTurn()
     {
-        // Reset turn start trigger
+        // Reset turn start trigger and timer
         hasPlayerTurnStarted = false;
+        upkeepTime = 0;
 
         // Decide if an enemy should spawn
         DecideEnemySpawn();
