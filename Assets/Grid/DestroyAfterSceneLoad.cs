@@ -20,6 +20,6 @@ public class DestroyAfterSceneLoad : MonoBehaviour
 
     public virtual void OnNewScene()
     {
-        return;
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
