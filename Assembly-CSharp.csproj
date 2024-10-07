@@ -68,6 +68,7 @@
     <Compile Include="Assets\GridPositions.cs" />
     <Compile Include="Assets\Grid\Entity_Spawner.cs" />
     <Compile Include="Assets\Cards\CircuitBoard.cs" />
+    <Compile Include="Assets\PostProcessing\DitheringRenderFeature.cs" />
     <Compile Include="Assets\Cards\Card.cs" />
     <Compile Include="Assets\Doozy\_Examples\E22 - Popup - without Buttons\ShowSimplePopup.cs" />
     <Compile Include="Assets\Characters\Player\Feedback Interactions\FeedbackPanel.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="Assets\Saves\GameDataLoader.cs" />
     <Compile Include="Assets\Grid\ValidateGridPosition.cs" />
     <Compile Include="Assets\Characters\Player\PlayerStats.cs" />
+    <Compile Include="Assets\PostProcessing\DitheringRenderPass.cs" />
     <Compile Include="Assets\Characters\Player\ExperienceBar\ExperienceBar.cs" />
     <Compile Include="Assets\Grid\DestroyAfterSceneLoad.cs" />
     <Compile Include="Assets\Characters\Player\ExperienceBar\ExperiencePoint.cs" />
@@ -119,6 +121,7 @@
     <Compile Include="Assets\Characters\Player\ExperienceBar\DelayProgressbar.cs" />
     <Compile Include="Assets\Cards\Attacks\Lifetime.cs" />
     <Compile Include="Assets\Characters\DeathVFX\DeathVFX.cs" />
+    <Compile Include="Assets\PostProcessing\DitheringEffect.cs" />
     <Compile Include="Assets\Characters\CharacterSpawnpoint.cs" />
     <Compile Include="Assets\Grid\GridCube.cs" />
     <Compile Include="Assets\Cards\CardScriptableObject.cs" />
@@ -131,8 +134,10 @@
     <None Include="Assets\Doozy\_Extras\Fonts\Ubuntu Font License - UFL.txt" />
     <None Include="Assets\Doozy\_Extras\Fonts\Inter Font License - OFL.txt" />
     <None Include="Assets\Doozy\_Extras\disclaimer.txt" />
+    <None Include="Assets\PostProcessing\Dither.shader" />
     <None Include="Assets\Doozy\readme.txt" />
     <None Include="Assets\UI\MaskedUIBlur.shader" />
+    <None Include="Assets\PostProcessing\PassThrough.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
