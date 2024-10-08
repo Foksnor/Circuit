@@ -91,23 +91,26 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
             characterAnimator.SetBool("isMoving", false);
     }
 
-    public void SetStatus(_StatusType status, bool isActive)
+    public void SetStatus(_StatusType status, bool isSetDuringOwnTurn)
     {
-        StatusType = status;
-        statusBar.ToggleStatusWidget(status, isActive);
+        statusBar.ToggleStatusWidget(status, true);
+        HelperFunctions.AddToTurnTrigger(this);
 
         switch (status)
         {
             default:
             case _StatusType.None:
+                statusBar.ResetStatusWidget();
                 break;
             case _StatusType.Fire:
-                //print("damage on " + this.gameObject.name + "   at:" + Time.time);
-                //SubtractHealth(GlobalSettings.FireStatus.Damage, this);
+                if (isSetDuringOwnTurn && StatusType != status)
+                    BurnCharacter();
                 break;
             case _StatusType.Shocked:
+                ShockCharacter();
                 break;
         }
+        StatusType = status;
     }
 
     public void SubtractHealth(int amount, Character instigator)
@@ -117,7 +120,8 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
 
         health -= amount;
         healthBar?.UpdateHealthBar(maxHealth, health, amount);
-        hitFlashComponent.PlayHitFlash();
+        if (amount > 0)
+            hitFlashComponent.PlayHitFlash();
         if (health <= 0)
             Die(instigator);
     }
@@ -133,19 +137,21 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
             Instantiate(spawnObjectOnDeath, transform.position, transform.rotation);        
 
         // Experience drop on death, if killed by player or environment
-        if (instigator.TeamType == _TeamType.Player || instigator == null)
-        {
-            for (int i = ExperienceAmountOnDeath; i > 0; i--)
+        if (instigator != null)
+            if (instigator.TeamType == _TeamType.Player || instigator == null)
             {
-                Instantiate(ExperiencePoint, transform.position, transform.rotation);
+                for (int i = ExperienceAmountOnDeath; i > 0; i--)
+                {
+                    Instantiate(ExperiencePoint, transform.position, transform.rotation);
+                }
             }
-        }
 
         Destroy(gameObject);
     }
 
     private void OnDestroy()
     {
+        HelperFunctions.RemoveFromTurnTrigger(this);
         // Remove character from their list before destroying it to prevent null references.
         Teams.CharacterTeams.PlayerTeamCharacters.Remove(this);
         Teams.CharacterTeams.EnemyTeamCharacters.Remove(this);
@@ -204,12 +210,32 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
     // ITurnSequenceTriggerable interface
     public void OnStartPlayerTurn()
     {
-        SetStatus(_StatusType.Fire, false);
+        // Status effects
+        if (TeamType == _TeamType.Player)
+            switch(StatusType)
+            {
+                case _StatusType.Fire:
+                    BurnCharacter();
+                    break;
+                case _StatusType.Shocked:
+                    ShockCharacter();
+                    break;
+            }
     }
 
     public void OnStartEnemyTurn()
     {
-        return;
+        // Status effects
+        if (TeamType == _TeamType.Enemy)
+            switch (StatusType)
+            {
+                case _StatusType.Fire:
+                    BurnCharacter();
+                    break;
+                case _StatusType.Shocked:
+                    ShockCharacter();
+                    break;
+            }
     }
 
     public void OnEndstep()
@@ -222,8 +248,19 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
         return;
     }
 
-    public void SetStatus(_StatusType status)
+    private void BurnCharacter()
     {
-        //QQQ TODO ADD status effects
+        // Burn character
+        Instantiate(GlobalSettings.FireHit, transform);
+        SubtractHealth(GlobalSettings.FireStatus.Damage, null);
+
+        // Remove status after burn if character is no longer on a burning surface
+        if (AssignedGridCube.SurfaceType != _SurfaceType.Burning)
+            StatusType = _StatusType.None;
+    }
+
+    private void ShockCharacter()
+    {
+
     }
 }

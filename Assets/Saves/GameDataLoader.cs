@@ -134,7 +134,8 @@ public class GameDataLoader : MonoBehaviour
         if (characterComponent != null)
         {
             characterComponent.Health = characterData.GetHealth();
-            characterComponent.SetStatus(characterData.GetStatus());
+            characterComponent.SubtractHealth(0, null);
+            //characterComponent.SetStatus(characterData.GetStatus(), false);
         }
         else
         {

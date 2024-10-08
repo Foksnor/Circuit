@@ -16,4 +16,4 @@ MonoBehaviour:
   damage: 2
   turnDuration: 1
   idleEffectParticle: {fileID: 0}
-  triggeredEffectParticle: {fileID: 0}
+  triggeredEffectParticle: {fileID: 7554899051286264844, guid: 258c6599d85dcf24393c1433e0caedcd, type: 3}

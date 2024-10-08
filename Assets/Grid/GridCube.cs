@@ -13,6 +13,7 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
     public _SurfaceType SurfaceType { get; private set; }
     public _StatusType StatusType { get; private set; }
     private int surfaceDuration = 2;
+    private GameObject activeSurfaceParticle = null;
     [SerializeField] private MeshRenderer gridMeshRenderer = null;
     [SerializeField] private Material gridMatWater = null, gridMatOil = null, gridMatBurning;
     private GameObject instancedTilePrevis = null;
@@ -101,7 +102,6 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
 
     public void ToggleSurface(Character instigator, _SurfaceType surfaceEffect)
     {
-        SurfaceType = surfaceEffect;
         gridMeshRenderer.enabled = false;
 
         switch (surfaceEffect)
@@ -112,6 +112,8 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
             case _SurfaceType.Water:
                 gridMeshRenderer.enabled = true;
                 gridMeshRenderer.material = gridMatWater;
+                if (SurfaceType == _SurfaceType.Burning)
+                    PlaceSurfaceParticle(GlobalSettings.DousedSurface, activeSurfaceParticle.transform.position);
                 break;
             case _SurfaceType.Oil:
                 gridMeshRenderer.enabled = true;
@@ -120,16 +122,19 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
             case _SurfaceType.Burning:
                 gridMeshRenderer.enabled = true;
                 gridMeshRenderer.material = gridMatBurning;
-                Instantiate(GlobalSettings.BurningEffectObject, transform);
+                Vector3 randomOffset = new Vector3(Random.Range(-0.4f, 0.4f), Random.Range(-0.4f, 0.4f));
+                PlaceSurfaceParticle(GlobalSettings.BurningSurface, transform.position + randomOffset);
+                Instantiate(GlobalSettings.FireChain, transform);
                 SpreadStatus(instigator, _SurfaceType.Oil, _StatusType.Fire);
                 break;
             case _SurfaceType.Electrified:
                 gridMeshRenderer.enabled = true;
                 gridMeshRenderer.material = gridMatWater;
-                Instantiate(GlobalSettings.ElectrifiedEffectObject, transform);
+                Instantiate(GlobalSettings.ShockChain, transform);
                 SpreadStatus(instigator, _SurfaceType.Water, _StatusType.Shocked);
                 break;
         }
+        SurfaceType = surfaceEffect;
     }
 
     public void ToggleStatus(Character instigator, _StatusType status, bool isCausedByAttack)
@@ -150,7 +155,7 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
                 break;
             case _StatusType.Fire:
                 if (isCausedByAttack)
-                    Instantiate(GlobalSettings.FireEffectObject, transform);
+                    Instantiate(GlobalSettings.FireHit, transform);
 
                 // Ignite oil on this grid
                 if (SurfaceType == _SurfaceType.Oil)
@@ -158,7 +163,7 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
                 break;
             case _StatusType.Shocked:
                 if (isCausedByAttack)
-                    Instantiate(GlobalSettings.ShockEffectObject, transform);
+                    Instantiate(GlobalSettings.ShockHit, transform);
 
                 // Shock water on this grid
                 if (SurfaceType == _SurfaceType.Water)
@@ -185,7 +190,7 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
     private void UpdateStatusEffects()
     {
         // Remove itself so it no longer triggers subsequently
-        TurnSequence.TransitionTurns.TurnSequenceTriggerables.Remove(this);
+        HelperFunctions.RemoveFromTurnTrigger(this);
 
         switch (SurfaceType)
         {
@@ -197,6 +202,7 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
                 Destroy(instancedTilePrevis);
                 break;
             case _SurfaceType.Burning:
+                /*
                 surfaceDuration--;
                 if (surfaceDuration <= 0)
                 {
@@ -204,8 +210,8 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
                 }
                 // Add end of turn trigger so the burning patch removes itself next turn
                 // Updates new status effects when the end of turn triggers
-                if (!TurnSequence.TransitionTurns.TurnSequenceTriggerables.Contains(this))
-                    TurnSequence.TransitionTurns.TurnSequenceTriggerables.Add(this);
+                    HelperFunctions.AddToTurnTrigger(this);
+                */
                 break;
             case _SurfaceType.Electrified:
                 break;
@@ -228,6 +234,14 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
     public void ResetCharacterMovementPriority()
     {
         charactersMovementActionNumber.Clear();
+    }
+
+    private void PlaceSurfaceParticle(GameObject particle, Vector3 position)
+    {
+        if (activeSurfaceParticle != null)
+            Destroy(activeSurfaceParticle);
+
+        Instantiate(particle, position, transform.rotation, transform);
     }
 
     public void ToggleDebugText()

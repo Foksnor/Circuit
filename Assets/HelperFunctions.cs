@@ -51,4 +51,17 @@ public static class HelperFunctions
 
         return vicinityCubes;
     }
+
+    // Shorter way of adding a triggerable to the turn sequence and filtering duplicates
+    public static void AddToTurnTrigger(ITurnSequenceTriggerable triggerable)
+    {
+        if (!TurnSequence.TransitionTurns.TurnSequenceTriggerables.Contains(triggerable))
+            TurnSequence.TransitionTurns.TurnSequenceTriggerables.Add(triggerable);
+    }
+
+    // Shorter way of removing a triggerable
+    public static void RemoveFromTurnTrigger(ITurnSequenceTriggerable triggerable)
+    {
+        TurnSequence.TransitionTurns.TurnSequenceTriggerables.Remove(triggerable);
+    }
 }

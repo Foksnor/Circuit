@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 206d4fc2e7c1b054dab4295a740143b0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 239285
+  packageName: Casual RPG VFX
+  packageVersion: 1.0
+  assetPath: Assets/Lana Studio/Casual RPG VFX/Demo/Scripts/ObjectsSwitcher.cs
+  uploadId: 545717

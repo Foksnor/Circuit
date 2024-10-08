@@ -19,7 +19,7 @@ MonoBehaviour:
   Cost: 0
   Sprite: {fileID: 5820286478268577726, guid: c88b0fffaa4a08e4da31664b9c2a2942, type: 3}
   Sound: {fileID: 0}
-  Particle: {fileID: 0}
+  Particle: {fileID: 934617562227915448, guid: 9b596711535ccaf4b89cc0f987525dbc, type: 3}
   ParticleLocation: 0
   TargetType: 4
   MoveSteps: {x: 0, y: 0}

@@ -9,8 +9,7 @@ public class StatusBar : MonoBehaviour
     private void Awake()
     {
         // Disable status icons by default
-        ToggleStatusWidget(_StatusType.Fire, false);
-        ToggleStatusWidget(_StatusType.Shocked, false);
+        ResetStatusWidget();
     }
 
     public void ToggleStatusWidget(_StatusType status, bool isActive)
@@ -27,5 +26,11 @@ public class StatusBar : MonoBehaviour
                 Shock.SetActive(isActive);
                 break;
         }
+    }
+
+    public void ResetStatusWidget()
+    {
+        ToggleStatusWidget(_StatusType.Fire, false);
+        ToggleStatusWidget(_StatusType.Shocked, false);
     }
 }

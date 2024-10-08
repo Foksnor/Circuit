@@ -25,15 +25,14 @@ public class Button_PreviewTurn : MonoBehaviour, ITurnSequenceTriggerable
             overlayFromSpawn = Instantiate(overlayToSpawn);
 
         // Adds the preview actions to the turn triggerables
-        if (!TurnSequence.TransitionTurns.TurnSequenceTriggerables.Contains(this))
-            TurnSequence.TransitionTurns.TurnSequenceTriggerables.Add(this);
+        HelperFunctions.AddToTurnTrigger(this);
     }
 
     // ITurnSequenceTriggerable interface
     public void OnEndTurn()
     {
         GameData.Loader.RestartScene();
-        TurnSequence.TransitionTurns.TurnSequenceTriggerables.Remove(this);
+        HelperFunctions.RemoveFromTurnTrigger(this);
     }
 
     public void OnEndstep()
@@ -48,6 +47,6 @@ public class Button_PreviewTurn : MonoBehaviour, ITurnSequenceTriggerable
 
     public void OnStartPlayerTurn()
     {
-        GameData.Loader.SaveGameState();
+        return;
     }
 }
