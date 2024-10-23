@@ -3438,6 +3438,10 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8073275927757379373, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
+      propertyPath: isShowingHealthbarAtSpawn
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

@@ -464,7 +464,7 @@ MonoBehaviour:
   activeCards: []
   activeSockets: []
   startingCards:
-  - {fileID: 11400000, guid: 6ffeb5a1dbbebec44a81e86ed3c12c91, type: 2}
-  - {fileID: 11400000, guid: 6ffeb5a1dbbebec44a81e86ed3c12c91, type: 2}
   - {fileID: 11400000, guid: db0bebdf9825b2a46b1c60bdd8828bd1, type: 2}
+  - {fileID: 11400000, guid: 6ffeb5a1dbbebec44a81e86ed3c12c91, type: 2}
+  - {fileID: 11400000, guid: 6ffeb5a1dbbebec44a81e86ed3c12c91, type: 2}
   savedMovementGridCubes: []

@@ -129,8 +129,8 @@ public class GameDataLoader : MonoBehaviour
     {
         // Instantiate a new character from the prefab
         // Apply the loaded data to the instantiated character
-        Character characterComponent = SpawnerFunctions.Instance.SpawnSpecificCharacterByName(characterData.GetName(), characterData.GetPosition());
 
+        Character characterComponent = SpawnerFunctions.Instance.SpawnSpecificCharacterByName(characterData.GetName(), characterData.GetPosition());
         if (characterComponent != null)
         {
             characterComponent.Health = characterData.GetHealth();

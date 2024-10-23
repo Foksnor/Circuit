@@ -58,8 +58,8 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
             AssignedGridCube.RemoveCharacterOnGrid(this);
 
         // Place character reference on the new grid
-        newDestinationInGrid.SetCharacterOnGrid(this);
         AssignedGridCube = newDestinationInGrid;
+        AssignedGridCube.SetCharacterOnGrid(this);
 
         // cardplayspeed is used for things such as time required for the character to reach it's destination cube
         cardPlaySpeed = 1 / speedModifier;

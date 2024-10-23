@@ -240,8 +240,7 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
     {
         if (activeSurfaceParticle != null)
             Destroy(activeSurfaceParticle);
-
-        Instantiate(particle, position, transform.rotation, transform);
+        activeSurfaceParticle = Instantiate(particle, position, transform.rotation, transform);
     }
 
     public void ToggleDebugText()
