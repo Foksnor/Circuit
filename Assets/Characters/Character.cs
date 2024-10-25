@@ -168,6 +168,10 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
         if (cardPrevisBinder == null)
             cardPrevisBinder = new GameObject("CardPrevisBinder");
 
+        // When card has no tile previs associated
+        if (tilevisual == null)
+            return null;
+
         if (isShowingPrevis)
         {
             if (!ActiveCardPrevisTiles.Contains(tilevisual))

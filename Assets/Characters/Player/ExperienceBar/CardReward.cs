@@ -23,7 +23,7 @@ public class CardReward : MonoBehaviour
 
     public void AddCardToDeck()
     {
-        PlayerDeck.CurrentCardsInDeck.Add(CardScriptableObject);
+        Decks.Playerdeck.CurrentCardsInDeck.Add(CardScriptableObject);
         PlayerStats.RewardScreen.RemoveCardRewardOptions(CardScriptableObject);
     }
 

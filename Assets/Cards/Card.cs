@@ -8,7 +8,6 @@ using System;
 public class Card : MonoBehaviour
 {
     private CardScriptableObject cardScriptableObject = null;
-
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI costText;
     [SerializeField] private Image cardBackground, cardimage;

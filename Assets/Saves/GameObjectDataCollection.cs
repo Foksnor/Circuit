@@ -7,6 +7,7 @@ public class GameObjectDataCollection
     public List<CharacterData> characterDataList = new();
     public List<BiomeData> biomeDataList = new();
     public List<GridCubeData> gridCubeDataList = new();
+    public List<CardData> cardDataList = new();
 }
 
 [System.Serializable]
@@ -78,7 +79,6 @@ public class BiomeData
     }
 }
 
-
 [System.Serializable]
 public class GridCubeData
 {
@@ -114,5 +114,19 @@ public class GridCubeData
     public _SurfaceType GetSurface()
     {
         return Surface;
+    }
+}
+
+public enum _CardPlacement { Hand, Deck, Discard };
+[System.Serializable]
+public class CardData
+{
+    public string Name;
+    public _CardPlacement CardPlacement;
+
+    public CardData(CardScriptableObject card, _CardPlacement cardPlacement)
+    {
+        Name = card.name;
+        CardPlacement = cardPlacement;
     }
 }

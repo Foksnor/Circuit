@@ -26,27 +26,25 @@ public class PlayerCircuitBoard : CircuitBoard
 
     private void SetUpPlayerDeck()
     {
-        PlayerDeck.CardDrawPerTurn = cardDrawPerTurn;
-
         // Add starting cards to the player deck
         for (int i = 0; i < startingCardsInDeck.Count; i++)
         {
-            PlayerDeck.TotalCardsInDeck.Add(startingCardsInDeck[i]);
+            Decks.Playerdeck.TotalCardsInDeck.Add(startingCardsInDeck[i]);
         }
-        PlayerDeck.CurrentCardsInDeck = PlayerDeck.TotalCardsInDeck;
+        Decks.Playerdeck.CurrentCardsInDeck = Decks.Playerdeck.TotalCardsInDeck;
     }
 
     public override void PlayerDrawPhase()
     {
         if (canPlayerDrawNewHand)
-            for (int i = 0; i < PlayerDeck.CardDrawPerTurn; i++)
+            for (int i = 0; i < cardDrawPerTurn; i++)
             {
                 // Shuffle discard pile into the draw pile if the draw pile is empty
-                if (PlayerDeck.CurrentCardsInDeck.Count == 0)
+                if (Decks.Playerdeck.CurrentCardsInDeck.Count == 0)
                 {
                     // QQQ TODO add cool animation for this where discard goes to draw pile
-                    PlayerDeck.CurrentCardsInDeck.AddRange(PlayerDeck.CurrentCardsInDiscard);
-                    PlayerDeck.CurrentCardsInDiscard.Clear();
+                    Decks.Playerdeck.CurrentCardsInDeck.AddRange(Decks.Playerdeck.CurrentCardsInDiscard);
+                    Decks.Playerdeck.CurrentCardsInDiscard.Clear();
                 }
 
                 // Add a card to the draw panel
@@ -54,9 +52,9 @@ public class PlayerCircuitBoard : CircuitBoard
                 drawnCards[i].CardPointerInteraction.ToggleInteractableState(true);
 
                 // Pick a random cardscriptable object from the player deck
-                int rng = UnityEngine.Random.Range(0, PlayerDeck.CurrentCardsInDeck.Count);
-                CardScriptableObject newCardScriptableObject = PlayerDeck.CurrentCardsInDeck[rng];
-                PlayerDeck.CurrentCardsInDeck.RemoveAt(rng);
+                int rng = UnityEngine.Random.Range(0, Decks.Playerdeck.CurrentCardsInDeck.Count);
+                CardScriptableObject newCardScriptableObject = Decks.Playerdeck.CurrentCardsInDeck[rng];
+                Decks.Playerdeck.CurrentCardsInDeck.RemoveAt(rng);
 
                 // Places the picked cardscriptable object into the recently instantiated card
                 // Also adds the card to current drawn hand to be used later for discard phase
@@ -64,7 +62,7 @@ public class PlayerCircuitBoard : CircuitBoard
 
                 // Sets the desired target position of the recently instantiated card
                 // QQQ TODO fix position calculation or use sockets
-                float xPos = cardDrawPanel.GetComponent<RectTransform>().rect.size.x / (1 + PlayerDeck.CardDrawPerTurn) * (1 + i);
+                float xPos = cardDrawPanel.GetComponent<RectTransform>().rect.size.x / (1 + cardDrawPerTurn) * (1 + i);
                 Vector2 newCardPosition = new Vector2(xPos, cardDrawPanel.transform.position.y);
                 drawnCards[i].CardPointerInteraction.AssignPosition(newCardPosition);
             }
@@ -84,7 +82,7 @@ public class PlayerCircuitBoard : CircuitBoard
         drawnCards.Remove(newCard);
 
         // Put the old card into the discard deck
-        PlayerDeck.CurrentCardsInDiscard.Add(cardToReplace.GetCardInfo());
+        Decks.Playerdeck.CurrentCardsInDiscard.Add(cardToReplace.GetCardInfo());
         Destroy(cardToReplace.gameObject);
 
         // Enables reset of the card simulation
@@ -98,7 +96,7 @@ public class PlayerCircuitBoard : CircuitBoard
         // Clear the drawn cards and add them to your discard pile
         for (int remainingDrawnCardNumber = 0; remainingDrawnCardNumber < drawnCards.Count; remainingDrawnCardNumber++)
         {
-            PlayerDeck.CurrentCardsInDiscard.Add(drawnCards[remainingDrawnCardNumber].GetCardInfo());
+            Decks.Playerdeck.CurrentCardsInDiscard.Add(drawnCards[remainingDrawnCardNumber].GetCardInfo());
 
             // QQQ TODO this destroy function is temp. In future, needs the card to go towards discard pile visually before destroying here.
             Destroy(drawnCards[remainingDrawnCardNumber].gameObject);
@@ -133,6 +131,14 @@ public class PlayerCircuitBoard : CircuitBoard
         {
             needsNewCardCalculation = HelperFunctions.AreCardListsDifferent(CardOrderBeforeSort, activeCards);
             TurnSequence.TransitionTurns.NeedsNewCardCalculation = needsNewCardCalculation;
+
+            // Sets the hand in the playerdeck equal to the active cards in the circuitboard
+            // Used for save/loading you current circuitboard cards
+            Decks.Playerdeck.CurrentCardsInHand.Clear();
+            for (int i = 0; i < activeCards.Count; i++)
+            {
+                Decks.Playerdeck.CurrentCardsInHand.Add(activeCards[i].GetCardInfo());
+            }
         }
     }
 

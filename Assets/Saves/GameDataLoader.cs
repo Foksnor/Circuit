@@ -73,6 +73,20 @@ public class GameDataLoader : MonoBehaviour
                 dataCollection.gridCubeDataList.Add(new GridCubeData(Grid.GridPositions.GridCubes[i]));
         }
 
+        // Add the cards from player's hand, deck, and discard
+        for (int i = 0; i < Decks.Playerdeck.CurrentCardsInHand.Count; i++)
+        {
+            dataCollection.cardDataList.Add(new CardData(Decks.Playerdeck.CurrentCardsInHand[i], _CardPlacement.Hand));
+        }
+        for (int i = 0; i < Decks.Playerdeck.CurrentCardsInDeck.Count; i++)
+        {
+            dataCollection.cardDataList.Add(new CardData(Decks.Playerdeck.CurrentCardsInDeck[i], _CardPlacement.Deck));
+        }
+        for (int i = 0; i < Decks.Playerdeck.CurrentCardsInDiscard.Count; i++)
+        {
+            dataCollection.cardDataList.Add(new CardData(Decks.Playerdeck.CurrentCardsInDiscard[i], _CardPlacement.Discard));
+        }
+
         // Convert the entire collection to JSON and save it
         string jsonData = JsonUtility.ToJson(dataCollection, true); // 'true' for pretty formatting
         System.IO.File.WriteAllText(filePath, jsonData);

@@ -2,11 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class PlayerDeck
+public class PlayerDeck : MonoBehaviour
 {
-    // QQQ TODO change these lists into non-static
-    public static List<CardScriptableObject> TotalCardsInDeck { set; get; } = new List<CardScriptableObject>();
-    public static List<CardScriptableObject> CurrentCardsInDeck { set; get; } = new List<CardScriptableObject>();
-    public static List<CardScriptableObject> CurrentCardsInDiscard { set; get; } = new List<CardScriptableObject>();
-    public static int CardDrawPerTurn = 0;
+    public List<CardScriptableObject> TotalCardsInDeck { set; get; } = new();
+    public List<CardScriptableObject> CurrentCardsInHand { set; get; } = new();
+    public List<CardScriptableObject> CurrentCardsInDeck { set; get; } = new();
+    public List<CardScriptableObject> CurrentCardsInDiscard { set; get; } = new();
+
+    private void Awake()
+    {
+        Decks.Playerdeck = this;
+    }
+}
+
+public static class Decks
+{
+    public static PlayerDeck Playerdeck;
 }

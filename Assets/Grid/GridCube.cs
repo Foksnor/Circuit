@@ -66,6 +66,7 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
         {
             default:
             case CardScriptableObject._CardType.Movement:
+                // Movement Tile Previs turned off for now. See how it plays without it
                 if (targetCharacter.TeamType == Character._TeamType.Player)
                     indicatorvisual = MovementPlayerIndicator;
                 else
