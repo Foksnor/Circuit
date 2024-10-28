@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
+using Sirenix.Utilities;
 
 public class GameDataLoader : MonoBehaviour
 {
@@ -73,10 +75,14 @@ public class GameDataLoader : MonoBehaviour
                 dataCollection.gridCubeDataList.Add(new GridCubeData(Grid.GridPositions.GridCubes[i]));
         }
 
-        // Add the cards from player's hand, deck, and discard
+        // Add the cards from player's hand, drawn, deck, and discard
         for (int i = 0; i < Decks.Playerdeck.CurrentCardsInHand.Count; i++)
         {
             dataCollection.cardDataList.Add(new CardData(Decks.Playerdeck.CurrentCardsInHand[i], _CardPlacement.Hand));
+        }
+        for (int i = 0; i < Decks.Playerdeck.CurrentCardsDrawn.Count; i++)
+        {
+            dataCollection.cardDataList.Add(new CardData(Decks.Playerdeck.CurrentCardsDrawn[i], _CardPlacement.Drawn));
         }
         for (int i = 0; i < Decks.Playerdeck.CurrentCardsInDeck.Count; i++)
         {
@@ -121,6 +127,12 @@ public class GameDataLoader : MonoBehaviour
             foreach (CharacterData characterData in dataCollection.characterDataList)
             {
                 SpawnCharacter(characterData);
+            }
+
+            // Set up player's cards in hand, deck, and discard
+            foreach (CardData cardData in dataCollection.cardDataList)
+            {
+                Teams.CharacterTeams.PlayerCircuitboard.AddCardFromSavefile(cardData);
             }
         }
         else

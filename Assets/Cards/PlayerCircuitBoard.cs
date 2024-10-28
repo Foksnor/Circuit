@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -20,18 +21,36 @@ public class PlayerCircuitBoard : CircuitBoard
     protected override void Awake()
     {
         base.Awake();
-        SetUpPlayerDeck();
-        Teams.CharacterTeams.SetKing(transform.GetComponent<Character>());
+        Teams.CharacterTeams.SetPlayerKing(transform.GetComponent<Character>());
+        Teams.CharacterTeams.SetPlayerCircuitboard(this);
     }
 
-    private void SetUpPlayerDeck()
+    public void SetUpPlayerDeck()
     {
         // Add starting cards to the player deck
-        for (int i = 0; i < startingCardsInDeck.Count; i++)
-        {
-            Decks.Playerdeck.TotalCardsInDeck.Add(startingCardsInDeck[i]);
-        }
+        Decks.Playerdeck.TotalCardsInDeck.AddRange(startingCardsInDeck);
         Decks.Playerdeck.CurrentCardsInDeck = Decks.Playerdeck.TotalCardsInDeck;
+    }
+
+    public void AddCardFromSavefile(CardData cardData)
+    {
+        // Get the card scriptable object by the name of the card data
+        CardScriptableObject cardScriptableObject = Decks.Playerdeck.AllPossibleAvailableCards.FirstOrDefault(card => card.name == cardData.GetName());
+        
+        // Add the card scriptable object to the correct zone of the card data
+        Decks.Playerdeck.TotalCardsInDeck.Add(cardScriptableObject);
+        switch (cardData.GetCardPlacement())
+        {
+            case _CardPlacement.Hand:
+                Decks.Playerdeck.CurrentCardsInHand.Add(cardScriptableObject);
+                break;
+            case _CardPlacement.Deck:
+                Decks.Playerdeck.CurrentCardsInDeck.Add(cardScriptableObject);
+                break;
+            case _CardPlacement.Discard:
+                Decks.Playerdeck.CurrentCardsInDiscard.Add(cardScriptableObject);
+                break;
+        }
     }
 
     public override void PlayerDrawPhase()
@@ -65,6 +84,9 @@ public class PlayerCircuitBoard : CircuitBoard
                 float xPos = cardDrawPanel.GetComponent<RectTransform>().rect.size.x / (1 + cardDrawPerTurn) * (1 + i);
                 Vector2 newCardPosition = new Vector2(xPos, cardDrawPanel.transform.position.y);
                 drawnCards[i].CardPointerInteraction.AssignPosition(newCardPosition);
+
+                // Add current hand to this reference which is used for save/load game states
+                Decks.Playerdeck.CurrentCardsDrawn.Add(newCardScriptableObject);
             }
         canPlayerDrawNewHand = false;
     }
@@ -103,6 +125,8 @@ public class PlayerCircuitBoard : CircuitBoard
         }
         // QQQ TODO this destroy function is temp. In future, needs the card to go towards discard pile visually before destroying here.
         drawnCards.Clear();
+        // Clear current hand reference which is used for save/load game states
+        Decks.Playerdeck.CurrentCardsDrawn.Clear();
     }
 
     public override bool IsProcessingCards(Character targetCharacter)

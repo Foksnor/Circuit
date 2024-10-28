@@ -117,7 +117,7 @@ public class GridCubeData
     }
 }
 
-public enum _CardPlacement { Hand, Deck, Discard };
+public enum _CardPlacement { Hand, Drawn, Deck, Discard };
 [System.Serializable]
 public class CardData
 {
@@ -128,5 +128,15 @@ public class CardData
     {
         Name = card.name;
         CardPlacement = cardPlacement;
+    }
+
+    public string GetName()
+    {
+        return Name;
+    }
+
+    public _CardPlacement GetCardPlacement()
+    {
+        return CardPlacement;
     }
 }
