@@ -204,7 +204,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      chess_king_0: 5122940258184588641
+      chess_king_1: -337608336656116577
+      chess_king_2: -5744678320037517361
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

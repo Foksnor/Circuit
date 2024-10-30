@@ -228,7 +228,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      resource_wheat_0: 7046191206785204753
+      resource_wheat_1: 7450762744534467914
+      resource_wheat_2: -7699891937488834422
+      resource_wheat_3: -2289134298420133447
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

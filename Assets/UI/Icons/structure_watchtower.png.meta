@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      structure_watchtower_0: -8716432051546732365
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

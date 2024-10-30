@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pentagon_question_0: -555703195454101455
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

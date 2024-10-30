@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      suit_diamonds_0: 1164329797583341118
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

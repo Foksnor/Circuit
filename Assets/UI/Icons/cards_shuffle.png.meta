@@ -180,7 +180,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cards_shuffle_0: 9045150603073143983
+      cards_shuffle_1: 7005332064683928120
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      d3_outline_number_0: 121322015630273032
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

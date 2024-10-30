@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pentagon_outline_0: -7822974386051648202
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

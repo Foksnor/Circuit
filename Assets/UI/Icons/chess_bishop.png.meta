@@ -180,7 +180,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      chess_bishop_0: -6860806590888913762
+      chess_bishop_1: -5963684973702564447
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

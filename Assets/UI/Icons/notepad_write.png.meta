@@ -204,7 +204,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      notepad_write_0: -1605548283892048042
+      notepad_write_1: 113605899465712859
+      notepad_write_2: 4499081901699479842
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

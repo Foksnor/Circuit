@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cards_fan_outline_0: 273405156035681244
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

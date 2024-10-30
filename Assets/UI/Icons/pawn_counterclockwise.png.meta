@@ -228,7 +228,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pawn_counterclockwise_0: 3417485702890290400
+      pawn_counterclockwise_1: -727232167614708190
+      pawn_counterclockwise_2: 7956975615210090489
+      pawn_counterclockwise_3: 5051869900913542488
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

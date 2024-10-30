@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      hourglass_top_0: -6186398043383654831
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

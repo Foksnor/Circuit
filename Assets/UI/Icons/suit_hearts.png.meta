@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      suit_hearts_0: 4802954496528926275
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

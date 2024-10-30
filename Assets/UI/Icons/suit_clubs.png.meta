@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      suit_clubs_0: 4327173578489780685
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

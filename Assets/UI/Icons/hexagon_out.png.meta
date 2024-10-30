@@ -180,7 +180,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      hexagon_out_0: 4019244109086611435
+      hexagon_out_1: 6153255424568871882
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

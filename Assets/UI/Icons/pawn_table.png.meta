@@ -204,7 +204,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pawn_table_0: 5373148641118648435
+      pawn_table_1: -3559386939520627448
+      pawn_table_2: 3444932363474987829
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

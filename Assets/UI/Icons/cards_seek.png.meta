@@ -180,7 +180,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cards_seek_0: -7956540114690744749
+      cards_seek_1: 8427942440550729661
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

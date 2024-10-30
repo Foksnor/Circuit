@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      puzzle_0: -8506735889323900786
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

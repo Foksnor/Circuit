@@ -180,7 +180,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      hand_hexagon_0: -5151918842903647682
+      hand_hexagon_1: 4619102003639868355
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -132,10 +132,10 @@ TextureImporter:
       name: cards_skull_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 3
-        width: 125
-        height: 94
+        x: 0
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,38 +149,18 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: cards_skull_1
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 57
-        width: 56
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 77d76aa8952fc9e00800000000000000
-      internalID: 1052982879290031479
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9dd5e5971f0a323418cb49e868269104
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cards_skull_0: 1524647694607442644
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

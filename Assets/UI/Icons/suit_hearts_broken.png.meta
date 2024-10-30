@@ -180,7 +180,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      suit_hearts_broken_0: -5163544635087364447
+      suit_hearts_broken_1: -8951998258631452408
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

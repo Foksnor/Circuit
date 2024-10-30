@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      structure_church_0: 4547939292855868
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      rhombus_question_0: -4632131440157412914
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

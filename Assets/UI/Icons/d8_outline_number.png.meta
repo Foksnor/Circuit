@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      d8_outline_number_0: 6025302878960668687
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

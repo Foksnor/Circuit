@@ -180,7 +180,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      chess_rook_0: 7059920163887326365
+      chess_rook_1: -1939206591482665347
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

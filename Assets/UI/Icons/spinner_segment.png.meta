@@ -204,7 +204,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spinner_segment_0: 8444117732499495921
+      spinner_segment_1: 704289614572976231
+      spinner_segment_2: -2675195074878773202
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

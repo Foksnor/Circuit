@@ -228,7 +228,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pouch_remove_0: 4800026375363876570
+      pouch_remove_1: 1047558282912704269
+      pouch_remove_2: -7885639305798603532
+      pouch_remove_3: -7171676343893150675
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
