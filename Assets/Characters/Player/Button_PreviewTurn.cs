@@ -35,6 +35,11 @@ public class Button_PreviewTurn : MonoBehaviour, ITurnSequenceTriggerable
         HelperFunctions.RemoveFromTurnTrigger(this);
     }
 
+    public void OnUpkeep()
+    {
+        return;
+    }
+
     public void OnEndstep()
     {
         return;

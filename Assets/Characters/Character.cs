@@ -242,6 +242,11 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
             }
     }
 
+    public void OnUpkeep()
+    {
+        return;
+    }
+
     public void OnEndstep()
     {
         return;

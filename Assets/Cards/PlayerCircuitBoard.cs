@@ -10,6 +10,7 @@ public class PlayerCircuitBoard : CircuitBoard
 {
     [SerializeField] private List<CardScriptableObject> startingCardsInDeck = new List<CardScriptableObject>();
     [SerializeField] private int cardDrawPerTurn = 3;
+    [SerializeField] private float drawDelay = 0.1f;
     [SerializeField] private GameObject cardDrawPanel = null;
     [HideInInspector] public List<Card> drawnCards = new List<Card>();
 
@@ -55,8 +56,16 @@ public class PlayerCircuitBoard : CircuitBoard
 
     public override void PlayerDrawPhase()
     {
+        StartCoroutine(DrawWithDelay());
+    }
+
+    IEnumerator DrawWithDelay()
+    {
         if (canPlayerDrawNewHand)
-            for (int i = 0; i < cardDrawPerTurn; i++)
+        {
+            int cardsDrawn = 0;
+
+            while (cardsDrawn < cardDrawPerTurn)
             {
                 // Shuffle discard pile into the draw pile if the draw pile is empty
                 if (Decks.Playerdeck.CurrentCardsInDeck.Count == 0)
@@ -68,7 +77,7 @@ public class PlayerCircuitBoard : CircuitBoard
 
                 // Add a card to the draw panel
                 drawnCards.Add(Instantiate(cardSmall, cardDrawPanel.transform));
-                drawnCards[i].CardPointerInteraction.ToggleInteractableState(true);
+                drawnCards[cardsDrawn].CardPointerInteraction.ToggleInteractableState(true);
 
                 // Pick a random cardscriptable object from the player deck
                 int rng = UnityEngine.Random.Range(0, Decks.Playerdeck.CurrentCardsInDeck.Count);
@@ -77,17 +86,22 @@ public class PlayerCircuitBoard : CircuitBoard
 
                 // Places the picked cardscriptable object into the recently instantiated card
                 // Also adds the card to current drawn hand to be used later for discard phase
-                drawnCards[i].SetCardInfo(newCardScriptableObject, this, true);
+                drawnCards[cardsDrawn].SetCardInfo(newCardScriptableObject, this, true);
 
                 // Sets the desired target position of the recently instantiated card
                 // QQQ TODO fix position calculation or use sockets
-                float xPos = cardDrawPanel.GetComponent<RectTransform>().rect.size.x / (1 + cardDrawPerTurn) * (1 + i);
+                float xPos = cardDrawPanel.GetComponent<RectTransform>().rect.size.x / (1 + cardDrawPerTurn) * (1 + cardsDrawn);
                 Vector2 newCardPosition = new Vector2(xPos, cardDrawPanel.transform.position.y);
-                drawnCards[i].CardPointerInteraction.AssignPosition(newCardPosition);
+                drawnCards[cardsDrawn].CardPointerInteraction.AssignPosition(newCardPosition);
 
                 // Add current hand to this reference which is used for save/load game states
                 Decks.Playerdeck.CurrentCardsDrawn.Add(newCardScriptableObject);
+
+                // Wait for the specified delay before the next card
+                cardsDrawn++;
+                yield return new WaitForSeconds(drawDelay);
             }
+        }
         canPlayerDrawNewHand = false;
     }
 

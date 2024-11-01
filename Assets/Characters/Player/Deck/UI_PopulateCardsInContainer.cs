@@ -34,7 +34,7 @@ public class UI_PopulateCardsInContainer : MonoBehaviour
                 cards.AddRange(Decks.Playerdeck.CurrentCardsInDiscard);
                 break;
         }
-        for(int i = 0; i < cards.Count; i++)
+        for (int i = 0; i < cards.Count; i++)
         {
             CardReference card = Instantiate(cardReference, targetContainer.transform.position, transform.rotation, targetContainer.transform);
             card.SetCardInfo(cards[i]);

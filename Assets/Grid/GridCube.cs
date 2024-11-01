@@ -267,6 +267,11 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
         return;
     }
 
+    public void OnUpkeep()
+    {
+        return;
+    }
+
     public void OnEndstep()
     {
         return;

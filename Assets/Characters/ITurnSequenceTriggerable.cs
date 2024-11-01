@@ -4,4 +4,5 @@ public interface ITurnSequenceTriggerable
     void OnStartEnemyTurn();
     void OnEndstep();
     void OnEndTurn();
+    void OnUpkeep();
 }

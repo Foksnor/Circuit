@@ -84,15 +84,16 @@ public class TransitionTurns : MonoBehaviour
         }
         else
         {
+            // Triggers only once per turn cycle
+            if (endstepTime == 0)
+                OnUpkeep();
+
             endstepTime += Time.deltaTime;
             if (endstepTime <= endstepDuration)
                 return;
 
             // Call nesecary end of turn events
             OnEndTurn();
-
-            // Player set up phase
-            PlayerDrawPhase();
 
             CalculateTeamCards(Teams.CharacterTeams.PlayerTeamCharacters, true);
             CalculateTeamCards(Teams.CharacterTeams.EnemyTeamCharacters, true);
@@ -145,6 +146,16 @@ public class TransitionTurns : MonoBehaviour
         ForceResetCardProcessing(Teams.CharacterTeams.EnemyTeamCharacters);
     }
 
+    private void OnUpkeep()
+    {
+        // Player set up phase
+        PlayerDrawPhase();
+
+        // Invokes all upkeep triggers
+        for (int i = 0; i < TurnSequenceTriggerables.Count; i++)
+            TurnSequenceTriggerables[i].OnUpkeep();
+    }
+
     private void OnStartTurn()
     {
         // Reset endstep timer
@@ -157,11 +168,9 @@ public class TransitionTurns : MonoBehaviour
             // Save the game state at the start of your turn
             GameData.Loader.SaveGameState();
 
+            // Invokes all player start triggers
             for (int i = 0; i < TurnSequenceTriggerables.Count; i++)
-            {
-                // Invokes all player start triggers
                 TurnSequenceTriggerables[i].OnStartPlayerTurn();
-            }
         }
     }
 
