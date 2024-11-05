@@ -165,6 +165,9 @@ public class TransitionTurns : MonoBehaviour
         {
             hasPlayerTurnStarted = true;
 
+            // Remove cards from hand
+            Decks.Playerdeck.HandPanel.RemoveAllCardsFromPanel();
+
             // Save the game state at the start of your turn
             GameData.Loader.SaveGameState();
 
@@ -234,7 +237,7 @@ public class TransitionTurns : MonoBehaviour
     private void PlayerDrawPhase()
     {
         if (player != null)
-            player.CircuitBoard.PlayerDrawPhase();
+            Decks.Playerdeck.HandPanel.DrawCards(Decks.Playerdeck.CardDrawPerTurn);
     }
 }
 

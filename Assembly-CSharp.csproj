@@ -105,6 +105,7 @@
     <Compile Include="Assets\UI\CardSocket.cs" />
     <Compile Include="Assets\DestroyGameObjectLifetime.cs" />
     <Compile Include="Assets\HelperFunctions.cs" />
+    <Compile Include="Assets\Characters\Player\Deck\PlayerHandPanel.cs" />
     <Compile Include="Assets\Characters\Player\HealthBar\HealthSegment.cs" />
     <Compile Include="Assets\Characters\IDamageable.cs" />
     <Compile Include="Assets\Doozy\_Examples\E23 - Popup - with One Button\ShowOneButtonPopup.cs" />
