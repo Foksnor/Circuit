@@ -86,7 +86,7 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IPointerEnte
         desiredPosition = position;
     }
 
-    public void ToggleInteractableState(bool interactState)
+    public void SetInteractableState(bool interactState)
     {
         isInteractable = interactState;
         animator.SetBool("isInteractable", interactState);
