@@ -5,12 +5,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Doozy.Runtime.Common.Extensions;
 
 public class PlayerCircuitBoard : CircuitBoard
 {
     [SerializeField] private List<CardScriptableObject> startingCardsInDeck = new List<CardScriptableObject>();
-    [SerializeField] private int cardDrawPerTurn = 3;
-    [SerializeField] private Transform targetDrawCardsFrom = null;
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private Image timerFill;
 
@@ -25,7 +24,8 @@ public class PlayerCircuitBoard : CircuitBoard
     {
         // Add starting cards to the player deck
         Decks.Playerdeck.TotalCardsInDeck.AddRange(startingCardsInDeck);
-        Decks.Playerdeck.CurrentCardsInDeck = Decks.Playerdeck.TotalCardsInDeck;
+        Decks.Playerdeck.CurrentCardsInDeck.AddRange(startingCardsInDeck);
+        Decks.Playerdeck.CurrentCardsInDeck.Shuffle();
     }
 
     public void AddCardFromSavefile(CardData cardData)
@@ -115,7 +115,7 @@ public class PlayerCircuitBoard : CircuitBoard
 
     protected override void ToggleInteractableCardStateOnCircuitBoard(int cardNumber, bool isInteractable)
     {
-        activeCards[cardNumber].CardPointerInteraction.ToggleInteractableState(isInteractable);
+        activeCards[cardNumber].CardPointerInteraction.SetInteractableState(isInteractable);
         activeSockets[cardNumber].ToggleSocketLock(isInteractable);
     }
 

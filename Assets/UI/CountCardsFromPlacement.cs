@@ -9,30 +9,28 @@ public class CountCardsFromPlacement : MonoBehaviour
     [SerializeField] private TextMeshProUGUI targetTextMeshPro;
     [SerializeField] private Animator targetAnimator;
     [SerializeField] private string animationName;
-    private int cardCount = 0;
+    private int cardNumber = 0;
+    private int currentValue = 0;
 
     void Update()
     {
-        int previousNumber = cardCount;
+        int previousNumber = cardNumber;
         switch (cardPlacementType)
         {
             case _CardPlacement.Hand:
-                cardCount = Decks.Playerdeck.CurrentCardsInHand.Count;
-                break;
-            case _CardPlacement.Drawn:
-                cardCount = Decks.Playerdeck.CurrentCardsDrawn.Count;
+                cardNumber = Decks.Playerdeck.CurrentCardsInHand.Count;
                 break;
             case _CardPlacement.Deck:
-                cardCount = Decks.Playerdeck.CurrentCardsInDeck.Count;
+                cardNumber = Decks.Playerdeck.CurrentCardsInDeck.Count;
                 break;
             case _CardPlacement.Discard:
-                cardCount = Decks.Playerdeck.CurrentCardsInDiscard.Count;
+                cardNumber = Decks.Playerdeck.CurrentCardsInDiscard.Count;
                 break;
         }
-        targetTextMeshPro.text = cardCount.ToString();
+        targetTextMeshPro.text = cardNumber.ToString();
 
         // Animate the counter if the number has changed since last frame
-        if (previousNumber != cardCount)
+        if (previousNumber != cardNumber)
             targetAnimator.Play(animationName, 0, 0);
     }
 }

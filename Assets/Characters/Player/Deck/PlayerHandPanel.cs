@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Doozy.Runtime.Common.Extensions;
 using UnityEngine;
 
 [RequireComponent(typeof(RectTransform))]
@@ -49,18 +50,13 @@ public class PlayerHandPanel : MonoBehaviour
 
     public void AssignCardToPanel(Card card)
     {
-        // Add current card to this reference which is used for save/load game states
-        Decks.Playerdeck.CurrentCardsDrawn.Add(card.GetCardInfo());
-
+        card.CardPointerInteraction.SetInteractableState(true);
         card.transform.SetParent(transform);
         cardsInPanel.Add(card);
     }
 
     public void RemoveCardFromPanel(Card card, bool isSendToDiscard)
     {
-        // Add current card to this reference which is used for save/load game states
-        Decks.Playerdeck.CurrentCardsDrawn.Remove(card.GetCardInfo());
-
         // Only play discard animations when actually removing this card to discard
         // E.g. this bool can be false if cards are removed due to replacing them with a card in your circuit
         if (isSendToDiscard)
@@ -79,33 +75,44 @@ public class PlayerHandPanel : MonoBehaviour
 
     IEnumerator DrawWithDelay(int drawAmount)
     {
-        int cardsDrawn = 0;
+        // Temporary list to store drawn cards
+        List<Card> drawnCards = new(); 
 
-        while (cardsDrawn < drawAmount)
+        // First loop: Draw cards and set up their info
+        for (int i = 0; i < drawAmount; i++)
         {
             // Shuffle discard pile into the draw pile if the draw pile is empty
             if (Decks.Playerdeck.CurrentCardsInDeck.Count == 0)
             {
                 Decks.Playerdeck.CurrentCardsInDeck.AddRange(Decks.Playerdeck.CurrentCardsInDiscard);
+                Decks.Playerdeck.CurrentCardsInDeck.Shuffle();
                 Decks.Playerdeck.CurrentCardsInDiscard.Clear();
             }
 
             // Add a card to the draw panel
             Card newCard = Instantiate(cardToSpawn, targetDrawCardsFrom);
-            AssignCardToPanel(newCard);
-            newCard.CardPointerInteraction.ToggleInteractableState(true);
 
-            // Pick a random cardscriptable object from the player deck
-            int rng = UnityEngine.Random.Range(0, Decks.Playerdeck.CurrentCardsInDeck.Count);
-            CardScriptableObject newCardScriptableObject = Decks.Playerdeck.CurrentCardsInDeck[rng];
-            Decks.Playerdeck.CurrentCardsInDeck.RemoveAt(rng);
+            // Pick the top card(s) of the draw pile
+            CardScriptableObject newCardScriptableObject = Decks.Playerdeck.CurrentCardsInDeck[i];
 
             // Places the picked cardscriptable object into the recently instantiated card
             // Also adds the card to current drawn hand to be used later for discard phase
             newCard.SetCardInfo(newCardScriptableObject, Teams.CharacterTeams.PlayerCircuitboard, true);
 
-            // Wait for the specified delay before the next card
-            cardsDrawn++;
+            // Add the new card to the temporary list for delayed processing later
+            drawnCards.Add(newCard);
+        }
+
+        // Second loop: Move cards to hand with a delay for aesthetic effect
+        for (int i = 0; i < drawnCards.Count; i++)
+        {
+            // Have the newly added cards move to the hand
+            AssignCardToPanel(drawnCards[i]);
+
+            // Remove the top card from the deck
+            Decks.Playerdeck.CurrentCardsInDeck.RemoveAt(0);
+
+            // Wait for the specified delay before processing the next card
             yield return new WaitForSeconds(drawDelay);
         }
     }

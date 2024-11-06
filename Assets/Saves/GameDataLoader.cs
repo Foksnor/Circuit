@@ -80,10 +80,6 @@ public class GameDataLoader : MonoBehaviour
         {
             dataCollection.cardDataList.Add(new CardData(Decks.Playerdeck.CurrentCardsInHand[i], _CardPlacement.Hand));
         }
-        for (int i = 0; i < Decks.Playerdeck.CurrentCardsDrawn.Count; i++)
-        {
-            dataCollection.cardDataList.Add(new CardData(Decks.Playerdeck.CurrentCardsDrawn[i], _CardPlacement.Drawn));
-        }
         for (int i = 0; i < Decks.Playerdeck.CurrentCardsInDeck.Count; i++)
         {
             dataCollection.cardDataList.Add(new CardData(Decks.Playerdeck.CurrentCardsInDeck[i], _CardPlacement.Deck));

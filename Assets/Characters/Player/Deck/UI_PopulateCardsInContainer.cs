@@ -24,9 +24,6 @@ public class UI_PopulateCardsInContainer : MonoBehaviour
             case _CardPlacement.Hand:
                 cards.AddRange(Decks.Playerdeck.CurrentCardsInHand);
                 break;
-            case _CardPlacement.Drawn:
-                cards.AddRange(Decks.Playerdeck.CurrentCardsDrawn);
-                break;
             case _CardPlacement.Deck:
                 cards.AddRange(Decks.Playerdeck.CurrentCardsInDeck);
                 break;

@@ -368,7 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11155d7f37e904346ad40d438f239dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placementType: 2
+  placementType: 1
   targetContainer: {fileID: 3943690459233488693}
   cardReference: {fileID: 3175178198017822902, guid: 4f2336cd18a1d314093187ca71ef19bb, type: 3}
 --- !u!225 &5818306232313048447
@@ -663,7 +663,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7752130566902708496}
   m_HandleRect: {fileID: 6841489177088563686}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2164,7 +2164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9430db54e9d879c41b77792ce8b00c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardPlacementType: 2
+  cardPlacementType: 1
   targetTextMeshPro: {fileID: 109994383795123918}
   targetAnimator: {fileID: 8733821917328042611}
   animationName: Wobble
@@ -4159,7 +4159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11155d7f37e904346ad40d438f239dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placementType: 3
+  placementType: 2
   targetContainer: {fileID: 954491456372721708}
   cardReference: {fileID: 3175178198017822902, guid: 4f2336cd18a1d314093187ca71ef19bb, type: 3}
 --- !u!225 &6235924750600539758
@@ -7204,7 +7204,7 @@ MonoBehaviour:
   cardToSpawn: {fileID: 3414505954785305774, guid: 6b929c127ca273240b5351db3ae14757, type: 3}
   targetDrawCardsFrom: {fileID: 1851520605858376320}
   targetDiscardCardsTo: {fileID: 1889167423160104735}
-  drawDelay: 0.2
+  drawDelay: 0.15
   targetReferenceScalingCanvas: {fileID: 2968006147105936538}
   maxSpacing: 80
 --- !u!1 &5107611745064148061
@@ -12252,7 +12252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9430db54e9d879c41b77792ce8b00c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardPlacementType: 3
+  cardPlacementType: 2
   targetTextMeshPro: {fileID: 5312490294392931289}
   targetAnimator: {fileID: 5264227962356890220}
   animationName: Wobble
@@ -12702,7 +12702,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2247557521590074502}
   m_HandleRect: {fileID: 875764125314097505}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -16797,15 +16797,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6f956d39004e7a2419bcf2df7f771abd, type: 2}
   - {fileID: 11400000, guid: 6f956d39004e7a2419bcf2df7f771abd, type: 2}
   - {fileID: 11400000, guid: 6f956d39004e7a2419bcf2df7f771abd, type: 2}
-  - {fileID: 11400000, guid: 6f956d39004e7a2419bcf2df7f771abd, type: 2}
-  - {fileID: 11400000, guid: 6f956d39004e7a2419bcf2df7f771abd, type: 2}
-  - {fileID: 11400000, guid: 6f956d39004e7a2419bcf2df7f771abd, type: 2}
-  - {fileID: 11400000, guid: 6f956d39004e7a2419bcf2df7f771abd, type: 2}
-  - {fileID: 11400000, guid: 6f956d39004e7a2419bcf2df7f771abd, type: 2}
-  - {fileID: 11400000, guid: 6f956d39004e7a2419bcf2df7f771abd, type: 2}
-  - {fileID: 11400000, guid: 6f956d39004e7a2419bcf2df7f771abd, type: 2}
-  - {fileID: 11400000, guid: 6f956d39004e7a2419bcf2df7f771abd, type: 2}
-  cardDrawPerTurn: 5
-  targetDrawCardsFrom: {fileID: 1851520605858376320}
   timerText: {fileID: 3965400122022038849}
   timerFill: {fileID: 2180990908529548037}
