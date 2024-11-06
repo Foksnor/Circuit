@@ -165,8 +165,8 @@ public class TransitionTurns : MonoBehaviour
         {
             hasPlayerTurnStarted = true;
 
-            // Remove cards from hand
-            Decks.Playerdeck.HandPanel.RemoveAllCardsFromPanel();
+            // Remove cards from hand to discard
+            Decks.Playerdeck.HandPanel.RemoveAllCardsFromPanel(true);
 
             // Save the game state at the start of your turn
             GameData.Loader.SaveGameState();

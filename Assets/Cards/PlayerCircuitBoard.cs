@@ -63,7 +63,7 @@ public class PlayerCircuitBoard : CircuitBoard
 
         // Remove the new card from the players hand
         newCard.SetCardInfo(newCard.GetCardInfo(), this, false);
-        Decks.Playerdeck.HandPanel.RemoveCardFromPanel(newCard);
+        Decks.Playerdeck.HandPanel.RemoveCardFromPanel(newCard, false);
 
         // Put the old card into the discard deck
         Decks.Playerdeck.CurrentCardsInDiscard.Add(cardToReplace.GetCardInfo());

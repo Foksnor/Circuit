@@ -18,6 +18,7 @@ public class Card : MonoBehaviour
     [SerializeField] private Animator cardAnimator;
     [SerializeField] private Animator feedbackAnimator;
     public Card_PointerInteraction CardPointerInteraction;
+    private Transform targetSelfDestructDestination;
     private List<GridCube> attackedGridTargets = new();
     public List<Character> potentialKillTargets { private set; get; } = new();
     private GridCube targetedGridForMovement;
@@ -76,6 +77,7 @@ public class Card : MonoBehaviour
     private void Update()
     {
         SetCardHighlight();
+        CheckForSelfDestruct();
     }
 
     public void SetCardHighlight()
@@ -413,5 +415,19 @@ public class Card : MonoBehaviour
                 particle = Instantiate(cardScriptableObject.Particle, cube.transform.position, transform.rotation);
                 break;
         }
+    }
+
+    public void SetSelfDestructWhenReachingTargetTransform(Transform target)
+    {
+        targetSelfDestructDestination = target;
+    }
+
+    private void CheckForSelfDestruct()
+    {
+        // If the card transform is close to a self destruct destination
+        // E.g. used when discard this card to the discard pile
+        if (targetSelfDestructDestination != null)
+            if (Vector2.Distance(transform.position, targetSelfDestructDestination.position) <= 2.5f)
+                Destroy(gameObject);
     }
 }
