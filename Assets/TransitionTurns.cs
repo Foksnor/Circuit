@@ -7,8 +7,6 @@ using UnityEngine.Events;
 
 public class TransitionTurns : MonoBehaviour
 {
-    private Character player;
-
     [SerializeField] private float maxTurnTime = 8;
     private float curTurnTime;
     public bool NeedsNewCardCalculation = false;
@@ -124,7 +122,7 @@ public class TransitionTurns : MonoBehaviour
     public void InitiateFirstTurn()
     {
         SpawnerFunctions.Instance.InitiateFirstChunk();
-        player = SpawnerFunctions.Instance.SpawnPlayer();
+        SpawnerFunctions.Instance.SpawnPlayer();
         Teams.CharacterTeams.PlayerCircuitboard.SetUpPlayerDeck();
         curTurnTime = maxTurnTime;
     }
@@ -236,8 +234,7 @@ public class TransitionTurns : MonoBehaviour
 
     private void PlayerDrawPhase()
     {
-        if (player != null)
-            Decks.Playerdeck.HandPanel.DrawCards(Decks.Playerdeck.CardDrawPerTurn);
+        Decks.Playerdeck.HandPanel.DrawCards(Decks.Playerdeck.CardDrawPerTurn);
     }
 }
 

@@ -50,7 +50,6 @@ public class PlayerHandPanel : MonoBehaviour
 
     public void AssignCardToPanel(Card card)
     {
-        card.CardPointerInteraction.SetInteractableState(true);
         card.transform.SetParent(transform);
         cardsInPanel.Add(card);
     }
@@ -76,24 +75,40 @@ public class PlayerHandPanel : MonoBehaviour
     IEnumerator DrawWithDelay(int drawAmount)
     {
         // Temporary list to store drawn cards
-        List<Card> drawnCards = new(); 
+        List<Card> drawnCards = new();
+        int amountDrawnBeforeShuffle = 0;
 
         // First loop: Draw cards and set up their info
         for (int i = 0; i < drawAmount; i++)
         {
             // Shuffle discard pile into the draw pile if the draw pile is empty
-            if (Decks.Playerdeck.CurrentCardsInDeck.Count == 0)
+            if (Decks.Playerdeck.CurrentCardsInDeck.Count == i)
             {
-                Decks.Playerdeck.CurrentCardsInDeck.AddRange(Decks.Playerdeck.CurrentCardsInDiscard);
+                while (Decks.Playerdeck.CurrentCardsInDiscard.Count > 0)
+                {
+                    // Add a card to the draw panel
+                    Card shuffleCard = Instantiate(cardToSpawn, targetDiscardCardsTo);
+                    CardScriptableObject discardCardScriptableObject = Decks.Playerdeck.CurrentCardsInDiscard[0];
+                    shuffleCard.SetCardInfo(discardCardScriptableObject, Teams.CharacterTeams.PlayerCircuitboard, false);
+                    shuffleCard.CardPointerInteraction.AssignPosition(targetDrawCardsFrom.position);
+                    shuffleCard.SetSelfDestructWhenReachingTargetTransform(targetDrawCardsFrom);
+
+                    Decks.Playerdeck.CurrentCardsInDeck.Add(Decks.Playerdeck.CurrentCardsInDiscard[0]);
+                    Decks.Playerdeck.CurrentCardsInDiscard.RemoveAt(0);
+
+                    // Wait for the specified delay before processing the next card
+                    yield return new WaitForSeconds(drawDelay);
+                }
+
+                amountDrawnBeforeShuffle = i;
                 Decks.Playerdeck.CurrentCardsInDeck.Shuffle();
-                Decks.Playerdeck.CurrentCardsInDiscard.Clear();
             }
 
             // Add a card to the draw panel
             Card newCard = Instantiate(cardToSpawn, targetDrawCardsFrom);
 
             // Pick the top card(s) of the draw pile
-            CardScriptableObject newCardScriptableObject = Decks.Playerdeck.CurrentCardsInDeck[i];
+            CardScriptableObject newCardScriptableObject = Decks.Playerdeck.CurrentCardsInDeck[i - amountDrawnBeforeShuffle];
 
             // Places the picked cardscriptable object into the recently instantiated card
             // Also adds the card to current drawn hand to be used later for discard phase

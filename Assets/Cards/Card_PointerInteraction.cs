@@ -27,6 +27,7 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IPointerEnte
     void Awake()
     {
         card = GetComponent<Card>();
+        animator.SetBool("isInteractable", true);
     }
 
     void Update()
