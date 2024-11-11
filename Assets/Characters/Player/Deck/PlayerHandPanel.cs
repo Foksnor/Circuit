@@ -15,6 +15,7 @@ public class PlayerHandPanel : MonoBehaviour
     [SerializeField] private float drawDelay = 0.1f;
     [SerializeField] private Canvas targetReferenceScalingCanvas;
     [SerializeField] private float maxSpacing = 50;
+    private float maxTimeForShufflingToComplete = 1;
 
     private void Awake()
     {
@@ -74,16 +75,16 @@ public class PlayerHandPanel : MonoBehaviour
 
     IEnumerator DrawWithDelay(int drawAmount)
     {
-        // Temporary list to store drawn cards
-        List<Card> drawnCards = new();
-        int amountDrawnBeforeShuffle = 0;
-
         // First loop: Draw cards and set up their info
         for (int i = 0; i < drawAmount; i++)
         {
-            // Shuffle discard pile into the draw pile if the draw pile is empty
-            if (Decks.Playerdeck.CurrentCardsInDeck.Count == i)
+            // Shuffle if the draw pile is empty
+            if (Decks.Playerdeck.CurrentCardsInDeck.Count == 0)
             {
+                // Calculate how fast shuffling should be
+                float stepDelay = maxTimeForShufflingToComplete / Decks.Playerdeck.CurrentCardsInDiscard.Count;
+
+                // Shuffle discard pile into the draw pile
                 while (Decks.Playerdeck.CurrentCardsInDiscard.Count > 0)
                 {
                     // Add a card to the draw panel
@@ -97,10 +98,9 @@ public class PlayerHandPanel : MonoBehaviour
                     Decks.Playerdeck.CurrentCardsInDiscard.RemoveAt(0);
 
                     // Wait for the specified delay before processing the next card
-                    yield return new WaitForSeconds(drawDelay);
+                    yield return new WaitForSeconds(stepDelay);
                 }
 
-                amountDrawnBeforeShuffle = i;
                 Decks.Playerdeck.CurrentCardsInDeck.Shuffle();
             }
 
@@ -108,23 +108,16 @@ public class PlayerHandPanel : MonoBehaviour
             Card newCard = Instantiate(cardToSpawn, targetDrawCardsFrom);
 
             // Pick the top card(s) of the draw pile
-            CardScriptableObject newCardScriptableObject = Decks.Playerdeck.CurrentCardsInDeck[i - amountDrawnBeforeShuffle];
+            CardScriptableObject newCardScriptableObject = Decks.Playerdeck.CurrentCardsInDeck[0];
 
             // Places the picked cardscriptable object into the recently instantiated card
             // Also adds the card to current drawn hand to be used later for discard phase
             newCard.SetCardInfo(newCardScriptableObject, Teams.CharacterTeams.PlayerCircuitboard, true);
 
-            // Add the new card to the temporary list for delayed processing later
-            drawnCards.Add(newCard);
-        }
+            // Start the second loop immediately after shuffle
+            AssignCardToPanel(newCard);
 
-        // Second loop: Move cards to hand with a delay for aesthetic effect
-        for (int i = 0; i < drawnCards.Count; i++)
-        {
-            // Have the newly added cards move to the hand
-            AssignCardToPanel(drawnCards[i]);
-
-            // Remove the top card from the deck
+            // Remove the top card from the deck after adding it into the game
             Decks.Playerdeck.CurrentCardsInDeck.RemoveAt(0);
 
             // Wait for the specified delay before processing the next card
