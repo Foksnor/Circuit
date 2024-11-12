@@ -13,11 +13,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssetCleaner", "AssetCleane
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingularityGroup.HotReload.Editor", "SingularityGroup.HotReload.Editor.csproj", "{80F5556A-C30C-A849-7C5F-5C3948895171}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FMODUnityResonanceEditor", "FMODUnityResonanceEditor.csproj", "{54DA643F-A87C-BF07-C4CA-ADDD2C7673CC}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JD.EditorAudioUtils.Editor", "JD.EditorAudioUtils.Editor.csproj", "{1830D595-71D2-A287-2F3E-016346A6C452}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FMODUnityEditor", "FMODUnityEditor.csproj", "{E57CB274-5550-3D28-22C8-059A8A7DCDF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FMODUnity", "FMODUnity.csproj", "{B47DA27A-FD9A-8123-8A14-1D5C88CE52DE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingularityGroup.HotReload.Runtime.Public", "SingularityGroup.HotReload.Runtime.Public.csproj", "{1B38C5A4-90DC-54BB-9668-8C7A257E1412}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingularityGroup.HotReload.Runtime", "SingularityGroup.HotReload.Runtime.csproj", "{4B21AB1B-EFBC-B851-7573-30AD07376BEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FMODUnityResonance", "FMODUnityResonance.csproj", "{58ADA41B-01BB-5EAB-2CB8-A74143B98083}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssetInventory.Examples", "AssetInventory.Examples.csproj", "{8785C54D-DF19-0FB8-B37F-5251B41784AE}"
 EndProject
@@ -64,10 +72,22 @@ Global
 		{80F5556A-C30C-A849-7C5F-5C3948895171}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80F5556A-C30C-A849-7C5F-5C3948895171}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80F5556A-C30C-A849-7C5F-5C3948895171}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54DA643F-A87C-BF07-C4CA-ADDD2C7673CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54DA643F-A87C-BF07-C4CA-ADDD2C7673CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54DA643F-A87C-BF07-C4CA-ADDD2C7673CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54DA643F-A87C-BF07-C4CA-ADDD2C7673CC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1830D595-71D2-A287-2F3E-016346A6C452}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1830D595-71D2-A287-2F3E-016346A6C452}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1830D595-71D2-A287-2F3E-016346A6C452}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1830D595-71D2-A287-2F3E-016346A6C452}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E57CB274-5550-3D28-22C8-059A8A7DCDF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E57CB274-5550-3D28-22C8-059A8A7DCDF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E57CB274-5550-3D28-22C8-059A8A7DCDF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E57CB274-5550-3D28-22C8-059A8A7DCDF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B47DA27A-FD9A-8123-8A14-1D5C88CE52DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B47DA27A-FD9A-8123-8A14-1D5C88CE52DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B47DA27A-FD9A-8123-8A14-1D5C88CE52DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B47DA27A-FD9A-8123-8A14-1D5C88CE52DE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1B38C5A4-90DC-54BB-9668-8C7A257E1412}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1B38C5A4-90DC-54BB-9668-8C7A257E1412}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B38C5A4-90DC-54BB-9668-8C7A257E1412}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -76,6 +96,10 @@ Global
 		{4B21AB1B-EFBC-B851-7573-30AD07376BEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B21AB1B-EFBC-B851-7573-30AD07376BEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B21AB1B-EFBC-B851-7573-30AD07376BEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58ADA41B-01BB-5EAB-2CB8-A74143B98083}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58ADA41B-01BB-5EAB-2CB8-A74143B98083}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58ADA41B-01BB-5EAB-2CB8-A74143B98083}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58ADA41B-01BB-5EAB-2CB8-A74143B98083}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8785C54D-DF19-0FB8-B37F-5251B41784AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8785C54D-DF19-0FB8-B37F-5251B41784AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8785C54D-DF19-0FB8-B37F-5251B41784AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
