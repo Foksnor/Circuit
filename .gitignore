@@ -32,3 +32,7 @@ SingularityGroup.HotReload.Editor.csproj
 SingularityGroup.HotReload.Runtime.csproj
 SingularityGroup.HotReload.Runtime.Public.csproj
 Sirenix.OdinInspector.Modules.UnityMathematics.csproj
+/Assets/Plugins/FMOD/Cache/*
+/Assets/StreamingAssets/**/*.bank
+/Assets/StreamingAssets/**/*.bank.meta
+fmod_editor.log
