@@ -25,6 +25,7 @@ public class Card : MonoBehaviour
     public float MaxTimeInUse { get; private set; } = 0;
     private bool isCardActivated = false;
     private bool hasParticleSpawnedOnSelf = false;
+    [SerializeField] private List<Image> rotatableImageMaterial = new();
 
     public bool isInHand { get; private set; }
     public CardSocket connectedSocket { get; private set; }
@@ -35,11 +36,14 @@ public class Card : MonoBehaviour
         cardScriptableObject = scriptableObject;
         ConnectedCircuitboard = owner;
         isInHand = setInHand;
-        //nameText.text = cardScriptableObject.name;
+        nameText.text = cardScriptableObject.name;
         //costText.text = cardScriptableObject.cost.ToString();
         cardimage.sprite = cardScriptableObject.Sprite;
         valueText.text = cardScriptableObject.Value.ToString();
         descriptionText.text = cardScriptableObject.Description;
+
+        // Set random rotation of the card material so that every card in hand looks a bit different
+        SetRandomMaterialRotation();
 
         // Sets the material for various images based on card parameters
         switch (scriptableObject.CardRarity)
@@ -66,6 +70,18 @@ public class Card : MonoBehaviour
             case CardScriptableObject._CardStyle.Golden:
                 cardBackground.material = goldenMat;
                 break;
+        }
+    }
+
+    private void SetRandomMaterialRotation()
+    {
+        if (rotatableImageMaterial.Count > 0)
+        {
+            for (int i = 0; i < rotatableImageMaterial.Count; i++)
+            {
+                float rngAngle = UnityEngine.Random.Range(0, 360);
+                rotatableImageMaterial[i].material.SetFloat("TextureRotation", rngAngle);
+            }
         }
     }
 

@@ -9,7 +9,7 @@ public class CircuitBoard : MonoBehaviour
 {
     [SerializeField] protected GameObject cardPanel = null;
     [SerializeField] private GameObject socketPanel = null;
-    [SerializeField] protected Card cardSmall = null;
+    [SerializeField] protected Card card = null;
     [SerializeField] private CardSocket socket = null;
     [HideInInspector] public List<Card> activeCards = new List<Card>();
     [HideInInspector] public List<CardSocket> activeSockets = new List<CardSocket>();
@@ -38,7 +38,7 @@ public class CircuitBoard : MonoBehaviour
         // Adds card slots
         for (int i = 0; i < startingCards.Count; i++)
         {
-            activeCards.Add(Instantiate(cardSmall, cardPanel.transform));
+            activeCards.Add(Instantiate(card, cardPanel.transform));
             activeSockets.Add(Instantiate(socket, socketPanel.transform));
         }
     }

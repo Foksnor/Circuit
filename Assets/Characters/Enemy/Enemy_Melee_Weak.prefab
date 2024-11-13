@@ -356,6 +356,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 280314456619239655, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 280314456619239655, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 280314456619239655, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 280314456619239655, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1227327109424664455, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -363,6 +379,22 @@ PrefabInstance:
     - target: {fileID: 1227327109424664455, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859712656912487533, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859712656912487533, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859712656912487533, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859712656912487533, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2985683909314406194, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
       propertyPath: health
@@ -459,7 +491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardPanel: {fileID: 7786768786969959447}
   socketPanel: {fileID: 3296624396141706235}
-  cardSmall: {fileID: 3414505954785305774, guid: 6b929c127ca273240b5351db3ae14757, type: 3}
+  card: {fileID: 406596430431226498, guid: 875bf82bf24067243a05baee2b20c410, type: 3}
   socket: {fileID: 8745758731374674600, guid: 4e858a182188b0b498a60da377184ab8, type: 3}
   activeCards: []
   activeSockets: []

@@ -561,7 +561,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5098160170599871598
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3508,7 +3508,7 @@ RectTransform:
   m_Father: {fileID: 1632284035853648715}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3737,7 +3737,7 @@ RectTransform:
   m_Father: {fileID: 6584253172874092877}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7179,7 +7179,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -180}
-  m_SizeDelta: {x: 480, y: 100}
+  m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &312992520986675319
 CanvasRenderer:
@@ -7201,12 +7201,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e894615c888bb40b1f1d6baffea6c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardToSpawn: {fileID: 3414505954785305774, guid: 6b929c127ca273240b5351db3ae14757, type: 3}
+  cardToSpawn: {fileID: 406596430431226498, guid: 875bf82bf24067243a05baee2b20c410, type: 3}
   targetDrawCardsFrom: {fileID: 1851520605858376320}
   targetDiscardCardsTo: {fileID: 1889167423160104735}
   drawDelay: 0.15
   targetReferenceScalingCanvas: {fileID: 2968006147105936538}
-  maxSpacing: 80
+  maxSpacing: 100
 --- !u!1 &5107611745064148061
 GameObject:
   m_ObjectHideFlags: 0
@@ -7225,7 +7225,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7644164777750797297
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7502,7 +7502,7 @@ RectTransform:
   m_Father: {fileID: 4687035948481434080}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7905,6 +7905,7 @@ GameObject:
   - component: {fileID: 9032840398380281240}
   - component: {fileID: 2360766414854492175}
   - component: {fileID: 1126566946653560997}
+  - component: {fileID: 1047335352304211519}
   m_Layer: 0
   m_Name: Button_Return
   m_TagString: Untagged
@@ -8060,11 +8061,11 @@ MonoBehaviour:
           Type: 0
           Category: Pointer
           Name: Down
-        ProviderReference: {fileID: 0}
+        ProviderReference: {fileID: 1047335352304211519}
         StreamId:
           Category: None
           Name: None
-          Custom: 0
+          Custom: 1
       Cooldown: 0
       Selectable: {fileID: 2360766414854492175}
     SignalSource: {fileID: 5816167886307385327}
@@ -9440,6 +9441,24 @@ MonoBehaviour:
       ToCustomValue: 0
       FromOffset: 0
       ToOffset: 0.4
+--- !u!114 &1047335352304211519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5816167886307385327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 017ca8b858ac4209b394991b57d0d424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ProviderCurrentState: 20
+  SignalCooldown: 0
+  SignalTimescale: 0
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5848208210715268316
 GameObject:
   m_ObjectHideFlags: 0
@@ -9682,7 +9701,7 @@ RectTransform:
   m_Father: {fileID: 99938123009747209}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10009,7 +10028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1005925434710347021
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10826,6 +10845,9 @@ GameObject:
   - component: {fileID: 3281400230484087375}
   - component: {fileID: 2880512565344514553}
   - component: {fileID: 7448851391855894421}
+  - component: {fileID: 8414579912157446241}
+  - component: {fileID: 6929911017669474053}
+  - component: {fileID: 8500832554230090685}
   m_Layer: 5
   m_Name: Button_InspectDiscard
   m_TagString: Untagged
@@ -12377,11 +12399,11 @@ MonoBehaviour:
           Type: 0
           Category: Pointer
           Name: Enter
-        ProviderReference: {fileID: 0}
+        ProviderReference: {fileID: 8414579912157446241}
         StreamId:
           Category: None
           Name: None
-          Custom: 0
+          Custom: 1
       Cooldown: 0
       Selectable: {fileID: 7448851391855894421}
     - EventName: PointerExit
@@ -12408,11 +12430,11 @@ MonoBehaviour:
           Type: 0
           Category: Pointer
           Name: Exit
-        ProviderReference: {fileID: 0}
+        ProviderReference: {fileID: 6929911017669474053}
         StreamId:
           Category: None
           Name: None
-          Custom: 0
+          Custom: 1
       Cooldown: 0
       Selectable: {fileID: 7448851391855894421}
     - EventName: PointerDown
@@ -12451,11 +12473,11 @@ MonoBehaviour:
           Type: 0
           Category: Pointer
           Name: Down
-        ProviderReference: {fileID: 0}
+        ProviderReference: {fileID: 8500832554230090685}
         StreamId:
           Category: None
           Name: None
-          Custom: 0
+          Custom: 1
       Cooldown: 0
       Selectable: {fileID: 7448851391855894421}
     SignalSource: {fileID: 6840438588997797243}
@@ -12466,6 +12488,60 @@ MonoBehaviour:
     Category: None
     Name: None
     Custom: 0
+--- !u!114 &8414579912157446241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6840438588997797243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3554c00bfa3b414fa18b0cbbbc2d8688, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ProviderCurrentState: 20
+  SignalCooldown: 0
+  SignalTimescale: 0
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &6929911017669474053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6840438588997797243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee17e84d7ec4bf2a5041efa28487f06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ProviderCurrentState: 20
+  SignalCooldown: 0
+  SignalTimescale: 0
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &8500832554230090685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6840438588997797243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 017ca8b858ac4209b394991b57d0d424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ProviderCurrentState: 20
+  SignalCooldown: 0
+  SignalTimescale: 0
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6960299502435664658
 GameObject:
   m_ObjectHideFlags: 0
@@ -12606,7 +12682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7980265413929057499
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13656,6 +13732,7 @@ GameObject:
   - component: {fileID: 7348360891057508400}
   - component: {fileID: 2311204610012322926}
   - component: {fileID: 5095397731747544907}
+  - component: {fileID: 1132802722690686906}
   m_Layer: 0
   m_Name: Button_Return
   m_TagString: Untagged
@@ -13811,11 +13888,11 @@ MonoBehaviour:
           Type: 0
           Category: Pointer
           Name: Down
-        ProviderReference: {fileID: 0}
+        ProviderReference: {fileID: 1132802722690686906}
         StreamId:
           Category: None
           Name: None
-          Custom: 0
+          Custom: 1
       Cooldown: 0
       Selectable: {fileID: 2311204610012322926}
     SignalSource: {fileID: 8112109138423346964}
@@ -15191,6 +15268,24 @@ MonoBehaviour:
       ToCustomValue: 0
       FromOffset: 0
       ToOffset: 0.4
+--- !u!114 &1132802722690686906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8112109138423346964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 017ca8b858ac4209b394991b57d0d424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ProviderCurrentState: 20
+  SignalCooldown: 0
+  SignalTimescale: 0
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8206810634222179424
 GameObject:
   m_ObjectHideFlags: 0
@@ -16784,7 +16879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardPanel: {fileID: 4027962982752163324}
   socketPanel: {fileID: 8849279838444005811}
-  cardSmall: {fileID: 3414505954785305774, guid: 6b929c127ca273240b5351db3ae14757, type: 3}
+  card: {fileID: 406596430431226498, guid: 875bf82bf24067243a05baee2b20c410, type: 3}
   socket: {fileID: 8745758731374674600, guid: 4e858a182188b0b498a60da377184ab8, type: 3}
   activeCards: []
   activeSockets: []

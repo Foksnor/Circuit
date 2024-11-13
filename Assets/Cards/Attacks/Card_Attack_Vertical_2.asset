@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardType: 1
   CardRarity: 1
+  CardStyle: 0
   CardName: Spear
   Cost: 0
   Sprite: {fileID: 21300000, guid: e8519fe4e817fcf48b015130adb58a45, type: 3}
@@ -25,5 +26,5 @@ MonoBehaviour:
   AttackSteps: {x: 1, y: 2}
   AttackOffset: 1
   Value: 4
-  Description: Stab with spear forward.
+  Description: <sprite name="Damage"> 1
   MaxTimeInUse: 0.5

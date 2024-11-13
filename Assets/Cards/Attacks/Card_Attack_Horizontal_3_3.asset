@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardType: 1
   CardRarity: 2
+  CardStyle: 0
   CardName: Shockwave
   Cost: 0
   Sprite: {fileID: 21300000, guid: cc5781b96c7305f418d5ea1d90927a0f, type: 3}
@@ -25,5 +26,5 @@ MonoBehaviour:
   AttackSteps: {x: 3, y: 3}
   AttackOffset: 1
   Value: 4
-  Description: Frontal shockwave attack.
+  Description: <sprite name="Damage"> 1
   MaxTimeInUse: 0.5
