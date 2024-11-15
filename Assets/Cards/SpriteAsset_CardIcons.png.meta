@@ -208,7 +208,7 @@ TextureImporter:
       name: SpriteAsset_CardIcons_5
       rect:
         serializedVersion: 2
-        x: 255
+        x: 256
         y: 768
         width: 128
         height: 128
@@ -231,7 +231,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 640
-        width: 93
+        width: 128
         height: 128
       alignment: 6
       pivot: {x: 0, y: 0}
@@ -420,7 +420,7 @@ TextureImporter:
         serializedVersion: 2
         x: 128
         y: 384
-        width: 64
+        width: 128
         height: 128
       alignment: 6
       pivot: {x: 0, y: 0}
@@ -462,7 +462,7 @@ TextureImporter:
         serializedVersion: 2
         x: 384
         y: 384
-        width: 102
+        width: 128
         height: 128
       alignment: 6
       pivot: {x: 0, y: 0}
@@ -473,6 +473,111 @@ TextureImporter:
       bones: []
       spriteID: 84894f388af16694a948af67eeceaf72
       internalID: 90142268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAsset_CardIcons_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 128
+        height: 128
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16e2e2a21a38445449e99a957aadec5e
+      internalID: 1346722191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAsset_CardIcons_19
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 128
+        height: 128
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af0df91836993b446888ff698d8408da
+      internalID: 616836743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAsset_CardIcons_20
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 128
+        height: 128
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d6a60e291d7948438a5042df089ed87
+      internalID: -1613673788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAsset_CardIcons_21
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 128
+        height: 128
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be020950633d9904380224aaed8b5e13
+      internalID: -1992486896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Empty
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 896
+        width: 128
+        height: 128
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e048441fcf179564099b14368f8c9d97
+      internalID: 1906319058
       vertices: []
       indices: 
       edges: []
@@ -488,6 +593,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Empty: -414907220
       SpriteAsset_CardIcons_0: 1701683976014061646
       SpriteAsset_CardIcons_1: -1133296686
       SpriteAsset_CardIcons_10: -1436858258
@@ -498,7 +604,12 @@ TextureImporter:
       SpriteAsset_CardIcons_15: 1773663794
       SpriteAsset_CardIcons_16: -553299493
       SpriteAsset_CardIcons_17: 90142268
+      SpriteAsset_CardIcons_18: 1346722191
+      SpriteAsset_CardIcons_19: 616836743
       SpriteAsset_CardIcons_2: 768495866
+      SpriteAsset_CardIcons_20: -1613673788
+      SpriteAsset_CardIcons_21: -1992486896
+      SpriteAsset_CardIcons_23: 1963954396
       SpriteAsset_CardIcons_3: 1622569994
       SpriteAsset_CardIcons_4: -1544228428
       SpriteAsset_CardIcons_5: 2019240409

@@ -26,5 +26,6 @@ MonoBehaviour:
   AttackSteps: {x: 1, y: 1}
   AttackOffset: 1
   Value: 4
-  Description: <sprite name="Damage"> 1
+  TargetRequirement: <style="Target_West"></style>
+  Description: <style="Damage"></style> 1
   MaxTimeInUse: 0.5

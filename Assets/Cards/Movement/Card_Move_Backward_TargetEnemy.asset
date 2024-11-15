@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardType: 0
   CardRarity: 0
+  CardStyle: 0
   CardName: Move
   Cost: 0
   Sprite: {fileID: 21300000, guid: 22d788f7e04b30a4ea84135444221dae, type: 3}
@@ -23,8 +24,8 @@ MonoBehaviour:
   TargetType: 3
   MoveSteps: {x: 0, y: -1}
   AttackSteps: {x: 0, y: 0}
-  AutoTargetNearest: 1
   AttackOffset: 0
   Value: 0
-  Description: Moves the player 2 steps.
+  TargetRequirement: 
+  Description: <style="Move_West"></style> 2
   MaxTimeInUse: 0.5

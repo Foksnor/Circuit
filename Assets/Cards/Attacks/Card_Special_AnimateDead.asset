@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Card_Special_AnimateDead
   m_EditorClassIdentifier: 
   CardType: 1
-  CardRarity: 0
+  CardRarity: 2
   CardStyle: 0
   CardName: Animate Dead
   Cost: 0
-  Sprite: {fileID: 21300000, guid: 5e8406971668ebb4da492d042df66b2c, type: 3}
+  Sprite: {fileID: 6423205596021147285, guid: 4866d06649a4ee846a60841d36043f97, type: 3}
   Sound: {fileID: 0}
   Particle: {fileID: 5493082302257829311, guid: 261b0e3ba678dc647b775c3a15066a31, type: 3}
   ParticleLocation: 0
@@ -26,6 +26,7 @@ MonoBehaviour:
   AttackSteps: {x: 1, y: 1}
   AttackOffset: 1
   Value: 1
+  TargetRequirement: <sprite name="Range_Empty"> 3
   Description: Consume <style="Corpse"></style> and <style="Life"></style> to reanimate
-    a copy of yourself.
+    a copy of yourself
   MaxTimeInUse: 0.5

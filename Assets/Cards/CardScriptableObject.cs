@@ -25,6 +25,7 @@ public class CardScriptableObject : ScriptableObject
     public Vector2Int AttackSteps;
     public int AttackOffset;
     public int Value;
-    public string Description;
+    public string TargetRequirement = "";
+    public string Description = "";
     public float MaxTimeInUse = 0.5f;
 }

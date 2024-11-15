@@ -14,6 +14,7 @@ public class Card : MonoBehaviour
     [SerializeField] private Material fireMat, shockMat, foilMat, goldenMat;
     [SerializeField] private AudioClip sound;
     [SerializeField] private TextMeshProUGUI valueText;
+    [SerializeField] private TextMeshProUGUI TargetRequirementText;
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private Animator cardAnimator;
     [SerializeField] private Animator feedbackAnimator;
@@ -36,10 +37,11 @@ public class Card : MonoBehaviour
         cardScriptableObject = scriptableObject;
         ConnectedCircuitboard = owner;
         isInHand = setInHand;
-        nameText.text = cardScriptableObject.name;
+        nameText.text = cardScriptableObject.CardName;
         //costText.text = cardScriptableObject.cost.ToString();
         cardimage.sprite = cardScriptableObject.Sprite;
         valueText.text = cardScriptableObject.Value.ToString();
+        TargetRequirementText.text = cardScriptableObject.TargetRequirement;
         descriptionText.text = cardScriptableObject.Description;
 
         // Set random rotation of the card material so that every card in hand looks a bit different
