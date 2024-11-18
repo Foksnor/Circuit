@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 753624ad8b1147a4e90d99e961e34705
+guid: 946347f480d881946a770718db79c56a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6572800009338764306
-    second: Tooltip_Target_Enemy_0
+      213: 254154619139178300
+    second: Card_Border_Textbox_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -54,7 +54,7 @@ TextureImporter:
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
-  alphaUsage: 1
+  alphaUsage: 2
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
@@ -126,22 +126,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tooltip_Target_Enemy_0
+      name: Card_Border_Textbox_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 23
-        width: 82
-        height: 82
+        x: 0
+        y: 0
+        width: 655
+        height: 912
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ee3cda73739b8c4a0800000000000000
-      internalID: -6572800009338764306
+      spriteID: c3fb0df8740f68300800000000000000
+      internalID: 254154619139178300
       vertices: []
       indices: 
       edges: []
@@ -149,7 +149,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 14334f1782b211244b281adf7c09134c
     internalID: 0
     vertices: []
     indices: 
@@ -157,7 +157,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Tooltip_Target_Enemy_0: -6572800009338764306
+      Card_Border_Textbox_0: 254154619139178300
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

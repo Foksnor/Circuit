@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using Doozy.Runtime.Common.Extensions;
 
 public class Card : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class Card : MonoBehaviour
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI costText;
     [SerializeField] private Image cardBackground, cardimage;
-    [SerializeField] private Material fireMat, shockMat, foilMat, goldenMat;
+    [SerializeField] private Material foilMat, goldenMat;
     [SerializeField] private AudioClip sound;
     [SerializeField] private TextMeshProUGUI valueText;
     [SerializeField] private TextMeshProUGUI TargetRequirementText;
@@ -41,8 +42,12 @@ public class Card : MonoBehaviour
         //costText.text = cardScriptableObject.cost.ToString();
         cardimage.sprite = cardScriptableObject.Sprite;
         valueText.text = cardScriptableObject.Value.ToString();
-        TargetRequirementText.text = cardScriptableObject.TargetRequirement;
         descriptionText.text = cardScriptableObject.Description;
+        // Only show the requirement when necessary
+        if (cardScriptableObject.TargetRequirement.IsNullOrEmpty())
+            TargetRequirementText.transform.gameObject.SetActive(false);
+        else
+            TargetRequirementText.text = cardScriptableObject.TargetRequirement;
 
         // Set random rotation of the card material so that every card in hand looks a bit different
         SetRandomMaterialRotation();
@@ -53,15 +58,6 @@ public class Card : MonoBehaviour
             case CardScriptableObject._CardRarity.Rare:
                 break;
             case CardScriptableObject._CardRarity.Epic:
-                break;
-        }
-        switch (scriptableObject.CardType)
-        {
-            case CardScriptableObject._CardType.ElementFire:
-                cardimage.material = fireMat;
-                break;
-            case CardScriptableObject._CardType.ElementShock:
-                cardimage.material = shockMat;
                 break;
         }
         switch (scriptableObject.CardStyle)
