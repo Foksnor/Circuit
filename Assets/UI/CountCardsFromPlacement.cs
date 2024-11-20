@@ -22,7 +22,7 @@ public class CountCardsFromPlacement : MonoBehaviour
         switch (cardPlacementType)
         {
             case _CardPlacement.Hand:
-                cardNumber = Decks.Playerdeck.CurrentCardsInHand.Count;
+                cardNumber = Decks.Playerdeck.CurrentCardsInPlay.Count;
                 break;
             case _CardPlacement.Deck:
                 cardNumber = Decks.Playerdeck.CurrentCardsInDeck.Count;

@@ -38,7 +38,7 @@ public class PlayerCircuitBoard : CircuitBoard
         switch (cardData.GetCardPlacement())
         {
             case _CardPlacement.Hand:
-                Decks.Playerdeck.CurrentCardsInHand.Add(cardScriptableObject);
+                Decks.Playerdeck.CurrentCardsInPlay.Add(cardScriptableObject);
                 break;
             case _CardPlacement.Deck:
                 Decks.Playerdeck.CurrentCardsInDeck.Add(cardScriptableObject);
@@ -53,24 +53,26 @@ public class PlayerCircuitBoard : CircuitBoard
     {
     }
 
-    public override void ReplaceCardInCircuit(Card newCard, Card cardToReplace)
+    public override void PlaceCardInSocket(Card newCard, CardSocket socket)
     {
-        // New card takes the position in the active cards list of the old card
-        int posInList = activeCards.IndexOf(cardToReplace);
-        activeCards[posInList] = newCard;
+        activeCards.Add(newCard);
         newCard.transform.SetParent(cardPanel.transform);
-        CardSelect.SelectedSocket.SlotCard(newCard);
-
-        // Remove the new card from the players hand
-        newCard.SetCardInfo(newCard.GetCardInfo(), this, false);
-        Decks.Playerdeck.HandPanel.RemoveCardFromPanel(newCard, false);
-
-        // Put the old card into the discard deck
-        Decks.Playerdeck.CurrentCardsInDiscard.Add(cardToReplace.GetCardInfo());
-        Destroy(cardToReplace.gameObject);
+        socket.SlotCard(newCard);
+        Decks.Playerdeck.CurrentCardsInPlay.Add(newCard.GetCardInfo());
+        newCard.connectedSocket = socket;
+        newCard.CardPointerInteraction.AssignPosition(socket.transform.position);
 
         // Enables reset of the card simulation
         needsNewCardCalculation = true;
+    }
+
+    public override void RemoveFromSocket(Card card)
+    {
+        // Make sure the correct card of the selected socket gets called (In case you have duplicates of the card reference slotted in other sockets)
+        int index = activeSockets.IndexOf(card.connectedSocket);
+        card.connectedSocket = null;
+        Decks.Playerdeck.CurrentCardsInPlay.RemoveAt(index);
+        activeCards.RemoveAt(index);
     }
 
     public override bool IsProcessingCards(Character targetCharacter)
@@ -79,10 +81,10 @@ public class PlayerCircuitBoard : CircuitBoard
         return isProcessing;
     }
 
-    protected override void UpdateCardOrder()
+    public void UpdateCardOrder()
     {
         // Sort card order by comparing the x position, which can happen if the player drags on of their cards in the circuit board
-        List<Card> CardOrderBeforeSort = new List<Card>();
+        List<Card> CardOrderBeforeSort = new();
         CardOrderBeforeSort.AddRange(activeCards);
         activeCards.Sort((a, b) => a.transform.position.x.CompareTo(b.transform.position.x));
 
@@ -95,21 +97,18 @@ public class PlayerCircuitBoard : CircuitBoard
 
             // Sets the hand in the playerdeck equal to the active cards in the circuitboard
             // Used for save/loading you current circuitboard cards
-            Decks.Playerdeck.CurrentCardsInHand.Clear();
+            Decks.Playerdeck.CurrentCardsInPlay.Clear();
             for (int i = 0; i < activeCards.Count; i++)
             {
-                Decks.Playerdeck.CurrentCardsInHand.Add(activeCards[i].GetCardInfo());
+                Decks.Playerdeck.CurrentCardsInPlay.Add(activeCards[i].GetCardInfo());
             }
         }
     }
 
     protected override void AllignCardOnCircuitBoard(int cardNumber)
     {
-        // Sets the new socket reference to the card
-        activeCards[cardNumber].ConnectToSocket(activeSockets[cardNumber]);
-
         // Sets the new position of the card to the connected socket
-        Vector2 newCardPosition = activeSockets[cardNumber].transform.position;
+        Vector2 newCardPosition = activeCards[cardNumber].connectedSocket.transform.position;
         activeCards[cardNumber].CardPointerInteraction.AssignPosition(newCardPosition);
     }
 

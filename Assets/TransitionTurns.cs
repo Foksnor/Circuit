@@ -124,6 +124,7 @@ public class TransitionTurns : MonoBehaviour
         SpawnerFunctions.Instance.InitiateFirstChunk();
         SpawnerFunctions.Instance.SpawnPlayer();
         Teams.CharacterTeams.PlayerCircuitboard.SetUpPlayerDeck();
+        Teams.CharacterTeams.PlayerCircuitboard.UpdateCardOrder();
         curTurnTime = maxTurnTime;
     }
 

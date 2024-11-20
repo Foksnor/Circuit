@@ -25,7 +25,10 @@ public class CircuitBoard : MonoBehaviour
     {
         SetUpCircuitBoard();
         SetCardsInCircuit();
-        UpdateCardOrder();
+
+        // Sets the new socket reference to the card
+        for (int i = 0; i < activeCards.Count; i++)
+            activeCards[i].ConnectToSocket(activeSockets[i]);
     }
 
     private void Update()
@@ -101,7 +104,6 @@ public class CircuitBoard : MonoBehaviour
         {
             if (isSetupPhase)
             {
-                UpdateCardOrder();
                 AllignCardOnCircuitBoard(cardNumber);
                 // TODO: voeg toe dat spelers aan het begin van hun beurt een nieuwe hand van kaarten uit hun deck trekt, en dan er een mogen kiezen, daarna moet deze onderstaande functie aangeroepen worden. :)
                 previsGrid = activeCards[cardNumber].CalculateGridCubeDestination(targetCharacter, previsGrid, cardNumber, isSetupPhase);
@@ -168,15 +170,15 @@ public class CircuitBoard : MonoBehaviour
     {
     }
 
-    public virtual void ReplaceCardInCircuit(Card newCard, Card cardToReplace)
+    public virtual void PlaceCardInSocket(Card newCard, CardSocket socket)
+    {
+    }
+
+    public virtual void RemoveFromSocket(Card card)
     {
     }
 
     public virtual void SetCircuitDisplayTimer(string timerDisplayText, float timerDisplayFillAmount)
-    {
-    }
-
-    protected virtual void UpdateCardOrder()
     {
     }
 

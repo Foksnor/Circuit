@@ -22,7 +22,7 @@ public class UI_PopulateCardsInContainer : MonoBehaviour
         switch(placementType)
         {
             case _CardPlacement.Hand:
-                cards.AddRange(Decks.Playerdeck.CurrentCardsInHand);
+                cards.AddRange(Decks.Playerdeck.CurrentCardsInPlay);
                 break;
             case _CardPlacement.Deck:
                 cards.AddRange(Decks.Playerdeck.CurrentCardsInDeck);

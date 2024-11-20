@@ -30,7 +30,7 @@ public class Card : MonoBehaviour
     [SerializeField] private List<Image> rotatableImageMaterial = new();
 
     public bool isInHand { get; private set; }
-    public CardSocket connectedSocket { get; private set; }
+    public CardSocket connectedSocket { get; set; }
     public CircuitBoard ConnectedCircuitboard { get; private set; }
 
     public void SetCardInfo(CardScriptableObject scriptableObject, CircuitBoard owner, bool setInHand)
@@ -43,6 +43,7 @@ public class Card : MonoBehaviour
         cardimage.sprite = cardScriptableObject.Sprite;
         valueText.text = cardScriptableObject.Value.ToString();
         descriptionText.text = cardScriptableObject.Description;
+
         // Only show the requirement when necessary
         if (cardScriptableObject.TargetRequirement.IsNullOrEmpty())
             TargetRequirementText.transform.gameObject.SetActive(false);

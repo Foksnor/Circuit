@@ -29,23 +29,27 @@ public class PlayerHandPanel : MonoBehaviour
         if (cardsInPanel.Count != previousCardCount)
         {
             previousCardCount = cardsInPanel.Count;
+            UpdateCardPositions();
+        }
+    }
 
-            // Calculate dynamic spacing based on available width and number of objects
-            float spacing = Mathf.Min(maxSpacing, rectTransform.rect.width / Mathf.Max(1, cardsInPanel.Count - 1));
+    public void UpdateCardPositions()
+    {
+        // Calculate dynamic spacing based on available width and number of objects
+        float spacing = Mathf.Min(maxSpacing, rectTransform.rect.width / Mathf.Max(1, cardsInPanel.Count - 1));
 
-            // Get the scale factor from targetReferenceScalingCanvas
-            spacing *= targetReferenceScalingCanvas.scaleFactor;
+        // Get the scale factor from targetReferenceScalingCanvas
+        spacing *= targetReferenceScalingCanvas.scaleFactor;
 
-            // Calculate the starting X position to center the objects around
-            float totalWidth = (cardsInPanel.Count - 1) * spacing;
-            float startX = rectTransform.transform.position.x + (totalWidth / 2);
+        // Calculate the starting X position to center the objects around
+        float totalWidth = (cardsInPanel.Count - 1) * spacing;
+        float startX = rectTransform.transform.position.x + (totalWidth / 2);
 
-            for (int i = 0; i < cardsInPanel.Count; i++)
-            {
-                // Calculate position for each GameObject
-                Vector2 personalVector2 = new Vector2(startX - (i * spacing), rectTransform.transform.position.y);
-                cardsInPanel[i].CardPointerInteraction.AssignPosition(personalVector2);
-            }
+        for (int i = 0; i < cardsInPanel.Count; i++)
+        {
+            // Calculate position for each GameObject
+            Vector2 personalVector2 = new Vector2(startX - (i * spacing), rectTransform.transform.position.y);
+            cardsInPanel[i].CardPointerInteraction.AssignPosition(personalVector2);
         }
     }
 

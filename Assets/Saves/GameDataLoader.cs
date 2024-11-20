@@ -76,9 +76,9 @@ public class GameDataLoader : MonoBehaviour
         }
 
         // Add the cards from player's hand, drawn, deck, and discard
-        for (int i = 0; i < Decks.Playerdeck.CurrentCardsInHand.Count; i++)
+        for (int i = 0; i < Decks.Playerdeck.CurrentCardsInPlay.Count; i++)
         {
-            dataCollection.cardDataList.Add(new CardData(Decks.Playerdeck.CurrentCardsInHand[i], _CardPlacement.Hand));
+            dataCollection.cardDataList.Add(new CardData(Decks.Playerdeck.CurrentCardsInPlay[i], _CardPlacement.Hand));
         }
         for (int i = 0; i < Decks.Playerdeck.CurrentCardsInDeck.Count; i++)
         {
