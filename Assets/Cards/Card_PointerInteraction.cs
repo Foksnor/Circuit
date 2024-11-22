@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -21,14 +22,18 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
 
     [SerializeField] private Animator animator;
     private Card card;
+    private Card targetHoverOverCard;
     private CanvasGroup canvasGroup;
+    private Canvas canvas;
     private GameObject hoveredGameObject;
+    private int originalSortingOrder;
 
     void Awake()
     {
         card = GetComponent<Card>();
         animator.SetBool("isInteractable", true);
         canvasGroup = GetComponent<CanvasGroup>();
+        canvas = GetComponent<Canvas>();
     }
 
     void Update()
@@ -51,6 +56,12 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
     {
         // Allow the card to read cards underneath is when beign dragged
         canvasGroup.blocksRaycasts = false;
+
+        // Save the original sorting order to reset it later
+        originalSortingOrder = canvas.sortingOrder;
+
+        // Set higher sorting order so it's on top of other cards while dragging
+        canvas.sortingOrder = 10;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -65,9 +76,6 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
 
         Teams.CharacterTeams.PlayerCircuitboard.UpdateCardOrder();
 
-        // Check if hovering over a valid target to swap
-        hoveredGameObject = eventData.pointerEnter;
-
         // Input for rotating the card when dragging
         mouseDelta = Input.mousePosition - transform.position;
         pointerInputX += mouseDelta.x * cardDragRotSpeedModifier;
@@ -75,6 +83,52 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
 
         // Input for positioning the card when dragging
         transform.position = eventData.position;
+
+        // Check if hovering over a valid target to swap
+        hoveredGameObject = eventData.pointerEnter;
+
+        // Show animation on the card you are hovering over to replace
+        if (hoveredGameObject.GetComponentInParent<Card>() is Card hoveredCard)
+        {
+            ShowCardHover(hoveredCard);
+        }
+        else
+        {
+            HideCardHover();
+        }
+    }
+
+    private void ShowCardHover(Card targetCard)
+    {
+        // Don't show animation when target card and current card are both from hand
+        // as well as target card is the same as this one
+        if (card.connectedSocket == null &&
+            targetCard.connectedSocket == null ||
+            targetCard == card)
+            return;
+
+        // Check if the hovered card is changed compared to last time
+        // Player can continously hover over Card components e.g. when hovering over their hand, so have to check if it's a different card
+        if (targetCard != targetHoverOverCard)
+        {
+            // Update animations if player is hovering over a card
+            if (targetHoverOverCard != null)
+                targetHoverOverCard.cardAnimator.SetBool("isHoverReplace", false);
+            targetCard.cardAnimator.SetBool("isHoverReplace", true);
+
+            // Set reference for future checks to see if the player is hovering over a different card
+            targetHoverOverCard = targetCard;
+        }
+    }
+
+    private void HideCardHover()
+    {
+        // Hide animation on the card you were hovering over to replace
+        if (targetHoverOverCard != null)
+        {
+            targetHoverOverCard.cardAnimator.SetBool("isHoverReplace", false);
+            targetHoverOverCard = null;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -82,6 +136,13 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
         // Restore raycast blocking, so card is interactable again
         canvasGroup.blocksRaycasts = true;
         isBeingDragged = false;
+
+        // Reset sorting order when dragging ends
+        canvas.sortingOrder = originalSortingOrder;
+
+        // Reset hover state
+        if (targetHoverOverCard != null)
+            targetHoverOverCard.cardAnimator.SetBool("isHoverReplace", false);
 
         // Replace card in a socket or swap places with another card
         if (hoveredGameObject != null)

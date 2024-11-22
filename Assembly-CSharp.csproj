@@ -63,7 +63,6 @@
   <ItemGroup>
     <Compile Include="Assets\Characters\Player\ExperienceBar\RewardScreen.cs" />
     <Compile Include="Assets\Characters\TransformBillboard.cs" />
-    <Compile Include="Assets\Cards\CardSelect.cs" />
     <Compile Include="Assets\UI\ButtonHoverImageSwap.cs" />
     <Compile Include="Assets\Characters\Player\Feedback Interactions\FeedbackPanelScriptableObject.cs" />
     <Compile Include="Assets\GridPositions.cs" />

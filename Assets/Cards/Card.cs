@@ -17,8 +17,8 @@ public class Card : MonoBehaviour
     [SerializeField] private TextMeshProUGUI valueText;
     [SerializeField] private TextMeshProUGUI TargetRequirementText;
     [SerializeField] private TextMeshProUGUI descriptionText;
-    [SerializeField] private Animator cardAnimator;
     [SerializeField] private Animator feedbackAnimator;
+    public Animator cardAnimator;
     public Card_PointerInteraction CardPointerInteraction;
     private Transform targetSelfDestructDestination;
     private List<GridCube> attackedGridTargets = new();
