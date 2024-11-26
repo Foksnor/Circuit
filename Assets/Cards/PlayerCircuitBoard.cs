@@ -30,9 +30,17 @@ public class PlayerCircuitBoard : CircuitBoard
 
     public void AddCardFromSavefile(CardData cardData)
     {
+        bool cardExists = Decks.Playerdeck.AllPossibleAvailableCards.Any(card => card.name == cardData.GetName());
+
+        if (!cardExists)
+        {
+            print($"forgot to add {cardData.GetName()} in the possible level rewards. Add it otherwise a save file cannot load the card in");
+            return;
+        }
+
         // Get the card scriptable object by the name of the card data
         CardScriptableObject cardScriptableObject = Decks.Playerdeck.AllPossibleAvailableCards.FirstOrDefault(card => card.name == cardData.GetName());
-        
+
         // Add the card scriptable object to the correct zone of the card data
         Decks.Playerdeck.TotalCardsInDeck.Add(cardScriptableObject);
         switch (cardData.GetCardPlacement())
