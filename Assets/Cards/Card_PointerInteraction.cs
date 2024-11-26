@@ -74,8 +74,6 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
 
         isBeingDragged = true;
 
-        Teams.CharacterTeams.PlayerCircuitboard.UpdateCardOrder();
-
         // Input for rotating the card when dragging
         mouseDelta = Input.mousePosition - transform.position;
         pointerInputX += mouseDelta.x * cardDragRotSpeedModifier;
@@ -87,13 +85,27 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
         // Check if hovering over a valid target to swap
         hoveredGameObject = eventData.pointerEnter;
 
+        ManageCardHoverStates();
+    }
+
+    private void ManageCardHoverStates()
+    {
         // Show animation on the card you are hovering over to replace
-        if (hoveredGameObject.GetComponentInParent<Card>() is Card hoveredCard)
+        if (hoveredGameObject != null)
         {
-            ShowCardHover(hoveredCard);
+            if (hoveredGameObject.GetComponentInParent<Card>() is Card hoveredCard)
+            {
+                ShowCardHover(hoveredCard);
+            }
+            else
+            {
+                // Hide previous hovered card when hovering over a gameobject that is not a card
+                HideCardHover();
+            }
         }
         else
         {
+            // Hide previous hovered card when not hovering over any gameobject currently
             HideCardHover();
         }
     }
@@ -188,7 +200,6 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
             hoveredCard.ConnectedCircuitboard.PlaceCardInSocket(hoveredCard, startingSocket);
             card.ConnectedCircuitboard.RemoveFromSocket(card);
             card.ConnectedCircuitboard.PlaceCardInSocket(card, targetSocket);
-
         }
         // If dragged card comes from hand, swap dragged card to the socket card
         else

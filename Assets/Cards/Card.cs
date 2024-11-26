@@ -107,10 +107,14 @@ public class Card : MonoBehaviour
 
     private void SetCardFeedback(string animationParameter, bool parameterState)
     {
+        // Disabled card feedback for now until further testing without it.
+
+        /*
         // Sets the card feedback on the circuitboard if state based actions could give feedback to why certain things work or won't work
         if (!feedbackAnimator.isActiveAndEnabled)
             return;
         feedbackAnimator.SetBool(animationParameter, parameterState);
+        */
     }
 
     public void ConnectToSocket(CardSocket socket)

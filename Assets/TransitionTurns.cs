@@ -142,6 +142,9 @@ public class TransitionTurns : MonoBehaviour
         // Process player first, then the enemies
         isPlayerTurnActive = true;
 
+        // Updates the card order so they get played in the order they are placed
+        Teams.CharacterTeams.PlayerCircuitboard.UpdateCardOrder();
+
         // Reseting the cooldown during a turn transition makes sure that the character plays their cards in the correct order and tempo
         ForceResetCardProcessing(Teams.CharacterTeams.PlayerTeamCharacters);
         ForceResetCardProcessing(Teams.CharacterTeams.EnemyTeamCharacters);
