@@ -12,13 +12,13 @@ public class Button_PreviewTurn : MonoBehaviour, ITurnSequenceTriggerable
     void Awake()
     {
         button = GetComponent<Button>();
-        button.onClick.AddListener(() => TransitionTurn());
+        button.onClick.AddListener(() => PreviewTurn());
         tT = TurnSequence.TransitionTurns;
     }
 
-    private void TransitionTurn()
+    private void PreviewTurn()
     {
-        tT.TransitionTurn();
+        tT.PreviewTurn();
 
         // Spawn overlay when previw is starting, preventing duplicates
         if (overlayFromSpawn == null)

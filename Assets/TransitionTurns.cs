@@ -14,6 +14,8 @@ public class TransitionTurns : MonoBehaviour
     private bool isPlayerTurnActive = false;
     private bool isEnemyTurnActive = false;
 
+    private bool isInPreviewMode = false;
+
     // Timers
     private float upkeepDuration = 0.5f;
     private float upkeepTime = 0;
@@ -82,8 +84,8 @@ public class TransitionTurns : MonoBehaviour
         }
         else
         {
-            // Triggers only once per turn cycle
-            if (endstepTime == 0)
+            // Triggers only once per turn cycle, and not during preview mode
+            if (endstepTime == 0 &! isInPreviewMode)
                 OnUpkeep();
 
             endstepTime += Time.deltaTime;
@@ -145,6 +147,12 @@ public class TransitionTurns : MonoBehaviour
         ForceResetCardProcessing(Teams.CharacterTeams.EnemyTeamCharacters);
     }
 
+    public void PreviewTurn()
+    {
+        isInPreviewMode = true;
+        TransitionTurn();
+    }
+
     private void OnUpkeep()
     {
         // Player set up phase
@@ -167,8 +175,9 @@ public class TransitionTurns : MonoBehaviour
             // Remove cards from hand to discard
             Decks.Playerdeck.HandPanel.RemoveAllCardsFromPanel(true);
 
-            // Save the game state at the start of your turn
-            GameData.Loader.SaveGameState();
+            // Save the game state at the start of your turn, and not during preview mode
+            if (!isInPreviewMode)
+                GameData.Loader.SaveGameState();
 
             // Invokes all player start triggers
             for (int i = 0; i < TurnSequenceTriggerables.Count; i++)
