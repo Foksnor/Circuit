@@ -21,7 +21,6 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
     [SerializeField] protected int maxHealth;
     [SerializeField] private HealthBar healthBar = null;
     [SerializeField] private CharacterHitFlash hitFlashComponent = null;
-    public bool isPotentialKill { get; private set; }
     protected bool isInvulnerable = false;
     public _StatusType StatusType { get; private set; }
 
@@ -63,21 +62,6 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
 
         // cardplayspeed is used for things such as time required for the character to reach it's destination cube
         cardPlaySpeed = 1 / speedModifier;
-    }
-
-    public bool MarkPotentialKillIfDamageWouldKill(int damageValue)
-    {
-        if (health <= damageValue)
-        {
-            isPotentialKill = true;
-            return true;
-        }
-        return false;
-    }
-
-    public void RemovePotentialKillMark()
-    {
-        isPotentialKill = false;
     }
 
     private void MoveCharacter()

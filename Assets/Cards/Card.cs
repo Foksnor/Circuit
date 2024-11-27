@@ -22,7 +22,6 @@ public class Card : MonoBehaviour
     public Card_PointerInteraction CardPointerInteraction;
     private Transform targetSelfDestructDestination;
     private List<GridCube> attackedGridTargets = new();
-    public List<Character> potentialKillTargets { private set; get; } = new();
     private GridCube targetedGridForMovement;
     public float MaxTimeInUse { get; private set; } = 0;
     private bool isCardActivated = false;
@@ -397,13 +396,6 @@ public class Card : MonoBehaviour
             // No friendly fire allowed, stop damage function when this happens
             if (charOnThisGrid.TeamType == instigator.TeamType)
                 return;
-
-            // Check if target would die to damage before actually dealing damage
-            // If that's true, then mark it as a potental kill and add them to the list
-            // In case of a card swap; the list will be used to remove potential kill references
-            if (charOnThisGrid.MarkPotentialKillIfDamageWouldKill(damageValue))
-                if (!potentialKillTargets.Contains(charOnThisGrid))
-                    potentialKillTargets.Add(charOnThisGrid);
         }
     }
 

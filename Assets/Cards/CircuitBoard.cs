@@ -101,15 +101,6 @@ public class CircuitBoard : MonoBehaviour
             }
             ToggleInteractableCardStateOnCircuitBoard(cardNumber, isSetupPhase);
         }
-
-        // Remove temporary references after calculation
-        for (int cardNumber = 0; cardNumber < ActiveCards.Count; cardNumber++)
-        {
-            // Remove potental kill references, used by movement calculation
-            for (int i = 0; i < ActiveCards[cardNumber].potentialKillTargets.Count; i++)
-                ActiveCards[cardNumber].potentialKillTargets[i].RemovePotentialKillMark();
-            ActiveCards[cardNumber].potentialKillTargets.Clear();
-        }
     }
 
     public void AddBuff(Character targetCharacter, CardScriptableObject._CardType cardType, int buffAmount)

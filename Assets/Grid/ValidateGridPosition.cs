@@ -17,11 +17,6 @@ public static class ValidateGridPosition
         if (IsDesitionationTooHigh(startingCube, destinationCube))
             return false;
 
-        // Cannot move when there is a character that would still be alive at this part of the card sequence
-        if (destinationCube.CharacterOnThisGrid != null)
-            if (destinationCube.CharacterOnThisGrid.isPotentialKill)
-                return true;
-
         if (IsDestinationOccupiedByARelative(targetCharacter, startingCube, destinationCube))
             return false;
         
