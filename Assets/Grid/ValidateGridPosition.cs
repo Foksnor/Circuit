@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class ValidateGridPosition
 {
-    public static bool CanStep(Character targetCharacter, GridCube startingCube, GridCube destinationCube, int cardNumber)
+    public static bool CanStep(Character targetCharacter, GridCube startingCube, GridCube destinationCube)
     {
         if (startingCube == null ||
             destinationCube == null)

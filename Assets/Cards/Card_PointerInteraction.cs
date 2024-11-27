@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -47,7 +48,7 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
         pointerInputY = Mathf.Clamp(pointerInputY, -cardAngleClamp, cardAngleClamp);
         transform.eulerAngles = new Vector3(pointerInputY, -pointerInputX, 0);
 
-        // Card goes back to it's disered position when not being dragged
+        // Card goes back to it's desired position when not being dragged
         if (!isBeingDragged)
             transform.position = Vector2.Lerp(transform.position, desiredPosition, cardReleaseSpeedModifier * Time.deltaTime);
     }
@@ -114,8 +115,8 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
     {
         // Don't show animation when target card and current card are both from hand
         // as well as target card is the same as this one
-        if (card.connectedSocket == null &&
-            targetCard.connectedSocket == null ||
+        if (card.ConnectedSocket == null &&
+            targetCard.ConnectedSocket == null ||
             targetCard == card)
             return;
 
@@ -166,19 +167,19 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
             else if (hoveredGameObject.GetComponentInParent<Card>() is Card hoveredCard)
             {
                 // If target card is slotted to a socket, swap it with dragged card
-                if (hoveredCard.connectedSocket != null)
+                if (hoveredCard.ConnectedSocket != null)
                 {
                     SwapCards(hoveredCard);
                 }
                 // When dragging a card from a socket to one in your hand, swap values for the rest of this function's logic
-                else if (hoveredCard.connectedSocket == null && card.connectedSocket != null)
+                else if (hoveredCard.ConnectedSocket == null && card.ConnectedSocket != null)
                 {
                     // Tuple to swap values
                     (card, hoveredCard) = (hoveredCard, card);
                     // Activate the function with swapped values
                     SwapCards(hoveredCard);
-                    // Tuple to swap values back again
-                    (card, hoveredCard) = (hoveredCard, card);
+                    // Swap card value back to it's original value before previous tuple
+                    card = hoveredCard;
                 }
             }
         }
@@ -187,13 +188,13 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
     private void SwapCards(Card hoveredCard)
     {
         // Save target socket reference before the hoveredCard gets removed from it's socket
-        CardSocket targetSocket = hoveredCard.connectedSocket;
+        CardSocket targetSocket = hoveredCard.ConnectedSocket;
 
         // If dragged card is connected to a socket, then swap socket places
-        if (card.connectedSocket != null)
+        if (card.ConnectedSocket != null)
         {
             // Save target socket reference before dragged card gets removed from it's socket
-            CardSocket startingSocket = card.connectedSocket;
+            CardSocket startingSocket = card.ConnectedSocket;
 
             // Swap sockets
             hoveredCard.ConnectedCircuitboard.RemoveFromSocket(hoveredCard);

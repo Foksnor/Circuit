@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using Doozy.Runtime.Common.Extensions;
+using System.Net.Sockets;
 
 public class Card : MonoBehaviour
 {
@@ -28,15 +29,15 @@ public class Card : MonoBehaviour
     private bool hasParticleSpawnedOnSelf = false;
     [SerializeField] private List<Image> rotatableImageMaterial = new();
 
-    public bool isInHand { get; private set; }
-    public CardSocket connectedSocket { get; set; }
+    public bool IsInHand { get; private set; }
+    public CardSocket ConnectedSocket { get; private set; }
     public CircuitBoard ConnectedCircuitboard { get; private set; }
 
     public void SetCardInfo(CardScriptableObject scriptableObject, CircuitBoard owner, bool setInHand)
     {
         cardScriptableObject = scriptableObject;
         ConnectedCircuitboard = owner;
-        isInHand = setInHand;
+        IsInHand = setInHand;
         nameText.text = cardScriptableObject.CardName;
         //costText.text = cardScriptableObject.cost.ToString();
         cardimage.sprite = cardScriptableObject.Sprite;
@@ -118,8 +119,14 @@ public class Card : MonoBehaviour
 
     public void ConnectToSocket(CardSocket socket)
     {
-        connectedSocket = socket;
+        ConnectedSocket = socket;
         socket.SlotCard(this);
+    }
+
+    public void RemoveFromSocket()
+    {
+        ConnectedSocket.SlotCard(null);
+        ConnectedSocket = null;
     }
 
     public void ActivateCard(Character instigator)
@@ -178,9 +185,9 @@ public class Card : MonoBehaviour
         return steps;
     }
 
-    public GridCube CalculateGridCubeDestination(Character instigator, GridCube savedGridUsedByPreviousCard, int cardNumber, bool isSetupPhase)
+    public GridCube CalculateGridCubeDestination(Character instigator, bool isSetupPhase)
     {
-        GridCube targetedGrid = savedGridUsedByPreviousCard;
+        GridCube targetGrid = instigator.AssignedGridCube;
         Vector2Int attackSteps = cardScriptableObject.AttackSteps;
         Vector2Int moveSteps = cardScriptableObject.MoveSteps;
 
@@ -195,9 +202,9 @@ public class Card : MonoBehaviour
                 break;
             case CardScriptableObject._TargetType.NearestAlly:
             case CardScriptableObject._TargetType.NearestEnemy:
-                GridCube newTargetGrid = GetGridOfClosestTarget(savedGridUsedByPreviousCard);
-                attackSteps = RotateCardTowardsTarget(newTargetGrid, savedGridUsedByPreviousCard, attackSteps);
-                moveSteps = RotateCardTowardsTarget(newTargetGrid, savedGridUsedByPreviousCard, moveSteps);
+                GridCube newTargetGrid = GetGridOfClosestTarget(targetGrid);
+                attackSteps = RotateCardTowardsTarget(newTargetGrid, targetGrid, attackSteps);
+                moveSteps = RotateCardTowardsTarget(newTargetGrid, targetGrid, moveSteps);
                 break;
         }
 
@@ -211,7 +218,7 @@ public class Card : MonoBehaviour
             for (int attackStepY = 1; attackStepY < attackSteps.y + 1; attackStepY++)
             {
                 // Handles the Y steps in the attack
-                Vector2 attackPosAfterStepY = new Vector2 (savedGridUsedByPreviousCard.Position.x, savedGridUsedByPreviousCard.Position.y + (attackStepY * directionMultiplier));
+                Vector2 attackPosAfterStepY = new Vector2 (targetGrid.Position.x, targetGrid.Position.y + (attackStepY * directionMultiplier));
 
                 // Offset the attack width so the attack is always centered
                 int attackWidthOffset = 1 + Mathf.CeilToInt(attackSteps.x / 2);
@@ -223,13 +230,13 @@ public class Card : MonoBehaviour
                     if (result != null)
                     {
                         // Handles X steps in the attack
-                        if (ValidateGridPosition.CanAttack(savedGridUsedByPreviousCard, result, attackStepY))
+                        if (ValidateGridPosition.CanAttack(targetGrid, result, attackStepY))
                         {
-                            targetedGrid = result;
+                            targetGrid = result;
                             // Tile based previs
-                            GameObject tilevisual = targetedGrid.GetIndicatorVisual(instigator, cardScriptableObject);
-                            instigator.ToggleTilePrevis(isSetupPhase, cardNumber, tilevisual, 0);
-                            attackedGridTargets.Add(targetedGrid);
+                            GameObject tilevisual = targetGrid.GetIndicatorVisual(instigator, cardScriptableObject);
+                            instigator.ToggleTilePrevis(isSetupPhase, tilevisual, 0);
+                            attackedGridTargets.Add(targetGrid);
                         }
                     }
                 }
@@ -238,11 +245,10 @@ public class Card : MonoBehaviour
             // Save target location for movement during set up phase
             if (isSetupPhase)
             {
-                targetedGridForMovement = savedGridUsedByPreviousCard;
-                CheckIfCharactersWouldDie(instigator, cardScriptableObject.Value);
+                targetedGridForMovement = targetGrid;
             }
 
-            return savedGridUsedByPreviousCard;
+            return targetGrid;
         }
         // Movement
         else if (cardScriptableObject.CardType == CardScriptableObject._CardType.Movement)
@@ -250,17 +256,17 @@ public class Card : MonoBehaviour
             for (int stepLength = 0; stepLength < Mathf.Abs(moveSteps.y); stepLength++)
             {
                 // Handles the Y steps in the movement
-                targetedGrid = GetMovementGrid(instigator, targetedGrid, moveSteps, cardNumber, isSetupPhase);
+                targetGrid = GetMovementGrid(instigator, targetGrid, moveSteps, isSetupPhase);
             }
             for (int stepWidth = 0; stepWidth < Mathf.Abs(moveSteps.x); stepWidth++)
             {
                 // Handles X steps in the movement
-                targetedGrid = GetMovementGrid(instigator, targetedGrid, moveSteps, cardNumber, isSetupPhase);
+                targetGrid = GetMovementGrid(instigator, targetGrid, moveSteps, isSetupPhase);
             }
 
             // Save target location for movement during set up phase
             if (isSetupPhase)
-                targetedGridForMovement = targetedGrid;
+                targetedGridForMovement = targetGrid;
         }
 
         // Reset feedback animation if needed
@@ -268,10 +274,10 @@ public class Card : MonoBehaviour
             SetCardFeedback("isInvalid", false);
 
         // Returns the integer of the current used gridnumber, so it's location can be used for the other cards in the sequence
-        return targetedGrid;
+        return targetGrid;
     }
 
-    private GridCube GetMovementGrid(Character instigator, GridCube startingGrid, Vector2Int moveSteps, int cardNumber, bool isSetupPhase)
+    private GridCube GetMovementGrid(Character instigator, GridCube startingGrid, Vector2Int moveSteps, bool isSetupPhase)
     {
         GridCube destinationGrid = startingGrid;
         SetCardFeedback("isInvalid", false);
@@ -284,7 +290,7 @@ public class Card : MonoBehaviour
             Vector2 targetPos = new Vector2(startingGrid.Position.x + moveX, startingGrid.Position.y);
             GridCube targetGrid = Grid.GridPositions.GetGridByPosition(targetPos);
 
-            if (ValidateGridPosition.CanStep(instigator, startingGrid, targetGrid, cardNumber))
+            if (ValidateGridPosition.CanStep(instigator, startingGrid, targetGrid))
             {
                 destinationGrid = targetGrid;
             }
@@ -299,7 +305,7 @@ public class Card : MonoBehaviour
             Vector2 targetPos = new Vector2(startingGrid.Position.x, startingGrid.Position.y + moveY);
             GridCube targetGrid = Grid.GridPositions.GetGridByPosition(targetPos);
 
-            if (ValidateGridPosition.CanStep(instigator, startingGrid, targetGrid, cardNumber))
+            if (ValidateGridPosition.CanStep(instigator, startingGrid, targetGrid))
             {
                 destinationGrid = targetGrid;
             }
@@ -313,9 +319,8 @@ public class Card : MonoBehaviour
             // Tile based previs
             GameObject tilevisual = destinationGrid.GetIndicatorVisual(instigator, cardScriptableObject);
             float dirAngle = GetDirectionAngleBetweenGrids(destinationGrid, startingGrid);
-            instigator.ToggleTilePrevis(isSetupPhase, cardNumber, tilevisual, dirAngle);
+            instigator.ToggleTilePrevis(isSetupPhase, tilevisual, dirAngle);
         }
-        Debug.Log($"{cardNumber}# card. {startingGrid.Position} start pos. {destinationGrid.Position} end pos.");
 
         return destinationGrid;
     }
@@ -378,24 +383,6 @@ public class Card : MonoBehaviour
             case CardScriptableObject._CardType.ElementShock:
                 ConnectedCircuitboard.AddBuff(instigator, cardScriptableObject.CardType, cardScriptableObject.Value);
                 break;
-        }
-    }
-
-    private void CheckIfCharactersWouldDie(Character instigator, int damageValue)
-    {
-        for (int i = 0; i < attackedGridTargets.Count; i++)
-        {
-            Character charOnThisGrid = null;
-            if (attackedGridTargets[i].CharacterOnThisGrid != null)
-                charOnThisGrid = attackedGridTargets[i].CharacterOnThisGrid;
-
-            // Return if no characters are hit
-            if (charOnThisGrid == null)
-                return;
-
-            // No friendly fire allowed, stop damage function when this happens
-            if (charOnThisGrid.TeamType == instigator.TeamType)
-                return;
         }
     }
 

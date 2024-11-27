@@ -23,10 +23,6 @@ public class CircuitBoard : MonoBehaviour
     {
         SetUpCircuitBoard();
         SetCardsInCircuit();
-
-        // Sets the new socket reference to the card
-        for (int i = 0; i < ActiveCards.Count; i++)
-            ActiveCards[i].ConnectToSocket(ActiveSockets[i]);
     }
 
     private void Update()
@@ -42,6 +38,10 @@ public class CircuitBoard : MonoBehaviour
             ActiveCards.Add(Instantiate(card, cardPanel.transform));
             ActiveSockets.Add(Instantiate(socket, socketPanel.transform));
         }
+
+        // Sets the new socket reference to the card
+        for (int i = 0; i < ActiveCards.Count; i++)
+            ActiveCards[i].ConnectToSocket(ActiveSockets[i]);
     }
 
     private void SetCardsInCircuit()
@@ -59,7 +59,8 @@ public class CircuitBoard : MonoBehaviour
             return true;
 
         if (activeCardNumber < ActiveCards.Count)
-        {
+        {            
+            ActiveCards[activeCardNumber].CalculateGridCubeDestination(targetCharacter, false);
             ActiveCards[activeCardNumber].ActivateCard(targetCharacter);
             timeBetweenCardsPlayed = ActiveCards[activeCardNumber].MaxTimeInUse;
             activeCardNumber++;
@@ -86,20 +87,6 @@ public class CircuitBoard : MonoBehaviour
         for (int i = 0; i < ActiveCards.Count; i++)
         {
             ActiveCards[i].DeactivateCard();
-        }
-    }
-
-    public void CalculateAllCards(Character targetCharacter, bool isSetupPhase)
-    {
-        GridCube previsGrid = targetCharacter.AssignedGridCube;
-        for (int cardNumber = 0; cardNumber < ActiveCards.Count; cardNumber++)
-        {
-            if (isSetupPhase)
-            {
-                AllignCardOnCircuitBoard(cardNumber);
-                previsGrid = ActiveCards[cardNumber].CalculateGridCubeDestination(targetCharacter, previsGrid, cardNumber, isSetupPhase);
-            }
-            ToggleInteractableCardStateOnCircuitBoard(cardNumber, isSetupPhase);
         }
     }
 
@@ -140,21 +127,17 @@ public class CircuitBoard : MonoBehaviour
 
     public virtual void PlaceCardInSocket(Card newCard, CardSocket socket)
     {
+        newCard.transform.SetParent(cardPanel.transform);
+        newCard.ConnectToSocket(socket);
+        newCard.CardPointerInteraction.AssignPosition(socket.transform.position);
     }
 
     public virtual void RemoveFromSocket(Card card)
     {
+        card.RemoveFromSocket();
     }
 
     public virtual void SetCircuitDisplayTimer(string timerDisplayText, float timerDisplayFillAmount)
-    {
-    }
-
-    protected virtual void AllignCardOnCircuitBoard(int cardNumber)
-    {
-    }
-
-    protected virtual void ToggleInteractableCardStateOnCircuitBoard(int cardNumber, bool isInteractable)
     {
     }
 }

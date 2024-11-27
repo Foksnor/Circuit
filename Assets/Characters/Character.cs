@@ -147,7 +147,7 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
         RemoveCardPrevis();
     }
 
-    public virtual GameObject ToggleTilePrevis(bool isShowingPrevis, int cardNumber, GameObject tilevisual, float angle)
+    public virtual GameObject ToggleTilePrevis(bool isShowingPrevis, GameObject tilevisual, float angle)
     {
         if (cardPrevisBinder == null)
             cardPrevisBinder = new GameObject("CardPrevisBinder");
@@ -160,16 +160,7 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
         {
             if (!ActiveCardPrevisTiles.Contains(tilevisual))
             {
-                if (cardNumber < ActiveCardPrevisTiles.Count && ActiveCardPrevisTiles.Count > 0)
-                {
-                    // Remove tile previs at index
-                    // This can happen when a character changes the card calculation of someone else
-                    // E.g. Player is walking on the same path as an enemy, preventing the enemy from reaching it's destination
-                    Destroy(cardPrevisBinder.transform.GetChild(cardNumber).gameObject);
-                    ActiveCardPrevisTiles[cardNumber] = tilevisual;
-                }
-                else
-                    ActiveCardPrevisTiles.Add(tilevisual);
+                ActiveCardPrevisTiles.Add(tilevisual);
                 tilevisual = Instantiate(tilevisual, tilevisual.transform.position, transform.rotation);
                 tilevisual.transform.eulerAngles = new Vector3(0, 0, angle);
                 tilevisual.transform.parent = cardPrevisBinder.transform;

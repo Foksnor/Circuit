@@ -20,12 +20,18 @@ public class PlayerCircuitBoard : CircuitBoard
         Teams.CharacterTeams.SetPlayerCircuitboard(this);
     }
 
+    private void Update()
+    {
+        UpdateCardPositionsInCircuitBoard();
+    }
+
     public void SetUpPlayerDeck()
     {
         // Add starting cards to the player deck
         Decks.Playerdeck.TotalCardsInDeck.AddRange(startingCardsInDeck);
         Decks.Playerdeck.CurrentCardsInDeck.AddRange(startingCardsInDeck);
         Decks.Playerdeck.CurrentCardsInDeck.Shuffle();
+        UpdateCardsInPlay();
     }
 
     public void AddCardFromSavefile(CardData cardData)
@@ -59,12 +65,7 @@ public class PlayerCircuitBoard : CircuitBoard
 
     public override void PlaceCardInSocket(Card newCard, CardSocket socket)
     {
-        int index = ActiveSockets.IndexOf(socket);
-        print($"{socket.SlottedCard.GetCardInfo().name} got replaced by {newCard.GetCardInfo().name} at index {index}");
-        newCard.transform.SetParent(cardPanel.transform);
-        socket.SlotCard(newCard);
-        newCard.connectedSocket = socket;
-        newCard.CardPointerInteraction.AssignPosition(socket.transform.position);
+        base.PlaceCardInSocket(newCard, socket);
 
         // Reset of the card calculation
         UpdateCardsInPlay();
@@ -72,7 +73,7 @@ public class PlayerCircuitBoard : CircuitBoard
 
     public override void RemoveFromSocket(Card card)
     {
-        card.connectedSocket = null;
+        base.RemoveFromSocket(card);
 
         // Reset of the card calculation
         UpdateCardsInPlay();
@@ -81,6 +82,9 @@ public class PlayerCircuitBoard : CircuitBoard
     public override bool IsProcessingCards(Character targetCharacter)
     {
         bool isProcessing = base.IsProcessingCards(targetCharacter);
+
+        // Lock the interactable state of cards based on: if the cards are still processing or not
+        ToggleInteractableCardState(!isProcessing);
         return isProcessing;
     }
 
@@ -101,17 +105,25 @@ public class PlayerCircuitBoard : CircuitBoard
         }
     }
 
-    protected override void AllignCardOnCircuitBoard(int cardNumber)
+    private void UpdateCardPositionsInCircuitBoard()
     {
-        // Sets the new position of the card to the connected socket
-        Vector2 newCardPosition = ActiveCards[cardNumber].connectedSocket.transform.position;
-        ActiveCards[cardNumber].CardPointerInteraction.AssignPosition(newCardPosition);
+        for (int i = 0; i < ActiveSockets.Count; i++)
+        {
+            if (ActiveSockets[i].SlottedCard != null)
+            {
+                // Sets the position of the card to the connected socket
+                Vector2 newCardPosition = ActiveSockets[i].transform.position;
+                ActiveSockets[i].SlottedCard.CardPointerInteraction.AssignPosition(newCardPosition);
+            }
+        }
     }
 
-    protected override void ToggleInteractableCardStateOnCircuitBoard(int cardNumber, bool isInteractable)
+    private void ToggleInteractableCardState(bool isInteractable)
     {
-        ActiveCards[cardNumber].CardPointerInteraction.SetInteractableState(isInteractable);
-        ActiveSockets[cardNumber].ToggleSocketLock(isInteractable);
+        for (int i = 0; i < ActiveSockets.Count; i++)
+            ActiveSockets[i].ToggleSocketLock(isInteractable);
+        for (int i = 0; i < ActiveCards.Count; i++)
+            ActiveCards[i].CardPointerInteraction.SetInteractableState(isInteractable);
     }
 
     public override void SetCircuitDisplayTimer(string timerDisplayText, float timerDisplayFillAmount)

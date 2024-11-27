@@ -61,8 +61,6 @@ public class TransitionTurns : MonoBehaviour
             if (upkeepTime <= upkeepDuration)
                 return;
 
-            CalculateTeamCards(Teams.CharacterTeams.PlayerTeamCharacters, false);
-            //CalculateTeamCards(CharacterTeams._EnemyTeamCharacters, true);
             isPlayerTurnActive = ProcessTeamCards(Teams.CharacterTeams.PlayerTeamCharacters);
 
             // This sets the enemy turn active as soon as the function ProcessTeamCards returns false when finishing processing player cards.
@@ -70,9 +68,6 @@ public class TransitionTurns : MonoBehaviour
         }
         else if (isEnemyTurnActive)
         {
-            CalculateTeamCards(Teams.CharacterTeams.PlayerTeamCharacters, false);
-            CalculateTeamCards(Teams.CharacterTeams.EnemyTeamCharacters, false);
-
             // Invokes all enemy start triggers
             for (int i = 0; i < TurnSequenceTriggerables.Count; i++)
                 TurnSequenceTriggerables[i].OnStartEnemyTurn();
@@ -93,9 +88,6 @@ public class TransitionTurns : MonoBehaviour
 
             // Call nesecary end of turn events
             OnEndTurn();
-
-            CalculateTeamCards(Teams.CharacterTeams.PlayerTeamCharacters, true);
-            CalculateTeamCards(Teams.CharacterTeams.EnemyTeamCharacters, true);
         }
     }
 
@@ -229,14 +221,6 @@ public class TransitionTurns : MonoBehaviour
         for (int i = 0; i < characterFromTeam.Count; i++)
         {
             characterFromTeam[i].CircuitBoard.ResetCardProcessing();
-        }
-    }
-
-    private void CalculateTeamCards(List<Character> characterFromTeam, bool isSetupPhase)
-    {
-        for (int i = 0; i < characterFromTeam.Count; i++)
-        {
-            characterFromTeam[i].CircuitBoard.CalculateAllCards(characterFromTeam[i], isSetupPhase);
         }
     }
 

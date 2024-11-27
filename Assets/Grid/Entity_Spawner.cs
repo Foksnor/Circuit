@@ -65,7 +65,6 @@ public class Entity_Spawner : MonoBehaviour
         Character p = Instantiate(player);
         p.name = player.name;
         player = p;
-        player.CircuitBoard.CalculateAllCards(player, false);
         GridCube cubePlayerSpawnsOnTopOff = Grid.GridPositions.GetGridByPosition(startingPosition);
         player.transform.position = cubePlayerSpawnsOnTopOff.transform.position;
         player.ChangeDestinationGrid(cubePlayerSpawnsOnTopOff, 1);
@@ -101,7 +100,6 @@ public class Entity_Spawner : MonoBehaviour
     {
         Character c = Instantiate(character);
         c.name = character.name;
-        c.CircuitBoard.CalculateAllCards(c, false);
         GridCube cubeCharacterSpawnsOnTopOff = Grid.GridPositions.GetGridByPosition(spawnPosition);
         c.transform.position = cubeCharacterSpawnsOnTopOff.transform.position;
         c.ChangeDestinationGrid(cubeCharacterSpawnsOnTopOff, 1);
