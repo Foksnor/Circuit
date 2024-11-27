@@ -25,11 +25,6 @@ public class CircuitBoard : MonoBehaviour
         SetCardsInCircuit();
     }
 
-    private void Update()
-    {
-        timeBetweenCardsPlayed -= Time.deltaTime;
-    }
-
     private void SetUpCircuitBoard()
     {
         // Adds card slots
@@ -55,6 +50,8 @@ public class CircuitBoard : MonoBehaviour
 
     public virtual bool IsProcessingCards(Character targetCharacter)
     {
+        timeBetweenCardsPlayed -= Time.deltaTime;
+
         if (timeBetweenCardsPlayed > 0)
             return true;
 

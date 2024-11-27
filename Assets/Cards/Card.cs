@@ -243,10 +243,7 @@ public class Card : MonoBehaviour
             }
 
             // Save target location for movement during set up phase
-            if (isSetupPhase)
-            {
-                targetedGridForMovement = targetGrid;
-            }
+            targetedGridForMovement = targetGrid;
 
             return targetGrid;
         }
@@ -265,8 +262,7 @@ public class Card : MonoBehaviour
             }
 
             // Save target location for movement during set up phase
-            if (isSetupPhase)
-                targetedGridForMovement = targetGrid;
+            targetedGridForMovement = targetGrid;
         }
 
         // Reset feedback animation if needed
