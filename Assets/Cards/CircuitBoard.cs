@@ -11,15 +11,15 @@ public class CircuitBoard : MonoBehaviour
     [SerializeField] private GameObject socketPanel = null;
     [SerializeField] protected Card card = null;
     [SerializeField] private CardSocket socket = null;
-    [HideInInspector] public List<Card> activeCards = new List<Card>();
-    [HideInInspector] public List<CardSocket> activeSockets = new List<CardSocket>();
-    public List<CardScriptableObject> startingCards = new List<CardScriptableObject>();
+    protected List<Card> ActiveCards { set; get; } = new ();
+    protected List<CardSocket> ActiveSockets { set; get; } = new();
+    public List<CardScriptableObject> StartingCards = new();
     private int activeCardNumber = 0;
     private float timeBetweenCardsPlayed = 0;
     public int FireAttacksAvailable { get; private set; }
     public int ShockAttacksAvailable { get; private set; }
     [SerializeField] private List<GridCube> savedMovementGridCubes = new();
-    protected bool needsNewCardCalculation { set; get; } = false;
+    protected bool NeedsNewCardCalculation { set; get; } = false;
 
     protected virtual void Awake()
     {
@@ -27,8 +27,8 @@ public class CircuitBoard : MonoBehaviour
         SetCardsInCircuit();
 
         // Sets the new socket reference to the card
-        for (int i = 0; i < activeCards.Count; i++)
-            activeCards[i].ConnectToSocket(activeSockets[i]);
+        for (int i = 0; i < ActiveCards.Count; i++)
+            ActiveCards[i].ConnectToSocket(ActiveSockets[i]);
     }
 
     private void Update()
@@ -39,19 +39,19 @@ public class CircuitBoard : MonoBehaviour
     private void SetUpCircuitBoard()
     {
         // Adds card slots
-        for (int i = 0; i < startingCards.Count; i++)
+        for (int i = 0; i < StartingCards.Count; i++)
         {
-            activeCards.Add(Instantiate(card, cardPanel.transform));
-            activeSockets.Add(Instantiate(socket, socketPanel.transform));
+            ActiveCards.Add(Instantiate(card, cardPanel.transform));
+            ActiveSockets.Add(Instantiate(socket, socketPanel.transform));
         }
     }
 
     private void SetCardsInCircuit()
     {
         // Sets the card info per card in the circuit board
-        for (int i = 0; i < activeCards.Count; i++)
+        for (int i = 0; i < ActiveCards.Count; i++)
         {
-            activeCards[i].SetCardInfo(startingCards[i], this, false);
+            ActiveCards[i].SetCardInfo(StartingCards[i], this, false);
         }
     }
 
@@ -60,20 +60,20 @@ public class CircuitBoard : MonoBehaviour
         if (timeBetweenCardsPlayed > 0)
             return true;
 
-        if (activeCardNumber < activeCards.Count)
+        if (activeCardNumber < ActiveCards.Count)
         {
-            activeCards[activeCardNumber].ActivateCard(targetCharacter);
-            timeBetweenCardsPlayed = activeCards[activeCardNumber].MaxTimeInUse;
+            ActiveCards[activeCardNumber].ActivateCard(targetCharacter);
+            timeBetweenCardsPlayed = ActiveCards[activeCardNumber].MaxTimeInUse;
             activeCardNumber++;
             return true;
         }
 
         // After all cards have been processed, deactivate them
-        if (activeCardNumber == activeCards.Count)
+        if (activeCardNumber == ActiveCards.Count)
         {
-            for (int i = 0; i < activeCards.Count; i++)
+            for (int i = 0; i < ActiveCards.Count; i++)
             {
-                activeCards[i].DeactivateCard();
+                ActiveCards[i].DeactivateCard();
             }
             activeCardNumber = 0;
             return false;
@@ -85,9 +85,9 @@ public class CircuitBoard : MonoBehaviour
     {
         timeBetweenCardsPlayed = 0;
         activeCardNumber = 0;
-        for (int i = 0; i < activeCards.Count; i++)
+        for (int i = 0; i < ActiveCards.Count; i++)
         {
-            activeCards[i].DeactivateCard();
+            ActiveCards[i].DeactivateCard();
         }
 
         // Reset movement priority references
@@ -100,23 +100,23 @@ public class CircuitBoard : MonoBehaviour
     public void CalculateAllCards(Character targetCharacter, bool isSetupPhase)
     {
         GridCube previsGrid = targetCharacter.AssignedGridCube;
-        for (int cardNumber = 0; cardNumber < activeCards.Count; cardNumber++)
+        for (int cardNumber = 0; cardNumber < ActiveCards.Count; cardNumber++)
         {
             if (isSetupPhase)
             {
                 AllignCardOnCircuitBoard(cardNumber);
-                previsGrid = activeCards[cardNumber].CalculateGridCubeDestination(targetCharacter, previsGrid, cardNumber, isSetupPhase);
+                previsGrid = ActiveCards[cardNumber].CalculateGridCubeDestination(targetCharacter, previsGrid, cardNumber, isSetupPhase);
             }
             ToggleInteractableCardStateOnCircuitBoard(cardNumber, isSetupPhase);
         }
 
         // Remove temporary references after calculation
-        for (int cardNumber = 0; cardNumber < activeCards.Count; cardNumber++)
+        for (int cardNumber = 0; cardNumber < ActiveCards.Count; cardNumber++)
         {
             // Remove potental kill references, used by movement calculation
-            for (int i = 0; i < activeCards[cardNumber].potentialKillTargets.Count; i++)
-                activeCards[cardNumber].potentialKillTargets[i].RemovePotentialKillMark();
-            activeCards[cardNumber].potentialKillTargets.Clear();
+            for (int i = 0; i < ActiveCards[cardNumber].potentialKillTargets.Count; i++)
+                ActiveCards[cardNumber].potentialKillTargets[i].RemovePotentialKillMark();
+            ActiveCards[cardNumber].potentialKillTargets.Clear();
         }
     }
 

@@ -63,7 +63,7 @@ public class PlayerCircuitBoard : CircuitBoard
 
     public override void PlaceCardInSocket(Card newCard, CardSocket socket)
     {
-        activeCards.Add(newCard);
+        ActiveCards.Add(newCard);
         newCard.transform.SetParent(cardPanel.transform);
         socket.SlotCard(newCard);
         Decks.Playerdeck.CurrentCardsInPlay.Add(newCard.GetCardInfo());
@@ -71,16 +71,16 @@ public class PlayerCircuitBoard : CircuitBoard
         newCard.CardPointerInteraction.AssignPosition(socket.transform.position);
 
         // Enables reset of the card simulation
-        needsNewCardCalculation = true;
+        NeedsNewCardCalculation = true;
     }
 
     public override void RemoveFromSocket(Card card)
     {
         // Make sure the correct card of the selected socket gets called (In case you have duplicates of the card reference slotted in other sockets)
-        int index = activeSockets.IndexOf(card.connectedSocket);
+        int index = ActiveSockets.IndexOf(card.connectedSocket);
         card.connectedSocket = null;
         Decks.Playerdeck.CurrentCardsInPlay.RemoveAt(index);
-        activeCards.RemoveAt(index);
+        ActiveCards.RemoveAt(index);
     }
 
     public override bool IsProcessingCards(Character targetCharacter)
@@ -93,22 +93,22 @@ public class PlayerCircuitBoard : CircuitBoard
     {
         // Sort card order by comparing the x position, which can happen if the player drags on of their cards in the circuit board
         List<Card> CardOrderBeforeSort = new();
-        CardOrderBeforeSort.AddRange(activeCards);
-        activeCards.Sort((a, b) => a.transform.position.x.CompareTo(b.transform.position.x));
+        CardOrderBeforeSort.AddRange(ActiveCards);
+        ActiveCards.Sort((a, b) => a.transform.position.x.CompareTo(b.transform.position.x));
 
         // If any of the active cards has their position changed. A new card calculation is in order. This can happen during setup phase
         // Bool needsNewCardCalculation will set itself to false once the calculation action has ended
-        if (!needsNewCardCalculation)
+        if (!NeedsNewCardCalculation)
         {
-            needsNewCardCalculation = HelperFunctions.AreCardListsDifferent(CardOrderBeforeSort, activeCards);
-            TurnSequence.TransitionTurns.NeedsNewCardCalculation = needsNewCardCalculation;
+            NeedsNewCardCalculation = HelperFunctions.AreCardListsDifferent(CardOrderBeforeSort, ActiveCards);
+            TurnSequence.TransitionTurns.NeedsNewCardCalculation = NeedsNewCardCalculation;
 
             // Sets the hand in the playerdeck equal to the active cards in the circuitboard
             // Used for save/loading you current circuitboard cards
             Decks.Playerdeck.CurrentCardsInPlay.Clear();
-            for (int i = 0; i < activeCards.Count; i++)
+            for (int i = 0; i < ActiveCards.Count; i++)
             {
-                Decks.Playerdeck.CurrentCardsInPlay.Add(activeCards[i].GetCardInfo());
+                Decks.Playerdeck.CurrentCardsInPlay.Add(ActiveCards[i].GetCardInfo());
             }
         }
     }
@@ -116,14 +116,14 @@ public class PlayerCircuitBoard : CircuitBoard
     protected override void AllignCardOnCircuitBoard(int cardNumber)
     {
         // Sets the new position of the card to the connected socket
-        Vector2 newCardPosition = activeCards[cardNumber].connectedSocket.transform.position;
-        activeCards[cardNumber].CardPointerInteraction.AssignPosition(newCardPosition);
+        Vector2 newCardPosition = ActiveCards[cardNumber].connectedSocket.transform.position;
+        ActiveCards[cardNumber].CardPointerInteraction.AssignPosition(newCardPosition);
     }
 
     protected override void ToggleInteractableCardStateOnCircuitBoard(int cardNumber, bool isInteractable)
     {
-        activeCards[cardNumber].CardPointerInteraction.SetInteractableState(isInteractable);
-        activeSockets[cardNumber].ToggleSocketLock(isInteractable);
+        ActiveCards[cardNumber].CardPointerInteraction.SetInteractableState(isInteractable);
+        ActiveSockets[cardNumber].ToggleSocketLock(isInteractable);
     }
 
     public override void SetCircuitDisplayTimer(string timerDisplayText, float timerDisplayFillAmount)
