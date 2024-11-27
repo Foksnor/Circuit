@@ -283,12 +283,11 @@ public class Card : MonoBehaviour
         {
             int moveX = moveIncrement.x;
             Vector2 targetPos = new Vector2(startingGrid.Position.x + moveX, startingGrid.Position.y);
-            GridCube result = Grid.GridPositions.GetGridByPosition(targetPos);
+            GridCube targetGrid = Grid.GridPositions.GetGridByPosition(targetPos);
 
-            if (ValidateGridPosition.CanStep(instigator, startingGrid, result, cardNumber))
+            if (ValidateGridPosition.CanStep(instigator, startingGrid, targetGrid, cardNumber))
             {
-                destinationGrid = result;
-                ConnectedCircuitboard.SaveMovementGridCube(result);
+                destinationGrid = targetGrid;
             }
             else
                 SetCardFeedback("isInvalid", true);
@@ -299,12 +298,11 @@ public class Card : MonoBehaviour
         {
             int moveY = moveIncrement.y;
             Vector2 targetPos = new Vector2(startingGrid.Position.x, startingGrid.Position.y + moveY);
-            GridCube result = Grid.GridPositions.GetGridByPosition(targetPos);
+            GridCube targetGrid = Grid.GridPositions.GetGridByPosition(targetPos);
 
-            if (ValidateGridPosition.CanStep(instigator, startingGrid, result, cardNumber))
+            if (ValidateGridPosition.CanStep(instigator, startingGrid, targetGrid, cardNumber))
             {
-                destinationGrid = result;
-                ConnectedCircuitboard.SaveMovementGridCube(result);
+                destinationGrid = targetGrid;
             }
             else
                 SetCardFeedback("isInvalid", true);
@@ -318,6 +316,7 @@ public class Card : MonoBehaviour
             float dirAngle = GetDirectionAngleBetweenGrids(destinationGrid, startingGrid);
             instigator.ToggleTilePrevis(isSetupPhase, cardNumber, tilevisual, dirAngle);
         }
+        Debug.Log($"{cardNumber}# card. {startingGrid.Position} start pos. {destinationGrid.Position} end pos.");
 
         return destinationGrid;
     }

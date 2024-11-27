@@ -18,7 +18,6 @@ public class CircuitBoard : MonoBehaviour
     private float timeBetweenCardsPlayed = 0;
     public int FireAttacksAvailable { get; private set; }
     public int ShockAttacksAvailable { get; private set; }
-    [SerializeField] private List<GridCube> savedMovementGridCubes = new();
 
     protected virtual void Awake()
     {
@@ -88,12 +87,6 @@ public class CircuitBoard : MonoBehaviour
         {
             ActiveCards[i].DeactivateCard();
         }
-
-        // Reset movement priority references
-        for (int i = 0; i < savedMovementGridCubes.Count; i++)
-        {
-            savedMovementGridCubes[i].ResetCharacterMovementPriority();
-        }
     }
 
     public void CalculateAllCards(Character targetCharacter, bool isSetupPhase)
@@ -152,19 +145,6 @@ public class CircuitBoard : MonoBehaviour
                 break;
         }
         return false;
-    }
-
-    public void SaveMovementGridCube(GridCube gridCube)
-    {
-        if (savedMovementGridCubes.Contains(gridCube))
-            return;
-
-        // Save grid cube reference so the priority of movement can be removed later after restarting simulations
-        savedMovementGridCubes.Add(gridCube);
-    }
-
-    public virtual void PlayerDrawPhase()
-    {
     }
 
     public virtual void PlaceCardInSocket(Card newCard, CardSocket socket)

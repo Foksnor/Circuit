@@ -14,10 +14,6 @@ public static class ValidateGridPosition
         if ((startingCube.Position - destinationCube.Position).magnitude > 1)
             return false;
 
-        // Cannot move when a different character has priority to move on the same grid during the same action cycle
-        if (!destinationCube.GetCharacterMovementPriority(targetCharacter, cardNumber))
-            return false;
-
         if (IsDesitionationTooHigh(startingCube, destinationCube))
             return false;
 

@@ -57,10 +57,6 @@ public class PlayerCircuitBoard : CircuitBoard
         }
     }
 
-    public override void PlayerDrawPhase()
-    {
-    }
-
     public override void PlaceCardInSocket(Card newCard, CardSocket socket)
     {
         int index = ActiveSockets.IndexOf(socket);
@@ -76,8 +72,6 @@ public class PlayerCircuitBoard : CircuitBoard
 
     public override void RemoveFromSocket(Card card)
     {
-        // Make sure the correct card of the selected socket gets called (In case you have duplicates of the card reference slotted in other sockets)
-        int index = ActiveSockets.IndexOf(card.connectedSocket);
         card.connectedSocket = null;
 
         // Reset of the card calculation
