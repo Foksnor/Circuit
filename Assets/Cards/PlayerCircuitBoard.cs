@@ -63,15 +63,15 @@ public class PlayerCircuitBoard : CircuitBoard
 
     public override void PlaceCardInSocket(Card newCard, CardSocket socket)
     {
-        ActiveCards.Add(newCard);
+        int index = ActiveSockets.IndexOf(socket);
+        print($"{socket.SlottedCard.GetCardInfo().name} got replaced by {newCard.GetCardInfo().name} at index {index}");
         newCard.transform.SetParent(cardPanel.transform);
         socket.SlotCard(newCard);
-        Decks.Playerdeck.CurrentCardsInPlay.Add(newCard.GetCardInfo());
         newCard.connectedSocket = socket;
         newCard.CardPointerInteraction.AssignPosition(socket.transform.position);
 
-        // Enables reset of the card simulation
-        NeedsNewCardCalculation = true;
+        // Reset of the card calculation
+        UpdateCardsInPlay();
     }
 
     public override void RemoveFromSocket(Card card)
@@ -79,8 +79,9 @@ public class PlayerCircuitBoard : CircuitBoard
         // Make sure the correct card of the selected socket gets called (In case you have duplicates of the card reference slotted in other sockets)
         int index = ActiveSockets.IndexOf(card.connectedSocket);
         card.connectedSocket = null;
-        Decks.Playerdeck.CurrentCardsInPlay.RemoveAt(index);
-        ActiveCards.RemoveAt(index);
+
+        // Reset of the card calculation
+        UpdateCardsInPlay();
     }
 
     public override bool IsProcessingCards(Character targetCharacter)
@@ -89,26 +90,19 @@ public class PlayerCircuitBoard : CircuitBoard
         return isProcessing;
     }
 
-    public void UpdateCardOrder()
+    public void UpdateCardsInPlay()
     {
-        // Sort card order by comparing the x position, which can happen if the player drags on of their cards in the circuit board
-        List<Card> CardOrderBeforeSort = new();
-        CardOrderBeforeSort.AddRange(ActiveCards);
-        ActiveCards.Sort((a, b) => a.transform.position.x.CompareTo(b.transform.position.x));
-
-        // If any of the active cards has their position changed. A new card calculation is in order. This can happen during setup phase
-        // Bool needsNewCardCalculation will set itself to false once the calculation action has ended
-        if (!NeedsNewCardCalculation)
+        // Sets CurrentCardsInPlay in the playerdeck equal to the active cards in the circuitboard
+        // Used for save/loading you current circuitboard cards
+        ActiveCards.Clear();
+        Decks.Playerdeck.CurrentCardsInPlay.Clear();
+        for (int i = 0; i < ActiveSockets.Count; i++)
         {
-            NeedsNewCardCalculation = HelperFunctions.AreCardListsDifferent(CardOrderBeforeSort, ActiveCards);
-            TurnSequence.TransitionTurns.NeedsNewCardCalculation = NeedsNewCardCalculation;
-
-            // Sets the hand in the playerdeck equal to the active cards in the circuitboard
-            // Used for save/loading you current circuitboard cards
-            Decks.Playerdeck.CurrentCardsInPlay.Clear();
-            for (int i = 0; i < ActiveCards.Count; i++)
+            if (ActiveSockets[i].SlottedCard != null)
             {
-                Decks.Playerdeck.CurrentCardsInPlay.Add(ActiveCards[i].GetCardInfo());
+                Card card = ActiveSockets[i].SlottedCard;
+                ActiveCards.Add(card);
+                Decks.Playerdeck.CurrentCardsInPlay.Add(card.GetCardInfo());
             }
         }
     }

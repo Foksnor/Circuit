@@ -19,7 +19,6 @@ public class CircuitBoard : MonoBehaviour
     public int FireAttacksAvailable { get; private set; }
     public int ShockAttacksAvailable { get; private set; }
     [SerializeField] private List<GridCube> savedMovementGridCubes = new();
-    protected bool NeedsNewCardCalculation { set; get; } = false;
 
     protected virtual void Awake()
     {

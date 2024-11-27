@@ -9,7 +9,6 @@ public class TransitionTurns : MonoBehaviour
 {
     [SerializeField] private float maxTurnTime = 8;
     private float curTurnTime;
-    public bool NeedsNewCardCalculation = false;
     private bool hasPlayerTurnStarted = false;
     private bool isPlayerTurnActive = false;
     private bool isEnemyTurnActive = false;
@@ -126,7 +125,6 @@ public class TransitionTurns : MonoBehaviour
         SpawnerFunctions.Instance.InitiateFirstChunk();
         SpawnerFunctions.Instance.SpawnPlayer();
         Teams.CharacterTeams.PlayerCircuitboard.SetUpPlayerDeck();
-        Teams.CharacterTeams.PlayerCircuitboard.UpdateCardOrder();
         curTurnTime = maxTurnTime;
     }
 
@@ -141,9 +139,6 @@ public class TransitionTurns : MonoBehaviour
 
         // Process player first, then the enemies
         isPlayerTurnActive = true;
-
-        // Updates the card order so they get played in the order they are placed
-        Teams.CharacterTeams.PlayerCircuitboard.UpdateCardOrder();
 
         // Reseting the cooldown during a turn transition makes sure that the character plays their cards in the correct order and tempo
         ForceResetCardProcessing(Teams.CharacterTeams.PlayerTeamCharacters);
