@@ -197,9 +197,12 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
             CardSocket startingSocket = card.ConnectedSocket;
 
             // Swap sockets
+            // First remove them from their socket...
             hoveredCard.ConnectedCircuitboard.RemoveFromSocket(hoveredCard);
-            hoveredCard.ConnectedCircuitboard.PlaceCardInSocket(hoveredCard, startingSocket);
             card.ConnectedCircuitboard.RemoveFromSocket(card);
+
+            // ...then place them inside their new socket
+            hoveredCard.ConnectedCircuitboard.PlaceCardInSocket(hoveredCard, startingSocket);
             card.ConnectedCircuitboard.PlaceCardInSocket(card, targetSocket);
         }
         // If dragged card comes from hand, swap dragged card to the socket card
