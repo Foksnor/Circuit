@@ -65,6 +65,8 @@ public class Entity_Spawner : MonoBehaviour
         Character p = Instantiate(player);
         p.name = player.name;
         player = p;
+
+        Teams.CharacterTeams.SetPlayerKingIfNoneActive(p);
         GridCube cubePlayerSpawnsOnTopOff = Grid.GridPositions.GetGridByPosition(startingPosition);
         player.transform.position = cubePlayerSpawnsOnTopOff.transform.position;
         player.ChangeDestinationGrid(cubePlayerSpawnsOnTopOff, 1);
@@ -108,6 +110,7 @@ public class Entity_Spawner : MonoBehaviour
         {
             case Character._TeamType.Player:
                 Teams.CharacterTeams.PlayerTeamCharacters.Add(c);
+                Teams.CharacterTeams.SetPlayerKingIfNoneActive(c);
                 break;
             case Character._TeamType.Enemy:
                 Teams.CharacterTeams.EnemyTeamCharacters.Add(c);

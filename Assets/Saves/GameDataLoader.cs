@@ -78,7 +78,7 @@ public class GameDataLoader : MonoBehaviour
         // Add the cards from player's hand, drawn, deck, and discard
         for (int i = 0; i < Decks.Playerdeck.CurrentCardsInPlay.Count; i++)
         {
-            dataCollection.cardDataList.Add(new CardData(Decks.Playerdeck.CurrentCardsInPlay[i], _CardPlacement.Hand));
+            dataCollection.cardDataList.Add(new CardData(Decks.Playerdeck.CurrentCardsInPlay[i], _CardPlacement.Play));
         }
         for (int i = 0; i < Decks.Playerdeck.CurrentCardsInDeck.Count; i++)
         {
@@ -119,16 +119,16 @@ public class GameDataLoader : MonoBehaviour
                 UpdateGridCubes(gridCubeData);
             }
 
+            // Set up player's cards in hand, deck, and discard
+            foreach (CardData cardData in dataCollection.cardDataList)
+            {
+                PlayerUI.PlayerCircuitboard.AddCardFromSavefile(cardData);
+            }
+
             // Spawn characters on the grid
             foreach (CharacterData characterData in dataCollection.characterDataList)
             {
                 SpawnCharacter(characterData);
-            }
-
-            // Set up player's cards in hand, deck, and discard
-            foreach (CardData cardData in dataCollection.cardDataList)
-            {
-                Teams.CharacterTeams.PlayerCircuitboard.AddCardFromSavefile(cardData);
             }
         }
         else

@@ -21,7 +21,7 @@ public class UI_PopulateCardsInContainer : MonoBehaviour
         // Add new cards to populate the targetcontainer
         switch(placementType)
         {
-            case _CardPlacement.Hand:
+            case _CardPlacement.Play:
                 cards.AddRange(Decks.Playerdeck.CurrentCardsInPlay);
                 break;
             case _CardPlacement.Deck:

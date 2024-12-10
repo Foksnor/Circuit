@@ -11,18 +11,21 @@ public class ExperienceBar : MonoBehaviour
     private int currentPlayerLevel = 0;
     public float curExpFill { private set; get; } = 0f;
     [SerializeField] private PlayerLevelScriptableObject[] playerlevels;
-    public PlayerLevelScriptableObject[] Playerlevels  { get { return playerlevels; } set { playerlevels = value; } }
+    public PlayerLevelScriptableObject[] Playerlevels
+    {
+        get
+        {
+            return playerlevels;
+        }
+        private set
+        {
+            playerlevels = value;
+        }
+    }
 
     private void Awake()
     {
         PlayerStats.ExperienceBar = this;
-
-        // Add all unlockable cards to the possible card pool
-        // This card pool is used to load in the correct card scriptable data when a save state is loaded
-        for (int i = 0; i < playerlevels.Length; i++)
-        {
-            Decks.Playerdeck.AllPossibleAvailableCards.AddRange(playerlevels[i].possibleNewCardRewards);
-        }
     }
 
     public void AddExperiencePoints(int amount)

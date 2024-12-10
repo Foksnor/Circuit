@@ -25,7 +25,7 @@ public class Card : MonoBehaviour
     private List<GridCube> attackedGridTargets = new();
     private GridCube targetedGridForMovement;
     public float MaxTimeInUse { get; private set; } = 0;
-    private bool isCardActivated = false;
+    private bool isCardActivated { get; set; } = false;
     private bool hasParticleSpawnedOnSelf = false;
     [SerializeField] private List<Image> rotatableImageMaterial = new();
 
@@ -131,20 +131,20 @@ public class Card : MonoBehaviour
 
     public void ActivateCard(Character instigator)
     {
-        if (isCardActivated)
-            return;
-
         isCardActivated = true;
         MaxTimeInUse = cardScriptableObject.MaxTimeInUse;
 
-        // Attack
-        if (cardScriptableObject.CardType == CardScriptableObject._CardType.Attack)
-            HandleAttack(instigator);
-        // Movement
-        else if (cardScriptableObject.CardType == CardScriptableObject._CardType.Movement)
-            HandleMovement(instigator);
-        else
-            HandleBuffs(instigator);
+        if (instigator != null)
+        {
+            // Attack
+            if (cardScriptableObject.CardType == CardScriptableObject._CardType.Attack)
+                HandleAttack(instigator);
+            // Movement
+            else if (cardScriptableObject.CardType == CardScriptableObject._CardType.Movement)
+                HandleMovement(instigator);
+            else
+                HandleBuffs(instigator);
+        }
     }
 
     public void DeactivateCard()

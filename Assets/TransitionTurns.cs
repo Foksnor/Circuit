@@ -116,7 +116,7 @@ public class TransitionTurns : MonoBehaviour
     {
         SpawnerFunctions.Instance.InitiateFirstChunk();
         SpawnerFunctions.Instance.SpawnPlayer();
-        Teams.CharacterTeams.PlayerCircuitboard.SetUpPlayerDeck();
+        PlayerUI.PlayerCircuitboard.SetUpNewPlayerDeck();
         curTurnTime = maxTurnTime;
     }
 
@@ -163,7 +163,7 @@ public class TransitionTurns : MonoBehaviour
             hasPlayerTurnStarted = true;
 
             // Remove cards from hand to discard
-            Decks.Playerdeck.HandPanel.RemoveAllCardsFromPanel(true);
+            PlayerUI.HandPanel.RemoveAllCardsFromPanel(true);
 
             // Save the game state at the start of your turn, and not during preview mode
             if (!isInPreviewMode)
@@ -208,6 +208,9 @@ public class TransitionTurns : MonoBehaviour
 
     private bool ProcessTeamCards(List<Character> characterFromTeam)
     {
+        // Show card highlights on player circuitboard when processing player cards
+        PlayerUI.PlayerCircuitboard.IsProcessingCards(null);
+
         bool isTeamTurnActive = false;
         for (int i = 0; i < characterFromTeam.Count; i++)
         {
@@ -226,7 +229,7 @@ public class TransitionTurns : MonoBehaviour
 
     private void PlayerDrawPhase()
     {
-        Decks.Playerdeck.HandPanel.DrawCards(Decks.Playerdeck.CardDrawPerTurn);
+        PlayerUI.HandPanel.DrawCards(Decks.Playerdeck.CardDrawPerTurn);
     }
 }
 

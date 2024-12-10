@@ -12,7 +12,6 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
     public float Height { get; private set; }
     public _SurfaceType SurfaceType { get; private set; }
     public _StatusType StatusType { get; private set; }
-    private int surfaceDuration = 2;
     private GameObject activeSurfaceParticle = null;
     [SerializeField] private MeshRenderer gridMeshRenderer = null;
     [SerializeField] private Material gridMatWater = null, gridMatOil = null, gridMatBurning;

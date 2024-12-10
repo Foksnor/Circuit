@@ -8,43 +8,38 @@ using UnityEngine.UI;
 public class CircuitBoard : MonoBehaviour
 {
     [SerializeField] protected GameObject cardPanel = null;
-    [SerializeField] private GameObject socketPanel = null;
+    [SerializeField] protected GameObject socketPanel = null;
     [SerializeField] protected Card card = null;
-    [SerializeField] private CardSocket socket = null;
+    [SerializeField] protected CardSocket socket = null;
     protected List<Card> ActiveCards { set; get; } = new ();
     protected List<CardSocket> ActiveSockets { set; get; } = new();
-    public List<CardScriptableObject> StartingCards = new();
-    private int activeCardNumber = 0;
-    private float timeBetweenCardsPlayed = 0;
+    public List<CardScriptableObject> StartingCardsInPlay = new();
+    protected int activeCardNumber = 0;
+    protected float timeBetweenCardsPlayed = 0;
     public int FireAttacksAvailable { get; private set; }
     public int ShockAttacksAvailable { get; private set; }
 
     protected virtual void Awake()
     {
-        SetUpCircuitBoard();
-        SetCardsInCircuit();
+        SetUpCircuitBoard(StartingCardsInPlay);
     }
 
-    private void SetUpCircuitBoard()
+    protected virtual void SetUpCircuitBoard(List<CardScriptableObject> cardList)
     {
         // Adds card slots
-        for (int i = 0; i < StartingCards.Count; i++)
+        for (int i = 0; i < cardList.Count; i++)
         {
-            ActiveCards.Add(Instantiate(card, cardPanel.transform));
-            ActiveSockets.Add(Instantiate(socket, socketPanel.transform));
-        }
+            Card newCard = new();
+            ActiveCards.Add(newCard);
 
-        // Sets the new socket reference to the card
-        for (int i = 0; i < ActiveCards.Count; i++)
-            ActiveCards[i].ConnectToSocket(ActiveSockets[i]);
-    }
+            CardSocket newSocket = new();
+            ActiveSockets.Add(newSocket);
 
-    private void SetCardsInCircuit()
-    {
-        // Sets the card info per card in the circuit board
-        for (int i = 0; i < ActiveCards.Count; i++)
-        {
-            ActiveCards[i].SetCardInfo(StartingCards[i], this, false);
+            // Sets the new socket reference to the card
+            newCard.ConnectToSocket(ActiveSockets[i]);
+
+            // Sets the card info per card in the circuit board
+            newCard.SetCardInfo(cardList[i], this, false);
         }
     }
 
@@ -67,10 +62,6 @@ public class CircuitBoard : MonoBehaviour
         // After all cards have been processed, deactivate them
         if (activeCardNumber == ActiveCards.Count)
         {
-            for (int i = 0; i < ActiveCards.Count; i++)
-            {
-                ActiveCards[i].DeactivateCard();
-            }
             activeCardNumber = 0;
             return false;
         }

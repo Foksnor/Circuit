@@ -8,7 +8,6 @@ public class CharacterTeams : MonoBehaviour
     public List<Character> PlayerTeamCharacters { get; set; } = new();
     public List<Character> EnemyTeamCharacters { get; set; } = new();
     public Character PlayerTeamKing { get; private set; }    
-    public PlayerCircuitBoard PlayerCircuitboard { get; private set; }
 
     private void Awake()
     {
@@ -21,14 +20,16 @@ public class CharacterTeams : MonoBehaviour
         EnemyTeamCharacters.Clear();
     }
 
+    public void SetPlayerKingIfNoneActive(Character character)
+    {
+        if (PlayerTeamKing == null)
+            SetPlayerKing(character);
+    }
+
     public void SetPlayerKing(Character character)
     {
         PlayerTeamKing = character;
-    }
-
-    public void SetPlayerCircuitboard(PlayerCircuitBoard pcb)
-    {
-        PlayerCircuitboard = pcb;
+        MainCamera.CameraFollowTarget.SetCameraFollowTarget(PlayerTeamKing.transform.gameObject);
     }
 }
 

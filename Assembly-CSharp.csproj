@@ -106,13 +106,16 @@
     <Compile Include="Assets\HelperFunctions.cs" />
     <Compile Include="Assets\Characters\Player\Deck\PlayerHandPanel.cs" />
     <Compile Include="Assets\Characters\Player\HealthBar\HealthSegment.cs" />
+    <Compile Include="Assets\Characters\Player\PlayerCanvas.cs" />
     <Compile Include="Assets\Characters\IDamageable.cs" />
     <Compile Include="Assets\Doozy\_Examples\E23 - Popup - with One Button\ShowOneButtonPopup.cs" />
     <Compile Include="Assets\Characters\Character.cs" />
     <Compile Include="Assets\Doozy\_Examples\E25 - Toggle - UIToggle Animators\ExampleUIToggleAnimators.cs" />
     <Compile Include="Assets\Cards\EnemyCircuitBoard.cs" />
+    <Compile Include="Assets\Characters\Player\PlayerCircuitBoardListener.cs" />
     <Compile Include="Assets\Cards\PlayerLevelScriptableObject.cs" />
     <Compile Include="Assets\UI\ButtonHoverImageSwapSelectable.cs" />
+    <Compile Include="Assets\Characters\Player\CameraFollowTarget.cs" />
     <Compile Include="Assets\Grid\IntExtensions.cs" />
     <Compile Include="Assets\Characters\ITurnSequenceTriggerable.cs" />
     <Compile Include="Assets\TransitionTurns.cs" />
@@ -122,9 +125,8 @@
     <Compile Include="Assets\Cards\CardPrevis.cs" />
     <Compile Include="Assets\Lana Studio\Casual RPG VFX\Demo\Scripts\_InputKeyBoard.cs" />
     <Compile Include="Assets\Characters\Player\ExperienceBar\CardReference.cs" />
-    <Compile Include="Assets\Cards\PlayerCircuitBoard.cs" />
     <Compile Include="Assets\EditorScripts\CardCreator.cs" />
-    <Compile Include="Assets\UI\FreezeXTransformPosition.cs" />
+    <Compile Include="Assets\Characters\Player\PlayerCircuitBoard.cs" />
     <Compile Include="Assets\Characters\Player\ExperienceBar\DelayProgressbar.cs" />
     <Compile Include="Assets\Cards\Attacks\Lifetime.cs" />
     <Compile Include="Assets\Characters\DeathVFX\DeathVFX.cs" />

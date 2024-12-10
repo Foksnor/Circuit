@@ -20,7 +20,7 @@ public class PlayerHandPanel : MonoBehaviour
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
-        Decks.Playerdeck.HandPanel = this;
+        PlayerUI.HandPanel = this;
     }
 
     private void Update()
@@ -94,7 +94,7 @@ public class PlayerHandPanel : MonoBehaviour
                     // Add a card to the draw panel
                     Card shuffleCard = Instantiate(cardToSpawn, targetDiscardCardsTo);
                     CardScriptableObject discardCardScriptableObject = Decks.Playerdeck.CurrentCardsInDiscard[0];
-                    shuffleCard.SetCardInfo(discardCardScriptableObject, Teams.CharacterTeams.PlayerCircuitboard, false);
+                    shuffleCard.SetCardInfo(discardCardScriptableObject, PlayerUI.PlayerCircuitboard, false);
                     shuffleCard.CardPointerInteraction.AssignPosition(targetDrawCardsFrom.position);
                     shuffleCard.SetSelfDestructWhenReachingTargetTransform(targetDrawCardsFrom);
 
@@ -116,7 +116,7 @@ public class PlayerHandPanel : MonoBehaviour
 
             // Places the picked cardscriptable object into the recently instantiated card
             // Also adds the card to current drawn hand to be used later for discard phase
-            newCard.SetCardInfo(newCardScriptableObject, Teams.CharacterTeams.PlayerCircuitboard, true);
+            newCard.SetCardInfo(newCardScriptableObject, PlayerUI.PlayerCircuitboard, true);
 
             // Start the second loop immediately after shuffle
             AssignCardToPanel(newCard);

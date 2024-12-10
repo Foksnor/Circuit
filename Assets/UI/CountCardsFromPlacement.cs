@@ -21,7 +21,7 @@ public class CountCardsFromPlacement : MonoBehaviour
         // Change cardNumber value to what it should be current frame
         switch (cardPlacementType)
         {
-            case _CardPlacement.Hand:
+            case _CardPlacement.Play:
                 cardNumber = Decks.Playerdeck.CurrentCardsInPlay.Count;
                 break;
             case _CardPlacement.Deck:

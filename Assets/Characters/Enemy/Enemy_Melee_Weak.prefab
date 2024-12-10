@@ -493,10 +493,6 @@ MonoBehaviour:
   socketPanel: {fileID: 3296624396141706235}
   card: {fileID: 406596430431226498, guid: 875bf82bf24067243a05baee2b20c410, type: 3}
   socket: {fileID: 8745758731374674600, guid: 4e858a182188b0b498a60da377184ab8, type: 3}
-  activeCards: []
-  activeSockets: []
-  startingCards:
+  StartingCards:
   - {fileID: 11400000, guid: db0bebdf9825b2a46b1c60bdd8828bd1, type: 2}
   - {fileID: 11400000, guid: 6ffeb5a1dbbebec44a81e86ed3c12c91, type: 2}
-  - {fileID: 11400000, guid: 6ffeb5a1dbbebec44a81e86ed3c12c91, type: 2}
-  savedMovementGridCubes: []

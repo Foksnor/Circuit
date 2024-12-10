@@ -7,6 +7,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using Doozy.Runtime.Common.Extensions;
 
+public static class PlayerUI
+{
+    public static PlayerHandPanel HandPanel = null;
+    public static GameObject CardPanel = null;
+    public static GameObject SocketPanel = null;
+    public static PlayerCircuitBoard PlayerCircuitboard { get; set; } = null;
+}
+
 public class PlayerCircuitBoard : CircuitBoard
 {
     [SerializeField] private List<CardScriptableObject> startingCardsInDeck = new List<CardScriptableObject>();
@@ -15,9 +23,41 @@ public class PlayerCircuitBoard : CircuitBoard
 
     protected override void Awake()
     {
+        PlayerUI.PlayerCircuitboard = this;
+        PlayerUI.CardPanel = cardPanel;
+        PlayerUI.SocketPanel = socketPanel;
+
         base.Awake();
-        Teams.CharacterTeams.SetPlayerKing(transform.GetComponent<Character>());
-        Teams.CharacterTeams.SetPlayerCircuitboard(this);
+        LinkPlayerboard();
+    }
+
+    protected override void SetUpCircuitBoard(List<CardScriptableObject> cardList)
+    {
+        // Adds card slots
+        for (int i = 0; i < cardList.Count; i++)
+        {
+            Card newCard = Instantiate(card, cardPanel.transform);
+            ActiveCards.Add(newCard);
+
+            AddSocket();
+
+            // Sets the new socket reference to the card
+            newCard.ConnectToSocket(ActiveSockets[i]);
+
+            // Sets the card info per card in the circuit board
+            newCard.SetCardInfo(cardList[i], this, false);
+        }
+    }
+
+    private void AddSocket()
+    {
+        CardSocket newSocket = Instantiate(socket, socketPanel.transform);
+        ActiveSockets.Add(newSocket);
+    }
+
+    public List<Card> GetActiveCardsList()
+    {
+        return ActiveCards;
     }
 
     private void Update()
@@ -25,10 +65,18 @@ public class PlayerCircuitBoard : CircuitBoard
         UpdateCardPositionsInCircuitBoard();
     }
 
-    public void SetUpPlayerDeck()
+    private void LinkPlayerboard()
+    {
+        cardPanel = PlayerUI.CardPanel;
+        socketPanel = PlayerUI.SocketPanel;
+    }
+
+    public void SetUpNewPlayerDeck()
     {
         // Add starting cards to the player deck
+        Decks.Playerdeck.TotalCardsInDeck.AddRange(StartingCardsInPlay);
         Decks.Playerdeck.TotalCardsInDeck.AddRange(startingCardsInDeck);
+        Decks.Playerdeck.CurrentCardsInPlay.AddRange(StartingCardsInPlay);
         Decks.Playerdeck.CurrentCardsInDeck.AddRange(startingCardsInDeck);
         Decks.Playerdeck.CurrentCardsInDeck.Shuffle();
         UpdateCardsInPlay();
@@ -51,7 +99,7 @@ public class PlayerCircuitBoard : CircuitBoard
         Decks.Playerdeck.TotalCardsInDeck.Add(cardScriptableObject);
         switch (cardData.GetCardPlacement())
         {
-            case _CardPlacement.Hand:
+            case _CardPlacement.Play:
                 Decks.Playerdeck.CurrentCardsInPlay.Add(cardScriptableObject);
                 break;
             case _CardPlacement.Deck:
@@ -81,7 +129,31 @@ public class PlayerCircuitBoard : CircuitBoard
 
     public override bool IsProcessingCards(Character targetCharacter)
     {
-        bool isProcessing = base.IsProcessingCards(targetCharacter);
+        bool isProcessing = true;
+
+        if (timeBetweenCardsPlayed > 0)
+            return true;
+
+        if (activeCardNumber < ActiveCards.Count)
+        {
+            ActiveCards[activeCardNumber].ActivateCard(targetCharacter);
+            timeBetweenCardsPlayed = ActiveCards[activeCardNumber].MaxTimeInUse;
+            activeCardNumber++;
+            isProcessing = true;
+            print("activate card" + activeCardNumber);
+        }
+
+        // After all cards have been processed, deactivate them
+        if (activeCardNumber == ActiveCards.Count)
+        {
+            for (int i = 0; i < ActiveCards.Count; i++)
+            {
+                ActiveCards[i].DeactivateCard();
+            }
+            activeCardNumber = 0;
+            isProcessing = false;
+            print("turn off all cards");
+        }
 
         // Lock the interactable state of cards based on: if the cards are still processing or not
         ToggleInteractableCardState(!isProcessing);

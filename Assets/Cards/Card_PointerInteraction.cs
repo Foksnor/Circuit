@@ -210,14 +210,14 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
         {
             // Add hovered card to hand, and remove it from it's socket
             hoveredCard.ConnectedCircuitboard.RemoveFromSocket(hoveredCard);
-            Decks.Playerdeck.HandPanel.AssignCardToPanel(hoveredCard);
+            PlayerUI.HandPanel.AssignCardToPanel(hoveredCard);
 
             // Add this card to hovered card's circuitboard socket
-            Decks.Playerdeck.HandPanel.RemoveCardFromPanel(card, false);
+            PlayerUI.HandPanel.RemoveCardFromPanel(card, false);
             card.ConnectedCircuitboard.PlaceCardInSocket(card, targetSocket);
 
             // Update card positions in hand after the card swap
-            Decks.Playerdeck.HandPanel.UpdateCardPositions();
+            PlayerUI.HandPanel.UpdateCardPositions();
         }
     }
 
