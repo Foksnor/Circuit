@@ -155,8 +155,7 @@ public class GameDataLoader : MonoBehaviour
         Character characterComponent = SpawnerFunctions.Instance.SpawnSpecificCharacterByName(characterData.GetName(), characterData.GetPosition());
         if (characterComponent != null)
         {
-            characterComponent.Health = characterData.GetHealth();
-            characterComponent.SubtractHealth(0, null);
+            characterComponent.SpawnAtHealth(characterData.GetHealth());
             //characterComponent.SetStatus(characterData.GetStatus(), false);
         }
         else

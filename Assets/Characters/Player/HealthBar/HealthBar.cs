@@ -19,7 +19,7 @@ public class HealthBar : MonoBehaviour
     public void UpdateHealthBar(int maxHealth, int curHealth, int damageReceived)
     {
         // Make healthbar visible as soon as the character gets damaged
-        if (!isShowingHealthbarAtSpawn || damageReceived > 0)
+        if (isShowingHealthbarAtSpawn || damageReceived > 0)
         {
             canvasGroup.alpha = 1;
         }

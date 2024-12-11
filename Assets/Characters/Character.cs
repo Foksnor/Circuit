@@ -99,6 +99,15 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
         StatusType = status;
     }
 
+    public void SpawnAtHealth(int amount)
+    {
+        // Calculate health loss
+        amount = maxHealth - amount;
+
+        // Subtract remainder
+        SubtractHealth(amount, null);
+    }
+
     public void SubtractHealth(int amount, Character instigator)
     {
         if (isInvulnerable)
