@@ -136,10 +136,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TeamType: 0
+  BrainType: 0
   CircuitBoard: {fileID: 0}
   CharacterSpriteRenderer: {fileID: 1227327109424664455}
   characterAnimator: {fileID: 139656261983382513}
-  CharacterSimulation: {fileID: 5176291571335548904, guid: a812bdf64b4d9e245ae6a4d13d02009a, type: 3}
   statusBar: {fileID: 2318703868827311284}
   health: 0
   maxHealth: 0
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 1079
+    m_Bits: 55
 --- !u!114 &4320643496117268043
 MonoBehaviour:
   m_ObjectHideFlags: 0
