@@ -9,7 +9,6 @@ public class Entity_Spawner : MonoBehaviour
     [SerializeField] private Character player;
     private GridCube furthestGridCubeSpawned;
     [SerializeField] float distanceBetweenPlayerAndLastGridCubeBeforeNewChunkSpawns = 11;
-    [SerializeField] private Vector2 startingPosition;
     public List<Character> AllPossibleCharacters;
 
     private void Awake()
@@ -58,20 +57,6 @@ public class Entity_Spawner : MonoBehaviour
         float dist = furthestGridCubeSpawned.Position.y - Teams.CharacterTeams.PlayerTeamKing.transform.position.y;
         if (dist <= distanceBetweenPlayerAndLastGridCubeBeforeNewChunkSpawns)
             InstantiateChunk(biomes[0].GetRandomChunk(), 0, furthestGridCubeSpawned.transform.position, true);
-    }
-
-    public Character SpawnPlayer()
-    {
-        Character p = Instantiate(player);
-        p.name = player.name;
-        player = p;
-
-        Teams.CharacterTeams.SetPlayerKingIfNoneActive(p);
-        GridCube cubePlayerSpawnsOnTopOff = Grid.GridPositions.GetGridByPosition(startingPosition);
-        player.transform.position = cubePlayerSpawnsOnTopOff.transform.position;
-        player.ChangeDestinationGrid(cubePlayerSpawnsOnTopOff, 1);
-        Teams.CharacterTeams.PlayerTeamCharacters.Add(player);
-        return player;
     }
 
     public Character SpawnEnemyAtLevelEdge()

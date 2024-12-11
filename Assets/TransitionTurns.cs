@@ -115,7 +115,6 @@ public class TransitionTurns : MonoBehaviour
     public void InitiateFirstTurn()
     {
         SpawnerFunctions.Instance.InitiateFirstChunk();
-        SpawnerFunctions.Instance.SpawnPlayer();
         PlayerUI.PlayerCircuitboard.SetUpNewPlayerDeck();
         curTurnTime = maxTurnTime;
     }
