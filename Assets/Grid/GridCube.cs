@@ -108,22 +108,36 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
             case _SurfaceType.Water:
                 gridMeshRenderer.enabled = true;
                 gridMeshRenderer.material = gridMatWater;
+
+                // Dousing fire, remove surface
                 if (SurfaceType == _SurfaceType.Burning)
+                {
                     PlaceSurfaceParticle(GlobalSettings.DousedSurface, activeSurfaceParticle.transform.position);
+                    gridMeshRenderer.enabled = false;
+                }
                 break;
             case _SurfaceType.Oil:
                 gridMeshRenderer.enabled = true;
                 gridMeshRenderer.material = gridMatOil;
                 break;
             case _SurfaceType.Burning:
+                StatusType = _StatusType.Fire;
                 gridMeshRenderer.enabled = true;
                 gridMeshRenderer.material = gridMatBurning;
                 Vector3 randomOffset = new Vector3(Random.Range(-0.4f, 0.4f), Random.Range(-0.4f, 0.4f));
                 PlaceSurfaceParticle(GlobalSettings.BurningSurface, transform.position + randomOffset);
                 Instantiate(GlobalSettings.FireChain, transform);
                 SpreadStatus(instigator, _SurfaceType.Oil, _StatusType.Fire);
+
+                // Dousing fire, remove surface
+                if (SurfaceType == _SurfaceType.Burning)
+                {
+                    PlaceSurfaceParticle(GlobalSettings.DousedSurface, activeSurfaceParticle.transform.position);
+                    gridMeshRenderer.enabled = false;
+                }
                 break;
             case _SurfaceType.Electrified:
+                StatusType = _StatusType.Shocked;
                 gridMeshRenderer.enabled = true;
                 gridMeshRenderer.material = gridMatWater;
                 Instantiate(GlobalSettings.ShockChain, transform);
@@ -143,7 +157,6 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
         if (!TurnSequence.TransitionTurns.TurnSequenceTriggerables.Contains(this))
             TurnSequence.TransitionTurns.TurnSequenceTriggerables.Add(this);
 
-        StatusType = status;
         switch (status)
         {
             default:
