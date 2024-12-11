@@ -20,6 +20,7 @@ public class PlayerCircuitBoard : CircuitBoard
     [SerializeField] private List<CardScriptableObject> startingCardsInDeck = new List<CardScriptableObject>();
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private Image timerFill;
+    private List<Character> activeListeners = new();
 
     protected override void Awake()
     {
@@ -46,6 +47,28 @@ public class PlayerCircuitBoard : CircuitBoard
 
             // Sets the card info per card in the circuit board
             newCard.SetCardInfo(cardList[i], this, false);
+        }
+    }
+
+    public override bool IsProcessingCards(Character targetCharacter)
+    {
+        bool isProcessing = base.IsProcessingCards(targetCharacter);
+        ToggleInteractableCardState(isProcessing);
+        return isProcessing;
+    }
+
+    protected override void ActivateSelectedCard(Character targetCharacter)
+    {
+        activeListeners = Teams.CharacterTeams.PlayerTeamCharacters;
+
+        // Add all current player listeners to a list of characters
+        for (int c = 0; c < activeListeners.Count; c++)
+        {
+            if (activeListeners[c].BrainType == Character._BrainType.Listener)
+            {
+                ActiveCards[activeCardNumber].CalculateGridCubeDestination(activeListeners[c], false);
+                ActiveCards[activeCardNumber].ActivateCard(activeListeners[c]);
+            }
         }
     }
 
@@ -125,39 +148,6 @@ public class PlayerCircuitBoard : CircuitBoard
 
         // Reset of the card calculation
         UpdateCardsInPlay();
-    }
-
-    public override bool IsProcessingCards(Character targetCharacter)
-    {
-        bool isProcessing = true;
-
-        if (timeBetweenCardsPlayed > 0)
-            return true;
-
-        if (activeCardNumber < ActiveCards.Count)
-        {
-            ActiveCards[activeCardNumber].ActivateCard(targetCharacter);
-            timeBetweenCardsPlayed = ActiveCards[activeCardNumber].MaxTimeInUse;
-            activeCardNumber++;
-            isProcessing = true;
-            print("activate card" + activeCardNumber);
-        }
-
-        // After all cards have been processed, deactivate them
-        if (activeCardNumber == ActiveCards.Count)
-        {
-            for (int i = 0; i < ActiveCards.Count; i++)
-            {
-                ActiveCards[i].DeactivateCard();
-            }
-            activeCardNumber = 0;
-            isProcessing = false;
-            print("turn off all cards");
-        }
-
-        // Lock the interactable state of cards based on: if the cards are still processing or not
-        ToggleInteractableCardState(!isProcessing);
-        return isProcessing;
     }
 
     public void UpdateCardsInPlay()

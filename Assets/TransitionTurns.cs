@@ -208,14 +208,18 @@ public class TransitionTurns : MonoBehaviour
 
     private bool ProcessTeamCards(List<Character> characterFromTeam)
     {
-        // Show card highlights on player circuitboard when processing player cards
-        PlayerUI.PlayerCircuitboard.IsProcessingCards(null);
-
         bool isTeamTurnActive = false;
+
+        // Only call playercircuit when processing the player team
+        if (characterFromTeam == Teams.CharacterTeams.PlayerTeamCharacters)
+            isTeamTurnActive = PlayerUI.PlayerCircuitboard.IsProcessingCards(null);
+
         for (int i = 0; i < characterFromTeam.Count; i++)
         {
-            isTeamTurnActive = characterFromTeam[i].CircuitBoard.IsProcessingCards(characterFromTeam[i]);
+            if (characterFromTeam[i].BrainType == Character._BrainType.Independent)
+                isTeamTurnActive = characterFromTeam[i].CircuitBoard.IsProcessingCards(characterFromTeam[i]);
         }
+
         return isTeamTurnActive;
     }
 
@@ -223,8 +227,12 @@ public class TransitionTurns : MonoBehaviour
     {
         for (int i = 0; i < characterFromTeam.Count; i++)
         {
-            characterFromTeam[i].CircuitBoard.ResetCardProcessing();
+            if (characterFromTeam[i].BrainType == Character._BrainType.Independent)
+                characterFromTeam[i].CircuitBoard.ResetCardProcessing();
         }
+
+        // Player circuit calls all its card info to each player listener
+        PlayerUI.PlayerCircuitboard.ResetCardProcessing();
     }
 
     private void PlayerDrawPhase()

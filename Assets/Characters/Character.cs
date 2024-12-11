@@ -7,6 +7,8 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
 {
     public _TeamType TeamType;
     public enum _TeamType { Player, Enemy, Neutral };
+    public _BrainType BrainType;
+    public enum _BrainType { Independent, Listener };
     public CircuitBoard CircuitBoard;
     public GridCube AssignedGridCube { private set; get; }
     [SerializeField] public SpriteRenderer CharacterSpriteRenderer = null;

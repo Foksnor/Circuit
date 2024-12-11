@@ -7,7 +7,7 @@ public class CharacterTeams : MonoBehaviour
 {
     public List<Character> PlayerTeamCharacters { get; set; } = new();
     public List<Character> EnemyTeamCharacters { get; set; } = new();
-    public Character PlayerTeamKing { get; private set; }    
+    public Character PlayerTeamKing { get; private set; }
 
     private void Awake()
     {

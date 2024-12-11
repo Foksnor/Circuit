@@ -24,9 +24,9 @@ public class Card : MonoBehaviour
     private Transform targetSelfDestructDestination;
     private List<GridCube> attackedGridTargets = new();
     private GridCube targetedGridForMovement;
-    public float MaxTimeInUse { get; private set; } = 0;
+    public float MaxTimeInUse = 0.5f;
+    //public float MaxTimeInUse { get; private set; } = 0.5f;
     private bool isCardActivated { get; set; } = false;
-    private bool hasParticleSpawnedOnSelf = false;
     [SerializeField] private List<Image> rotatableImageMaterial = new();
 
     public bool IsInHand { get; private set; }
@@ -149,9 +149,7 @@ public class Card : MonoBehaviour
 
     public void DeactivateCard()
     {
-        MaxTimeInUse = 0;
         isCardActivated = false;
-        hasParticleSpawnedOnSelf = false;
     }
 
     private GridCube GetGridOfClosestTarget(GridCube savedGridUsedByPreviousCard)
@@ -382,30 +380,23 @@ public class Card : MonoBehaviour
         }
     }
 
-
     private void SpawnParticleEffectAtGridCube(Character instigator, GridCube cube)
     {
         if (cardScriptableObject.Particle == null)
             return;
 
-        GameObject particle = null;
-
         switch (cardScriptableObject.ParticleLocation)
         {
             case CardScriptableObject._ParticleLocation.OnSelf:
-                if (!hasParticleSpawnedOnSelf)
-                {
-                    particle = Instantiate(cardScriptableObject.Particle, instigator.transform.position, transform.rotation);
-                    hasParticleSpawnedOnSelf = true;
+                GameObject particle = Instantiate(cardScriptableObject.Particle, instigator.transform.position, transform.rotation);
 
-                    // Mirrors the particle transform when the particle is playing backward of character
-                    if (cardScriptableObject.TargetType == CardScriptableObject._TargetType.BackwardOfCharacter)
-                        particle.transform.localScale = new Vector2(-1, 1);
-                }
+                // Mirrors the particle transform when the particle is playing backward of character
+                if (cardScriptableObject.TargetType == CardScriptableObject._TargetType.BackwardOfCharacter)
+                    particle.transform.localScale = new Vector2(-1, 1);
                 break;
             case CardScriptableObject._ParticleLocation.OnDamageTiles:
             case CardScriptableObject._ParticleLocation.OnMovementTiles:
-                particle = Instantiate(cardScriptableObject.Particle, cube.transform.position, transform.rotation);
+                Instantiate(cardScriptableObject.Particle, cube.transform.position, transform.rotation);
                 break;
         }
     }

@@ -69,13 +69,17 @@ PrefabInstance:
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2985683909314406194, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
+      propertyPath: BrainType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2985683909314406194, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
       propertyPath: maxHealth
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2985683909314406194, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
       propertyPath: CircuitBoard
       value: 
-      objectReference: {fileID: 6827947170873157057}
+      objectReference: {fileID: 0}
     - target: {fileID: 2985683909314406194, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
       propertyPath: ExperiencePoint
       value: 
@@ -143,30 +147,5 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4155326752025549204, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6827947170873157057}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
---- !u!1 &7868690243862027606 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4155326752025549204, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
-  m_PrefabInstance: {fileID: 6096074804338836674}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6827947170873157057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7868690243862027606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce719d50416ae7e4c984cc5d9f9b5e45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardPanel: {fileID: 0}
-  socketPanel: {fileID: 0}
-  card: {fileID: 0}
-  socket: {fileID: 0}
-  StartingCardsInPlay: []

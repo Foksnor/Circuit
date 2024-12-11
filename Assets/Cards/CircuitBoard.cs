@@ -51,9 +51,8 @@ public class CircuitBoard : MonoBehaviour
             return true;
 
         if (activeCardNumber < ActiveCards.Count)
-        {            
-            ActiveCards[activeCardNumber].CalculateGridCubeDestination(targetCharacter, false);
-            ActiveCards[activeCardNumber].ActivateCard(targetCharacter);
+        {
+            ActivateSelectedCard(targetCharacter);
             timeBetweenCardsPlayed = ActiveCards[activeCardNumber].MaxTimeInUse;
             activeCardNumber++;
             return true;
@@ -61,11 +60,15 @@ public class CircuitBoard : MonoBehaviour
 
         // After all cards have been processed, deactivate them
         if (activeCardNumber == ActiveCards.Count)
-        {
-            activeCardNumber = 0;
             return false;
-        }
+
         return true;
+    }
+
+    protected virtual void ActivateSelectedCard(Character targetCharacter)
+    {
+        ActiveCards[activeCardNumber].CalculateGridCubeDestination(targetCharacter, false);
+        ActiveCards[activeCardNumber].ActivateCard(targetCharacter);
     }
 
     public void ResetCardProcessing()
