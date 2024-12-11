@@ -6,8 +6,4 @@ public class PlayerCanvas : MonoBehaviour
 {
     [SerializeField] private GameObject playerCardPanel = null;
     [SerializeField] private GameObject playerSocketPanel = null;
-
-    private void Awake()
-    {
-    }
 }

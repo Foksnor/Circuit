@@ -246,7 +246,7 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
     private void BurnCharacter()
     {
         // Burn character
-        Instantiate(GlobalSettings.FireHit, transform);
+        Instantiate(GlobalSettings.FireHit, transform.position, transform.rotation);
         SubtractHealth(GlobalSettings.FireStatus.Damage, null);
 
         // Remove status after burn if character is no longer on a burning surface
