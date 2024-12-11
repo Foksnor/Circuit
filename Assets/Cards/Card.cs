@@ -29,46 +29,50 @@ public class Card : MonoBehaviour
     private bool isCardActivated { get; set; } = false;
     [SerializeField] private List<Image> rotatableImageMaterial = new();
 
-    public bool IsInHand { get; private set; }
+    public bool isCardVisible { get; private set; } = false;
     public CardSocket ConnectedSocket { get; private set; }
     public CircuitBoard ConnectedCircuitboard { get; private set; }
 
-    public void SetCardInfo(CardScriptableObject scriptableObject, CircuitBoard owner, bool setInHand)
+    public void SetCardInfo(CardScriptableObject scriptableObject, CircuitBoard owner, bool isVisible)
     {
         cardScriptableObject = scriptableObject;
         ConnectedCircuitboard = owner;
-        IsInHand = setInHand;
-        nameText.text = cardScriptableObject.CardName;
-        //costText.text = cardScriptableObject.cost.ToString();
-        cardimage.sprite = cardScriptableObject.Sprite;
-        valueText.text = cardScriptableObject.Value.ToString();
-        descriptionText.text = cardScriptableObject.Description;
+        isCardVisible = isVisible;
 
-        // Only show the requirement when necessary
-        if (cardScriptableObject.TargetRequirement.IsNullOrEmpty())
-            TargetRequirementText.transform.gameObject.SetActive(false);
-        else
-            TargetRequirementText.text = cardScriptableObject.TargetRequirement;
-
-        // Set random rotation of the card material so that every card in hand looks a bit different
-        SetRandomMaterialRotation();
-
-        // Sets the material for various images based on card parameters
-        switch (scriptableObject.CardRarity)
+        if (isVisible)
         {
-            case CardScriptableObject._CardRarity.Rare:
-                break;
-            case CardScriptableObject._CardRarity.Epic:
-                break;
-        }
-        switch (scriptableObject.CardStyle)
-        {
-            case CardScriptableObject._CardStyle.Foil:
-                cardBackground.material = foilMat;
-                break;
-            case CardScriptableObject._CardStyle.Golden:
-                cardBackground.material = goldenMat;
-                break;
+            nameText.text = cardScriptableObject.CardName;
+            //costText.text = cardScriptableObject.cost.ToString();
+            cardimage.sprite = cardScriptableObject.Sprite;
+            valueText.text = cardScriptableObject.Value.ToString();
+            descriptionText.text = cardScriptableObject.Description;
+
+            // Only show the requirement when necessary
+            if (cardScriptableObject.TargetRequirement.IsNullOrEmpty())
+                TargetRequirementText.transform.gameObject.SetActive(false);
+            else
+                TargetRequirementText.text = cardScriptableObject.TargetRequirement;
+
+            // Set random rotation of the card material so that every card in hand looks a bit different
+            SetRandomMaterialRotation();
+
+            // Sets the material for various images based on card parameters
+            switch (scriptableObject.CardRarity)
+            {
+                case CardScriptableObject._CardRarity.Rare:
+                    break;
+                case CardScriptableObject._CardRarity.Epic:
+                    break;
+            }
+            switch (scriptableObject.CardStyle)
+            {
+                case CardScriptableObject._CardStyle.Foil:
+                    cardBackground.material = foilMat;
+                    break;
+                case CardScriptableObject._CardStyle.Golden:
+                    cardBackground.material = goldenMat;
+                    break;
+            }
         }
     }
 
@@ -324,7 +328,7 @@ public class Card : MonoBehaviour
         // Calculates the angle between two grids, used for changing the angle of the previs if needed
         Vector3 pos1 = grid1.Position;
         Vector3 pos2 = grid2.Position;
-        float angle = Vector3.Angle(pos1 - pos2, transform.up);
+        float angle = Vector3.Angle(pos1 - pos2, Vector3.up);
 
         // Vector3.Angle always returns an absolute number, so checking whether pos1 is left or right of pos2 to see if the angle needs to be set to a negative        
         Vector3 cross = pos1 - pos2;
@@ -388,7 +392,7 @@ public class Card : MonoBehaviour
         switch (cardScriptableObject.ParticleLocation)
         {
             case CardScriptableObject._ParticleLocation.OnSelf:
-                GameObject particle = Instantiate(cardScriptableObject.Particle, instigator.transform.position, transform.rotation);
+                GameObject particle = Instantiate(cardScriptableObject.Particle, instigator.transform.position, instigator.transform.rotation);
 
                 // Mirrors the particle transform when the particle is playing backward of character
                 if (cardScriptableObject.TargetType == CardScriptableObject._TargetType.BackwardOfCharacter)

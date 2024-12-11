@@ -55,7 +55,7 @@ public class Entity_Spawner : MonoBehaviour
     private void Update()
     {
         // Spawn a new level chunk when a player character is nearing the end of a chunk
-        float dist = furthestGridCubeSpawned.Position.y - player.transform.position.y;
+        float dist = furthestGridCubeSpawned.Position.y - Teams.CharacterTeams.PlayerTeamKing.transform.position.y;
         if (dist <= distanceBetweenPlayerAndLastGridCubeBeforeNewChunkSpawns)
             InstantiateChunk(biomes[0].GetRandomChunk(), 0, furthestGridCubeSpawned.transform.position, true);
     }

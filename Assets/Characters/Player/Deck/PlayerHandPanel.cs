@@ -94,7 +94,7 @@ public class PlayerHandPanel : MonoBehaviour
                     // Add a card to the draw panel
                     Card shuffleCard = Instantiate(cardToSpawn, targetDiscardCardsTo);
                     CardScriptableObject discardCardScriptableObject = Decks.Playerdeck.CurrentCardsInDiscard[0];
-                    shuffleCard.SetCardInfo(discardCardScriptableObject, PlayerUI.PlayerCircuitboard, false);
+                    shuffleCard.SetCardInfo(discardCardScriptableObject, PlayerUI.PlayerCircuitboard, true);
                     shuffleCard.CardPointerInteraction.AssignPosition(targetDrawCardsFrom.position);
                     shuffleCard.SetSelfDestructWhenReachingTargetTransform(targetDrawCardsFrom);
 

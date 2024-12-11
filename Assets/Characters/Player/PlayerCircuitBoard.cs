@@ -46,7 +46,7 @@ public class PlayerCircuitBoard : CircuitBoard
             newCard.ConnectToSocket(ActiveSockets[i]);
 
             // Sets the card info per card in the circuit board
-            newCard.SetCardInfo(cardList[i], this, false);
+            newCard.SetCardInfo(cardList[i], this, true);
         }
     }
 
