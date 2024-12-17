@@ -55,6 +55,10 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        // Only call this method when the card is interactable
+        if (!isInteractable)
+            return;
+
         // Allow the card to read cards underneath is when beign dragged
         canvasGroup.blocksRaycasts = false;
 
@@ -67,6 +71,7 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
 
     public void OnDrag(PointerEventData eventData)
     {
+        // Only call this method when the card is interactable
         if (!isInteractable)
         {
             FeedbackUI.FeedbackPanel.ShowFeedback(FeedbackPanelScriptableObject._FeedbackType.CannotInteractCardDuringEnemyTurn);
@@ -91,6 +96,10 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
 
     private void ManageCardHoverStates()
     {
+        // Only call this method when the card is interactable
+        if (!isInteractable)
+            return;
+
         // Show animation on the card you are hovering over to replace
         if (hoveredGameObject != null)
         {
@@ -146,6 +155,10 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        // Only call this method when the card is interactable
+        if (!isInteractable)
+            return;
+
         // Restore raycast blocking, so card is interactable again
         canvasGroup.blocksRaycasts = true;
         isBeingDragged = false;

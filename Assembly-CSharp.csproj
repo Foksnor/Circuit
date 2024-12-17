@@ -112,7 +112,6 @@
     <Compile Include="Assets\Characters\Character.cs" />
     <Compile Include="Assets\Doozy\_Examples\E25 - Toggle - UIToggle Animators\ExampleUIToggleAnimators.cs" />
     <Compile Include="Assets\Cards\EnemyCircuitBoard.cs" />
-    <Compile Include="Assets\Characters\Player\PlayerCircuitBoardListener.cs" />
     <Compile Include="Assets\Cards\PlayerLevelScriptableObject.cs" />
     <Compile Include="Assets\UI\ButtonHoverImageSwapSelectable.cs" />
     <Compile Include="Assets\Characters\Player\CameraFollowTarget.cs" />

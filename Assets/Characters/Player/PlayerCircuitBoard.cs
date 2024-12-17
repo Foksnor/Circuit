@@ -53,7 +53,9 @@ public class PlayerCircuitBoard : CircuitBoard
     public override bool IsProcessingCards(Character targetCharacter)
     {
         bool isProcessing = base.IsProcessingCards(targetCharacter);
-        ToggleInteractableCardState(isProcessing);
+
+        // Cards should not be able to be interacted with when processing cards
+        ToggleInteractableCardState(!isProcessing);
         return isProcessing;
     }
 
