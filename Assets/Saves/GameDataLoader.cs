@@ -125,6 +125,9 @@ public class GameDataLoader : MonoBehaviour
                 PlayerUI.PlayerCircuitboard.AddCardFromSavefile(cardData);
             }
 
+            // Set up player's circuit board
+            PlayerUI.PlayerCircuitboard.SetUpCircuitBoard(Decks.Playerdeck.CurrentCardsInPlay);
+
             // Spawn characters on the grid
             foreach (CharacterData characterData in dataCollection.characterDataList)
             {

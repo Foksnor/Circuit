@@ -24,7 +24,7 @@ public class CircuitBoard : MonoBehaviour
         SetUpCircuitBoard(StartingCardsInPlay);
     }
 
-    protected virtual void SetUpCircuitBoard(List<CardScriptableObject> cardList)
+    public virtual void SetUpCircuitBoard(List<CardScriptableObject> cardList)
     {
         // Adds card slots
         for (int i = 0; i < cardList.Count; i++)

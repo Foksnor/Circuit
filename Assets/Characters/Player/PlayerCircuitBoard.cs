@@ -28,11 +28,10 @@ public class PlayerCircuitBoard : CircuitBoard
         PlayerUI.CardPanel = cardPanel;
         PlayerUI.SocketPanel = socketPanel;
 
-        base.Awake();
         LinkPlayerboard();
     }
 
-    protected override void SetUpCircuitBoard(List<CardScriptableObject> cardList)
+    public override void SetUpCircuitBoard(List<CardScriptableObject> cardList)
     {
         // Adds card slots
         for (int i = 0; i < cardList.Count; i++)
@@ -104,6 +103,7 @@ public class PlayerCircuitBoard : CircuitBoard
         Decks.Playerdeck.CurrentCardsInPlay.AddRange(StartingCardsInPlay);
         Decks.Playerdeck.CurrentCardsInDeck.AddRange(startingCardsInDeck);
         Decks.Playerdeck.CurrentCardsInDeck.Shuffle();
+        SetUpCircuitBoard(StartingCardsInPlay);
         UpdateCardsInPlay();
     }
 
