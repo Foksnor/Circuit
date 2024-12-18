@@ -857,9 +857,10 @@ MonoBehaviour:
   valueText: {fileID: 2319269296639445424}
   TargetRequirementText: {fileID: 3977214859969708480}
   descriptionText: {fileID: 8232764572954507145}
-  cardAnimator: {fileID: 5947722889063295983}
   feedbackAnimator: {fileID: 6178865725327028863}
+  cardAnimator: {fileID: 5947722889063295983}
   CardPointerInteraction: {fileID: 7627014054633805148}
+  MaxTimeInUse: 0.5
   rotatableImageMaterial:
   - {fileID: 8913939188288731921}
 --- !u!95 &5947722889063295983

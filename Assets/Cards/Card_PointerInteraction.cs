@@ -248,10 +248,13 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
     public void OnPointerEnter(PointerEventData eventData)
     {
         // QQQQ TODO: Add that card shows tooltip on hover when no cards are beign dragged
+        if (!eventData.dragging)
+            animator.SetBool("isShowingTooltip", true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         // QQQQ TODO: Add that card hides tooltip if possible
+        animator.SetBool("isShowingTooltip", false);
     }
 }
