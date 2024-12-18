@@ -4,13 +4,17 @@ using System.Linq;
 using System.Xml.Serialization;
 using UnityEngine;
 
-public class Entity_Spawner : MonoBehaviour
+public class Entity_Spawner : MonoBehaviour, ITurnSequenceTriggerable
 {
     [SerializeField] private List<BiomeScriptableObject> biomes = new();
     [SerializeField] private Character player;
     private GridCube furthestGridCubeSpawned;
     [SerializeField] float distanceBetweenPlayerAndLastGridCubeBeforeNewChunkSpawns = 11;
     public List<Character> AllPossibleCharacters;
+
+    // Player respawn
+    private Vector3 savedPlayerSpawnLocation = Vector3.zero;
+    private bool spawnPlayerAtEndTurn = false;
 
     private void Awake()
     {
@@ -42,11 +46,6 @@ public class Entity_Spawner : MonoBehaviour
         }
     }
 
-    public void InstantiatePlayer(Vector3 spawnPosition)
-    {
-        SpawnSpecificCharacter(player, spawnPosition, Character._TeamType.Player);
-    }
-
     public void InstantiateChunk(BiomeChunk chunk, int biomeID, Vector3 spawnPosition, bool enableCharacterSpawners)
     {
         BiomeChunk newChunk = Instantiate(chunk, spawnPosition, transform.rotation, transform);
@@ -60,9 +59,12 @@ public class Entity_Spawner : MonoBehaviour
     private void Update()
     {
         // Spawn a new level chunk when a player character is nearing the end of a chunk
-        float dist = furthestGridCubeSpawned.Position.y - Teams.CharacterTeams.PlayerTeamKing.transform.position.y;
-        if (dist <= distanceBetweenPlayerAndLastGridCubeBeforeNewChunkSpawns)
-            InstantiateChunk(biomes[0].GetRandomChunk(), 0, furthestGridCubeSpawned.transform.position, true);
+        if (Teams.CharacterTeams.PlayerTeamKing != null)
+        {
+            float dist = furthestGridCubeSpawned.Position.y - Teams.CharacterTeams.PlayerTeamKing.transform.position.y;
+            if (dist <= distanceBetweenPlayerAndLastGridCubeBeforeNewChunkSpawns)
+                InstantiateChunk(biomes[0].GetRandomChunk(), 0, furthestGridCubeSpawned.transform.position, true);
+        }
     }
 
     public Character SpawnEnemyAtLevelEdge()
@@ -111,6 +113,50 @@ public class Entity_Spawner : MonoBehaviour
                 break;
         }
         return c;
+    }
+
+    public void SpawnPlayerAtEndTurn(Vector3 spawnPosition)
+    {
+        savedPlayerSpawnLocation = spawnPosition;
+        spawnPlayerAtEndTurn = true;
+        TurnSequence.TransitionTurns.TurnSequenceTriggerables.Add(this);
+    }
+
+    public void InstantiatePlayer()
+    {
+        // Remove character on this grid incase an enemy walked on the spawn location after killing previous player
+        GridCube spawngrid = Grid.GridPositions.GetGridByPosition(savedPlayerSpawnLocation);
+        spawngrid.KillCharacterOnGrid();
+
+        Character c = SpawnSpecificCharacter(player, savedPlayerSpawnLocation, Character._TeamType.Player);
+        c.PlaySummonAnimations();
+    }
+
+    // ITurnSequenceTriggerable interface
+    public void OnStartPlayerTurn()
+    {
+    }
+
+    public void OnStartEnemyTurn()
+    {
+    }
+
+    public void OnEndstep()
+    {
+    }
+
+    public void OnEndTurn()
+    {
+        // Player respawn
+        if (spawnPlayerAtEndTurn)
+        {
+            InstantiatePlayer();
+            spawnPlayerAtEndTurn = false;
+        }
+    }
+
+    public void OnUpkeep()
+    {
     }
 }
 

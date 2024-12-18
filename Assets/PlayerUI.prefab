@@ -717,7 +717,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 13.45
+  m_fontSize: 13.35
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3043,6 +3043,7 @@ MonoBehaviour:
   textMeshPro: {fileID: 931016669223024431}
   feedbackPanelScriptableObjects:
   - {fileID: 11400000, guid: fa051561eca148e4a8eb3a2db072af24, type: 2}
+  - {fileID: 11400000, guid: b449d3d5a3d86cf41aa8e9a090930bea, type: 2}
 --- !u!1 &3316162041823993416
 GameObject:
   m_ObjectHideFlags: 0

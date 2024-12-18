@@ -4,7 +4,7 @@ using UnityEngine;
 public class FeedbackPanelScriptableObject : ScriptableObject
 {
     public _FeedbackType FeedbackType;
-    public enum _FeedbackType { CannotInteractCardDuringEnemyTurn = 0 };
+    public enum _FeedbackType { CannotInteractCardDuringEnemyTurn, LifeLost };
     public string FeedbackText = null;
     public float FeedbackDuration = 2;
 }

@@ -42,6 +42,11 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
         maxHealth = health;
     }
 
+    public void PlaySummonAnimations()
+    {
+        characterAnimator.Play("A_Spawn");
+    }
+
     private void Update()
     {
         MoveCharacter();
@@ -56,11 +61,11 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
         // Remove character reference on grid
         // First time this function has passed, the character hasn't been assigned a gridcube yet
         if (AssignedGridCube != null)
-            AssignedGridCube.RemoveCharacterOnGrid(this);
+            AssignedGridCube.RemoveCharacterReferenceOnGrid(this);
 
         // Place character reference on the new grid
         AssignedGridCube = newDestinationInGrid;
-        AssignedGridCube.SetCharacterOnGrid(this);
+        AssignedGridCube.SetCharacterReferenceOnGrid(this);
 
         // cardplayspeed is used for things such as time required for the character to reach it's destination cube
         cardPlaySpeed = 1 / speedModifier;
@@ -121,6 +126,11 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
             Die(instigator);
     }
 
+    public void KillSelf()
+    {
+        Die(null);
+    }
+
     protected virtual void Die(Character instigator)
     {
         // Spawn death VFX
@@ -149,7 +159,8 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
             if (curlives > 0)
             {
                 Teams.CharacterTeams.RemovePlayerKing();
-                SpawnerFunctions.Instance.InstantiatePlayer(AssignedGridCube.Position);
+                FeedbackUI.FeedbackPanel.ShowFeedback(FeedbackPanelScriptableObject._FeedbackType.LifeLost);
+                SpawnerFunctions.Instance.SpawnPlayerAtEndTurn(AssignedGridCube.Position);
             }
         }
         Destroy(gameObject);
@@ -161,7 +172,7 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
         // Remove character from their list before destroying it to prevent null references.
         Teams.CharacterTeams.PlayerTeamCharacters.Remove(this);
         Teams.CharacterTeams.EnemyTeamCharacters.Remove(this);
-        AssignedGridCube.RemoveCharacterOnGrid(this);
+        AssignedGridCube.RemoveCharacterReferenceOnGrid(this);
     }
 
     public virtual void RefreshCharacterSimulation()

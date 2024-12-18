@@ -77,7 +77,7 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
         return indicatorvisual;
     }
 
-    public void SetCharacterOnGrid(Character character)
+    public void SetCharacterReferenceOnGrid(Character character)
     {
         CharacterOnThisGrid = character;
         textMeshCharacterRef.text = character.name;
@@ -86,7 +86,7 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
         character.SetStatus(StatusType, true);
     }
 
-    public void RemoveCharacterOnGrid(Character character)
+    public void RemoveCharacterReferenceOnGrid(Character character)
     {
         if (CharacterOnThisGrid == character)
         {
@@ -94,6 +94,11 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
             if (textMeshCharacterRef != null)
                 textMeshCharacterRef.text = "";
         }
+    }
+
+    public void KillCharacterOnGrid()
+    {
+        CharacterOnThisGrid.KillSelf();
     }
 
     public void ToggleSurface(Character instigator, _SurfaceType surfaceEffect)
