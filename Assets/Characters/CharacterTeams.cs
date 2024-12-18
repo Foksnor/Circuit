@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.TextCore.Text;
 
 public class CharacterTeams : MonoBehaviour
 {
@@ -30,6 +31,12 @@ public class CharacterTeams : MonoBehaviour
     {
         PlayerTeamKing = character;
         MainCamera.CameraFollowTarget.SetCameraFollowTarget(PlayerTeamKing.transform.gameObject);
+    }
+
+    public void RemovePlayerKing()
+    {
+        PlayerTeamKing = null;
+        MainCamera.CameraFollowTarget.SetCameraFollowTarget(null);
     }
 }
 

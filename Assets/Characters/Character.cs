@@ -141,6 +141,17 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
                 }
             }
 
+        // If this player is the player team king...
+        if (this == Teams.CharacterTeams.PlayerTeamKing)
+        {
+            // ...Subtract one life, and respawn if possible
+            int curlives = PlayerStats.LifePanel.AdjustLifeCount(-1);
+            if (curlives > 0)
+            {
+                Teams.CharacterTeams.RemovePlayerKing();
+                SpawnerFunctions.Instance.InstantiatePlayer(AssignedGridCube.Position);
+            }
+        }
         Destroy(gameObject);
     }
 

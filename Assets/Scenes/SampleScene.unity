@@ -141,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 998628409072021195, guid: 16d23c48135e4fa46859c551783f30c1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00006556511
+      value: -0.000045776367
       objectReference: {fileID: 0}
     - target: {fileID: 1648440396943921819, guid: 16d23c48135e4fa46859c551783f30c1, type: 3}
       propertyPath: m_AnchorMax.x
@@ -241,7 +241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7484888144303230668, guid: 16d23c48135e4fa46859c551783f30c1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00006556511
+      value: -0.000045776367
       objectReference: {fileID: 0}
     - target: {fileID: 7630122817690569055, guid: 16d23c48135e4fa46859c551783f30c1, type: 3}
       propertyPath: m_AnchorMax.x
@@ -755,7 +755,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 351459753bb3e5b419fcf611c2a970c2, type: 2}
   player: {fileID: 9076684052481418224, guid: 60eff325b3bb1654db28c9d760edd514, type: 3}
   distanceBetweenPlayerAndLastGridCubeBeforeNewChunkSpawns: 11
-  startingPosition: {x: 2, y: 3}
   AllPossibleCharacters:
   - {fileID: 9076684052481418224, guid: 60eff325b3bb1654db28c9d760edd514, type: 3}
   - {fileID: 1957793412199929724, guid: 69023d50af278324b87b5202712490ae, type: 3}

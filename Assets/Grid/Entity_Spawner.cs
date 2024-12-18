@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class Entity_Spawner : MonoBehaviour
@@ -39,6 +40,11 @@ public class Entity_Spawner : MonoBehaviour
         {
             Debug.LogError($"Cannot find chunk '{name}' to instantiate!");
         }
+    }
+
+    public void InstantiatePlayer(Vector3 spawnPosition)
+    {
+        SpawnSpecificCharacter(player, spawnPosition, Character._TeamType.Player);
     }
 
     public void InstantiateChunk(BiomeChunk chunk, int biomeID, Vector3 spawnPosition, bool enableCharacterSpawners)

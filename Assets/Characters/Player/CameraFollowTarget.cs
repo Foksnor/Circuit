@@ -19,7 +19,6 @@ public class CameraFollowTarget : MonoBehaviour
 
     void Update()
     {
-        // Temp x-axis location until I have dynamically changing depth in levels
         if (targetToFollow != null)
             transform.position = targetToFollow.transform.position + cameraOffset;
         else
