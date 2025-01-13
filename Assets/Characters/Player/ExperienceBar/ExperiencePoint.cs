@@ -53,16 +53,25 @@ public class ExperiencePoint : MonoBehaviour
 
     private void MoveToExperienceBar()
     {
-        float curExpFill = PlayerStats.ExperienceBar.curExpFill;
-        if (curExpFill >= 0)
-            curExpFill *= Screen.width;
+        // Get the screen position of the UI element
+        Vector3 screenPosition = PlayerStats.ExperienceBar.GetProgressBarRectTransform().position;
 
-        Vector3 xpBarPos = Camera.main.ScreenToWorldPoint(new Vector3(curExpFill, Screen.height, 0));
-        transform.position = Vector3.Lerp(transform.position, xpBarPos, curTime * moveSpeed);
+        // Adjusts the screenPosition to the amount of current experience of the bar
+        float curExpFill = PlayerStats.ExperienceBar.curExpFill;
+        screenPosition.x *= curExpFill * 2; // the 'times 2' is because the pivot of the rect transform is half the screen size
+
+        // Calculate the Z depth based on the world object's position relative to the camera
+        float worldObjectZDepth = Mathf.Abs(Camera.main.transform.position.z - spawnSpreadTargetLocation.z);
+
+        // Convert the screen position to world position
+        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(screenPosition.x, screenPosition.y, worldObjectZDepth));
+
+        // Move the world object to the calculated world position
+        transform.position = Vector3.Lerp(transform.position, worldPosition, curTime * moveSpeed);
 
         // Add XP to player once it reaches the XP bar
-        float dist = Vector3.Distance(transform.position, xpBarPos);
-        if (dist <= 0.5f)
+        float dist = Vector3.Distance(transform.position, worldPosition);
+        if (dist <= 0.05f)
         {
             PlayerStats.ExperienceBar.AddExperiencePoints(1);
             Instantiate(particleWhenHittingXPBar, transform.position, transform.rotation);

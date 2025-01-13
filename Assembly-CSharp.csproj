@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\Characters\Player\ExperienceBar\RewardScreen.cs" />
     <Compile Include="Assets\Characters\TransformBillboard.cs" />
+    <Compile Include="Assets\UI\UISetStaticScreenSpace.cs" />
     <Compile Include="Assets\UI\ButtonHoverImageSwap.cs" />
     <Compile Include="Assets\Characters\Player\Feedback Interactions\FeedbackPanelScriptableObject.cs" />
     <Compile Include="Assets\GridPositions.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Assets\Lana Studio\Casual RPG VFX\Demo\Scripts\ObjectsSwitcher.cs" />
     <Compile Include="Assets\Characters\CharacterTeams.cs" />
     <Compile Include="Assets\Doozy\_Examples\E24 - Popup - with Two Buttons\ShowTwoButtonsPopup.cs" />
+    <Compile Include="Assets\Characters\Player\LifePanel\LifePanel.cs" />
     <Compile Include="Assets\UI\DebugMenu.cs" />
     <Compile Include="Assets\Lana Studio\Casual RPG VFX\Scripts\UVscroll.cs" />
     <Compile Include="Assets\Saves\GameDataLoader.cs" />

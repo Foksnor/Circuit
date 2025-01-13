@@ -949,7 +949,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0
+  m_FillAmount: 0.699
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -1030,6 +1030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progressor: {fileID: 6803945945073449036}
+  progressBarRectTransform: {fileID: 6038576840043928073}
   playerlevels:
   - {fileID: 11400000, guid: a178e098d54baf34fa4eb8af3f392ea5, type: 2}
   - {fileID: 11400000, guid: 79ea1b74c84c6f74c86d1cba65d8f054, type: 2}

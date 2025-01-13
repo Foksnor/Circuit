@@ -2,13 +2,14 @@ using Doozy.Runtime.Reactor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ExperienceBar : MonoBehaviour
 {
-    [SerializeField]
-    private Progressor progressor;
+    [SerializeField] private Progressor progressor;
     private float experiencePoints;
     private int currentPlayerLevel = 0;
+    [SerializeField] private RectTransform progressBarRectTransform;
     public float curExpFill { private set; get; } = 0f;
     [SerializeField] private PlayerLevelScriptableObject[] playerlevels;
     public PlayerLevelScriptableObject[] Playerlevels
@@ -49,5 +50,10 @@ public class ExperienceBar : MonoBehaviour
             currentPlayerLevel += 1;
         // Correct xp bar visual progression with the new level requirement
         AddExperiencePoints(0);
+    }
+
+    public RectTransform GetProgressBarRectTransform()
+    {
+        return progressBarRectTransform;
     }
 }

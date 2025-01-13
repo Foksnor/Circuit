@@ -9,6 +9,7 @@ using Doozy.Runtime.Common.Extensions;
 
 public static class PlayerUI
 {
+    public static Canvas CanvasScreenSpace { get; set; } = null;
     public static PlayerHandPanel HandPanel = null;
     public static GameObject CardPanel = null;
     public static GameObject SocketPanel = null;
