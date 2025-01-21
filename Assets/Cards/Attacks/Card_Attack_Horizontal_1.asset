@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Card_Attack_Horizontal_1
   m_EditorClassIdentifier: 
   CardType: 1
+  CardActions:
+  - {fileID: 0}
   CardRarity: 0
   CardStyle: 0
   CardName: Claw

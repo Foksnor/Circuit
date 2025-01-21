@@ -67,11 +67,13 @@
     <Compile Include="Assets\UI\ButtonHoverImageSwap.cs" />
     <Compile Include="Assets\Characters\Player\Feedback Interactions\FeedbackPanelScriptableObject.cs" />
     <Compile Include="Assets\GridPositions.cs" />
+    <Compile Include="Assets\Cards\Card Creation\CardBehaviour.cs" />
     <Compile Include="Assets\Grid\Entity_Spawner.cs" />
     <Compile Include="Assets\Cards\CircuitBoard.cs" />
     <Compile Include="Assets\Cards\Card.cs" />
     <Compile Include="Assets\Doozy\_Examples\E22 - Popup - without Buttons\ShowSimplePopup.cs" />
     <Compile Include="Assets\Characters\Player\Feedback Interactions\FeedbackPanel.cs" />
+    <Compile Include="Assets\Cards\Card Creation\CardSequenceData.cs" />
     <Compile Include="Assets\Characters\CharacterHitFlash.cs" />
     <Compile Include="Assets\Grid\Biome\BiomeScriptableObject.cs" />
     <Compile Include="Assets\Characters\ApplyMainCameraToCanvas.cs" />
@@ -98,6 +100,7 @@
     <Compile Include="Assets\Characters\Player\Deck\PlayerDeck.cs" />
     <Compile Include="Assets\UI\CountCardsFromPlacement.cs" />
     <Compile Include="Assets\Characters\Player\StatusBar\StatusBar.cs" />
+    <Compile Include="Assets\Cards\Card Creation\GridSelectorEditor.cs" />
     <Compile Include="Assets\Characters\Player\ExperienceBar\CardReward.cs" />
     <Compile Include="Assets\Characters\Player\Deck\UI_PopulateCardsInContainer.cs" />
     <Compile Include="Assets\Characters\Player\Deck\UI_ToggleAnimatorBool.cs" />
@@ -133,10 +136,12 @@
     <Compile Include="Assets\Characters\DeathVFX\DeathVFX.cs" />
     <Compile Include="Assets\Characters\CharacterSpawnpoint.cs" />
     <Compile Include="Assets\Grid\GridCube.cs" />
+    <Compile Include="Assets\Cards\Card Creation\CardActionData.cs" />
     <Compile Include="Assets\Cards\CardScriptableObject.cs" />
     <Compile Include="Assets\Characters\Player\HealthBar\HealthPanel.cs" />
     <Compile Include="Assets\Characters\Objects\SpreadSurfaceTypeOnDeath.cs" />
     <Compile Include="Assets\Characters\Player\Button_PreviewTurn.cs" />
+    <Compile Include="Assets\Cards\Card Creation\GridSelector.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Doozy\_Extras\Fonts\UFL.txt" />

@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class CardScriptableObject : ScriptableObject
 {
     public _CardType CardType;
     public enum _CardType { Movement, Attack, ElementFire, ElementShock };
+    public CardSequenceData ActionSequence;
     public _CardRarity CardRarity;
     public enum _CardRarity { Basic, Rare, Epic };
     public _CardStyle CardStyle;

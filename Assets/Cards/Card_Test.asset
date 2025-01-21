@@ -13,17 +13,40 @@ MonoBehaviour:
   m_Name: Card_Test
   m_EditorClassIdentifier: 
   CardType: 1
+  ActionSequence:
+    TargetRequirement: {fileID: 0}
+    Actions:
+    - CardAction: 2
+      Particle: {fileID: 0}
+      Value: 1
+      ActionSequence:
+        TargetRequirement: {fileID: 0}
+        Actions: []
+    - CardAction: 13
+      Particle: {fileID: 0}
+      Value: 0
+      ActionSequence:
+        TargetRequirement: {fileID: 11400000, guid: 48a83d7274fc45a449a2595f09f03faa, type: 2}
+        Actions:
+        - CardAction: 0
+          Particle: {fileID: 0}
+          Value: 0
+          ActionSequence:
+            TargetRequirement: {fileID: 0}
+            Actions: []
+  CardRarity: 0
+  CardStyle: 0
   CardName: 
   Cost: 0
   Sprite: {fileID: 21300000, guid: 130504615e8373e4782badaca63f2c52, type: 3}
   Sound: {fileID: 0}
   Particle: {fileID: 5493082302257829311, guid: d1815482534fbca4d8307719bc8f28df, type: 3}
+  ParticleLocation: 0
   TargetType: 0
-  MoveStepsX: 0
-  MoveStepsY: 0
-  AttackStepsX: 7
-  AttackStepsY: 4
-  AttackOffsetY: 1
+  MoveSteps: {x: 0, y: 0}
+  AttackSteps: {x: 0, y: 0}
+  AttackOffset: 0
   Value: 0
+  TargetRequirement: 
   Description: Moves the player 1 step forward.
-  CardHighlightTime: 1.5
+  MaxTimeInUse: 0.5
