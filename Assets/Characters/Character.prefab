@@ -146,6 +146,7 @@ MonoBehaviour:
   healthBar: {fileID: 8073275927757379373}
   hitFlashComponent: {fileID: 2738305021291942433}
   deathVFX: {fileID: 6365781379737220186, guid: 6be02c20730e74749bb93c43639905cb, type: 3}
+  corpseObject: {fileID: 6315914111515130532, guid: db9e3b2bdf4910e4da09684548276520, type: 3}
   spawnObjectOnDeath: {fileID: 0}
   ExperiencePoint: {fileID: 6649261707910977894, guid: c2a193ce76f91f343820b7b179602084, type: 3}
   ExperienceAmountOnDeath: 3

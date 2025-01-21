@@ -26,6 +26,7 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
     [SerializeField] private Sprite[] randomFloorSprite;
     [SerializeField] private GameObject visualElevation = null;
     public Character CharacterOnThisGrid { private set; get; }
+    public GameObject CorpseOnThisGrid { private set; get; }
     public GameObject MovementPlayerIndicator, DamagePlayerIndicator,
                         MovementEnemyIndicator, DamageEnemyIndicator;
 
@@ -99,6 +100,11 @@ public class GridCube : MonoBehaviour, ITurnSequenceTriggerable
     public void KillCharacterOnGrid()
     {
         CharacterOnThisGrid.KillSelf();
+    }
+
+    public void SetCorpseReferenceOnGrid(GameObject corpse)
+    {
+        CorpseOnThisGrid = corpse;
     }
 
     public void ToggleSurface(Character instigator, _SurfaceType surfaceEffect)

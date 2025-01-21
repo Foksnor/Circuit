@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Serialization;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class Entity_Spawner : MonoBehaviour, ITurnSequenceTriggerable
 {
@@ -131,6 +132,19 @@ public class Entity_Spawner : MonoBehaviour, ITurnSequenceTriggerable
         Character c = SpawnSpecificCharacter(player, savedPlayerSpawnLocation, Character._TeamType.Player);
         c.PlaySummonAnimations();
     }
+
+    public void SpawnCorpse(GameObject corpseType, GridCube gridpos)
+    {
+        // Only spawn a corpse when there is space for it
+        if (gridpos.CorpseOnThisGrid == null)
+        {
+            GameObject corpse = Instantiate(corpseType);
+            corpse.name = corpseType.name;
+            gridpos.SetCorpseReferenceOnGrid(corpse);
+            corpse.transform.position = gridpos.transform.position;
+        }
+    }
+
 
     // ITurnSequenceTriggerable interface
     public void OnStartPlayerTurn()

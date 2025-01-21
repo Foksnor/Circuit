@@ -28,6 +28,7 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
 
     // Death
     [SerializeField] private DeathVFX deathVFX = null;
+    [SerializeField] private GameObject corpseObject = null;
     [SerializeField] private GameObject spawnObjectOnDeath = null;
     [SerializeField] private GameObject ExperiencePoint = null;
     [SerializeField] private int ExperienceAmountOnDeath = 3;
@@ -133,6 +134,9 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
 
     protected virtual void Die(Character instigator)
     {
+        // Spawns corpse on death location
+        SpawnerFunctions.Instance.SpawnCorpse(corpseObject, AssignedGridCube);
+
         // Spawn death VFX
         DeathVFX deathobj = Instantiate(deathVFX, transform.position, transform.rotation);
         deathobj.SetDeathVFXCharacterVisual(CharacterSpriteRenderer.sprite);
