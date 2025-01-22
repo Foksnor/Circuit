@@ -23,8 +23,11 @@ public class CardBehaviour : MonoBehaviour
                 {
                     Vector2 targetPos = instigator.AssignedGridCube.Position + targets.RelativeSelectedPositions[i];
                     GridCube targetGrid = Grid.GridPositions.GetGridByPosition(targetPos);
-                    if (targetGrid.CharacterOnThisGrid != null)
-                        targetGrid.CharacterOnThisGrid.SubtractHealth((int)value, instigator);
+                    if (ValidateGridPosition.CanAttack(instigator.AssignedGridCube, targetGrid))
+                    {
+                        if (targetGrid.CharacterOnThisGrid != null)
+                            targetGrid.CharacterOnThisGrid.SubtractHealth((int)value, instigator);
+                    }
                 }
                 break;
             case _CardAction.Heal:

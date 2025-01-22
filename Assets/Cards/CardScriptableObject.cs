@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class CardScriptableObject : ScriptableObject
 {
     public _CardType CardType;
-    public enum _CardType { Movement, Attack, ElementFire, ElementShock };
+    public enum _CardType { Movement, Attack };
     public CardSequenceData ActionSequence;
     public _CardRarity CardRarity;
     public enum _CardRarity { Basic, Rare, Epic };
@@ -18,11 +18,7 @@ public class CardScriptableObject : ScriptableObject
     public int Cost;
     public Sprite Sprite;
     public AudioClip Sound;
-    public _TargetType TargetType;
-    public enum _TargetType { ForwardOfCharacter, BackwardOfCharacter, NearestAlly, NearestEnemy, Self };
     public Vector2Int MoveSteps;
-    public Vector2Int AttackSteps;
-    public int AttackOffset;
     public int Value;
     public string TargetRequirement = "";
     public string Description = "";

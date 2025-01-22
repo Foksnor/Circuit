@@ -23,7 +23,7 @@ public static class ValidateGridPosition
         return true;
     }
 
-    public static bool CanAttack(GridCube startingCube, GridCube destinationCube, int attackOffsetY)
+    public static bool CanAttack(GridCube startingCube, GridCube destinationCube)
     {
         if (IsDesitionationTooHigh(startingCube, destinationCube))
             return false;

@@ -247,47 +247,8 @@ public class Card : MonoBehaviour
                 break;
         }
 
-        // Attack
-        if (cardScriptableObject.CardType == CardScriptableObject._CardType.Attack)
-        {
-            // Empty the list before adding attack positions
-            // List gets cleared everytime because the character can be updating their position before commiting to the attack
-            attackedGridTargets.Clear();
-
-            for (int attackStepY = 1; attackStepY < attackSteps.y + 1; attackStepY++)
-            {
-                // Handles the Y steps in the attack
-                Vector2 attackPosAfterStepY = new Vector2 (targetGrid.Position.x, targetGrid.Position.y + (attackStepY * directionMultiplier));
-
-                // Offset the attack width so the attack is always centered
-                int attackWidthOffset = 1 + Mathf.CeilToInt(attackSteps.x / 2);
-
-                for (int attackStepX = 1; attackStepX < attackSteps.x + 1; attackStepX++)
-                {
-                    Vector2 attackPosAfterStepX = new Vector2 (attackPosAfterStepY.x - attackWidthOffset + attackStepX, attackPosAfterStepY.y);
-                    GridCube result = Grid.GridPositions.GetGridByPosition(attackPosAfterStepX);
-                    if (result != null)
-                    {
-                        // Handles X steps in the attack
-                        if (ValidateGridPosition.CanAttack(targetGrid, result, attackStepY))
-                        {
-                            targetGrid = result;
-                            // Tile based previs
-                            GameObject tilevisual = targetGrid.GetIndicatorVisual(instigator, cardScriptableObject);
-                            instigator.ToggleTilePrevis(isSetupPhase, tilevisual, 0);
-                            attackedGridTargets.Add(targetGrid);
-                        }
-                    }
-                }
-            }
-
-            // Save target location for movement during set up phase
-            targetedGridForMovement = targetGrid;
-
-            return targetGrid;
-        }
         // Movement
-        else if (cardScriptableObject.CardType == CardScriptableObject._CardType.Movement)
+        if (cardScriptableObject.CardType == CardScriptableObject._CardType.Movement)
         {
             for (int stepLength = 0; stepLength < Mathf.Abs(moveSteps.y); stepLength++)
             {
