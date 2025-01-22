@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Sirenix.Utilities;
 
 public enum _TargetRequirementType
 {
@@ -9,9 +10,9 @@ public enum _TargetRequirementType
 [CreateAssetMenu(fileName = "GridSelector", menuName = "ScriptableObject/Grid Selector")]
 public class GridSelector : ScriptableObject
 {
-    public List<Vector2Int> SelectedPositions = new(); // Absolute positions
-    public List<Vector2Int> RelativeSelectedPositions = new(); // Relative positions
-    public Vector2Int? PlayerPosition = null; // Player position
+    public List<Vector2Int> SelectedPositions = new();
+    public List<Vector2Int> RelativeSelectedPositions = new();
+    public List<Vector2Int> PlayerPosition = new(); // List, because Unity doesn't like nullable vectorInt
     public _TargetRequirementType AutoTargetType;
     public int MaxRange;
     public int RepeatCountForDifferentCharacters;
@@ -20,11 +21,11 @@ public class GridSelector : ScriptableObject
     public void UpdateRelativePositions()
     {
         RelativeSelectedPositions.Clear();
-        if (PlayerPosition.HasValue)
+        if (!PlayerPosition.IsNullOrEmpty())
         {
             foreach (var pos in SelectedPositions)
             {
-                RelativeSelectedPositions.Add(pos - PlayerPosition.Value);
+                RelativeSelectedPositions.Add(pos - PlayerPosition[0]);
             }
         }
         else

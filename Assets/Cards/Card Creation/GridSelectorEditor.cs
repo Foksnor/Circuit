@@ -1,3 +1,4 @@
+using Sirenix.Utilities;
 using UnityEditor;
 using UnityEngine;
 
@@ -16,6 +17,10 @@ public class GridSelectorEditor : Editor
         SerializedObject serializedObject = new SerializedObject(gridSelector);
         serializedObject.Update();
 
+        // Update the relative positions
+        gridSelector.UpdateRelativePositions();
+
+
         // Serialized properties for the additional variables
         SerializedProperty autoTargetType = serializedObject.FindProperty("AutoTargetType");
         SerializedProperty maxRange = serializedObject.FindProperty("MaxRange");
@@ -33,7 +38,7 @@ public class GridSelectorEditor : Editor
 
                 // Check if this position is selected or the player position
                 bool isSelected = gridSelector.SelectedPositions.Contains(absolutePosition);
-                bool isPlayerPosition = gridSelector.PlayerPosition.HasValue && absolutePosition == gridSelector.PlayerPosition.Value;
+                bool isPlayerPosition = !gridSelector.PlayerPosition.IsNullOrEmpty() && absolutePosition == gridSelector.PlayerPosition[0];
 
                 // Set button color
                 if (isPlayerPosition)
@@ -55,7 +60,7 @@ public class GridSelectorEditor : Editor
                     if (isPlayerPosition)
                     {
                         // Change player position to a selected position (red)
-                        gridSelector.PlayerPosition = null;
+                        gridSelector.PlayerPosition.Clear();
                         if (!gridSelector.SelectedPositions.Contains(absolutePosition))
                         {
                             gridSelector.SelectedPositions.Add(absolutePosition);
@@ -72,9 +77,9 @@ public class GridSelectorEditor : Editor
                         gridSelector.SelectedPositions.Add(absolutePosition);
 
                         // Set as player position if none exists
-                        if (gridSelector.PlayerPosition == null)
+                        if (gridSelector.PlayerPosition.IsNullOrEmpty())
                         {
-                            gridSelector.PlayerPosition = absolutePosition;
+                            gridSelector.PlayerPosition.Add(absolutePosition);
                             gridSelector.SelectedPositions.Remove(absolutePosition); // Ensure it's not in the selected list
                         }
                     }
@@ -119,9 +124,9 @@ public class GridSelectorEditor : Editor
         // Display the current player position
         GUILayout.Space(10);
         GUILayout.Label("Player Position:");
-        if (gridSelector.PlayerPosition.HasValue)
+        if (!gridSelector.PlayerPosition.IsNullOrEmpty())
         {
-            GUILayout.Label($"(x = {gridSelector.PlayerPosition.Value.x}, y = {gridSelector.PlayerPosition.Value.y})");
+            GUILayout.Label($"(x = {gridSelector.PlayerPosition[0].x}, y = {gridSelector.PlayerPosition[0].y})");
         }
         else
         {
