@@ -12,7 +12,7 @@ public class GridSelector : ScriptableObject
 {
     public List<Vector2Int> SelectedPositions = new();
     public List<Vector2Int> RelativeSelectedPositions = new();
-    public List<Vector2Int> PlayerPosition = new(); // List, because Unity doesn't like nullable vectorInt
+    public List<Vector2Int> InstigatorPosition = new(); // List, because Unity doesn't like nullable vectorInt
     public _TargetRequirementType AutoTargetType;
     public int MaxRange;
     public int RepeatCountForDifferentCharacters;
@@ -21,11 +21,11 @@ public class GridSelector : ScriptableObject
     public void UpdateRelativePositions()
     {
         RelativeSelectedPositions.Clear();
-        if (!PlayerPosition.IsNullOrEmpty())
+        if (!InstigatorPosition.IsNullOrEmpty())
         {
             foreach (var pos in SelectedPositions)
             {
-                RelativeSelectedPositions.Add(pos - PlayerPosition[0]);
+                RelativeSelectedPositions.Add(pos - InstigatorPosition[0]);
             }
         }
         else

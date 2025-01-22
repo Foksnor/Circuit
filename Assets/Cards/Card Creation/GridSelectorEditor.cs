@@ -38,7 +38,7 @@ public class GridSelectorEditor : Editor
 
                 // Check if this position is selected or the player position
                 bool isSelected = gridSelector.SelectedPositions.Contains(absolutePosition);
-                bool isPlayerPosition = !gridSelector.PlayerPosition.IsNullOrEmpty() && absolutePosition == gridSelector.PlayerPosition[0];
+                bool isPlayerPosition = !gridSelector.InstigatorPosition.IsNullOrEmpty() && absolutePosition == gridSelector.InstigatorPosition[0];
 
                 // Set button color
                 if (isPlayerPosition)
@@ -60,7 +60,7 @@ public class GridSelectorEditor : Editor
                     if (isPlayerPosition)
                     {
                         // Change player position to a selected position (red)
-                        gridSelector.PlayerPosition.Clear();
+                        gridSelector.InstigatorPosition.Clear();
                         if (!gridSelector.SelectedPositions.Contains(absolutePosition))
                         {
                             gridSelector.SelectedPositions.Add(absolutePosition);
@@ -77,9 +77,9 @@ public class GridSelectorEditor : Editor
                         gridSelector.SelectedPositions.Add(absolutePosition);
 
                         // Set as player position if none exists
-                        if (gridSelector.PlayerPosition.IsNullOrEmpty())
+                        if (gridSelector.InstigatorPosition.IsNullOrEmpty())
                         {
-                            gridSelector.PlayerPosition.Add(absolutePosition);
+                            gridSelector.InstigatorPosition.Add(absolutePosition);
                             gridSelector.SelectedPositions.Remove(absolutePosition); // Ensure it's not in the selected list
                         }
                     }
@@ -124,9 +124,9 @@ public class GridSelectorEditor : Editor
         // Display the current player position
         GUILayout.Space(10);
         GUILayout.Label("Player Position:");
-        if (!gridSelector.PlayerPosition.IsNullOrEmpty())
+        if (!gridSelector.InstigatorPosition.IsNullOrEmpty())
         {
-            GUILayout.Label($"(x = {gridSelector.PlayerPosition[0].x}, y = {gridSelector.PlayerPosition[0].y})");
+            GUILayout.Label($"(x = {gridSelector.InstigatorPosition[0].x}, y = {gridSelector.InstigatorPosition[0].y})");
         }
         else
         {

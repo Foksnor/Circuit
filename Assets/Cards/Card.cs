@@ -387,8 +387,6 @@ public class Card : MonoBehaviour
 
         for (int i = 0; i < attackedGridTargets.Count; i++)
         {
-            SpawnParticleEffectAtGridCube(instigator, attackedGridTargets[i]);
-
             if (fireAvailable)
                 attackedGridTargets[i].ToggleStatus(instigator, _StatusType.Fire, true);
             if (shockAvailable)
@@ -417,27 +415,6 @@ public class Card : MonoBehaviour
             case CardScriptableObject._CardType.ElementFire:
             case CardScriptableObject._CardType.ElementShock:
                 ConnectedCircuitboard.AddBuff(instigator, cardScriptableObject.CardType, cardScriptableObject.Value);
-                break;
-        }
-    }
-
-    private void SpawnParticleEffectAtGridCube(Character instigator, GridCube cube)
-    {
-        if (cardScriptableObject.Particle == null)
-            return;
-
-        switch (cardScriptableObject.ParticleLocation)
-        {
-            case CardScriptableObject._ParticleLocation.OnSelf:
-                GameObject particle = Instantiate(cardScriptableObject.Particle, instigator.transform.position, instigator.transform.rotation);
-
-                // Mirrors the particle transform when the particle is playing backward of character
-                if (cardScriptableObject.TargetType == CardScriptableObject._TargetType.BackwardOfCharacter)
-                    particle.transform.localScale = new Vector2(-1, 1);
-                break;
-            case CardScriptableObject._ParticleLocation.OnDamageTiles:
-            case CardScriptableObject._ParticleLocation.OnMovementTiles:
-                Instantiate(cardScriptableObject.Particle, cube.transform.position, transform.rotation);
                 break;
         }
     }

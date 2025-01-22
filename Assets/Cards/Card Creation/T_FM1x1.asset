@@ -16,7 +16,7 @@ MonoBehaviour:
   - {x: -1, y: 1}
   RelativeSelectedPositions:
   - {x: 0, y: 1}
-  PlayerPosition:
+  InstigatorPosition:
   - {x: -1, y: 0}
   AutoTargetType: 0
   MaxRange: 0

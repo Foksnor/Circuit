@@ -18,9 +18,6 @@ public class CardScriptableObject : ScriptableObject
     public int Cost;
     public Sprite Sprite;
     public AudioClip Sound;
-    public GameObject Particle;
-    public _ParticleLocation ParticleLocation; 
-    public enum _ParticleLocation { OnSelf, OnDamageTiles, OnMovementTiles };
     public _TargetType TargetType;
     public enum _TargetType { ForwardOfCharacter, BackwardOfCharacter, NearestAlly, NearestEnemy, Self };
     public Vector2Int MoveSteps;

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: T_BM1x1
   m_EditorClassIdentifier: 
   SelectedPositions:
-  - {x: -1, y: 1}
-  RelativeSelectedPositions:
-  - {x: 0, y: 1}
-  PlayerPosition:
   - {x: -1, y: 0}
+  RelativeSelectedPositions:
+  - {x: 0, y: -1}
+  InstigatorPosition:
+  - {x: -1, y: 1}
   AutoTargetType: 0
   MaxRange: 0
   RepeatCountForDifferentCharacters: 0
