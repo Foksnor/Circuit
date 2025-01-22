@@ -10,10 +10,13 @@ using Doozy.Runtime.Common.Extensions;
 public static class PlayerUI
 {
     public static Canvas CanvasScreenSpace { get; set; } = null;
-    public static PlayerHandPanel HandPanel = null;
-    public static GameObject CardPanel = null;
-    public static GameObject SocketPanel = null;
+    public static PlayerHandPanel HandPanel { get; set; } = null;
+    public static GameObject CardPanel { get; set; } = null;
+    public static GameObject SocketPanel { get; set; } = null;
     public static PlayerCircuitBoard PlayerCircuitboard { get; set; } = null;
+    public static ExperienceBar ExperienceBar { set; get; }
+    public static RewardScreen RewardScreen { set; get; }
+    public static LifePanel LifePanel { set; get; }
 }
 
 public class PlayerCircuitBoard : CircuitBoard

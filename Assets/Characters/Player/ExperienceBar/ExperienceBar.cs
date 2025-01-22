@@ -26,7 +26,7 @@ public class ExperienceBar : MonoBehaviour
 
     private void Awake()
     {
-        PlayerStats.ExperienceBar = this;
+        PlayerUI.ExperienceBar = this;
     }
 
     public void AddExperiencePoints(int amount)
@@ -41,7 +41,7 @@ public class ExperienceBar : MonoBehaviour
 
     private void GoToNextLevel()
     {
-        PlayerStats.RewardScreen.GiveCardRewardOptions(playerlevels[currentPlayerLevel].possibleNewCardRewards);
+        PlayerUI.RewardScreen.GiveCardRewardOptions(playerlevels[currentPlayerLevel].possibleNewCardRewards);
         experiencePoints = 0;
 
         // Only advance levels when the player has not reached max level rewards yet

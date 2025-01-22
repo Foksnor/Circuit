@@ -25,7 +25,7 @@ public class RewardScreen : MonoBehaviour
 
     private void Awake()
     {
-        PlayerStats.RewardScreen = this;
+        PlayerUI.RewardScreen = this;
         chanceForRareCard = defaultChanceForRareCard;
         chanceForEpicCard = defaultChanceForEpicCard;
     }

@@ -19,7 +19,7 @@ public class PlayerDeck : MonoBehaviour
 
     private void UpdatePossibleAvailableCards()
     {
-        PlayerLevelScriptableObject[] playerlevels = PlayerStats.ExperienceBar.Playerlevels;
+        PlayerLevelScriptableObject[] playerlevels = PlayerUI.ExperienceBar.Playerlevels;
         for (int i = 0; i < playerlevels.Length; i++)
         {
             AllPossibleAvailableCards.AddRange(playerlevels[i].possibleNewCardRewards);

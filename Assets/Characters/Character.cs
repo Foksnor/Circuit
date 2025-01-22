@@ -159,7 +159,7 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
         if (this == Teams.CharacterTeams.PlayerTeamKing)
         {
             // ...Subtract one life, and respawn if possible
-            int curlives = PlayerStats.LifePanel.AdjustLifeCount(-1);
+            int curlives = PlayerUI.LifePanel.AdjustLifeCount(-1);
             if (curlives > 0)
             {
                 Teams.CharacterTeams.RemovePlayerKing();

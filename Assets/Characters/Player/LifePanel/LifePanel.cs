@@ -11,7 +11,7 @@ public class LifePanel : MonoBehaviour
 
     private void Awake()
     {
-        PlayerStats.LifePanel = this;
+        PlayerUI.LifePanel = this;
         VisualizeLifeCountUpdate(0);
     }
 

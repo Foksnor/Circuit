@@ -54,10 +54,10 @@ public class ExperiencePoint : MonoBehaviour
     private void MoveToExperienceBar()
     {
         // Get the screen position of the UI element
-        Vector3 screenPosition = PlayerStats.ExperienceBar.GetProgressBarRectTransform().position;
+        Vector3 screenPosition = PlayerUI.ExperienceBar.GetProgressBarRectTransform().position;
 
         // Adjusts the screenPosition to the amount of current experience of the bar
-        float curExpFill = PlayerStats.ExperienceBar.curExpFill;
+        float curExpFill = PlayerUI.ExperienceBar.curExpFill;
         screenPosition.x *= curExpFill * 2; // the 'times 2' is because the pivot of the rect transform is half the screen size
 
         // Calculate the Z depth based on the world object's position relative to the camera
@@ -73,7 +73,7 @@ public class ExperiencePoint : MonoBehaviour
         float dist = Vector3.Distance(transform.position, worldPosition);
         if (dist <= 0.05f)
         {
-            PlayerStats.ExperienceBar.AddExperiencePoints(1);
+            PlayerUI.ExperienceBar.AddExperiencePoints(1);
             Instantiate(particleWhenHittingXPBar, transform.position, transform.rotation);
             Destroy(gameObject);
         }
