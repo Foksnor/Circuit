@@ -140,14 +140,51 @@ public class Card : MonoBehaviour
 
         if (instigator != null)
         {
+            List<CardActionData> actions = cardScriptableObject.ActionSequence.Actions;
+            GridSelector targets = cardScriptableObject.ActionSequence.TargetRequirement;
+
+            // Process all actions, including nested ActionSequences
+            ProcessActions(instigator, actions, targets);
+
             // Attack
-            if (cardScriptableObject.CardType == CardScriptableObject._CardType.Attack)
-                HandleAttack(instigator);
+            //if (cardScriptableObject.CardType == CardScriptableObject._CardType.Attack)
+            //    HandleAttack(instigator);
             // Movement
+            /*
             else if (cardScriptableObject.CardType == CardScriptableObject._CardType.Movement)
                 HandleMovement(instigator);
             else
                 HandleBuffs(instigator);
+            */
+        }
+    }
+
+    public void ProcessActions(Character instigator, List<CardActionData> actions, GridSelector targets)
+    {
+        foreach (CardActionData action in actions)
+        {
+            // Recursively process the nested ActionSequence
+            if (action.CardAction == _CardAction.ActionSequence && action.ActionSequence != null)
+            {
+                ProcessActions(instigator, action.ActionSequence.Actions, action.ActionSequence.TargetRequirement);
+            }
+            // Call the action if it's not an ActionSequence
+            else
+            {
+                // Context based value as parameter
+                object value;
+                switch (action.CardAction)
+                {
+                    default:
+                        value = action.Value;
+                        break;
+                    case _CardAction.SpawnParticleOnTarget:
+                    case _CardAction.SpawnParticleOnSelf:
+                        value = action.Particle;
+                        break;
+                }
+                CardActions.Instance.CallAction(instigator, action.CardAction, value, targets);
+            }
         }
     }
 

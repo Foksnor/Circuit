@@ -8,7 +8,7 @@ public enum _CardAction
     Damage, Heal,
     DrawCard, DiscardThisCard, DiscardOtherCard, DestroyThisCard, DestroyOtherCard,
     EnhanceSlotFire, EnhanceSlotShock, AddLife, SubtractLife, ConsumeCorpse,
-    SpawnParticleOnField,
+    SpawnParticleOnTarget, SpawnParticleOnSelf,
     ActionSequence
 };
 
@@ -17,12 +17,25 @@ public class CardActionData
 {
     public _CardAction CardAction;
 
-    [ShowIf("CardAction", _CardAction.SpawnParticleOnField)]
-    public GameObject Particle;
-
-    [HideIf("CardAction", _CardAction.ActionSequence)]
+    [HideIf("ShouldShowValue")]
     public int Value;
+
+    [ShowIf("ShouldShowParticle")]
+    public GameObject Particle;
 
     [ShowIf("CardAction", _CardAction.ActionSequence)]
     public CardSequenceData ActionSequence;
+
+    private bool ShouldShowValue()
+    {
+        return CardAction == _CardAction.SpawnParticleOnSelf ||
+            CardAction == _CardAction.SpawnParticleOnTarget ||
+            CardAction == _CardAction.ActionSequence;
+    }
+
+    private bool ShouldShowParticle()
+    {
+        return CardAction == _CardAction.SpawnParticleOnSelf ||
+            CardAction == _CardAction.SpawnParticleOnTarget;
+    }
 }

@@ -64,4 +64,21 @@ public static class HelperFunctions
     {
         TurnSequence.TransitionTurns.TurnSequenceTriggerables.Remove(triggerable);
     }
+
+    public static Vector3 GetDirectionVector(Vector2 startPos, Vector2 endPos)
+    {
+        Vector3 dir = startPos - endPos;
+        Vector3 unitDir = Vector3.Normalize(dir);
+        return unitDir;
+    }
+
+    public static Vector2 GetAveragePosition(List<Vector2Int> positions)
+    {
+        Vector2 totalVector = Vector2.zero;
+        foreach (Vector2Int pos in positions)
+        {
+            totalVector += pos;
+        }
+        return totalVector / positions.Count;
+    }
 }

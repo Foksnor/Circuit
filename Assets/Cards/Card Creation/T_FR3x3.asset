@@ -10,12 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8dedb14a354f1e479e200bd58c4181f, type: 3}
-  m_Name: Target_Melee1x1
+  m_Name: T_FR3x3
   m_EditorClassIdentifier: 
   SelectedPositions:
+  - {x: -1, y: 0}
+  - {x: 0, y: 1}
+  - {x: 1, y: 1}
   - {x: 1, y: 0}
+  - {x: 0, y: 0}
+  - {x: -1, y: -1}
+  - {x: 0, y: -1}
+  - {x: 1, y: -1}
+  - {x: -1, y: 1}
   RelativeSelectedPositions:
+  - {x: -1, y: 0}
+  - {x: 0, y: 1}
+  - {x: 1, y: 1}
   - {x: 1, y: 0}
+  - {x: 0, y: 0}
+  - {x: -1, y: -1}
+  - {x: 0, y: -1}
+  - {x: 1, y: -1}
+  - {x: -1, y: 1}
+  PlayerPosition: []
   AutoTargetType: 0
   MaxRange: 0
   RepeatCountForDifferentCharacters: 0
