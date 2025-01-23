@@ -20,7 +20,6 @@ public class GridSelectorEditor : Editor
         // Update the relative positions
         gridSelector.UpdateRelativePositions();
 
-
         // Serialized properties for the additional variables
         SerializedProperty autoTargetType = serializedObject.FindProperty("AutoTargetType");
         SerializedProperty maxRange = serializedObject.FindProperty("MaxRange");
@@ -36,14 +35,14 @@ public class GridSelectorEditor : Editor
                 // Calculate the absolute position of this button
                 Vector2Int absolutePosition = new Vector2Int(x, y);
 
-                // Check if this position is selected or the player position
+                // Check if this position is selected or the instigator position
                 bool isSelected = gridSelector.SelectedPositions.Contains(absolutePosition);
-                bool isPlayerPosition = !gridSelector.InstigatorPosition.IsNullOrEmpty() && absolutePosition == gridSelector.InstigatorPosition[0];
+                bool isInstigatorPosition = !gridSelector.InstigatorPosition.IsNullOrEmpty() && absolutePosition == gridSelector.InstigatorPosition[0];
 
                 // Set button color
-                if (isPlayerPosition)
+                if (isInstigatorPosition)
                 {
-                    GUI.backgroundColor = Color.blue; // Player position
+                    GUI.backgroundColor = Color.blue; // Instigator position
                 }
                 else if (isSelected)
                 {
@@ -57,9 +56,9 @@ public class GridSelectorEditor : Editor
                 // Render the button
                 if (GUILayout.Button("", GUILayout.Width(ButtonSize), GUILayout.Height(ButtonSize)))
                 {
-                    if (isPlayerPosition)
+                    if (isInstigatorPosition)
                     {
-                        // Change player position to a selected position (red)
+                        // Change instigator position to a selected position (red)
                         gridSelector.InstigatorPosition.Clear();
                         if (!gridSelector.SelectedPositions.Contains(absolutePosition))
                         {
@@ -76,7 +75,7 @@ public class GridSelectorEditor : Editor
                         // Add to selected positions
                         gridSelector.SelectedPositions.Add(absolutePosition);
 
-                        // Set as player position if none exists
+                        // Set as instigator position if none exists
                         if (gridSelector.InstigatorPosition.IsNullOrEmpty())
                         {
                             gridSelector.InstigatorPosition.Add(absolutePosition);
@@ -115,15 +114,15 @@ public class GridSelectorEditor : Editor
 
         // Display the current selected positions (relative)
         GUILayout.Space(10);
-        GUILayout.Label("Selected Positions (Relative to Player Position):");
+        GUILayout.Label("Selected Positions (Relative to Instigator Position):");
         foreach (var pos in gridSelector.RelativeSelectedPositions)
         {
             GUILayout.Label($"(x = {pos.x}, y = {pos.y})");
         }
 
-        // Display the current player position
+        // Display the current instigator position
         GUILayout.Space(10);
-        GUILayout.Label("Player Position:");
+        GUILayout.Label("Instigator Position:");
         if (!gridSelector.InstigatorPosition.IsNullOrEmpty())
         {
             GUILayout.Label($"(x = {gridSelector.InstigatorPosition[0].x}, y = {gridSelector.InstigatorPosition[0].y})");
