@@ -92,7 +92,7 @@ public class Entity_Spawner : MonoBehaviour, ITurnSequenceTriggerable
         return character;
     }
 
-    public Character SpawnSpecificCharacter(Character character, Vector2 spawnPosition, Character._TeamType teamType)
+    public Character SpawnSpecificCharacter(Character character, Vector2 spawnPosition, _TeamType teamType)
     {
         Character c = Instantiate(character);
         c.name = character.name;
@@ -102,14 +102,14 @@ public class Entity_Spawner : MonoBehaviour, ITurnSequenceTriggerable
         c.TeamType = teamType;
         switch (teamType)
         {
-            case Character._TeamType.Player:
+            case _TeamType.Player:
                 Teams.CharacterTeams.PlayerTeamCharacters.Add(c);
                 Teams.CharacterTeams.SetPlayerKingIfNoneActive(c);
                 break;
-            case Character._TeamType.Enemy:
+            case _TeamType.Enemy:
                 Teams.CharacterTeams.EnemyTeamCharacters.Add(c);
                 break;
-            case Character._TeamType.Neutral:
+            case _TeamType.Neutral:
                 Teams.CharacterTeams.EnemyTeamCharacters.Add(c);
                 break;
         }
@@ -129,7 +129,7 @@ public class Entity_Spawner : MonoBehaviour, ITurnSequenceTriggerable
         GridCube spawngrid = Grid.GridPositions.GetGridByPosition(savedPlayerSpawnLocation);
         spawngrid.KillCharacterOnGrid();
 
-        Character c = SpawnSpecificCharacter(player, savedPlayerSpawnLocation, Character._TeamType.Player);
+        Character c = SpawnSpecificCharacter(player, savedPlayerSpawnLocation, _TeamType.Player);
         c.PlaySummonAnimations();
     }
 

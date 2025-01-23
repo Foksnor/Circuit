@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEditor.Animations;
 using UnityEngine;
 
+public enum _TeamType { Player, Enemy, Neutral };
+
 public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
 {
     public _TeamType TeamType;
-    public enum _TeamType { Player, Enemy, Neutral };
     public _BrainType BrainType;
     public enum _BrainType { Independent, Listener };
     public CircuitBoard CircuitBoard;
