@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,31 +15,64 @@ public class CardBehaviour : MonoBehaviour
         CardActions.Instance = this;
     }
 
-    public bool CallAction(Character instigator, _CardAction action, object value, GridSelector targets)
+    public bool CallAction(Character instigator, _CardAction action, object value, GridSelector targets, CardSocket connectedSocket)
     {
-        switch (action)
+        List<Vector2Int> targetPositions = targets.RelativeSelectedPositions;
+
+        // Targets are based on the facing direction the team is moving
+        if (instigator.TeamType == _TeamType.Enemy)
         {
-            case _CardAction.Damage:
-                for (int i = 0; i < targets.RelativeSelectedPositions.Count; i++)
-                {
-                    Vector2 targetPos = instigator.AssignedGridCube.Position + targets.RelativeSelectedPositions[i];
-                    GridCube targetGrid = Grid.GridPositions.GetGridByPosition(targetPos);
+            // Invert each vector's direction
+            for (int i = 0; i < targetPositions.Count; i++)
+            {
+                targetPositions[i] = -targetPositions[i];
+            }
+        }
+
+        // Use the enhancement associated with the connected socket
+        _CardAction associatedEnhancement = connectedSocket.GetSlotEnhancement();
+        ExecuteCardEnhancement(instigator, action, value, targets, connectedSocket, associatedEnhancement);
+
+        // ACTIONS THAT TRIGGER ON EACH TARGET LOCATION
+        for (int i = 0; i < targetPositions.Count; i++)
+        {
+            // Cycle through every target location
+            Vector2 targetPos = instigator.AssignedGridCube.Position + targetPositions[i];
+            GridCube targetGrid = Grid.GridPositions.GetGridByPosition(targetPos);
+
+            // Apply slot enhancement on terrain
+            ExecuteTerrainEnhancement(instigator, targetGrid, associatedEnhancement);
+
+            switch (action)
+            {
+                case _CardAction.Damage:
+                    // Check for each location if attack can happen or not
                     if (ValidateGridPosition.CanAttack(instigator.AssignedGridCube, targetGrid))
                     {
                         if (targetGrid.CharacterOnThisGrid != null)
-                            targetGrid.CharacterOnThisGrid.SubtractHealth((int)value, instigator);
+                            // No friendly damage allowed
+                            if (targetGrid.CharacterOnThisGrid.TeamType != instigator.TeamType)
+                                targetGrid.CharacterOnThisGrid.SubtractHealth((int)value, instigator);
                     }
-                }
-                break;
-            case _CardAction.Heal:
-                for (int i = 0; i < targets.RelativeSelectedPositions.Count; i++)
-                {
-                    Vector2 targetPos = instigator.AssignedGridCube.Position + targets.RelativeSelectedPositions[i];
-                    GridCube targetGrid = Grid.GridPositions.GetGridByPosition(targetPos);
+                    break;
+                case _CardAction.Heal:
                     if (targetGrid.CharacterOnThisGrid != null)
                         targetGrid.CharacterOnThisGrid.SubtractHealth(-(int)value, instigator);
-                }
-                break;
+                    break;
+                case _CardAction.SpawnParticleOnTarget:
+                    // Spawn particles on each target position
+                    GameObject particle = Instantiate((GameObject)value, targetGrid.Position, instigator.transform.rotation);
+
+                    // Sets the scale of the particle relative to the direction angle of the instigator
+                    Vector3 dir = HelperFunctions.GetDirectionVector(targetPos, instigator.AssignedGridCube.Position);
+                    particle.transform.localScale = new Vector3(dir.y, 1, 1); // x-axis get's flipped based on character y-axis face direction
+                    break;
+            }
+        }
+
+        // ACTIONS THAT TRIGGER ONLY ONCE
+        switch (action)
+        {
             case _CardAction.DrawCard:
                 PlayerUI.HandPanel.DrawCards((int)value);
                 break;
@@ -51,8 +85,8 @@ public class CardBehaviour : MonoBehaviour
             case _CardAction.DestroyOtherCard:
                 break;
             case _CardAction.EnhanceSlotFire:
-                break;
             case _CardAction.EnhanceSlotShock:
+                connectedSocket.SetSlotEnhancement(action, (int)value);
                 break;
             case _CardAction.AddLife:
                 PlayerUI.LifePanel.AdjustLifeCount((int)value);
@@ -71,20 +105,6 @@ public class CardBehaviour : MonoBehaviour
                     }
                 // If no corpse can be consumed, then the action can not be completed
                 return false;
-            case _CardAction.SpawnParticleOnTarget:
-                // Spawn particles on each target position
-                for (int i = 0; i < targets.RelativeSelectedPositions.Count; i++)
-                {
-                    Vector2 targetPos = instigator.AssignedGridCube.Position + targets.RelativeSelectedPositions[i];
-                    GridCube targetGrid = Grid.GridPositions.GetGridByPosition(targetPos);
-
-                    GameObject particle = Instantiate((GameObject)value, targetGrid.Position, instigator.transform.rotation);
-
-                    // Sets the scale of the particle relative to the direction angle of the instigator
-                    Vector3 dir = HelperFunctions.GetDirectionVector(targetPos, instigator.AssignedGridCube.Position);
-                    particle.transform.localScale = new Vector3(dir.y, 1, 1); // x-axis get's flipped based on character y-axis face direction
-                }
-                break;
             case _CardAction.SpawnParticleOnSelf:
                 // Spawn particle on self, with the scale converted to the direction based of the average target positions
                 if (targets != null)
@@ -102,5 +122,30 @@ public class CardBehaviour : MonoBehaviour
                 break;
         }
         return true;
+    }
+
+    private void ExecuteTerrainEnhancement(Character instigator, GridCube gridCube, _CardAction enhancement)
+    {
+        switch (enhancement)
+        {
+            case _CardAction.EnhanceSlotFire:
+                gridCube.ToggleStatus(instigator, _StatusType.Fire, true);
+                break;
+            case _CardAction.EnhanceSlotShock:
+                gridCube.ToggleStatus(instigator, _StatusType.Shocked, true);
+                break;
+            case _CardAction.EnhanceSlotRetrigger:
+                break;
+        }
+    }
+
+    private void ExecuteCardEnhancement(Character instigator, _CardAction action, object value, GridSelector targets, CardSocket connectedSocket, _CardAction enhancement)
+    {
+        switch (enhancement)
+        {
+            case _CardAction.EnhanceSlotRetrigger:
+                CallAction(instigator, action, value, targets, connectedSocket);
+                break;
+        }
     }
 }

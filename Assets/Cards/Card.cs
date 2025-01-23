@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using Doozy.Runtime.Common.Extensions;
-using System.Net.Sockets;
 
 public class Card : MonoBehaviour
 {
@@ -145,17 +144,6 @@ public class Card : MonoBehaviour
 
             // Process all actions, including nested ActionSequences
             ProcessActions(instigator, actions, targets);
-
-            // Attack
-            //if (cardScriptableObject.CardType == CardScriptableObject._CardType.Attack)
-            //    HandleAttack(instigator);
-            // Movement
-            /*
-            else if (cardScriptableObject.CardType == CardScriptableObject._CardType.Movement)
-                HandleMovement(instigator);
-            else
-                HandleBuffs(instigator);
-            */
         }
     }
 
@@ -183,7 +171,7 @@ public class Card : MonoBehaviour
                         value = action.Particle;
                         break;
                 }
-                CardActions.Instance.CallAction(instigator, action.CardAction, value, targets);
+                CardActions.Instance.CallAction(instigator, action.CardAction, value, targets, ConnectedSocket);
             }
         }
     }
@@ -226,6 +214,7 @@ public class Card : MonoBehaviour
 
     public GridCube CalculateGridCubeDestination(Character instigator, bool isSetupPhase)
     {
+        /*
         GridCube targetGrid = instigator.AssignedGridCube;
         Vector2Int attackSteps = cardScriptableObject.AttackSteps;
         Vector2Int moveSteps = cardScriptableObject.MoveSteps;
@@ -268,9 +257,9 @@ public class Card : MonoBehaviour
         // Reset feedback animation if needed
         if (!isSetupPhase)
             SetCardFeedback("isInvalid", false);
+        */
+        return null;
 
-        // Returns the integer of the current used gridnumber, so it's location can be used for the other cards in the sequence
-        return targetGrid;
     }
 
     private GridCube GetMovementGrid(Character instigator, GridCube startingGrid, Vector2Int moveSteps, bool isSetupPhase)
@@ -338,46 +327,6 @@ public class Card : MonoBehaviour
     private void HandleMovement(Character instigator)
     {
         instigator.ChangeDestinationGrid(targetedGridForMovement, MaxTimeInUse);
-    }
-
-    private void HandleAttack(Character instigator)
-    {
-        // Use elemental attack if available
-        bool fireAvailable = ConnectedCircuitboard.UseAvailableBuff(CardScriptableObject._CardType.ElementFire);
-        bool shockAvailable = ConnectedCircuitboard.UseAvailableBuff(CardScriptableObject._CardType.ElementShock);
-
-        for (int i = 0; i < attackedGridTargets.Count; i++)
-        {
-            if (fireAvailable)
-                attackedGridTargets[i].ToggleStatus(instigator, _StatusType.Fire, true);
-            if (shockAvailable)
-                attackedGridTargets[i].ToggleStatus(instigator, _StatusType.Shocked, true);
-
-            Character charOnThisGrid = null;
-            if (attackedGridTargets[i].CharacterOnThisGrid != null)
-                charOnThisGrid = attackedGridTargets[i].CharacterOnThisGrid;
-
-            // Stop if no characters are hit
-            if (charOnThisGrid != null)
-            {
-                // No friendly fire allowed, stop damage function when this happens
-                if (charOnThisGrid.TeamType != instigator.TeamType)
-                {
-                    charOnThisGrid.SubtractHealth(cardScriptableObject.Value, instigator);
-                }
-            }
-        }
-    }
-
-    private void HandleBuffs(Character instigator)
-    {
-        switch (cardScriptableObject.CardType)
-        {
-            case CardScriptableObject._CardType.ElementFire:
-            case CardScriptableObject._CardType.ElementShock:
-                ConnectedCircuitboard.AddBuff(instigator, cardScriptableObject.CardType, cardScriptableObject.Value);
-                break;
-        }
     }
 
     public void SetSelfDestructWhenReachingTargetTransform(Transform target)

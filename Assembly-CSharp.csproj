@@ -91,7 +91,6 @@
     <Compile Include="Assets\Lana Studio\Casual RPG VFX\Scripts\UVscroll.cs" />
     <Compile Include="Assets\Saves\GameDataLoader.cs" />
     <Compile Include="Assets\Grid\ValidateGridPosition.cs" />
-    <Compile Include="Assets\Characters\Player\PlayerStats.cs" />
     <Compile Include="Assets\Characters\Player\ExperienceBar\ExperienceBar.cs" />
     <Compile Include="Assets\Grid\DestroyAfterSceneLoad.cs" />
     <Compile Include="Assets\Characters\Player\ExperienceBar\ExperiencePoint.cs" />
@@ -111,7 +110,6 @@
     <Compile Include="Assets\HelperFunctions.cs" />
     <Compile Include="Assets\Characters\Player\Deck\PlayerHandPanel.cs" />
     <Compile Include="Assets\Characters\Player\HealthBar\HealthSegment.cs" />
-    <Compile Include="Assets\Characters\Player\PlayerCanvas.cs" />
     <Compile Include="Assets\Characters\IDamageable.cs" />
     <Compile Include="Assets\Doozy\_Examples\E23 - Popup - with One Button\ShowOneButtonPopup.cs" />
     <Compile Include="Assets\Characters\Character.cs" />

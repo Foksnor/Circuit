@@ -7,7 +7,8 @@ public enum _CardAction
 {
     Damage, Heal,
     DrawCard, DiscardThisCard, DiscardOtherCard, DestroyThisCard, DestroyOtherCard,
-    EnhanceSlotFire, EnhanceSlotShock, AddLife, SubtractLife, ConsumeCorpse,
+    EnhanceSlotFire, EnhanceSlotShock, EnhanceSlotRetrigger,
+    AddLife, SubtractLife, ConsumeCorpse,
     SpawnParticleOnTarget, SpawnParticleOnSelf,
     ActionSequence
 };

@@ -81,41 +81,6 @@ public class CircuitBoard : MonoBehaviour
         }
     }
 
-    public void AddBuff(Character targetCharacter, CardScriptableObject._CardType cardType, int buffAmount)
-    {
-        switch (cardType)
-        {
-            case CardScriptableObject._CardType.ElementFire:
-                FireAttacksAvailable += buffAmount;
-                break;
-            case CardScriptableObject._CardType.ElementShock:
-                ShockAttacksAvailable += buffAmount;
-                break;
-        }
-    }
-
-    public bool UseAvailableBuff(CardScriptableObject._CardType cardType)
-    {
-        switch (cardType)
-        {
-            case CardScriptableObject._CardType.ElementFire:
-                if (FireAttacksAvailable > 0)
-                {
-                    FireAttacksAvailable -= 1;
-                    return true;
-                }
-                break;
-            case CardScriptableObject._CardType.ElementShock:
-                if (ShockAttacksAvailable > 0)
-                {
-                    ShockAttacksAvailable -= 1;
-                    return true;
-                }
-                break;
-        }
-        return false;
-    }
-
     public virtual void PlaceCardInSocket(Card newCard, CardSocket socket)
     {
         newCard.transform.SetParent(cardPanel.transform);
