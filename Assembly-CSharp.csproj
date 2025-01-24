@@ -105,7 +105,6 @@
     <Compile Include="Assets\Characters\Player\Deck\UI_ToggleAnimatorBool.cs" />
     <Compile Include="Assets\Cards\Card_PointerInteraction.cs" />
     <Compile Include="Assets\Saves\IDataService.cs" />
-    <Compile Include="Assets\UI\CardSocket.cs" />
     <Compile Include="Assets\DestroyGameObjectLifetime.cs" />
     <Compile Include="Assets\HelperFunctions.cs" />
     <Compile Include="Assets\Characters\Player\Deck\PlayerHandPanel.cs" />
@@ -115,6 +114,7 @@
     <Compile Include="Assets\Characters\Character.cs" />
     <Compile Include="Assets\Doozy\_Examples\E25 - Toggle - UIToggle Animators\ExampleUIToggleAnimators.cs" />
     <Compile Include="Assets\Cards\EnemyCircuitBoard.cs" />
+    <Compile Include="Assets\UI\CardSocket\CardSocket.cs" />
     <Compile Include="Assets\Cards\PlayerLevelScriptableObject.cs" />
     <Compile Include="Assets\UI\ButtonHoverImageSwapSelectable.cs" />
     <Compile Include="Assets\Characters\Player\CameraFollowTarget.cs" />
