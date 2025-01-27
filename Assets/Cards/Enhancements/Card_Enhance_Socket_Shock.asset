@@ -10,21 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f596eff5112c554089c6d028bd0e335, type: 3}
-  m_Name: Card_Element_Shock
+  m_Name: Card_Enhance_Socket_Shock
   m_EditorClassIdentifier: 
-  CardType: 3
+  CardType: 1
+  ActionSequence:
+    TargetRequirement: {fileID: 11400000, guid: 9f0b27df3fa609f4782661dd603c0525, type: 2}
+    Actions:
+    - CardAction: 8
+      Value: 1
+      Particle: {fileID: 0}
+      ActionSequence:
+        TargetRequirement: {fileID: 0}
+        Actions: []
+    - CardAction: 3
+      Value: 1
+      Particle: {fileID: 0}
+      ActionSequence:
+        TargetRequirement: {fileID: 0}
+        Actions: []
   CardRarity: 0
   CardStyle: 0
-  CardName: Electricity Enhancement
+  CardName: Shock slot
   Cost: 0
   Sprite: {fileID: 5820286478268577726, guid: c88b0fffaa4a08e4da31664b9c2a2942, type: 3}
   Sound: {fileID: 0}
-  Particle: {fileID: 934617562227915448, guid: 9b596711535ccaf4b89cc0f987525dbc, type: 3}
-  ParticleLocation: 0
-  TargetType: 4
   MoveSteps: {x: 0, y: 0}
-  AttackSteps: {x: 0, y: 0}
-  AttackOffset: 0
   Value: 1
-  Description: Your next attack uses Shock.
+  TargetRequirement: 
+  Description: Enhances this slot with Shock.
   MaxTimeInUse: 0.5

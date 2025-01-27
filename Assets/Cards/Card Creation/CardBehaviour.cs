@@ -17,6 +17,8 @@ public class CardBehaviour : MonoBehaviour
 
     public bool CallAction(Character instigator, _CardAction action, object value, GridSelector targets, CardSocket connectedSocket)
     {
+        if (value == null)
+            Debug.LogError($"{instigator.name} tried to use {action} action. But the value hasn't been assigned yet.");
         List<Vector2Int> targetPositions = targets.RelativeSelectedPositions;
 
         // Targets are based on the facing direction the team is moving
@@ -30,7 +32,7 @@ public class CardBehaviour : MonoBehaviour
         }
 
         // Use the enhancement associated with the connected socket
-        _CardAction associatedEnhancement = connectedSocket.GetSlotEnhancement();
+        _CardAction associatedEnhancement = connectedSocket.UseSlotEnhancement();
         ExecuteCardEnhancement(instigator, action, value, targets, connectedSocket, associatedEnhancement);
 
         // ACTIONS THAT TRIGGER ON EACH TARGET LOCATION
@@ -77,6 +79,7 @@ public class CardBehaviour : MonoBehaviour
                 PlayerUI.HandPanel.DrawCards((int)value);
                 break;
             case _CardAction.DiscardThisCard:
+                print("test");
                 break;
             case _CardAction.DiscardOtherCard:
                 break;
@@ -86,6 +89,7 @@ public class CardBehaviour : MonoBehaviour
                 break;
             case _CardAction.EnhanceSlotFire:
             case _CardAction.EnhanceSlotShock:
+            case _CardAction.EnhanceSlotRetrigger:
                 connectedSocket.SetSlotEnhancement(action, (int)value);
                 break;
             case _CardAction.AddLife:

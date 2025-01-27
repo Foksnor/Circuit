@@ -10,32 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f596eff5112c554089c6d028bd0e335, type: 3}
-  m_Name: Card_Attack_Horizontal_1_Backward
+  m_Name: Card_Enhance_Socket_Retrigger
   m_EditorClassIdentifier: 
   CardType: 1
   ActionSequence:
-    TargetRequirement: {fileID: 11400000, guid: 48a83d7274fc45a449a2595f09f03faa, type: 2}
+    TargetRequirement: {fileID: 11400000, guid: 9f0b27df3fa609f4782661dd603c0525, type: 2}
     Actions:
-    - CardAction: 2
-      Value: 2
+    - CardAction: 9
+      Value: 1
       Particle: {fileID: 0}
       ActionSequence:
         TargetRequirement: {fileID: 0}
         Actions: []
-    - CardAction: 14
+    - CardAction: 3
       Value: 1
-      Particle: {fileID: 5493082302257829311, guid: 261b0e3ba678dc647b775c3a15066a31, type: 3}
+      Particle: {fileID: 0}
       ActionSequence:
         TargetRequirement: {fileID: 0}
         Actions: []
   CardRarity: 0
   CardStyle: 0
-  CardName: Claw
+  CardName: Doublecast
   Cost: 0
-  Sprite: {fileID: 21300000, guid: 5e8406971668ebb4da492d042df66b2c, type: 3}
+  Sprite: {fileID: 21300000, guid: b8312b74b863d4d4894c71e873cc7800, type: 3}
   Sound: {fileID: 0}
   MoveSteps: {x: 0, y: 0}
-  Value: 4
-  TargetRequirement: <style="Target_West"></style>
-  Description: <style="Damage"></style> 1
+  Value: 1
+  TargetRequirement: 
+  Description: Enhances this slot with Doublecast.
   MaxTimeInUse: 0.5

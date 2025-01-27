@@ -10,21 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f596eff5112c554089c6d028bd0e335, type: 3}
-  m_Name: Card_Element_Fire
+  m_Name: Card_Enhance_Socket_Fire
   m_EditorClassIdentifier: 
-  CardType: 2
+  CardType: 1
+  ActionSequence:
+    TargetRequirement: {fileID: 11400000, guid: 9f0b27df3fa609f4782661dd603c0525, type: 2}
+    Actions:
+    - CardAction: 7
+      Value: 1
+      Particle: {fileID: 0}
+      ActionSequence:
+        TargetRequirement: {fileID: 0}
+        Actions: []
+    - CardAction: 3
+      Value: 1
+      Particle: {fileID: 0}
+      ActionSequence:
+        TargetRequirement: {fileID: 0}
+        Actions: []
   CardRarity: 0
   CardStyle: 0
-  CardName: Fire Enhancement
+  CardName: Fire Slot
   Cost: 0
   Sprite: {fileID: -211277174577979742, guid: 707023d6f0433aa439f5388cdc80eee2, type: 3}
   Sound: {fileID: 0}
-  Particle: {fileID: 0}
-  ParticleLocation: 0
-  TargetType: 4
   MoveSteps: {x: 0, y: 0}
-  AttackSteps: {x: 0, y: 0}
-  AttackOffset: 0
   Value: 1
-  Description: Your next attack uses Fire.
+  TargetRequirement: 
+  Description: Enhances this slot with Fire.
   MaxTimeInUse: 0.5

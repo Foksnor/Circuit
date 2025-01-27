@@ -22,21 +22,9 @@ MonoBehaviour:
       ActionSequence:
         TargetRequirement: {fileID: 0}
         Actions: []
-    - CardAction: 13
-      Value: 1
-      Particle: {fileID: 5493082302257829311, guid: 261b0e3ba678dc647b775c3a15066a31, type: 3}
-      ActionSequence:
-        TargetRequirement: {fileID: 11400000, guid: 48a83d7274fc45a449a2595f09f03faa, type: 2}
-        Actions:
-        - CardAction: 12
-          Value: 0
-          Particle: {fileID: 5493082302257829311, guid: 261b0e3ba678dc647b775c3a15066a31, type: 3}
-          ActionSequence:
-            TargetRequirement: {fileID: 0}
-            Actions: []
     - CardAction: 14
       Value: 0
-      Particle: {fileID: 0}
+      Particle: {fileID: 5493082302257829311, guid: 261b0e3ba678dc647b775c3a15066a31, type: 3}
       ActionSequence:
         TargetRequirement: {fileID: 11400000, guid: 66da2646165b8404289b3435f09c8e36, type: 2}
         Actions:
@@ -52,10 +40,7 @@ MonoBehaviour:
   Cost: 0
   Sprite: {fileID: 21300000, guid: 5e8406971668ebb4da492d042df66b2c, type: 3}
   Sound: {fileID: 0}
-  TargetType: 0
   MoveSteps: {x: 0, y: 0}
-  AttackSteps: {x: 1, y: 1}
-  AttackOffset: 1
   Value: 4
   TargetRequirement: <style="Target_East"></style>
   Description: <style="Damage"></style> 1

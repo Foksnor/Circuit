@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\Characters\Player\ExperienceBar\RewardScreen.cs" />
     <Compile Include="Assets\Characters\TransformBillboard.cs" />
+    <Compile Include="Assets\Cards\Enhancements\StatusEffect_ScriptableObject.cs" />
     <Compile Include="Assets\UI\UISetStaticScreenSpace.cs" />
     <Compile Include="Assets\UI\ButtonHoverImageSwap.cs" />
     <Compile Include="Assets\Characters\Player\Feedback Interactions\FeedbackPanelScriptableObject.cs" />
@@ -81,7 +82,6 @@
     <Compile Include="Assets\EditorScripts\CardCreatorInspector.cs" />
     <Compile Include="Assets\Saves\Crystal Ball\OverlayTurnPreview.cs" />
     <Compile Include="Assets\Grid\Biome\BiomeChunk.cs" />
-    <Compile Include="Assets\Cards\Elemental Modifiers\StatusEffect_ScriptableObject.cs" />
     <Compile Include="Assets\Characters\Player\HealthBar\HealthBar.cs" />
     <Compile Include="Assets\Lana Studio\Casual RPG VFX\Demo\Scripts\ObjectsSwitcher.cs" />
     <Compile Include="Assets\Characters\CharacterTeams.cs" />
