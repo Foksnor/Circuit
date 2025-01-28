@@ -175,6 +175,10 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
         {
             if (hoveredGameObject.GetComponentInParent<CardSocket>() is CardSocket hoveredSocket)
             {
+                // Remove card from socket if card is in play
+                if (card.ConnectedSocket != null)
+                    card.RemoveFromSocket();
+
                 card.ConnectToSocket(hoveredSocket);
             }
             else if (hoveredGameObject.GetComponentInParent<Card>() is Card hoveredCard)

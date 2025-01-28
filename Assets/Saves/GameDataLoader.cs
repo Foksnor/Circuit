@@ -75,6 +75,12 @@ public class GameDataLoader : MonoBehaviour
                 dataCollection.gridCubeDataList.Add(new GridCubeData(Grid.GridPositions.GridCubes[i]));
         }
 
+        // Add the sockets that the player had with their enhancements and their charge count
+        for (int i = 0; i < PlayerUI.PlayerCircuitboard.GetActiveSockets().Count; i++)
+        {
+            dataCollection.socketDataList.Add(new SocketData(PlayerUI.PlayerCircuitboard.GetActiveSockets()[i]));
+        }
+
         // Add the cards from player's hand, drawn, deck, and discard
         for (int i = 0; i < Decks.Playerdeck.CurrentCardsInPlay.Count; i++)
         {
@@ -117,6 +123,12 @@ public class GameDataLoader : MonoBehaviour
             foreach (GridCubeData gridCubeData in dataCollection.gridCubeDataList)
             {
                 UpdateGridCubes(gridCubeData);
+            }
+
+            // Set up player's card sockets
+            foreach (SocketData socketData in dataCollection.socketDataList)
+            {
+                PlayerUI.PlayerCircuitboard.AddSocketFromSaveFile(socketData.EnhancementType, socketData.EnhancementCharges, socketData.isSlotEmpty);
             }
 
             // Set up player's cards in hand, deck, and discard

@@ -7,6 +7,7 @@ public class GameObjectDataCollection
     public List<CharacterData> characterDataList = new();
     public List<BiomeData> biomeDataList = new();
     public List<GridCubeData> gridCubeDataList = new();
+    public List<SocketData> socketDataList = new();
     public List<CardData> cardDataList = new();
 }
 
@@ -114,6 +115,36 @@ public class GridCubeData
     public _SurfaceType GetSurface()
     {
         return Surface;
+    }
+}
+
+[System.Serializable]
+public class SocketData
+{
+    public _CardAction EnhancementType;
+    public int EnhancementCharges;
+    public bool isSlotEmpty;
+
+    public SocketData(CardSocket socket)
+    {
+        EnhancementType = socket.CurrentSlotEnhancement;
+        EnhancementCharges = socket.EnhancementCharges;
+        isSlotEmpty = socket.SlottedCard == null;
+    }
+
+    public _CardAction GetEnhancementType()
+    {
+        return EnhancementType;
+    }
+
+    public int GetEnhancementCharges()
+    {
+        return EnhancementCharges;
+    }
+
+    public bool IsSlotEmpty()
+    {
+        return isSlotEmpty;
     }
 }
 

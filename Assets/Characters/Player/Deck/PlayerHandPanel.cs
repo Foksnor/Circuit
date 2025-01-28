@@ -64,12 +64,15 @@ public class PlayerHandPanel : MonoBehaviour
         // Only play discard animations when actually removing this card to discard
         // E.g. this bool can be false if cards are removed due to replacing them with a card in your circuit
         if (isSendToDiscard)
-        {
-            Decks.Playerdeck.CurrentCardsInDiscard.Add(card.GetCardInfo());
-            card.CardPointerInteraction.AssignPosition(targetDiscardCardsTo.position);
-            card.SetSelfDestructWhenReachingTargetTransform(targetDiscardCardsTo);
-        }
+            SentCardToDiscard(card);
         cardsInPanel.Remove(card);
+    }
+
+    public void SentCardToDiscard(Card card)
+    {
+        Decks.Playerdeck.CurrentCardsInDiscard.Add(card.GetCardInfo());
+        card.CardPointerInteraction.AssignPosition(targetDiscardCardsTo.position);
+        card.SetSelfDestructWhenReachingTargetTransform(targetDiscardCardsTo);
     }
 
     public void DrawCards(int drawAmount)

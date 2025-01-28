@@ -12,9 +12,12 @@ public class CardSocket : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject enhancementTag;
     [SerializeField] private TextMeshProUGUI enhancementTagDuration;
-    private int enhancementCharges = 0;
-    private _CardAction currentSlotEnhancement;
+    public int EnhancementCharges { private set; get; } = 0;
+    public _CardAction CurrentSlotEnhancement { private set; get; } = default;
     private Card slottedCard = null;
+
+    // This is used when populating a card from loading a save file
+    public bool SkipSlotDuringCardPopulation = false;
 
     // Slot enhancement materials
     [SerializeField] private Image enhancementImageTarget = null;
@@ -43,33 +46,35 @@ public class CardSocket : MonoBehaviour
 
     public _CardAction UseSlotEnhancement()
     {
-        if (enhancementCharges > 0)
+        _CardAction action = CurrentSlotEnhancement;
+
+        if (EnhancementCharges > 0)
         {
             // Use a charge
-            enhancementCharges--;
-            enhancementTagDuration.text = enhancementCharges.ToString();
+            EnhancementCharges--;
+
+            // Display how many charges are left
+            enhancementTagDuration.text = EnhancementCharges.ToString();
 
             // If no charges are left, remove the slot enhancement
-            if (enhancementCharges <= 0)
+            if (EnhancementCharges <= 0)
                 RemoveSlotEnhancement();
-
-            return currentSlotEnhancement;
         }
-        return default;
+        return action;
     }
 
     public void SetSlotEnhancement(_CardAction action, int amount)
     {
-        if (currentSlotEnhancement == action)
+        if (CurrentSlotEnhancement == action)
         {
             // Add the charges if you re-apply the same slot enhancement
-            enhancementCharges += amount;
+            EnhancementCharges += amount;
         }
         else
         {
             // Overwrite current slot enhancement
-            currentSlotEnhancement = action;
-            enhancementCharges = amount;
+            CurrentSlotEnhancement = action;
+            EnhancementCharges = amount;
         }
 
         // Set slot materials
@@ -88,11 +93,12 @@ public class CardSocket : MonoBehaviour
 
         // Updates the visual tag that is on the top side of a card socket
         enhancementTag.SetActive(true);
-        enhancementTagDuration.text = enhancementCharges.ToString();
+        enhancementTagDuration.text = EnhancementCharges.ToString();
     }
 
     private void RemoveSlotEnhancement()
     {
+        CurrentSlotEnhancement = default;
         enhancementTag.SetActive(false);
         enhancementImageTarget.material = null;
     }

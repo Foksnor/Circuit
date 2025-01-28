@@ -10,12 +10,15 @@ public static class CardActions
 
 public class CardBehaviour : MonoBehaviour
 {
+    private HashSet<string> triggeredCards = new HashSet<string>();
+    private _CardAction associatedEnhancement;
+
     private void Awake()
     {
         CardActions.Instance = this;
     }
 
-    public bool CallAction(Character instigator, _CardAction action, object value, GridSelector targets, CardSocket connectedSocket)
+    public bool CallAction(Character instigator, Card card, _CardAction action, object value, GridSelector targets)
     {
         if (value == null)
             Debug.LogError($"{instigator.name} tried to use {action} action. But the value hasn't been assigned yet.");
@@ -31,9 +34,13 @@ public class CardBehaviour : MonoBehaviour
             }
         }
 
-        // Use the enhancement associated with the connected socket
-        _CardAction associatedEnhancement = connectedSocket.UseSlotEnhancement();
-        ExecuteCardEnhancement(instigator, action, value, targets, connectedSocket, associatedEnhancement);
+        if (!triggeredCards.Contains(card.CardId))
+        {
+            // Use the enhancement associated with the connected socket
+            associatedEnhancement = card.ConnectedSocket.UseSlotEnhancement();
+            triggeredCards.Add(card.CardId);
+        }
+        ExecuteCardEnhancement(instigator, card, action, value, targets, associatedEnhancement);
 
         // ACTIONS THAT TRIGGER ON EACH TARGET LOCATION
         for (int i = 0; i < targetPositions.Count; i++)
@@ -79,7 +86,9 @@ public class CardBehaviour : MonoBehaviour
                 PlayerUI.HandPanel.DrawCards((int)value);
                 break;
             case _CardAction.DiscardThisCard:
-                print("test");
+                card.ConnectedCircuitboard.RemoveFromSocket(card);
+                PlayerUI.HandPanel.SentCardToDiscard(card);
+                PlayerUI.PlayerCircuitboard.UpdateCardsInPlay();
                 break;
             case _CardAction.DiscardOtherCard:
                 break;
@@ -90,7 +99,7 @@ public class CardBehaviour : MonoBehaviour
             case _CardAction.EnhanceSlotFire:
             case _CardAction.EnhanceSlotShock:
             case _CardAction.EnhanceSlotRetrigger:
-                connectedSocket.SetSlotEnhancement(action, (int)value);
+                card.ConnectedSocket.SetSlotEnhancement(action, (int)value);
                 break;
             case _CardAction.AddLife:
                 PlayerUI.LifePanel.AdjustLifeCount((int)value);
@@ -143,13 +152,18 @@ public class CardBehaviour : MonoBehaviour
         }
     }
 
-    private void ExecuteCardEnhancement(Character instigator, _CardAction action, object value, GridSelector targets, CardSocket connectedSocket, _CardAction enhancement)
+    private void ExecuteCardEnhancement(Character instigator, Card card, _CardAction action, object value, GridSelector targets, _CardAction enhancement)
     {
         switch (enhancement)
         {
             case _CardAction.EnhanceSlotRetrigger:
-                CallAction(instigator, action, value, targets, connectedSocket);
+                CallAction(instigator, card, action, value, targets);
                 break;
         }
+    }
+
+    public void ResetTriggeredCardsTracking()
+    {
+        triggeredCards.Clear();
     }
 }

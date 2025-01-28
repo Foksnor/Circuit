@@ -8,6 +8,7 @@ using Doozy.Runtime.Common.Extensions;
 
 public class Card : MonoBehaviour
 {
+    public string CardId { get; private set; }
     private CardScriptableObject cardScriptableObject = null;
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI costText;
@@ -34,6 +35,7 @@ public class Card : MonoBehaviour
 
     public void SetCardInfo(CardScriptableObject scriptableObject, CircuitBoard owner, bool isVisible)
     {
+        CardId = Guid.NewGuid().ToString();
         cardScriptableObject = scriptableObject;
         ConnectedCircuitboard = owner;
         isCardVisible = isVisible;
@@ -171,7 +173,7 @@ public class Card : MonoBehaviour
                         value = action.Particle;
                         break;
                 }
-                CardActions.Instance.CallAction(instigator, action.CardAction, value, targets, ConnectedSocket);
+                CardActions.Instance.CallAction(instigator, this, action.CardAction, value, targets);
             }
         }
     }

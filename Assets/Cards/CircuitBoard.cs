@@ -52,14 +52,15 @@ public class CircuitBoard : MonoBehaviour
 
         if (activeCardNumber < ActiveCards.Count)
         {
-            ActivateSelectedCard(targetCharacter);
             timeBetweenCardsPlayed = ActiveCards[activeCardNumber].MaxTimeInUse;
+            ActivateSelectedCard(targetCharacter);
             activeCardNumber++;
             return true;
         }
 
-        // After all cards have been processed, deactivate them
-        if (activeCardNumber == ActiveCards.Count)
+        // After all cards have been processed, deactivate
+        // activeCardNumber can be a greater number than ActiveCards count as there are cards that discard/burn on use. Thus reducing the ActiveCards count
+        if (activeCardNumber >= ActiveCards.Count)
             return false;
 
         return true;

@@ -144,6 +144,9 @@ public class TransitionTurns : MonoBehaviour
 
     private void OnUpkeep()
     {
+        // Updates the cards in play, in case any cards were burnt/discarded during last turn
+        PlayerUI.PlayerCircuitboard.UpdateCardsInPlay();
+
         // Player set up phase
         PlayerDrawPhase();
 
@@ -179,6 +182,9 @@ public class TransitionTurns : MonoBehaviour
         // Invokes all endstep triggers
         for (int i = 0; i < TurnSequenceTriggerables.Count; i++)
             TurnSequenceTriggerables[i].OnEndstep();
+
+        // Reset card tracking
+        CardActions.Instance.ResetTriggeredCardsTracking();
     }
 
     private void OnEndTurn()

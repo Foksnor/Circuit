@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Doozy.Runtime.Common.Extensions;
+using Unity.VisualScripting;
 
 public static class PlayerUI
 {
@@ -35,18 +36,37 @@ public class PlayerCircuitBoard : CircuitBoard
         LinkPlayerboard();
     }
 
+    public void AddSocketFromSaveFile(_CardAction enhancementType, int enhancementCharges, bool wasSlotEmpty)
+    {
+        CardSocket loadedSocket = AddSocket(enhancementType, enhancementCharges);
+
+        // Fills the empty slot with a dummy card
+        // Dummy cards prevent the slot to be filled in with a card when loading a save file
+        if (wasSlotEmpty)
+            loadedSocket.SkipSlotDuringCardPopulation = true;
+    }
+
     public override void SetUpCircuitBoard(List<CardScriptableObject> cardList)
     {
-        // Adds card slots
+        // Adds sockets, if save data didn't provide them, or when starting a new game
+        if (ActiveSockets.Count == 0)
+            for (int i = 0; i < cardList.Count; i++)
+                AddSocket(default, 0);
+
+        // Only use sockets can be populated when setting up the board
+        List<CardSocket> availableSockets = ActiveSockets
+            .Where(socket => socket.SkipSlotDuringCardPopulation == false)
+            .ToList();
+
+        // Adds card
         for (int i = 0; i < cardList.Count; i++)
         {
             Card newCard = Instantiate(card, cardPanel.transform);
             ActiveCards.Add(newCard);
 
-            AddSocket();
 
             // Sets the new socket reference to the card
-            newCard.ConnectToSocket(ActiveSockets[i]);
+            newCard.ConnectToSocket(availableSockets[i]);
 
             // Sets the card info per card in the circuit board
             newCard.SetCardInfo(cardList[i], this, true);
@@ -77,10 +97,17 @@ public class PlayerCircuitBoard : CircuitBoard
         }
     }
 
-    private void AddSocket()
+    private CardSocket AddSocket(_CardAction enhancementType, int enhancementChargeCount)
     {
         CardSocket newSocket = Instantiate(socket, socketPanel.transform);
+
+        // Prohibit a socket to set an enchantment when no valid type is given
+        // This can happen when loading a default socket type from a save file
+        if (enhancementType != default)
+            newSocket.SetSlotEnhancement(enhancementType, enhancementChargeCount);
+
         ActiveSockets.Add(newSocket);
+        return newSocket;
     }
 
     public List<Card> GetActiveCardsList()
@@ -198,5 +225,10 @@ public class PlayerCircuitBoard : CircuitBoard
     {
         timerText.text = timerDisplayText;
         timerFill.fillAmount = timerDisplayFillAmount;
+    }
+
+    public List<CardSocket> GetActiveSockets()
+    {
+        return ActiveSockets;
     }
 }
