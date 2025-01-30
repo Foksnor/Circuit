@@ -167,10 +167,6 @@ public class TransitionTurns : MonoBehaviour
             // Remove cards from hand to discard
             PlayerUI.HandPanel.RemoveAllCardsFromPanel(true);
 
-            // Save the game state at the start of your turn, and not during preview mode
-            if (!isInPreviewMode)
-                GameData.Loader.SaveGameState();
-
             // Invokes all player start triggers
             for (int i = 0; i < TurnSequenceTriggerables.Count; i++)
                 TurnSequenceTriggerables[i].OnStartPlayerTurn();
@@ -185,6 +181,10 @@ public class TransitionTurns : MonoBehaviour
 
         // Reset card tracking
         CardActions.Instance.ResetTriggeredCardsTracking();
+
+        // Save the game state at the start of your turn, and not during preview mode
+        if (!isInPreviewMode)
+            GameData.Loader.SaveGameState();
     }
 
     private void OnEndTurn()

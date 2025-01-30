@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8dedb14a354f1e479e200bd58c4181f, type: 3}
-  m_Name: T_BM1x1
+  m_Name: T_M1x1
   m_EditorClassIdentifier: 
   SelectedPositions:
-  - {x: -1, y: 0}
-  RelativeSelectedPositions:
-  - {x: 0, y: -1}
-  InstigatorPosition:
   - {x: -1, y: 1}
+  RelativeSelectedPositions:
+  - {x: 0, y: 1}
+  InstigatorPosition:
+  - {x: -1, y: 0}
   AutoTargetType: 0
   MaxRange: 0
   RepeatCountForDifferentCharacters: 0
