@@ -22,5 +22,5 @@ public class CardScriptableObject : ScriptableObject
     public int Value;
     public string TargetRequirement = "";
     public string Description = "";
-    public float MaxTimeInUse = 0.5f;
+    public float TimeInUse = 0.5f;
 }

@@ -52,7 +52,7 @@ public class CircuitBoard : MonoBehaviour
 
         if (activeCardNumber < ActiveCards.Count)
         {
-            timeBetweenCardsPlayed = ActiveCards[activeCardNumber].MaxTimeInUse;
+            timeBetweenCardsPlayed = ActiveCards[activeCardNumber].GetCardInfo().TimeInUse;
             ActivateSelectedCard(targetCharacter);
             activeCardNumber++;
             return true;

@@ -137,7 +137,7 @@ public class Card : MonoBehaviour
     public void ActivateCard(Character instigator)
     {
         isCardActivated = true;
-        MaxTimeInUse = cardScriptableObject.MaxTimeInUse;
+        MaxTimeInUse = cardScriptableObject.TimeInUse;
 
         if (instigator != null)
         {
