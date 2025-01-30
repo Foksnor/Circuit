@@ -208,6 +208,9 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
         {
             AssignPosition();
         }
+
+        // Updates the order in which cards are played
+        PlayerUI.PlayerCircuitboard.UpdateCardsInPlay();
     }
 
     private void SwapCards(Card hoveredCard)

@@ -86,6 +86,7 @@ public class CardBehaviour : MonoBehaviour
                 PlayerUI.HandPanel.DrawCards((int)value);
                 break;
             case _CardAction.DiscardThisCard:
+                card.ConnectedCircuitboard.DiscardedACard();
                 card.ConnectedCircuitboard.RemoveFromSocket(card);
                 PlayerUI.HandPanel.SentCardToDiscard(card);
                 PlayerUI.PlayerCircuitboard.UpdateCardsInPlay();

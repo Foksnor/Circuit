@@ -94,6 +94,11 @@ public class CircuitBoard : MonoBehaviour
         card.RemoveFromSocket();
     }
 
+    public void DiscardedACard()
+    {
+        activeCardNumber--;
+    }
+
     public virtual void SetCircuitDisplayTimer(string timerDisplayText, float timerDisplayFillAmount)
     {
     }
