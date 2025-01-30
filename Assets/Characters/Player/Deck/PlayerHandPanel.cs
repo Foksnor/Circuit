@@ -26,7 +26,7 @@ public class PlayerHandPanel : MonoBehaviour
     private void Update()
     {
         // Only update the position of the cards if the amount of cards in your hand changed
-        if (cardsInPanel.Count != previousCardCount)
+        if (cardsInPanel.Count != previousCardCount || HelperFunctions.HasResolutionChanged())
         {
             previousCardCount = cardsInPanel.Count;
             UpdateCardPositions();
