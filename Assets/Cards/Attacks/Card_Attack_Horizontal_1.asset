@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardType: 1
   ActionSequence:
-    TargetRequirement: {fileID: 11400000, guid: ee955c3bed9ffa64185f73b77edb9400, type: 2}
+    TargetRequirement: {fileID: 11400000, guid: 48a83d7274fc45a449a2595f09f03faa, type: 2}
     Actions:
     - CardAction: 0
       Value: 4

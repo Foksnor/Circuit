@@ -17,7 +17,8 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
     private Vector3 mouseDelta = Vector3.zero;
 
     // Used for the card to move to when not being dragged
-    private readonly float cardReleaseSpeedModifier = 10;
+    private readonly float cardReleaseSpeedModifier = 2000;
+    private Vector2 startPosition = Vector2.zero;
     private Vector2 desiredPosition = Vector2.zero;
     private bool isBeingDragged = false;
 
@@ -50,7 +51,9 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
 
         // Card goes back to it's desired position when not being dragged
         if (!isBeingDragged)
-            transform.position = Vector2.Lerp(transform.position, desiredPosition, cardReleaseSpeedModifier * Time.deltaTime);
+        {
+            MoveCardPosition();
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -200,6 +203,11 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
                 }
             }
         }
+        // When releasing the drag, and the card doesn't hover over something valid
+        else
+        {
+            AssignPosition();
+        }
     }
 
     private void SwapCards(Card hoveredCard)
@@ -238,9 +246,27 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
         }
     }
 
+    private void MoveCardPosition()
+    {
+        // Moves the card in a linear speed towards their desired position
+        // Speed scales with screen resolution
+        float scaledSpeed = cardReleaseSpeedModifier * HelperFunctions.GetResolutionScale();
+        transform.position = Vector2.MoveTowards(transform.position, desiredPosition, Time.deltaTime * scaledSpeed);
+    }
+
     public void AssignPosition(Vector2 position)
     {
-        desiredPosition = position;
+        // Only assign position, if the position is different than before
+        if (position != desiredPosition)
+        {
+            desiredPosition = position;
+            AssignPosition();
+        }
+    }
+
+    public void AssignPosition()
+    {
+        startPosition = transform.position;
     }
 
     public void SetInteractableState(bool interactState)

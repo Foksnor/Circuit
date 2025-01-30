@@ -4,6 +4,8 @@ using UnityEngine;
 
 public static class HelperFunctions
 {
+    public static readonly float referenceResolutionWidth = 1920f;
+
     // Cycles through every transform in a gameobject and sets the same layer throughout
     public static void SetGameLayerRecursive(GameObject gameObject, int layer)
     {
@@ -80,5 +82,12 @@ public static class HelperFunctions
             totalVector += pos;
         }
         return totalVector / positions.Count;
+    }
+
+    public static float GetResolutionScale()
+    {
+        // Normalize scaling
+        float resolutionScale = Screen.width / referenceResolutionWidth;
+        return resolutionScale;
     }
 }
