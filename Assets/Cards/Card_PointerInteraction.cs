@@ -18,10 +18,14 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
 
     // Used for the card to move to when not being dragged
     private readonly float cardReleaseSpeedModifier = 2000;
+    private readonly float cardRotationSpeed = 1.5f;
     private Vector2 startPosition = Vector2.zero;
     private Vector2 desiredPosition = Vector2.zero;
+    private float travelDuration = 0;
+    private float curTime = 0;
     private bool isBeingDragged = false;
 
+    [SerializeField] private Transform visualRoot;
     [SerializeField] private Animator animator;
     private Card card;
     private Card targetHoverOverCard;
@@ -206,7 +210,8 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
         // When releasing the drag, and the card doesn't hover over something valid
         else
         {
-            AssignPosition();
+            // Sets a new start position for the card to return from
+            startPosition = transform.position;
         }
 
         // Updates the order in which cards are played
@@ -251,10 +256,22 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
 
     private void MoveCardPosition()
     {
-        // Moves the card in a linear speed towards their desired position
-        // Speed scales with screen resolution
-        float scaledSpeed = cardReleaseSpeedModifier * HelperFunctions.GetResolutionScale();
-        transform.position = Vector2.MoveTowards(transform.position, desiredPosition, Time.deltaTime * scaledSpeed);
+        if (travelDuration > 0)
+        {
+            // Lerp movement
+            curTime += Time.deltaTime / travelDuration;
+            transform.position = Vector2.Lerp(startPosition, desiredPosition, curTime);
+
+            // Rotates the card towards the target position
+            RotateCardTowardsTarget(desiredPosition);
+        }
+        else
+        {
+            // Moves the card in a linear speed towards their desired position
+            // Speed scales with screen resolution
+            float scaledSpeed = cardReleaseSpeedModifier * HelperFunctions.GetResolutionScale();
+            transform.position = Vector2.MoveTowards(transform.position, desiredPosition, Time.deltaTime * scaledSpeed);
+        }
     }
 
     public void AssignPosition(Vector2 position)
@@ -263,13 +280,45 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
         if (position != desiredPosition)
         {
             desiredPosition = position;
-            AssignPosition();
+            startPosition = transform.position;
         }
     }
 
-    public void AssignPosition()
+    public void AssignPosition(Vector2 position, float travelTime)
     {
-        startPosition = transform.position;
+        // Only assign position, if the position is different than before
+        if (position != desiredPosition)
+        {
+            // Reset curTime timer
+            curTime = 0;
+
+            if (travelTime > 0)
+            {
+                // Set travel duration
+                travelDuration = travelTime;
+
+                // Set special card animation for cards with travelTime
+                // Animation should last until travel has finished
+                animator.speed = 1 / travelTime;
+                animator.Play("A_Card_ChangeZone");
+            }
+
+            desiredPosition = position;
+            startPosition = transform.position;
+        }
+    }
+
+    private void RotateCardTowardsTarget(Vector2 targetPosition)
+    {
+        // Get the direction to the target
+        Vector2 direction = targetPosition - (Vector2)visualRoot.position;
+        float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+
+        // Smoothly interpolate the Z rotation
+        float newZRotation = Mathf.LerpAngle(visualRoot.eulerAngles.z, targetAngle, curTime * cardRotationSpeed);
+
+        // Apply only Z-axis rotation
+        visualRoot.rotation = Quaternion.Euler(0, 0, newZRotation);
     }
 
     public void SetInteractableState(bool interactState)

@@ -64,14 +64,14 @@ public class PlayerHandPanel : MonoBehaviour
         // Only play discard animations when actually removing this card to discard
         // E.g. this bool can be false if cards are removed due to replacing them with a card in your circuit
         if (isSendToDiscard)
-            SentCardToDiscard(card);
+            SentCardToDiscard(card, 0);
         cardsInPanel.Remove(card);
     }
 
-    public void SentCardToDiscard(Card card)
+    public void SentCardToDiscard(Card card, float travelTime)
     {
         Decks.Playerdeck.CurrentCardsInDiscard.Add(card.GetCardInfo());
-        card.CardPointerInteraction.AssignPosition(targetDiscardCardsTo.position);
+        card.CardPointerInteraction.AssignPosition(targetDiscardCardsTo.position, travelTime);
         card.SetSelfDestructWhenReachingTargetTransform(targetDiscardCardsTo);
     }
 
@@ -98,7 +98,7 @@ public class PlayerHandPanel : MonoBehaviour
                     Card shuffleCard = Instantiate(cardToSpawn, targetDiscardCardsTo);
                     CardScriptableObject discardCardScriptableObject = Decks.Playerdeck.CurrentCardsInDiscard[0];
                     shuffleCard.SetCardInfo(discardCardScriptableObject, PlayerUI.PlayerCircuitboard, true);
-                    shuffleCard.CardPointerInteraction.AssignPosition(targetDrawCardsFrom.position);
+                    shuffleCard.CardPointerInteraction.AssignPosition(targetDrawCardsFrom.position, 0.5f);
                     shuffleCard.SetSelfDestructWhenReachingTargetTransform(targetDrawCardsFrom);
 
                     Decks.Playerdeck.CurrentCardsInDeck.Add(Decks.Playerdeck.CurrentCardsInDiscard[0]);

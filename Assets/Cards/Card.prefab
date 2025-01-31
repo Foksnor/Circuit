@@ -793,9 +793,9 @@ GameObject:
   - component: {fileID: 8952021799713953294}
   - component: {fileID: 2935014399937828441}
   - component: {fileID: 406596430431226498}
+  - component: {fileID: 7627014054633805148}
   - component: {fileID: 5947722889063295983}
   - component: {fileID: 4176996575385201184}
-  - component: {fileID: 7627014054633805148}
   - component: {fileID: 743994292680084156}
   - component: {fileID: 4557610607062775018}
   - component: {fileID: 792353873337693572}
@@ -863,6 +863,20 @@ MonoBehaviour:
   MaxTimeInUse: 0.5
   rotatableImageMaterial:
   - {fileID: 8913939188288731921}
+--- !u!114 &7627014054633805148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4383898553168550268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f8fdb6fbd6f9fc4ea5cbe44259e7cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visualRoot: {fileID: 182216436996415683}
+  animator: {fileID: 5947722889063295983}
 --- !u!95 &5947722889063295983
 Animator:
   serializedVersion: 7
@@ -929,19 +943,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7627014054633805148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4383898553168550268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f8fdb6fbd6f9fc4ea5cbe44259e7cd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 5947722889063295983}
 --- !u!223 &743994292680084156
 Canvas:
   m_ObjectHideFlags: 0

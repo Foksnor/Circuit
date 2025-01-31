@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using Doozy.Runtime.Common.Extensions;
+using Doozy.Runtime.Reactor.Animators;
 
 public class Card : MonoBehaviour
 {
@@ -29,7 +30,7 @@ public class Card : MonoBehaviour
     private bool isCardActivated { get; set; } = false;
     [SerializeField] private List<Image> rotatableImageMaterial = new();
 
-    public bool isCardVisible { get; private set; } = false;
+    public bool IsCardVisible { get; private set; } = false;
     public CardSocket ConnectedSocket { get; private set; }
     public CircuitBoard ConnectedCircuitboard { get; private set; }
 
@@ -38,7 +39,7 @@ public class Card : MonoBehaviour
         CardId = Guid.NewGuid().ToString();
         cardScriptableObject = scriptableObject;
         ConnectedCircuitboard = owner;
-        isCardVisible = isVisible;
+        IsCardVisible = isVisible;
 
         if (isVisible)
         {
@@ -202,7 +203,7 @@ public class Card : MonoBehaviour
         return pCGridNumber;
     }
 
-    public Vector2Int RotateCardTowardsTarget(GridCube targetGrid, GridCube savedGridUsedByPreviousCard, Vector2Int steps)
+    public Vector2Int RotateToNearestTarget(GridCube targetGrid, GridCube savedGridUsedByPreviousCard, Vector2Int steps)
     {
         float targetAngle = GetDirectionAngleBetweenGrids(targetGrid, savedGridUsedByPreviousCard);
         if (Mathf.Abs(targetAngle) < 172)
