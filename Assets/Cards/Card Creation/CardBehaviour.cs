@@ -37,7 +37,7 @@ public class CardBehaviour : MonoBehaviour
         if (!triggeredCards.Contains(card.CardId))
         {
             // Use the enhancement associated with the connected socket
-            associatedEnhancement = card.ConnectedSocket.UseSlotEnhancement();
+            associatedEnhancement = card.ConnectedSocket.UseSlotEnhancement(action);
             triggeredCards.Add(card.CardId);
         }
         ExecuteCardEnhancement(instigator, card, action, value, targets, associatedEnhancement);

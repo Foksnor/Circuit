@@ -1,3 +1,4 @@
+using Doozy.Runtime.Reactor.Animators;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -44,9 +45,11 @@ public class CardSocket : MonoBehaviour
         animator.SetBool("isOpen", isOpen);
     }
 
-    public _CardAction UseSlotEnhancement()
+    public _CardAction UseSlotEnhancement(_CardAction action)
     {
-        _CardAction action = CurrentSlotEnhancement;
+        // If the used action is the same as the slot enhancement, don't consume a slot charge
+        if (action == CurrentSlotEnhancement)
+            return action;
 
         if (EnhancementCharges > 0)
         {
@@ -60,7 +63,7 @@ public class CardSocket : MonoBehaviour
             if (EnhancementCharges <= 0)
                 RemoveSlotEnhancement();
         }
-        return action;
+        return CurrentSlotEnhancement;
     }
 
     public void SetSlotEnhancement(_CardAction action, int amount)
@@ -90,6 +93,9 @@ public class CardSocket : MonoBehaviour
                 enhancementImageTarget.material = enhancementRetriggerMat;
                 break;
         }
+
+        // Plays an animation on the socket when it gets enhanced
+        animator.Play("GetsEnhanced");
 
         // Updates the visual tag that is on the top side of a card socket
         enhancementTag.SetActive(true);
