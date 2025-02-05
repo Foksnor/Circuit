@@ -11,6 +11,13 @@ public static class CardActions
 public class CardBehaviour : MonoBehaviour
 {
     private HashSet<string> triggeredCards = new HashSet<string>();
+
+    // Allows for enhancements or perks to have cards retrigger additional times
+    private Dictionary<string, int> retriggerCounts = new();
+    private int BaseMaxRetriggersPerTurn = 1;
+    public int AdditionalRetriggers { get; private set; } = 0;
+    public int MaxRetriggersPerTurn => BaseMaxRetriggersPerTurn + AdditionalRetriggers;
+
     private _CardAction associatedEnhancement;
 
     private void Awake()
@@ -158,7 +165,16 @@ public class CardBehaviour : MonoBehaviour
         switch (enhancement)
         {
             case _CardAction.EnhanceSlotRetrigger:
-                CallAction(instigator, card, action, value, targets);
+                // Sets the retrigger count to 0 if called card hasn't been called this turn yet
+                if (!retriggerCounts.ContainsKey(card.CardId))
+                    retriggerCounts[card.CardId] = 0;
+
+                if (retriggerCounts[card.CardId] < MaxRetriggersPerTurn)
+                {
+                    retriggerCounts[card.CardId]++;
+                    // Retrigger the action
+                    CallAction(instigator, card, action, value, targets);
+                }
                 break;
         }
     }
@@ -166,5 +182,11 @@ public class CardBehaviour : MonoBehaviour
     public void ResetTriggeredCardsTracking()
     {
         triggeredCards.Clear();
+        retriggerCounts.Clear();
+    }
+
+    public void ApplyRetriggerPerk(int bonusRetriggers)
+    {
+        AdditionalRetriggers += bonusRetriggers;
     }
 }
