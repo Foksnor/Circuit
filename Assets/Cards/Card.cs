@@ -154,17 +154,6 @@ public class Card : MonoBehaviour
     {
         ExecuteActionSequence(instigator, card, actions, targets);
         CardActions.Instance.IncrementTriggerCount(card);
-
-        // Only players can enhance their slots
-        if (instigator.TeamType == _TeamType.Player)
-        {
-            // Ensure retrigger limit isn't exceeded
-            if (!CardActions.Instance.HasReachedMaxTriggers(card))
-            {
-                // Retrigger the entire sequence
-                ProcessActions(instigator, card, actions, targets);
-            }
-        }
     }
 
     private void ExecuteActionSequence(Character instigator, Card card, List<CardActionData> actions, GridSelector targets)

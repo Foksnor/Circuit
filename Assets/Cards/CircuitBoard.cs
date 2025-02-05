@@ -15,7 +15,8 @@ public class CircuitBoard : MonoBehaviour
     protected List<CardSocket> ActiveSockets { set; get; } = new();
     public List<CardScriptableObject> StartingCardsInPlay = new();
     protected int activeCardNumber = 0;
-    protected float timeBetweenCardsPlayed = 0;
+    protected float timeCardIsInUse = 0;
+    private readonly float timeCardNeedsToWaitAfterRetrigger = 0.3f;
     public int FireAttacksAvailable { get; private set; }
     public int ShockAttacksAvailable { get; private set; }
 
@@ -45,15 +46,27 @@ public class CircuitBoard : MonoBehaviour
 
     public virtual bool IsProcessingCards(Character targetCharacter)
     {
-        timeBetweenCardsPlayed -= Time.deltaTime;
+        timeCardIsInUse -= Time.deltaTime;
 
-        if (timeBetweenCardsPlayed > 0)
+        if (timeCardIsInUse > 0)
             return true;
 
         if (activeCardNumber < ActiveCards.Count)
         {
-            timeBetweenCardsPlayed = ActiveCards[activeCardNumber].GetCardInfo().TimeInUse;
+            Card activeCard = ActiveCards[activeCardNumber];
+            timeCardIsInUse = activeCard.GetCardInfo().TimeInUse;
+
             ActivateSelectedCard(targetCharacter);
+            
+            // Check if this card has retriggers left
+            if (!CardActions.Instance.HasReachedMaxTriggers(activeCard))
+            {
+                timeCardIsInUse += timeCardNeedsToWaitAfterRetrigger;
+                CardActions.Instance.IncrementTriggerCount(activeCard);
+                return true;  // Keep processing this card
+            }
+
+            // If no retriggers left, move to next card
             activeCardNumber++;
             return true;
         }
@@ -74,7 +87,7 @@ public class CircuitBoard : MonoBehaviour
 
     public void ResetCardProcessing()
     {
-        timeBetweenCardsPlayed = 0;
+        timeCardIsInUse = 0;
         activeCardNumber = 0;
         for (int i = 0; i < ActiveCards.Count; i++)
         {
