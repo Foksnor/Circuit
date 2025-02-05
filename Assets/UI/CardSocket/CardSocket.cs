@@ -53,6 +53,9 @@ public class CardSocket : MonoBehaviour
 
         if (EnhancementCharges > 0)
         {
+            // Save the slot
+            action = CurrentSlotEnhancement;
+
             // Use a charge
             EnhancementCharges--;
 
@@ -62,8 +65,12 @@ public class CardSocket : MonoBehaviour
             // If no charges are left, remove the slot enhancement
             if (EnhancementCharges <= 0)
                 RemoveSlotEnhancement();
+
+            // Return the saved enhancement value
+            return action;
         }
-        return CurrentSlotEnhancement;
+
+        return default;
     }
 
     public void SetSlotEnhancement(_CardAction action, int amount)
