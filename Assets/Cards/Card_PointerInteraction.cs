@@ -44,6 +44,16 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
 
     void Update()
     {
+        // Rotate the card when dragging, allowing it to appear in 3d space
+        RotateCardOnPointerInput();
+
+        // Card goes back to it's desired position when not being dragged
+        if (!isBeingDragged)
+            MoveCardPosition();
+    }
+
+    private void RotateCardOnPointerInput()
+    {
         // Continously lerp the card rotation back to it's original rotation
         pointerInputX = Mathf.Lerp(pointerInputX, 0, cardDragRotSpeedModifier * Time.deltaTime);
         pointerInputY = Mathf.Lerp(pointerInputY, 0, cardDragRotSpeedModifier * Time.deltaTime);
@@ -52,12 +62,6 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
         pointerInputX = Mathf.Clamp(pointerInputX, -cardAngleClamp, cardAngleClamp);
         pointerInputY = Mathf.Clamp(pointerInputY, -cardAngleClamp, cardAngleClamp);
         transform.eulerAngles = new Vector3(pointerInputY, -pointerInputX, 0);
-
-        // Card goes back to it's desired position when not being dragged
-        if (!isBeingDragged)
-        {
-            MoveCardPosition();
-        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
