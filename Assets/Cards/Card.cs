@@ -146,20 +146,36 @@ public class Card : MonoBehaviour
             GridSelector targets = cardScriptableObject.ActionSequence.TargetRequirement;
 
             // Process all actions, including nested ActionSequences
-            ProcessActions(instigator, actions, targets);
+            ProcessActions(instigator, this, actions, targets);
         }
     }
 
-    public void ProcessActions(Character instigator, List<CardActionData> actions, GridSelector targets)
+    public void ProcessActions(Character instigator, Card card, List<CardActionData> actions, GridSelector targets)
+    {
+        ExecuteActionSequence(instigator, card, actions, targets);
+        CardActions.Instance.IncrementTriggerCount(card);
+
+        // Only players can enhance their slots
+        if (instigator.TeamType == _TeamType.Player)
+        {
+            // Ensure retrigger limit isn't exceeded
+            if (!CardActions.Instance.HasReachedMaxTriggers(card))
+            {
+                // Retrigger the entire sequence
+                ProcessActions(instigator, card, actions, targets);
+            }
+        }
+    }
+
+    private void ExecuteActionSequence(Character instigator, Card card, List<CardActionData> actions, GridSelector targets)
     {
         foreach (CardActionData action in actions)
         {
-            // Recursively process the nested ActionSequence
             if (action.CardAction == _CardAction.ActionSequence && action.ActionSequence != null)
             {
-                ProcessActions(instigator, action.ActionSequence.Actions, action.ActionSequence.TargetRequirement);
+                // Recursively process nested ActionSequences
+                ExecuteActionSequence(instigator, card, action.ActionSequence.Actions, action.ActionSequence.TargetRequirement);
             }
-            // Call the action if it's not an ActionSequence
             else
             {
                 // Context based value as parameter
@@ -174,7 +190,9 @@ public class Card : MonoBehaviour
                         value = action.Particle;
                         break;
                 }
-                CardActions.Instance.CallAction(instigator, this, action.CardAction, value, targets);
+
+                // Trigger the actual action
+                CardActions.Instance.CallAction(instigator, card, action.CardAction, value, targets);
             }
         }
     }

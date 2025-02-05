@@ -66,7 +66,7 @@ public class CardSocket : MonoBehaviour
             if (EnhancementCharges <= 0)
                 RemoveSlotEnhancement();
 
-            // Return the saved enhancement value
+            // Return enhancement value
             return action;
         }
 

@@ -13,12 +13,13 @@ public class CardBehaviour : MonoBehaviour
     private HashSet<string> triggeredCards = new HashSet<string>();
 
     // Allows for enhancements or perks to have cards retrigger additional times
-    private Dictionary<string, int> retriggerCounts = new();
-    private int BaseMaxRetriggersPerTurn = 1;
+    private Dictionary<string, int> triggerCounts = new();
+    private int BaseMaxTriggersPerTurn = 1;
     public int AdditionalRetriggers { get; private set; } = 0;
-    public int MaxRetriggersPerTurn => BaseMaxRetriggersPerTurn + AdditionalRetriggers;
+    public int MaxTriggersPerTurn => BaseMaxTriggersPerTurn + AdditionalRetriggers;
 
-    private _CardAction associatedEnhancement;
+    private CardSocket savedCardSocket = null;
+    private _CardAction savedEnhancement = default;
 
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class CardBehaviour : MonoBehaviour
     {
         if (value == null)
             Debug.LogError($"{instigator.name} tried to use {action} action. But the value hasn't been assigned yet.");
+
         List<Vector2Int> targetPositions = targets.RelativeSelectedPositions;
 
         // Targets are based on the facing direction the team is moving
@@ -41,34 +43,46 @@ public class CardBehaviour : MonoBehaviour
             }
         }
 
+        // Track card trigger
         if (!triggeredCards.Contains(card.CardId))
         {
-            // Use the enhancement associated with the connected socket
-            associatedEnhancement = card.ConnectedSocket.UseSlotEnhancement(action);
-            triggeredCards.Add(card.CardId);
+            if (card.ConnectedSocket != null)
+            {
+                // Save the card socket reference, in case the card gets discarded during the action, but still need the socket as reference for things like enhancements
+                savedCardSocket = card.ConnectedSocket;
+
+                // Use the enhancement associated with the connected socket
+                savedEnhancement = savedCardSocket.UseSlotEnhancement(action);
+                triggeredCards.Add(card.CardId);
+            }
+            else
+                // QQQTODO: Needed as enemies don't have a socket
+                savedCardSocket = null;
         }
-        ExecuteCardEnhancement(instigator, card, action, value, targets, associatedEnhancement);
 
         // ACTIONS THAT TRIGGER ON EACH TARGET LOCATION
-        for (int i = 0; i < targetPositions.Count; i++)
+        foreach (Vector2Int pos in targetPositions)
         {
             // Cycle through every target location
-            Vector2 targetPos = instigator.AssignedGridCube.Position + targetPositions[i];
+            Vector2 targetPos = instigator.AssignedGridCube.Position + pos;
             GridCube targetGrid = Grid.GridPositions.GetGridByPosition(targetPos);
 
             // Apply slot enhancement on terrain
-            ExecuteTerrainEnhancement(instigator, targetGrid, associatedEnhancement);
+            // QQQTODO: Needed as enemies don't have a socket
+            if (savedCardSocket != null)
+                ExecuteTerrainEnhancement(instigator, targetGrid, savedCardSocket.CurrentSlotEnhancement);
 
             switch (action)
             {
                 case _CardAction.Damage:
                     // Check for each location if attack can happen or not
-                    if (ValidateGridPosition.CanAttack(instigator.AssignedGridCube, targetGrid))
+                    // Needs a character to damage
+                    // No friendly damamge allowed
+                    if (ValidateGridPosition.CanAttack(instigator.AssignedGridCube, targetGrid) &&
+                        targetGrid.CharacterOnThisGrid != null &&
+                        targetGrid.CharacterOnThisGrid.TeamType != instigator.TeamType)
                     {
-                        if (targetGrid.CharacterOnThisGrid != null)
-                            // No friendly damage allowed
-                            if (targetGrid.CharacterOnThisGrid.TeamType != instigator.TeamType)
-                                targetGrid.CharacterOnThisGrid.SubtractHealth((int)value, instigator);
+                        targetGrid.CharacterOnThisGrid.SubtractHealth((int)value, instigator);
                     }
                     break;
                 case _CardAction.Heal:
@@ -93,10 +107,9 @@ public class CardBehaviour : MonoBehaviour
                 PlayerUI.HandPanel.DrawCards((int)value);
                 break;
             case _CardAction.DiscardThisCard:
-                card.ConnectedCircuitboard.DiscardedACard();
-                card.ConnectedCircuitboard.RemoveFromSocket(card);
-                PlayerUI.HandPanel.SentCardToDiscard(card, 1f);
-                PlayerUI.PlayerCircuitboard.UpdateCardsInPlay();
+                // Prevent retriggering discard
+                if (!HasCardActionTriggered(action, card))
+                    TriggerDiscard(card);
                 break;
             case _CardAction.DiscardOtherCard:
                 break;
@@ -107,7 +120,7 @@ public class CardBehaviour : MonoBehaviour
             case _CardAction.EnhanceSlotFire:
             case _CardAction.EnhanceSlotShock:
             case _CardAction.EnhanceSlotRetrigger:
-                card.ConnectedSocket.SetSlotEnhancement(action, (int)value);
+                savedCardSocket.SetSlotEnhancement(action, (int)value);
                 break;
             case _CardAction.AddLife:
                 PlayerUI.LifePanel.AdjustLifeCount((int)value);
@@ -116,14 +129,15 @@ public class CardBehaviour : MonoBehaviour
                 PlayerUI.LifePanel.AdjustLifeCount(-(int)value);
                 break;
             case _CardAction.ConsumeCorpse:
-                List<GridCube> vicinityCubes = new();
-                vicinityCubes.AddRange(HelperFunctions.GetVicinityGridCubes(instigator.AssignedGridCube, targets.MaxRange));
-                for (int i = 0; i < vicinityCubes.Count; i++)
-                    if (vicinityCubes[i].CorpseOnThisGrid != null)
+                List<GridCube> vicinityCubes = HelperFunctions.GetVicinityGridCubes(instigator.AssignedGridCube, targets.MaxRange);
+                foreach (var cube in vicinityCubes)
+                {
+                    if (cube.CorpseOnThisGrid != null)
                     {
-                        Destroy(vicinityCubes[i].CorpseOnThisGrid);
+                        Destroy(cube.CorpseOnThisGrid);
                         return true;
                     }
+                }
                 // If no corpse can be consumed, then the action can not be completed
                 return false;
             case _CardAction.SpawnParticleOnSelf:
@@ -160,29 +174,57 @@ public class CardBehaviour : MonoBehaviour
         }
     }
 
-    private void ExecuteCardEnhancement(Character instigator, Card card, _CardAction action, object value, GridSelector targets, _CardAction enhancement)
+    private bool HasCardActionTriggered(_CardAction action, Card card)
     {
-        switch (enhancement)
+        if (!triggeredCards.Contains($"{action}-{card.CardId}"))
         {
-            case _CardAction.EnhanceSlotRetrigger:
-                // Sets the retrigger count to 0 if called card hasn't been called this turn yet
-                if (!retriggerCounts.ContainsKey(card.CardId))
-                    retriggerCounts[card.CardId] = 0;
-
-                if (retriggerCounts[card.CardId] < MaxRetriggersPerTurn)
-                {
-                    retriggerCounts[card.CardId]++;
-                    // Retrigger the action
-                    CallAction(instigator, card, action, value, targets);
-                }
-                break;
+            triggeredCards.Add($"{action}-{card.CardId}");
+            return false;
         }
+        else
+            return true;
+    }
+
+    private void TriggerDiscard(Card card)
+    {
+        card.ConnectedCircuitboard.DiscardedACard();
+        card.ConnectedCircuitboard.RemoveFromSocket(card);
+        PlayerUI.HandPanel.SentCardToDiscard(card, 1f);
+        PlayerUI.PlayerCircuitboard.UpdateCardsInPlay();
+    }
+
+    public bool HasReachedMaxTriggers(Card card)
+    {
+        if (!triggerCounts.ContainsKey(card.CardId))
+            triggerCounts[card.CardId] = 0;
+
+        int bonusTriggers = 0;
+        if (savedEnhancement == _CardAction.EnhanceSlotRetrigger)
+            bonusTriggers++;
+
+        return triggerCounts[card.CardId] >= MaxTriggersPerTurn + bonusTriggers;
+    }
+
+    public void IncrementTriggerCount(Card card)
+    {
+        if (!triggerCounts.ContainsKey(card.CardId))
+            triggerCounts[card.CardId] = 0;
+
+        triggerCounts[card.CardId]++;
+    }
+
+    public void DecrementTriggerCount(Card card)
+    {
+        if (!triggerCounts.ContainsKey(card.CardId))
+            triggerCounts[card.CardId] = 0;
+
+        triggerCounts[card.CardId]--;
     }
 
     public void ResetTriggeredCardsTracking()
     {
         triggeredCards.Clear();
-        retriggerCounts.Clear();
+        triggerCounts.Clear();
     }
 
     public void ApplyRetriggerPerk(int bonusRetriggers)
