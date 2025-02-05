@@ -186,7 +186,10 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
                 if (card.ConnectedSocket != null)
                     card.RemoveFromSocket();
 
-                card.ConnectToSocket(hoveredSocket);
+                card.ConnectedCircuitboard.PlaceCardInSocket(card, hoveredSocket);
+
+                // Remove card from hand panel if applicable
+                PlayerUI.HandPanel.RemoveCardFromPanel(card, false);
             }
             else if (hoveredGameObject.GetComponentInParent<Card>() is Card hoveredCard)
             {
