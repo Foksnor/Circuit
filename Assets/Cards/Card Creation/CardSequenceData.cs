@@ -6,6 +6,26 @@ using UnityEngine;
 [System.Serializable]
 public class CardSequenceData
 {
+    private static int serializationDepth = 0;
+    private const int MAX_SERIALIZATION_DEPTH = 5;
+
+    public List<CardActionData> Actions;
     public GridSelector TargetRequirement;
-    public List<CardActionData> Actions = new();
+
+    public CardSequenceData()
+    {
+        if (serializationDepth >= MAX_SERIALIZATION_DEPTH)
+        {
+            // Prevent further recursion
+            Actions = new List<CardActionData>(); 
+            return;
+        }
+
+        serializationDepth++;
+    }
+
+    ~CardSequenceData()
+    {
+        serializationDepth--;
+    }
 }
