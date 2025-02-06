@@ -70,7 +70,7 @@ public class CardBehaviour : MonoBehaviour
             // Apply slot enhancement on terrain
             // QQQTODO: Needed as enemies don't have a socket
             if (savedCardSocket != null)
-                ExecuteTerrainEnhancement(instigator, targetGrid, savedCardSocket.CurrentSlotEnhancement);
+                ExecuteTerrainEnhancement(instigator, targetGrid, savedEnhancement);
 
             switch (action)
             {
@@ -108,7 +108,7 @@ public class CardBehaviour : MonoBehaviour
                 break;
             case _CardAction.DiscardThisCard:
                 // Prevent retriggering discard
-                if (!HasCardActionTriggered(action, card))
+                if (CardActionRequiredToTriggerOnlyOnce(action, card))
                     TriggerDiscard(card);
                 break;
             case _CardAction.DiscardOtherCard:
@@ -174,15 +174,17 @@ public class CardBehaviour : MonoBehaviour
         }
     }
 
-    private bool HasCardActionTriggered(_CardAction action, Card card)
+    private bool CardActionRequiredToTriggerOnlyOnce(_CardAction actionRequirement, Card card)
     {
-        if (!triggeredCards.Contains($"{action}-{card.CardId}"))
+        // Filters a unique card id with the action prefix, allowing this only to happen once
+        // triggeredCards needs to be cleared at the end of round for this to work once a turn
+        if (!triggeredCards.Contains($"{actionRequirement}-{card.CardId}"))
         {
-            triggeredCards.Add($"{action}-{card.CardId}");
-            return false;
+            triggeredCards.Add($"{actionRequirement}-{card.CardId}");
+            return true;
         }
         else
-            return true;
+            return false;
     }
 
     private void TriggerDiscard(Card card)
