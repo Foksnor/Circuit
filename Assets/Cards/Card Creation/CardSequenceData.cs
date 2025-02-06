@@ -17,7 +17,7 @@ public class CardSequenceData
         if (serializationDepth >= MAX_SERIALIZATION_DEPTH)
         {
             // Prevent further recursion
-            Actions = new List<CardActionData>(); 
+            Actions = null; 
             return;
         }
 
