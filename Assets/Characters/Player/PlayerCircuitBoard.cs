@@ -61,7 +61,7 @@ public class PlayerCircuitBoard : CircuitBoard
         // Adds card
         for (int i = 0; i < cardList.Count; i++)
         {
-            Card newCard = Instantiate(card, cardPanel.transform);
+            Card newCard = Instantiate(cardPrefab, cardPanel.transform);
             ActiveCards.Add(newCard);
 
 
@@ -99,7 +99,7 @@ public class PlayerCircuitBoard : CircuitBoard
 
     private CardSocket AddSocket(_CardAction enhancementType, int enhancementChargeCount)
     {
-        CardSocket newSocket = Instantiate(socket, socketPanel.transform);
+        CardSocket newSocket = Instantiate(socketPrefab, socketPanel.transform);
 
         // Prohibit a socket to set an enchantment when no valid type is given
         // This can happen when loading a default socket type from a save file

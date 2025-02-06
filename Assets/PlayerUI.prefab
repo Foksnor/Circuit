@@ -731,7 +731,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14.65
+  m_fontSize: 16
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7471,11 +7471,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardPanel: {fileID: 1503188385931314072}
   socketPanel: {fileID: 6481983893817491415}
-  card: {fileID: 406596430431226498, guid: 875bf82bf24067243a05baee2b20c410, type: 3}
-  socket: {fileID: 8745758731374674600, guid: 4e858a182188b0b498a60da377184ab8, type: 3}
+  cardPrefab: {fileID: 406596430431226498, guid: 875bf82bf24067243a05baee2b20c410, type: 3}
+  socketPrefab: {fileID: 8745758731374674600, guid: 4e858a182188b0b498a60da377184ab8, type: 3}
   StartingCardsInPlay:
   - {fileID: 11400000, guid: f1bee7ec5bec90242a51d0845a5c554b, type: 2}
-  - {fileID: 11400000, guid: d4d0686dcd9be9f449f64e13a65042b2, type: 2}
+  - {fileID: 11400000, guid: e03077d361af29c40b6b9108110728a9, type: 2}
   - {fileID: 11400000, guid: e5fa2d1ee1c20094f9c23764add936c0, type: 2}
   - {fileID: 11400000, guid: 4a2b2580818fff240a89133674166f85, type: 2}
   startingCardsInDeck:
@@ -11575,7 +11575,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4850788240424337212}
   m_HandleRect: {fileID: 1648440396943921819}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -14752,7 +14752,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 562538283215937138}
   m_HandleRect: {fileID: 7630122817690569055}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

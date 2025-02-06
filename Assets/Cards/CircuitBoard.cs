@@ -9,8 +9,8 @@ public class CircuitBoard : MonoBehaviour
 {
     [SerializeField] protected GameObject cardPanel = null;
     [SerializeField] protected GameObject socketPanel = null;
-    [SerializeField] protected Card card = null;
-    [SerializeField] protected CardSocket socket = null;
+    [SerializeField] protected Card cardPrefab = null;
+    [SerializeField] protected CardSocket socketPrefab = null;
     protected List<Card> ActiveCards { set; get; } = new ();
     protected List<CardSocket> ActiveSockets { set; get; } = new();
     public List<CardScriptableObject> StartingCardsInPlay = new();
@@ -30,11 +30,13 @@ public class CircuitBoard : MonoBehaviour
         // Adds card slots
         for (int i = 0; i < cardList.Count; i++)
         {
-            Card newCard = new();
+            Card newCard = Instantiate(cardPrefab);
             ActiveCards.Add(newCard);
+            newCard.transform.SetParent(cardPanel.transform, false);
 
-            CardSocket newSocket = new();
+            CardSocket newSocket = Instantiate(socketPrefab);
             ActiveSockets.Add(newSocket);
+            newSocket.transform.SetParent(socketPanel.transform, false);
 
             // Sets the new socket reference to the card
             newCard.ConnectToSocket(ActiveSockets[i]);
