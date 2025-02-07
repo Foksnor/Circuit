@@ -107,8 +107,8 @@ public class CardBehaviour : MonoBehaviour
                 PlayerUI.HandPanel.DrawCards((int)value);
                 break;
             case _CardAction.DiscardThisCard:
-                // Prevent retriggering discard
-                if (CardActionRequiredToTriggerOnlyOnce(action, card))
+                // Only discard when max triggers are reached
+                if (HasReachedMaxTriggers(card))
                     TriggerDiscard(card);
                 break;
             case _CardAction.DiscardOtherCard:
