@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+[RequireComponent(typeof(Button), typeof(CanvasGroup))]
 public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
     private bool isInteractable = true;
@@ -303,6 +305,13 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
             {
                 // Set travel duration
                 travelDuration = travelTime;
+
+                // Cards that change zone should not be able to be interacted with
+                isInteractable = false;
+                GetComponent<Button>().interactable = false;
+                CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
+                canvasGroup.interactable = false;
+                canvasGroup.blocksRaycasts = false;
 
                 // Set special card animation for cards with travelTime
                 // Animation should last until travel has finished
