@@ -153,7 +153,6 @@ public class Card : MonoBehaviour
     public void ProcessActions(Character instigator, Card card, List<CardActionData> actions, GridSelector targets)
     {
         ExecuteActionSequence(instigator, card, actions, targets);
-        CardActions.Instance.IncrementTriggerCount(card);
     }
 
     private void ExecuteActionSequence(Character instigator, Card card, List<CardActionData> actions, GridSelector targets)

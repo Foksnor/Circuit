@@ -58,13 +58,13 @@ public class CircuitBoard : MonoBehaviour
             Card activeCard = ActiveCards[activeCardNumber];
             timeCardIsInUse = activeCard.GetCardInfo().TimeInUse;
 
+            CardActions.Instance.IncrementTriggerCount(activeCard);
             ActivateSelectedCard(targetCharacter);
             
             // Check if this card has retriggers left
             if (!CardActions.Instance.HasReachedMaxTriggers(activeCard))
             {
                 timeCardIsInUse += timeCardNeedsToWaitAfterRetrigger;
-                CardActions.Instance.IncrementTriggerCount(activeCard);
                 return true;  // Keep processing this card
             }
 
