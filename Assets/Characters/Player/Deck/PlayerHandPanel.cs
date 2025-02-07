@@ -98,7 +98,7 @@ public class PlayerHandPanel : MonoBehaviour
                     Card shuffleCard = Instantiate(cardToSpawn, targetDiscardCardsTo);
                     CardScriptableObject discardCardScriptableObject = Decks.Playerdeck.CurrentCardsInDiscard[0];
                     shuffleCard.SetCardInfo(discardCardScriptableObject, PlayerUI.PlayerCircuitboard, true);
-                    shuffleCard.CardPointerInteraction.AssignPosition(targetDrawCardsFrom.position, 0.5f);
+                    shuffleCard.CardPointerInteraction.AssignPosition(targetDrawCardsFrom.position, 0.25f);
                     shuffleCard.SetSelfDestructWhenReachingTargetTransform(targetDrawCardsFrom);
 
                     Decks.Playerdeck.CurrentCardsInDeck.Add(Decks.Playerdeck.CurrentCardsInDiscard[0]);
