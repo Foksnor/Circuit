@@ -200,9 +200,9 @@ public class CardBehaviour : MonoBehaviour
         if (!triggerCounts.ContainsKey(card.CardId))
             triggerCounts[card.CardId] = 0;
 
-        int bonusTriggers = 0;
-        if (savedEnhancement == _CardAction.EnhanceSlotRetrigger)
-            bonusTriggers++;
+        // Calculate all the bonus triggers
+        // Using savedCardSocket as a reference, as a card can be discarded from a slot before this calculation happens in the same action sequence
+        int bonusTriggers = savedCardSocket.GetSlotTriggers();
 
         return triggerCounts[card.CardId] >= MaxTriggersPerTurn + bonusTriggers;
     }

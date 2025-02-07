@@ -115,4 +115,12 @@ public class CardSocket : MonoBehaviour
         enhancementTag.SetActive(false);
         enhancementImageTarget.material = null;
     }
+
+    public int GetSlotTriggers()
+    {
+        int bonusTriggers = 0;
+        if (CurrentSlotEnhancement == _CardAction.EnhanceSlotRetrigger)
+            bonusTriggers ++;
+        return bonusTriggers;
+    }
 }
