@@ -85,20 +85,20 @@ public class CardSocket : MonoBehaviour
             // Overwrite current slot enhancement
             CurrentSlotEnhancement = action;
             EnhancementCharges = amount;
-        }
 
-        // Set slot materials
-        switch (action)
-        {
-            case _CardAction.EnhanceSlotFire:
-                enhancementImageTarget.material = enhancementFireMat;
-                break;
-            case _CardAction.EnhanceSlotShock:
-                enhancementImageTarget.material = enhancementShockMat;
-                break;
-            case _CardAction.EnhanceSlotRetrigger:
-                enhancementImageTarget.material = enhancementRetriggerMat;
-                break;
+            // Set slot materials
+            switch (action)
+            {
+                case _CardAction.EnhanceSlotFire:
+                    enhancementImageTarget.material = enhancementFireMat;
+                    break;
+                case _CardAction.EnhanceSlotShock:
+                    enhancementImageTarget.material = enhancementShockMat;
+                    break;
+                case _CardAction.EnhanceSlotRetrigger:
+                    enhancementImageTarget.material = enhancementRetriggerMat;
+                    break;
+            }
         }
 
         // Plays an animation on the socket when it gets enhanced
