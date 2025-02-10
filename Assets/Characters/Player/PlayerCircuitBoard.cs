@@ -91,7 +91,6 @@ public class PlayerCircuitBoard : CircuitBoard
         {
             if (activeListeners[c].BrainType == Character._BrainType.Listener)
             {
-                ActiveCards[activeCardNumber].CalculateGridCubeDestination(activeListeners[c], false);
                 ActiveCards[activeCardNumber].ActivateCard(activeListeners[c]);
             }
         }

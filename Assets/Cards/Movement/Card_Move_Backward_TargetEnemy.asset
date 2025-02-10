@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: Card_Move_Backward_TargetEnemy
   m_EditorClassIdentifier: 
   CardType: 0
+  ActionSequence:
+    Actions:
+    - CardAction: 2
+      Value: 1
+      Particle: {fileID: 0}
+      ActionSequence:
+        Actions: []
+        TargetRequirement: {fileID: 0}
+    TargetRequirement: {fileID: 11400000, guid: 48a83d7274fc45a449a2595f09f03faa, type: 2}
   CardRarity: 0
   CardStyle: 0
   CardName: Move
-  Cost: 0
   Sprite: {fileID: 21300000, guid: 22d788f7e04b30a4ea84135444221dae, type: 3}
   Sound: {fileID: 0}
-  Particle: {fileID: 0}
-  ParticleLocation: 0
-  TargetType: 3
-  MoveSteps: {x: 0, y: -1}
-  AttackSteps: {x: 0, y: 0}
-  AttackOffset: 0
-  Value: 0
-  TargetRequirement: 
   Description: <style="Move_West"></style> 2
-  MaxTimeInUse: 0.5
+  TimeInUse: 0.5

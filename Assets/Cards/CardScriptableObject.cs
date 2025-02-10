@@ -15,12 +15,8 @@ public class CardScriptableObject : ScriptableObject
     public _CardStyle CardStyle;
     public enum _CardStyle { Basic, Foil, Golden };
     public string CardName;
-    public int Cost;
     public Sprite Sprite;
     public AudioClip Sound;
-    public Vector2Int MoveSteps;
-    public int Value;
-    public string TargetRequirement = "";
     public string Description = "";
     public float TimeInUse = 0.5f;
 }

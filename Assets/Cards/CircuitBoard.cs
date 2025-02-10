@@ -83,7 +83,6 @@ public class CircuitBoard : MonoBehaviour
 
     protected virtual void ActivateSelectedCard(Character targetCharacter)
     {
-        ActiveCards[activeCardNumber].CalculateGridCubeDestination(targetCharacter, false);
         ActiveCards[activeCardNumber].ActivateCard(targetCharacter);
     }
 

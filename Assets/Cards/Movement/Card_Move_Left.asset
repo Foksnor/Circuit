@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: Card_Move_Left
   m_EditorClassIdentifier: 
   CardType: 0
+  ActionSequence:
+    Actions:
+    - CardAction: 2
+      Value: 1
+      Particle: {fileID: 0}
+      ActionSequence:
+        Actions: []
+        TargetRequirement: {fileID: 0}
+    TargetRequirement: {fileID: 11400000, guid: 3df18f18b5f9d204b90f7d7c13c911b5, type: 2}
   CardRarity: 0
   CardStyle: 0
   CardName: Move
-  Cost: 0
   Sprite: {fileID: 21300000, guid: 9da6b774dd55ef841bb376f284b55897, type: 3}
   Sound: {fileID: 0}
-  Particle: {fileID: 0}
-  ParticleLocation: 0
-  TargetType: 0
-  MoveSteps: {x: -1, y: 0}
-  AttackSteps: {x: 0, y: 0}
-  AttackOffset: 0
-  Value: 0
-  TargetRequirement: 
   Description: <style="Move_North"></style> 1
-  MaxTimeInUse: 0.5
+  TimeInUse: 0.5

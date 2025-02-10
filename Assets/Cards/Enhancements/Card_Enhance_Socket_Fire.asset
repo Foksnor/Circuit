@@ -14,28 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardType: 1
   ActionSequence:
-    TargetRequirement: {fileID: 11400000, guid: 9f0b27df3fa609f4782661dd603c0525, type: 2}
     Actions:
-    - CardAction: 7
+    - CardAction: 8
       Value: 1
       Particle: {fileID: 0}
       ActionSequence:
-        TargetRequirement: {fileID: 0}
         Actions: []
-    - CardAction: 3
+        TargetRequirement: {fileID: 0}
+    - CardAction: 4
       Value: 1
       Particle: {fileID: 0}
       ActionSequence:
-        TargetRequirement: {fileID: 0}
         Actions: []
+        TargetRequirement: {fileID: 0}
+    TargetRequirement: {fileID: 11400000, guid: 9f0b27df3fa609f4782661dd603c0525, type: 2}
   CardRarity: 0
   CardStyle: 0
   CardName: Fire Slot
-  Cost: 0
   Sprite: {fileID: -211277174577979742, guid: 707023d6f0433aa439f5388cdc80eee2, type: 3}
   Sound: {fileID: 0}
-  MoveSteps: {x: 0, y: 0}
-  Value: 1
-  TargetRequirement: 
   Description: Enhances this slot with Fire.
-  MaxTimeInUse: 0.5
+  TimeInUse: 0.5

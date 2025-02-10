@@ -6,6 +6,7 @@ using UnityEngine;
 public enum _CardAction
 {
     Damage, Heal,
+    Move,
     DrawCard, DiscardThisCard, DiscardOtherCard, DestroyThisCard, DestroyOtherCard,
     EnhanceSlotFire, EnhanceSlotShock, EnhanceSlotRetrigger,
     AddLife, SubtractLife, ConsumeCorpse,

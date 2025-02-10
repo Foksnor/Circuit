@@ -25,8 +25,13 @@ public static class ValidateGridPosition
 
     public static bool CanAttack(GridCube startingCube, GridCube destinationCube)
     {
+        if (startingCube == null ||
+            destinationCube == null)
+            return false;
+
         if (IsDesitionationTooHigh(startingCube, destinationCube))
             return false;
+
         return true;
     }
 

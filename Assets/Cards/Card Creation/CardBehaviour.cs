@@ -32,6 +32,7 @@ public class CardBehaviour : MonoBehaviour
             Debug.LogError($"{instigator.name} tried to use {action} action. But the value hasn't been assigned yet.");
 
         List<Vector2Int> targetPositions = targets.RelativeSelectedPositions;
+        GridCube startingPos = instigator.AssignedGridCube;
 
         // Targets are based on the facing direction the team is moving
         if (instigator.TeamType == _TeamType.Enemy)
@@ -67,36 +68,49 @@ public class CardBehaviour : MonoBehaviour
             Vector2 targetPos = instigator.AssignedGridCube.Position + pos;
             GridCube targetGrid = Grid.GridPositions.GetGridByPosition(targetPos);
 
-            // Apply slot enhancement on terrain
-            // QQQTODO: Needed as enemies don't have a socket
-            if (savedCardSocket != null)
-                ExecuteTerrainEnhancement(instigator, targetGrid, savedEnhancement);
-
-            switch (action)
+            // Skip action if there is no valid targetGrid
+            if (targetGrid != null)
             {
-                case _CardAction.Damage:
-                    // Check for each location if attack can happen or not
-                    // Needs a character to damage
-                    // No friendly damamge allowed
-                    if (ValidateGridPosition.CanAttack(instigator.AssignedGridCube, targetGrid) &&
-                        targetGrid.CharacterOnThisGrid != null &&
-                        targetGrid.CharacterOnThisGrid.TeamType != instigator.TeamType)
-                    {
-                        targetGrid.CharacterOnThisGrid.SubtractHealth((int)value, instigator);
-                    }
-                    break;
-                case _CardAction.Heal:
-                    if (targetGrid.CharacterOnThisGrid != null)
-                        targetGrid.CharacterOnThisGrid.SubtractHealth(-(int)value, instigator);
-                    break;
-                case _CardAction.SpawnParticleOnTarget:
-                    // Spawn particles on each target position
-                    GameObject particle = Instantiate((GameObject)value, targetGrid.Position, instigator.transform.rotation);
+                // Apply slot enhancement on terrain
+                // QQQTODO: Needed as enemies don't have a socket
+                if (savedCardSocket != null)
+                    ExecuteTerrainEnhancement(instigator, targetGrid, savedEnhancement);
 
-                    // Sets the scale of the particle relative to the direction angle of the instigator
-                    Vector3 dir = HelperFunctions.GetDirectionVector(targetPos, instigator.AssignedGridCube.Position);
-                    particle.transform.localScale = new Vector3(dir.y, 1, 1); // x-axis get's flipped based on character y-axis face direction
-                    break;
+                switch (action)
+                {
+                    case _CardAction.Damage:
+                        // Check for each location if attack can happen or not
+                        // Needs a character to damage
+                        // No friendly damamge allowed
+                        if (ValidateGridPosition.CanAttack(instigator.AssignedGridCube, targetGrid) &&
+                            targetGrid.CharacterOnThisGrid != null &&
+                            targetGrid.CharacterOnThisGrid.TeamType != instigator.TeamType)
+                        {
+                            targetGrid.CharacterOnThisGrid.SubtractHealth((int)value, instigator);
+                        }
+                        break;
+                    case _CardAction.Heal:
+                        if (targetGrid.CharacterOnThisGrid != null)
+                            targetGrid.CharacterOnThisGrid.SubtractHealth(-(int)value, instigator);
+                        break;
+                    case _CardAction.Move:
+                        // Check for each location if move can happen or not
+                        if (ValidateGridPosition.CanStep(instigator, startingPos, targetGrid))
+                        {
+                            // Update the starting pos for each iteration of movement steps when a card action has multiple steps
+                            instigator.ChangeDestinationGrid(targetGrid, 0.5f);
+                            startingPos = targetGrid;
+                        }
+                        break;
+                    case _CardAction.SpawnParticleOnTarget:
+                        // Spawn particles on each target position
+                        GameObject particle = Instantiate((GameObject)value, targetGrid.Position, instigator.transform.rotation);
+
+                        // Sets the scale of the particle relative to the direction angle of the instigator
+                        Vector3 dir = HelperFunctions.GetDirectionVector(targetPos, instigator.AssignedGridCube.Position);
+                        particle.transform.localScale = new Vector3(dir.y, 1, 1); // x-axis get's flipped based on character y-axis face direction
+                        break;
+                }
             }
         }
 

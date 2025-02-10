@@ -17,14 +17,11 @@ public class Card : MonoBehaviour
     [SerializeField] private Material foilMat, goldenMat;
     [SerializeField] private AudioClip sound;
     [SerializeField] private TextMeshProUGUI valueText;
-    [SerializeField] private TextMeshProUGUI TargetRequirementText;
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private Animator feedbackAnimator;
     public Animator cardAnimator;
     public Card_PointerInteraction CardPointerInteraction;
     private Transform targetSelfDestructDestination;
-    private List<GridCube> attackedGridTargets = new();
-    private GridCube targetedGridForMovement;
     public float MaxTimeInUse = 0.5f;
     //public float MaxTimeInUse { get; private set; } = 0.5f;
     private bool isCardActivated { get; set; } = false;
@@ -44,16 +41,8 @@ public class Card : MonoBehaviour
         if (isVisible)
         {
             nameText.text = cardScriptableObject.CardName;
-            //costText.text = cardScriptableObject.cost.ToString();
             cardimage.sprite = cardScriptableObject.Sprite;
-            valueText.text = cardScriptableObject.Value.ToString();
             descriptionText.text = cardScriptableObject.Description;
-
-            // Only show the requirement when necessary
-            if (cardScriptableObject.TargetRequirement.IsNullOrEmpty())
-                TargetRequirementText.transform.gameObject.SetActive(false);
-            else
-                TargetRequirementText.text = cardScriptableObject.TargetRequirement;
 
             // Set random rotation of the card material so that every card in hand looks a bit different
             SetRandomMaterialRotation();
@@ -109,18 +98,6 @@ public class Card : MonoBehaviour
             cardAnimator.SetBool("isHighlighted", false);
         else
             cardAnimator.SetBool("isHighlighted", true);
-    }
-
-    private void SetCardFeedback(string animationParameter, bool parameterState)
-    {
-        // Disabled card feedback for now until further testing without it.
-
-        /*
-        // Sets the card feedback on the circuitboard if state based actions could give feedback to why certain things work or won't work
-        if (!feedbackAnimator.isActiveAndEnabled)
-            return;
-        feedbackAnimator.SetBool(animationParameter, parameterState);
-        */
     }
 
     public void ConnectToSocket(CardSocket socket)
@@ -221,104 +198,6 @@ public class Card : MonoBehaviour
         return steps;
     }
 
-    public GridCube CalculateGridCubeDestination(Character instigator, bool isSetupPhase)
-    {
-        /*
-        GridCube targetGrid = instigator.AssignedGridCube;
-        Vector2Int attackSteps = cardScriptableObject.AttackSteps;
-        Vector2Int moveSteps = cardScriptableObject.MoveSteps;
-
-        int directionMultiplier = 1;
-        switch (cardScriptableObject.TargetType)
-        {
-            case CardScriptableObject._TargetType.Self:
-            case CardScriptableObject._TargetType.ForwardOfCharacter:
-                break;
-            case CardScriptableObject._TargetType.BackwardOfCharacter:
-                directionMultiplier = -1;
-                break;
-            case CardScriptableObject._TargetType.NearestAlly:
-            case CardScriptableObject._TargetType.NearestEnemy:
-                GridCube newTargetGrid = GetGridOfClosestTarget(targetGrid);
-                attackSteps = RotateCardTowardsTarget(newTargetGrid, targetGrid, attackSteps);
-                moveSteps = RotateCardTowardsTarget(newTargetGrid, targetGrid, moveSteps);
-                break;
-        }
-
-        // Movement
-        if (cardScriptableObject.CardType == CardScriptableObject._CardType.Movement)
-        {
-            for (int stepLength = 0; stepLength < Mathf.Abs(moveSteps.y); stepLength++)
-            {
-                // Handles the Y steps in the movement
-                targetGrid = GetMovementGrid(instigator, targetGrid, moveSteps, isSetupPhase);
-            }
-            for (int stepWidth = 0; stepWidth < Mathf.Abs(moveSteps.x); stepWidth++)
-            {
-                // Handles X steps in the movement
-                targetGrid = GetMovementGrid(instigator, targetGrid, moveSteps, isSetupPhase);
-            }
-
-            // Save target location for movement during set up phase
-            targetedGridForMovement = targetGrid;
-        }
-
-        // Reset feedback animation if needed
-        if (!isSetupPhase)
-            SetCardFeedback("isInvalid", false);
-        */
-        return null;
-
-    }
-
-    private GridCube GetMovementGrid(Character instigator, GridCube startingGrid, Vector2Int moveSteps, bool isSetupPhase)
-    {
-        GridCube destinationGrid = startingGrid;
-        SetCardFeedback("isInvalid", false);
-        Vector2Int moveIncrement = moveSteps.ConvertVector2IntToIncrement();
-
-        // Move X
-        if (moveSteps.x != 0)
-        {
-            int moveX = moveIncrement.x;
-            Vector2 targetPos = new Vector2(startingGrid.Position.x + moveX, startingGrid.Position.y);
-            GridCube targetGrid = Grid.GridPositions.GetGridByPosition(targetPos);
-
-            if (ValidateGridPosition.CanStep(instigator, startingGrid, targetGrid))
-            {
-                destinationGrid = targetGrid;
-            }
-            else
-                SetCardFeedback("isInvalid", true);
-        }
-
-        // Move Y
-        if (moveSteps.y != 0)
-        {
-            int moveY = moveIncrement.y;
-            Vector2 targetPos = new Vector2(startingGrid.Position.x, startingGrid.Position.y + moveY);
-            GridCube targetGrid = Grid.GridPositions.GetGridByPosition(targetPos);
-
-            if (ValidateGridPosition.CanStep(instigator, startingGrid, targetGrid))
-            {
-                destinationGrid = targetGrid;
-            }
-            else
-                SetCardFeedback("isInvalid", true);
-        }
-
-        // Only execute tile previs if there is movement
-        if (destinationGrid != startingGrid)
-        {
-            // Tile based previs
-            GameObject tilevisual = destinationGrid.GetIndicatorVisual(instigator, cardScriptableObject);
-            float dirAngle = GetDirectionAngleBetweenGrids(destinationGrid, startingGrid);
-            instigator.ToggleTilePrevis(isSetupPhase, tilevisual, dirAngle);
-        }
-
-        return destinationGrid;
-    }
-
     private float GetDirectionAngleBetweenGrids(GridCube grid1, GridCube grid2)
     {
         // Calculates the angle between two grids, used for changing the angle of the previs if needed
@@ -331,11 +210,6 @@ public class Card : MonoBehaviour
         if (cross.x > 0)
             angle = -angle;        
         return angle;
-    }
-
-    private void HandleMovement(Character instigator)
-    {
-        instigator.ChangeDestinationGrid(targetedGridForMovement, MaxTimeInUse);
     }
 
     public void SetSelfDestructWhenReachingTargetTransform(Transform target)
