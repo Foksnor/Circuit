@@ -15,6 +15,7 @@ public class CardSocket : MonoBehaviour
     [SerializeField] private TextMeshProUGUI enhancementTagDuration;
     public int EnhancementCharges { private set; get; } = 0;
     public _CardAction CurrentSlotEnhancement { private set; get; } = default;
+    public _CardAction LastSlotEnhancement { private set; get; } = default;
     private Card slottedCard = null;
 
     // This is used when populating a card from loading a save file
@@ -119,8 +120,9 @@ public class CardSocket : MonoBehaviour
     public int GetSlotTriggers()
     {
         int bonusTriggers = 0;
-        if (CurrentSlotEnhancement == _CardAction.EnhanceSlotRetrigger)
-            bonusTriggers ++;
+
+        // Add slot unique buffs here
+
         return bonusTriggers;
     }
 }
