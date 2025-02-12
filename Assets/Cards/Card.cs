@@ -14,7 +14,7 @@ public class Card : MonoBehaviour
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI costText;
     [SerializeField] private Image cardBackground, cardimage;
-    [SerializeField] private Material foilMat, goldenMat;
+    [SerializeField] private Material holographicMat, goldenMat;
     [SerializeField] private AudioClip sound;
     [SerializeField] private TextMeshProUGUI valueText;
     [SerializeField] private TextMeshProUGUI descriptionText;
@@ -50,17 +50,17 @@ public class Card : MonoBehaviour
             // Sets the material for various images based on card parameters
             switch (scriptableObject.CardRarity)
             {
-                case CardScriptableObject._CardRarity.Rare:
+                case _CardRarity.Rare:
                     break;
-                case CardScriptableObject._CardRarity.Epic:
+                case _CardRarity.Epic:
                     break;
             }
-            switch (scriptableObject.CardStyle)
+            switch (scriptableObject.CardFoiling)
             {
-                case CardScriptableObject._CardStyle.Foil:
-                    cardBackground.material = foilMat;
+                case _CardFoiling.Holographic:
+                    cardBackground.material = holographicMat;
                     break;
-                case CardScriptableObject._CardStyle.Golden:
+                case _CardFoiling.Golden:
                     cardBackground.material = goldenMat;
                     break;
             }
@@ -165,51 +165,6 @@ public class Card : MonoBehaviour
     public void DeactivateCard()
     {
         isCardActivated = false;
-    }
-
-    private GridCube GetGridOfClosestTarget(GridCube savedGridUsedByPreviousCard)
-    {
-        float closestTargetDistance = 99;
-        GridCube pCGridNumber = savedGridUsedByPreviousCard;
-
-        // QQQ TODO make it so it only targets the opposing team instead of only player team, in case the player gets auto target cards
-        // Cycles through all characters and checks which one is closer, then return that as reference if possible
-        for (int pC = 0; pC < Teams.CharacterTeams.PlayerTeamCharacters.Count; pC++)
-        {
-            pCGridNumber = Teams.CharacterTeams.PlayerTeamCharacters[pC].AssignedGridCube;
-            Vector3 curPos = savedGridUsedByPreviousCard.Position;
-            Vector3 tarPos = pCGridNumber.Position;
-
-            if (Vector3.Distance(curPos, tarPos) < closestTargetDistance)
-                closestTargetDistance = Vector3.Distance(curPos, tarPos);
-        }
-        return pCGridNumber;
-    }
-
-    public Vector2Int RotateToNearestTarget(GridCube targetGrid, GridCube savedGridUsedByPreviousCard, Vector2Int steps)
-    {
-        float targetAngle = GetDirectionAngleBetweenGrids(targetGrid, savedGridUsedByPreviousCard);
-        if (Mathf.Abs(targetAngle) < 172)
-        {
-            steps = new Vector2Int(steps.y, steps.x);
-            if (targetAngle < 0)
-                steps = new Vector2Int(-steps.x, steps.y);
-        }
-        return steps;
-    }
-
-    private float GetDirectionAngleBetweenGrids(GridCube grid1, GridCube grid2)
-    {
-        // Calculates the angle between two grids, used for changing the angle of the previs if needed
-        Vector3 pos1 = grid1.Position;
-        Vector3 pos2 = grid2.Position;
-        float angle = Vector3.Angle(pos1 - pos2, Vector3.up);
-
-        // Vector3.Angle always returns an absolute number, so checking whether pos1 is left or right of pos2 to see if the angle needs to be set to a negative        
-        Vector3 cross = pos1 - pos2;
-        if (cross.x > 0)
-            angle = -angle;        
-        return angle;
     }
 
     public void SetSelfDestructWhenReachingTargetTransform(Transform target)

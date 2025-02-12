@@ -10,9 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f596eff5112c554089c6d028bd0e335, type: 3}
-  m_Name: Card_Move_Backward
+  m_Name: Card_Move_Forward_TowardsEnemy
   m_EditorClassIdentifier: 
   CardType: 0
+  CardRarity: 0
+  CardFoiling: 0
+  AutoTargetType: 3
+  MaxRange: 10
   ActionSequence:
     Actions:
     - CardAction: 2
@@ -21,11 +25,9 @@ MonoBehaviour:
       ActionSequence:
         Actions: []
         TargetRequirement: {fileID: 0}
-    TargetRequirement: {fileID: 11400000, guid: 33039571624984a46855e6e0a5ef4a1a, type: 2}
-  CardRarity: 0
-  CardStyle: 0
+    TargetRequirement: {fileID: 11400000, guid: 48a83d7274fc45a449a2595f09f03faa, type: 2}
   CardName: Move
-  Sprite: {fileID: 21300000, guid: 3304b67eb1333ab46b23f27ba47bf5ab, type: 3}
+  Sprite: {fileID: 21300000, guid: 3088e55232f26414e89c33f55c40ca6b, type: 3}
   Sound: {fileID: 0}
-  Description: <style="Move_West"></style> 1
+  Description: <style="Move_East"></style> 1
   TimeInUse: 0.5

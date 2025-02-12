@@ -37,15 +37,15 @@ public class RewardScreen : MonoBehaviour
         {
             switch (possibleNewCardRewards[i].CardRarity)
             {
-                case CardScriptableObject._CardRarity.Basic:
+                case _CardRarity.Basic:
                     if (!basicCardRewardPool.Contains(possibleNewCardRewards[i]))
                         basicCardRewardPool.Add(possibleNewCardRewards[i]);
                     break;
-                case CardScriptableObject._CardRarity.Rare:
+                case _CardRarity.Rare:
                     if (!rareCardRewardPool.Contains(possibleNewCardRewards[i]))
                         rareCardRewardPool.Add(possibleNewCardRewards[i]);
                     break;
-                case CardScriptableObject._CardRarity.Epic:
+                case _CardRarity.Epic:
                     if (!epicCardRewardPool.Contains(possibleNewCardRewards[i]))
                         epicCardRewardPool.Add(possibleNewCardRewards[i]);
                     break;

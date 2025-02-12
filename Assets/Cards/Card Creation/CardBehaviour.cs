@@ -44,6 +44,11 @@ public class CardBehaviour : MonoBehaviour
             }
         }
 
+        // Rotates the target positions of the card to the auto target of the card
+        int cardRange = card.GetCardInfo().MaxRange;
+        _AutoTargetType autoTargetType = card.GetCardInfo().AutoTargetType;
+        targetPositions = HelperFunctions.AdjustTargetPositions(instigator, targetPositions, action, autoTargetType, cardRange);
+
         // Track card trigger
         if (!triggeredCards.Contains(card.CardId))
         {

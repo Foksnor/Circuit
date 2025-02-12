@@ -97,7 +97,6 @@ public class GridSelectorEditor : Editor
         GUILayout.Space(10);
         GUILayout.Label("Additional Settings", EditorStyles.boldLabel);
 
-        EditorGUILayout.PropertyField(autoTargetType, new GUIContent("Auto Target Type"));
         EditorGUILayout.PropertyField(maxRange, new GUIContent("Max Range"));
         EditorGUILayout.PropertyField(repeatCount, new GUIContent("Repeat Count for Different Characters"));
 
