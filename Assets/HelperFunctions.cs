@@ -112,6 +112,7 @@ public static class HelperFunctions
         return false;
     }
 
+    // Handles any adjustments to the target positions according to their _AutoTargetType
     public static List<Vector2Int> AdjustTargetPositions(
         Character instigator, List<Vector2Int> targetPositions, _CardAction action, _AutoTargetType autoTargetType, int maxRange)
     {
@@ -142,23 +143,26 @@ public static class HelperFunctions
         return targetPositions;
     }
 
+    // Adjusts the list of positions towards the closest target reference
     private static List<Vector2Int> AdjustTowardsClosestTarget(
         Character instigator, List<Vector2Int> targetPositions, _CardAction action, int maxRange, List<Character> targetTeam)
     {
         Vector3 closestTargetPosition = GetClosestTargetPosition(instigator, targetTeam, maxRange);
-        return GetRotationAngleTowardsTarget(instigator, closestTargetPosition, action, targetPositions);
+        return RotatePositionsTowardsTarget(instigator, closestTargetPosition, action, targetPositions);
     }
 
+    // Adjusts the list of positions towards the closest corpse
     private static List<Vector2Int> AdjustTowardsClosestCorpse(Character instigator, List<Vector2Int> targetPositions, int maxRange)
     {
         Vector3 closestCorpsePosition = GetClosestCorpsePosition(instigator, maxRange);
         if (closestCorpsePosition != Vector3.zero)
         {
-            targetPositions = GetRotationAngleTowardsTarget(instigator, closestCorpsePosition, _CardAction.Move, targetPositions);
+            targetPositions = RotatePositionsTowardsTarget(instigator, closestCorpsePosition, _CardAction.Move, targetPositions);
         }
         return targetPositions;
     }
 
+    // Gets the closest position of a valid target team
     public static Vector3 GetClosestTargetPosition(Character instigator, List<Character> listOfCharacters, int maxRange)
     {
         Vector3 closestTargetPosition = Vector3.zero;
@@ -179,6 +183,7 @@ public static class HelperFunctions
         return closestTargetPosition;
     }
 
+    // Gets the closest position of a valid corpse
     private static Vector3 GetClosestCorpsePosition(Character instigator, int maxRange)
     {
         List<GridCube> vicinityCubes = GetVicinityGridCubes(instigator.AssignedGridCube, maxRange);
@@ -201,7 +206,7 @@ public static class HelperFunctions
         return closestCorpsePosition;
     }
 
-    public static List<Vector2Int> GetRotationAngleTowardsTarget(Character instigator, Vector3 closestTargetPosition, _CardAction action, List<Vector2Int> targetPositions)
+    public static List<Vector2Int> RotatePositionsTowardsTarget(Character instigator, Vector3 closestTargetPosition, _CardAction action, List<Vector2Int> targetPositions)
     {
         // Calculates the angle between two grids, used for changing the angle of the previs if needed
         Vector3 pos1 = instigator.transform.position;
