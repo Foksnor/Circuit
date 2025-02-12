@@ -31,7 +31,7 @@ public class CardBehaviour : MonoBehaviour
         if (value == null)
             Debug.LogError($"{instigator.name} tried to use {action} action. But the value hasn't been assigned yet.");
 
-        List<Vector2Int> targetPositions = targets.RelativeSelectedPositions;
+        List<Vector2Int> targetPositions = new(targets.RelativeSelectedPositions);
         GridCube startingPos = instigator.AssignedGridCube;
 
         // Targets are based on the facing direction the team is moving
