@@ -7,6 +7,11 @@ public static class HelperFunctions
     private static readonly float referenceResolutionWidth = 1920f;
     private static float lastResolutionScale = 0;
 
+    // Magic numbers for distance and angle checks
+    private const float DefaultClosestDistance = 99f;
+    private const int DefaultAngleBreakpoint = 45;
+    private const int MovementAngleBreakpoint = 8;
+
     // Cycles through every transform in a gameobject and sets the same layer throughout
     public static void SetGameLayerRecursive(GameObject gameObject, int layer)
     {
@@ -107,67 +112,50 @@ public static class HelperFunctions
         return false;
     }
 
-    public static List<Vector2Int> AdjustTargetPositions(Character instigator, List<Vector2Int> targetPositions, _CardAction action, _AutoTargetType autoTargetType, int maxRange)
+    public static List<Vector2Int> AdjustTargetPositions(
+        Character instigator, List<Vector2Int> targetPositions, _CardAction action, _AutoTargetType autoTargetType, int maxRange)
     {
-        List<Character> targetTeam;
-        Vector3 closestTargetPosition;
         switch (autoTargetType)
         {
             case _AutoTargetType.None:
-                break;
+                return targetPositions;
+
             case _AutoTargetType.ClosestSelfTeam:
-                if (instigator.TeamType == _TeamType.Player)
-                    targetTeam = Teams.CharacterTeams.PlayerTeamCharacters;
-                else
-                    targetTeam = Teams.CharacterTeams.EnemyTeamCharacters;
-
-                closestTargetPosition = GetClosestTargetPosition(instigator, targetTeam, maxRange);
-                targetPositions = GetRotationAngleTowardsTarget(instigator, closestTargetPosition, action, targetPositions);
+                targetPositions = AdjustTowardsClosestTarget(instigator, targetPositions, action, maxRange, GetSelfTeam(instigator));
                 break;
+
             case _AutoTargetType.ClosestAllyNoSelf:
-                if (instigator.TeamType == _TeamType.Player)
-                    targetTeam = Teams.CharacterTeams.PlayerTeamCharacters;
-                else
-                    targetTeam = Teams.CharacterTeams.EnemyTeamCharacters;
-
-                // Remove self from possible targets
-                targetTeam.Remove(instigator);
-
-                closestTargetPosition = GetClosestTargetPosition(instigator, targetTeam, maxRange);
-                targetPositions = GetRotationAngleTowardsTarget(instigator, closestTargetPosition, action, targetPositions);
+                var teamWithoutSelf = GetSelfTeam(instigator);
+                teamWithoutSelf.Remove(instigator);
+                targetPositions = AdjustTowardsClosestTarget(instigator, targetPositions, action, maxRange, teamWithoutSelf);
                 break;
+
             case _AutoTargetType.ClosestEnemyTeam:
-                if (instigator.TeamType == _TeamType.Player)
-                    targetTeam = Teams.CharacterTeams.EnemyTeamCharacters;
-                else
-                    targetTeam = Teams.CharacterTeams.PlayerTeamCharacters;
-
-                closestTargetPosition = GetClosestTargetPosition(instigator, targetTeam, maxRange);
-                targetPositions = GetRotationAngleTowardsTarget(instigator, closestTargetPosition, action, targetPositions);
+                targetPositions = AdjustTowardsClosestTarget(instigator, targetPositions, action, maxRange, GetEnemyTeam(instigator));
                 break;
-            case _AutoTargetType.ClosestCorpse:
-                // Get a list of all the cubes in the range of the card action
-                List<GridCube> vicinityCubes = GetVicinityGridCubes(instigator.AssignedGridCube, maxRange);
-                float closestTargetDistance = 99;
-                GameObject closestCorpse;
 
-                // Cycle through that list and assign closest corpse
-                foreach(GridCube cube in vicinityCubes)
-                {
-                    if (cube.CorpseOnThisGrid != null)
-                    {
-                        float dist = Vector3.Distance(instigator.transform.position, cube.transform.position);
-                        if (dist <= closestTargetDistance)
-                        {
-                            // Set target corpse as the closest, this gets updated once the cycle found a match that's even closer
-                            closestTargetDistance = dist;
-                            closestCorpse = cube.CorpseOnThisGrid;
-                        }
-                    }
-                }
+            case _AutoTargetType.ClosestCorpse:
+                targetPositions = AdjustTowardsClosestCorpse(instigator, targetPositions, maxRange);
                 break;
         }
 
+        return targetPositions;
+    }
+
+    private static List<Vector2Int> AdjustTowardsClosestTarget(
+        Character instigator, List<Vector2Int> targetPositions, _CardAction action, int maxRange, List<Character> targetTeam)
+    {
+        Vector3 closestTargetPosition = GetClosestTargetPosition(instigator, targetTeam, maxRange);
+        return GetRotationAngleTowardsTarget(instigator, closestTargetPosition, action, targetPositions);
+    }
+
+    private static List<Vector2Int> AdjustTowardsClosestCorpse(Character instigator, List<Vector2Int> targetPositions, int maxRange)
+    {
+        Vector3 closestCorpsePosition = GetClosestCorpsePosition(instigator, maxRange);
+        if (closestCorpsePosition != Vector3.zero)
+        {
+            targetPositions = GetRotationAngleTowardsTarget(instigator, closestCorpsePosition, _CardAction.Move, targetPositions);
+        }
         return targetPositions;
     }
 
@@ -191,6 +179,28 @@ public static class HelperFunctions
         return closestTargetPosition;
     }
 
+    private static Vector3 GetClosestCorpsePosition(Character instigator, int maxRange)
+    {
+        List<GridCube> vicinityCubes = GetVicinityGridCubes(instigator.AssignedGridCube, maxRange);
+        float closestTargetDistance = DefaultClosestDistance;
+        Vector3 closestCorpsePosition = Vector3.zero;
+
+        foreach (GridCube cube in vicinityCubes)
+        {
+            if (cube.CorpseOnThisGrid != null)
+            {
+                float dist = Vector3.Distance(instigator.transform.position, cube.transform.position);
+                if (dist < closestTargetDistance)
+                {
+                    closestTargetDistance = dist;
+                    closestCorpsePosition = cube.CorpseOnThisGrid.transform.position;
+                }
+            }
+        }
+
+        return closestCorpsePosition;
+    }
+
     public static List<Vector2Int> GetRotationAngleTowardsTarget(Character instigator, Vector3 closestTargetPosition, _CardAction action, List<Vector2Int> targetPositions)
     {
         // Calculates the angle between two grids, used for changing the angle of the previs if needed
@@ -203,12 +213,7 @@ public static class HelperFunctions
         if (cross.x > 0)
             angle = -angle;
 
-        // Default angle breakpoint to check if something is on the left or right of the instigator is 45 degrees
-        int angleBreakpoint = 45;
-
-        // Magic number for the angle breakpoint for movement is 8 degrees
-        if (action == _CardAction.Move)
-            angleBreakpoint = 8;
+        int angleBreakpoint = action == _CardAction.Move ? MovementAngleBreakpoint : DefaultAngleBreakpoint;
 
         // Check if angle is not front facing
         if (Mathf.Abs(angle) > angleBreakpoint)
@@ -230,18 +235,25 @@ public static class HelperFunctions
 
     public static List<Vector2Int> RotatePositions(List<Vector2Int> positions, float angleDegrees)
     {
-        List<Vector2Int> rotatedPositions = new List<Vector2Int>();
         float angleRadians = angleDegrees * Mathf.Deg2Rad;
         float cosTheta = Mathf.Cos(angleRadians);
         float sinTheta = Mathf.Sin(angleRadians);
 
-        foreach (Vector2Int pos in positions)
-        {
-            int x = Mathf.RoundToInt(pos.x * cosTheta - pos.y * sinTheta);
-            int y = Mathf.RoundToInt(pos.x * sinTheta + pos.y * cosTheta);
-            rotatedPositions.Add(new Vector2Int(x, y));
-        }
+        // Round numbers
+        return positions.ConvertAll(pos => new Vector2Int(
+            Mathf.RoundToInt(pos.x * cosTheta - pos.y * sinTheta),
+            Mathf.RoundToInt(pos.x * sinTheta + pos.y * cosTheta)
+        ));
+    }
 
-        return rotatedPositions;
+
+    private static List<Character> GetSelfTeam(Character instigator)
+    {
+        return instigator.TeamType == _TeamType.Player ? Teams.CharacterTeams.PlayerTeamCharacters : Teams.CharacterTeams.EnemyTeamCharacters;
+    }
+
+    private static List<Character> GetEnemyTeam(Character instigator)
+    {
+        return instigator.TeamType == _TeamType.Player ? Teams.CharacterTeams.EnemyTeamCharacters : Teams.CharacterTeams.PlayerTeamCharacters;
     }
 }
