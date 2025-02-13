@@ -851,11 +851,10 @@ MonoBehaviour:
   costText: {fileID: 0}
   cardBackground: {fileID: 6500443335944729276}
   cardimage: {fileID: 3636356056722808827}
-  foilMat: {fileID: 2100000, guid: 69babe5a12222884394dd1a9f331f9e7, type: 2}
+  holographicMat: {fileID: 0}
   goldenMat: {fileID: 2100000, guid: 2e121c9c011cf914aadf8aff28251606, type: 2}
   sound: {fileID: 0}
   valueText: {fileID: 2319269296639445424}
-  TargetRequirementText: {fileID: 3977214859969708480}
   descriptionText: {fileID: 8232764572954507145}
   feedbackAnimator: {fileID: 6178865725327028863}
   cardAnimator: {fileID: 5947722889063295983}
@@ -960,7 +959,7 @@ Canvas:
   m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0

@@ -19,6 +19,8 @@ public class GameSettings : MonoBehaviour
     [SerializeField] private GameObject shockChain = null;
     [SerializeField] private StatusEffect_ScriptableObject fireStatus = null;
     [SerializeField] private StatusEffect_ScriptableObject shockStatus = null;
+    [SerializeField] private Color c_RarityRare = Color.blue;
+    [SerializeField] private Color c_RarityEpic = Color.yellow;
 
     private void Awake()
     {
@@ -32,6 +34,8 @@ public class GameSettings : MonoBehaviour
         GlobalSettings.ShockChain = shockChain;
         GlobalSettings.FireStatus = fireStatus;
         GlobalSettings.ShockStatus = shockStatus;
+        GlobalSettings.C_RarityRare = c_RarityRare;
+        GlobalSettings.C_RarityEpic = c_RarityEpic;
     }
 }
 
@@ -47,4 +51,6 @@ public static class GlobalSettings
     public static GameObject ShockChain;
     public static StatusEffect_ScriptableObject FireStatus;
     public static StatusEffect_ScriptableObject ShockStatus;
+    public static Color C_RarityRare;
+    public static Color C_RarityEpic;
 }

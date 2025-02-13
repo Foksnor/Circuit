@@ -81,6 +81,7 @@
     <Compile Include="Assets\Saves\JsonDataService.cs" />
     <Compile Include="Assets\EditorScripts\CardCreatorInspector.cs" />
     <Compile Include="Assets\Saves\Crystal Ball\OverlayTurnPreview.cs" />
+    <Compile Include="Assets\Cards\CardTooltip.cs" />
     <Compile Include="Assets\Grid\Biome\BiomeChunk.cs" />
     <Compile Include="Assets\Characters\Player\HealthBar\HealthBar.cs" />
     <Compile Include="Assets\Lana Studio\Casual RPG VFX\Demo\Scripts\ObjectsSwitcher.cs" />

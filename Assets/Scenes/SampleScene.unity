@@ -772,6 +772,8 @@ MonoBehaviour:
   shockChain: {fileID: 934617562227915448, guid: 820cc2fcc58409d4989181c823c9bf4c, type: 3}
   fireStatus: {fileID: 11400000, guid: b02c736ff6f4f3b409755ff7a89b56eb, type: 2}
   shockStatus: {fileID: 11400000, guid: a225c0fbb44b81940b9fac7f173ff91e, type: 2}
+  c_RarityRare: {r: 0, g: 0.5882353, b: 1, a: 1}
+  c_RarityEpic: {r: 0.5882353, g: 0.29411766, b: 1, a: 1}
 --- !u!114 &961207208
 MonoBehaviour:
   m_ObjectHideFlags: 0
