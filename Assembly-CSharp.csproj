@@ -81,7 +81,6 @@
     <Compile Include="Assets\Saves\JsonDataService.cs" />
     <Compile Include="Assets\EditorScripts\CardCreatorInspector.cs" />
     <Compile Include="Assets\Saves\Crystal Ball\OverlayTurnPreview.cs" />
-    <Compile Include="Assets\Cards\CardTooltip.cs" />
     <Compile Include="Assets\Grid\Biome\BiomeChunk.cs" />
     <Compile Include="Assets\Characters\Player\HealthBar\HealthBar.cs" />
     <Compile Include="Assets\Lana Studio\Casual RPG VFX\Demo\Scripts\ObjectsSwitcher.cs" />
@@ -125,6 +124,7 @@
     <Compile Include="Assets\Characters\Player\Button_TransitionTurn.cs" />
     <Compile Include="Assets\GameSettings.cs" />
     <Compile Include="Assets\Doozy\_Examples\Common\Runtime\Scripts\PrintToConsole.cs" />
+    <Compile Include="Assets\Cards\Tooltip\CardTooltipTargetGridCell.cs" />
     <Compile Include="Assets\Cards\CardPrevis.cs" />
     <Compile Include="Assets\Lana Studio\Casual RPG VFX\Demo\Scripts\_InputKeyBoard.cs" />
     <Compile Include="Assets\Characters\Player\ExperienceBar\CardReference.cs" />
@@ -134,6 +134,7 @@
     <Compile Include="Assets\Cards\Attacks\Lifetime.cs" />
     <Compile Include="Assets\Characters\DeathVFX\DeathVFX.cs" />
     <Compile Include="Assets\Characters\CharacterSpawnpoint.cs" />
+    <Compile Include="Assets\Cards\Tooltip\CardTooltip.cs" />
     <Compile Include="Assets\Grid\GridCube.cs" />
     <Compile Include="Assets\Cards\Card Creation\CardActionData.cs" />
     <Compile Include="Assets\Cards\CardScriptableObject.cs" />

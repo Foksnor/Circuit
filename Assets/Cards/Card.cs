@@ -21,6 +21,11 @@ public class Card : MonoBehaviour
     [SerializeField] private Animator feedbackAnimator;
     public Animator cardAnimator;
     public Card_PointerInteraction CardPointerInteraction;
+
+    // Tooltip
+    [SerializeField] private CardTooltip cardTooltipPrefab;
+    private CardTooltip activeCardTooltip;
+
     private Transform targetSelfDestructDestination;
     public float MaxTimeInUse = 0.5f;
     //public float MaxTimeInUse { get; private set; } = 0.5f;
@@ -64,6 +69,22 @@ public class Card : MonoBehaviour
                     cardBackground.material = goldenMat;
                     break;
             }
+        }
+    }
+
+    public void ToggleCardTooltip(bool showTooltip)
+    {
+        if (showTooltip)
+        {
+            if (activeCardTooltip == null)
+            {
+                activeCardTooltip = Instantiate(cardTooltipPrefab, transform);
+                activeCardTooltip.SetTooltip(cardScriptableObject);
+            }
+        }
+        else
+        {
+            //Destroy(activeCardTooltip.gameObject);
         }
     }
 

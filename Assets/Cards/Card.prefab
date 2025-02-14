@@ -859,6 +859,7 @@ MonoBehaviour:
   feedbackAnimator: {fileID: 6178865725327028863}
   cardAnimator: {fileID: 5947722889063295983}
   CardPointerInteraction: {fileID: 7627014054633805148}
+  cardTooltipPrefab: {fileID: 3992547235571554392, guid: a5dd4cce510b04c4db06065a25b2e132, type: 3}
   MaxTimeInUse: 0.5
   rotatableImageMaterial:
   - {fileID: 8913939188288731921}
