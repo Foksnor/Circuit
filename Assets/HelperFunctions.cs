@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public static class HelperFunctions
@@ -148,7 +150,7 @@ public static class HelperFunctions
         Character instigator, List<Vector2Int> targetPositions, _CardAction action, int maxRange, List<Character> targetTeam)
     {
         Vector3 closestTargetPosition = GetClosestTargetPosition(instigator, targetTeam, maxRange);
-        return RotatePositionsTowardsTarget(instigator, closestTargetPosition, action, targetPositions);
+        return RotatePositionsTowardsTarget(instigator.transform.position, closestTargetPosition, action, targetPositions);
     }
 
     // Adjusts the list of positions towards the closest corpse
@@ -157,7 +159,7 @@ public static class HelperFunctions
         Vector3 closestCorpsePosition = GetClosestCorpsePosition(instigator, maxRange);
         if (closestCorpsePosition != Vector3.zero)
         {
-            targetPositions = RotatePositionsTowardsTarget(instigator, closestCorpsePosition, _CardAction.Move, targetPositions);
+            targetPositions = RotatePositionsTowardsTarget(instigator.transform.position, closestCorpsePosition, _CardAction.Move, targetPositions);
         }
         return targetPositions;
     }
@@ -206,18 +208,9 @@ public static class HelperFunctions
         return closestCorpsePosition;
     }
 
-    public static List<Vector2Int> RotatePositionsTowardsTarget(Character instigator, Vector3 closestTargetPosition, _CardAction action, List<Vector2Int> targetPositions)
+    public static List<Vector2Int> RotatePositionsTowardsTarget(Vector3 instigatorPosition, Vector3 targetPosition, _CardAction action, List<Vector2Int> targetPositions)
     {
-        // Calculates the angle between two grids, used for changing the angle of the previs if needed
-        Vector3 pos1 = instigator.transform.position;
-        Vector3 pos2 = closestTargetPosition;
-        float angle = Vector3.Angle(pos1 - pos2, Vector3.up);
-
-        // Vector3.Angle always returns an absolute number, so checking whether pos1 is left or right of pos2 to see if the angle needs to be set to a negative        
-        Vector3 cross = pos1 - pos2;
-        if (cross.x > 0)
-            angle = -angle;
-
+        float angle = GetDirectionAngle(instigatorPosition, targetPosition);
         int angleBreakpoint = action == _CardAction.Move ? MovementAngleBreakpoint : DefaultAngleBreakpoint;
 
         // Check if angle is not front facing
@@ -236,6 +229,20 @@ public static class HelperFunctions
         }
 
         return targetPositions;
+    }
+
+    public static float GetDirectionAngle(Vector3 instigatorPosition, Vector3 targetPosition)
+    {
+        // Calculates the angle between two grids
+        // E.G. for changing the angle of the previs if needed
+        float angle = Vector3.Angle(instigatorPosition - targetPosition, Vector3.up);
+
+        // Vector3.Angle always returns an absolute number, so checking whether pos1 is left or right of pos2 to see if the angle needs to be set to a negative        
+        Vector3 cross = instigatorPosition - targetPosition;
+        if (cross.x > 0)
+            angle = -angle;
+
+        return angle;
     }
 
     public static List<Vector2Int> RotatePositions(List<Vector2Int> positions, float angleDegrees)

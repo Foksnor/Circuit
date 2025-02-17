@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5717ce8418bb43a4f844971f90c86330
+guid: e27fe274deba8744dae88f934922656d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4259700933419884702
-    second: Tooltip_Target_Empty_0
+      213: -644862899695929775
+    second: Tooltip_Target_Move_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tooltip_Target_Empty_0
+      name: Tooltip_Target_Move_0
       rect:
         serializedVersion: 2
         x: 6
@@ -134,14 +134,14 @@ TextureImporter:
         width: 60
         height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 26f9b16e19082e4c0800000000000000
-      internalID: -4259700933419884702
+      spriteID: 156bbcefb9cfc07f0800000000000000
+      internalID: -644862899695929775
       vertices: []
       indices: 
       edges: []
@@ -149,7 +149,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 9999c5aed68cec742bb77a09ea6f074d
+    spriteID: 0797dd489cac0cc40aa5bd95544f627d
     internalID: 0
     vertices: []
     indices: 
@@ -157,7 +157,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Tooltip_Target_Empty_0: -4259700933419884702
+      Tooltip_Target_Move_0: -644862899695929775
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

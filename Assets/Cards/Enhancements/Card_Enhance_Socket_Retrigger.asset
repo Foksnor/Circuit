@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Card_Enhance_Socket_Retrigger
   m_EditorClassIdentifier: 
   CardType: 1
+  CardRarity: 0
+  CardFoiling: 0
+  AutoTargetType: 0
+  MaxRange: 1
   ActionSequence:
     Actions:
     - CardAction: 10
@@ -27,9 +31,7 @@ MonoBehaviour:
       ActionSequence:
         Actions: []
         TargetRequirement: {fileID: 0}
-    TargetRequirement: {fileID: 11400000, guid: 9f0b27df3fa609f4782661dd603c0525, type: 2}
-  CardRarity: 0
-  CardStyle: 0
+    TargetRequirement: {fileID: 0}
   CardName: Doublecast
   Sprite: {fileID: 21300000, guid: b8312b74b863d4d4894c71e873cc7800, type: 3}
   Sound: {fileID: 0}

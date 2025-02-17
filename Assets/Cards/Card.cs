@@ -84,7 +84,7 @@ public class Card : MonoBehaviour
         }
         else
         {
-            //Destroy(activeCardTooltip.gameObject);
+            activeCardTooltip.RemoveToolTip();
         }
     }
 
