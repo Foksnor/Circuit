@@ -268,4 +268,32 @@ public static class HelperFunctions
     {
         return instigator.TeamType == _TeamType.Player ? Teams.CharacterTeams.EnemyTeamCharacters : Teams.CharacterTeams.PlayerTeamCharacters;
     }
+
+    private static readonly Dictionary<_CardAction, string> _descriptions = new()
+    {
+        { _CardAction.Damage, "Deal {x} damage to an enemy." },
+        { _CardAction.Heal, "Restore {x} health to a target." },
+        { _CardAction.Move, "Move {x} steps." },
+        { _CardAction.DrawCard, "Draw {x} cards." },
+        { _CardAction.DiscardThisCard, "Discard this card." },
+        { _CardAction.DiscardOtherCard, "Discard {x} random card" },
+        { _CardAction.DestroyThisCard, "Burn this card!" },
+        { _CardAction.DestroyOtherCard, "Burn {x} random card!" },
+        { _CardAction.EnhanceSlotFire, "{x} fire. Enhances this slot with fire. Cards played in this slot will use fire." },
+        { _CardAction.EnhanceSlotShock, "{x} shock. Enhances this slot with shock. Cards played in this slot will use shock." },
+        { _CardAction.EnhanceSlotRetrigger, "{x} echo. Enhances this slot with echo. Cards played in this slot will trigger twice." },
+        { _CardAction.AddLife, "Add {x} life." },
+        { _CardAction.SubtractLife, "Cost: Subtract {x} life!" },
+        { _CardAction.ConsumeCorpse, "Cost: Consume {x} nearby corpse!" },
+        { _CardAction.SpawnParticleOnTarget, "" },
+        { _CardAction.SpawnParticleOnSelf, "" },
+        { _CardAction.ActionSequence, "" },
+    };
+
+    public static string GetDescription(this _CardAction action, int value)
+    {
+        return _descriptions.TryGetValue(action, out string description)
+            ? description.Replace("{x}", value.ToString())
+            : "Unknown action.";
+    }
 }

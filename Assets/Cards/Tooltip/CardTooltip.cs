@@ -2,7 +2,6 @@ using Sirenix.Utilities;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +12,9 @@ public class CardTooltip : MonoBehaviour
     [SerializeField] private TextMeshProUGUI nameTagText;
     [SerializeField] private GameObject targetSelectorPanel;
     [SerializeField] private GridLayoutGroup targetSelectorGridLayoutGroup;
-    [SerializeField] private CardTooltipTargetGridCell targetGridCell;
+    [SerializeField] private CardTooltipTargetGridCell targetGridCellPrefab;
+    [SerializeField] private Transform ContentPanel;
+    [SerializeField] private CardActionTooltipDescription CardActionTooltipDescriptionPrefab;
     [SerializeField] private TextMeshProUGUI rarityTagText;
     [SerializeField] private Image[] imagesToColorRarity;
     private const int tooltipOffset = 200;
@@ -27,11 +28,13 @@ public class CardTooltip : MonoBehaviour
         SetPositionInScreen();
         SetNameTag(cardInfo);
         SetTargetSelectorReference(cardInfo);
+        PopulateCardActionDescriptions(cardInfo);
         SetRarityTag(cardInfo);
     }
 
     public void RemoveToolTip()
     {
+        // Animator disabled as destroying the gameobject while animating does nothing
         //animator.SetBool("isVisible", false);
         Destroy(gameObject);
     }
@@ -90,7 +93,7 @@ public class CardTooltip : MonoBehaviour
         {
             for (int x = minX; x <= maxX; x++)
             {
-                CardTooltipTargetGridCell cell = Instantiate(targetGridCell, targetSelectorGridLayoutGroup.transform);
+                CardTooltipTargetGridCell cell = Instantiate(targetGridCellPrefab, targetSelectorGridLayoutGroup.transform);
                 Vector2Int currentPos = new(x, y);
 
                 // Instigator position
@@ -121,6 +124,19 @@ public class CardTooltip : MonoBehaviour
                     cell.SetCellInvisible();
                 }
             }
+        }
+    }
+
+    private void PopulateCardActionDescriptions(CardScriptableObject cardInfo)
+    {
+        if (cardInfo.ActionSequence == null || cardInfo.ActionSequence.Actions == null)
+            return;
+
+        // Populate descriptions for each Card Action
+        foreach (CardActionData actionData in cardInfo.ActionSequence.Actions)
+        {
+            CardActionTooltipDescription actionDescription = Instantiate(CardActionTooltipDescriptionPrefab, ContentPanel);
+            actionDescription.PopulateDescription(actionData);
         }
     }
 

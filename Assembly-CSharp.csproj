@@ -99,6 +99,7 @@
     <Compile Include="Assets\Characters\Player\Deck\PlayerDeck.cs" />
     <Compile Include="Assets\UI\CountCardsFromPlacement.cs" />
     <Compile Include="Assets\Characters\Player\StatusBar\StatusBar.cs" />
+    <Compile Include="Assets\Cards\Tooltip\CardActionTooltipDescription.cs" />
     <Compile Include="Assets\Cards\Card Creation\GridSelectorEditor.cs" />
     <Compile Include="Assets\Characters\Player\ExperienceBar\CardReward.cs" />
     <Compile Include="Assets\Characters\Player\Deck\UI_PopulateCardsInContainer.cs" />
