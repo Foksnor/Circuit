@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab2114bdc8544297b417dfefe9f1e410, type: 3}
+  m_Name: StyleSheet_GameIcons
+  m_EditorClassIdentifier: 
+  m_StyleList:
+  - m_Name: Life
+    m_HashCode: 2655878
+    m_OpeningDefinition: <color=#f5f242>
+    m_ClosingDefinition: '</color> '
+    m_OpeningTagArray: 3c000000630000006f0000006c0000006f000000720000003d000000230000006600000035000000660000003200000034000000320000003e000000
+    m_ClosingTagArray: 3c0000002f000000630000006f0000006c0000006f000000720000003e00000020000000
+  - m_Name: Corpse
+    m_HashCode: -1588065640
+    m_OpeningDefinition: <color=#f5f242>
+    m_ClosingDefinition: </color>
+    m_OpeningTagArray: 3c000000630000006f0000006c0000006f000000720000003d000000230000006600000035000000660000003200000034000000320000003e000000
+    m_ClosingTagArray: 3c0000002f000000630000006f0000006c0000006f000000720000003e000000
+  - m_Name: Damage
+    m_HashCode: -1706136437
+    m_OpeningDefinition: <color=#F9102C>
+    m_ClosingDefinition: </color>
+    m_OpeningTagArray: 3c000000630000006f0000006c0000006f000000720000003d000000230000004600000039000000310000003000000032000000430000003e000000
+    m_ClosingTagArray: 3c0000002f000000630000006f0000006c0000006f000000720000003e000000
+  - m_Name: Move
+    m_HashCode: 2684017
+    m_OpeningDefinition: <color=#0096FF>
+    m_ClosingDefinition: </color>
+    m_OpeningTagArray: 3c000000630000006f0000006c0000006f000000720000003d000000230000003000000030000000390000003600000046000000460000003e000000
+    m_ClosingTagArray: 3c0000002f000000630000006f0000006c0000006f000000720000003e000000
+  - m_Name: Time
+    m_HashCode: 2960437
+    m_OpeningDefinition: <color=#FF96FF>
+    m_ClosingDefinition: </color>
+    m_OpeningTagArray: 3c000000630000006f0000006c0000006f000000720000003d000000230000004600000046000000390000003600000046000000460000003e000000
+    m_ClosingTagArray: 3c0000002f000000630000006f0000006c0000006f000000720000003e000000
+  - m_Name: Range
+    m_HashCode: 99664095
+    m_OpeningDefinition: <color=#F9102C>
+    m_ClosingDefinition: </color>
+    m_OpeningTagArray: 3c000000630000006f0000006c0000006f000000720000003d000000230000004600000039000000310000003000000032000000430000003e000000
+    m_ClosingTagArray: 3c0000002f000000630000006f0000006c0000006f000000720000003e000000
+  - m_Name: Fire
+    m_HashCode: 2597720
+    m_OpeningDefinition: <color=#FF7D1E>
+    m_ClosingDefinition: </color>
+    m_OpeningTagArray: 3c000000630000006f0000006c0000006f000000720000003d000000230000004600000046000000370000004400000031000000450000003e000000
+    m_ClosingTagArray: 3c0000002f000000630000006f0000006c0000006f000000720000003e000000
+  - m_Name: Shock
+    m_HashCode: 100943868
+    m_OpeningDefinition: <color=#f5f242>
+    m_ClosingDefinition: </color>
+    m_OpeningTagArray: 3c000000630000006f0000006c0000006f000000720000003d000000230000006600000035000000660000003200000034000000320000003e000000
+    m_ClosingTagArray: 3c0000002f000000630000006f0000006c0000006f000000720000003e000000
+  - m_Name: Echo
+    m_HashCode: 2409121
+    m_OpeningDefinition: <color=#f5f242>
+    m_ClosingDefinition: </color>
+    m_OpeningTagArray: 3c000000630000006f0000006c0000006f000000720000003d000000230000006600000035000000660000003200000034000000320000003e000000
+    m_ClosingTagArray: 3c0000002f000000630000006f0000006c0000006f000000720000003e000000
+  - m_Name: Value
+    m_HashCode: 104396555
+    m_OpeningDefinition: <color=#FFB330>
+    m_ClosingDefinition: </color>
+    m_OpeningTagArray: 3c000000630000006f0000006c0000006f000000720000003d000000230000004600000046000000420000003300000033000000300000003e000000
+    m_ClosingTagArray: 3c0000002f000000630000006f0000006c0000006f000000720000003e000000
+  - m_Name: Discard
+    m_HashCode: -133581046
+    m_OpeningDefinition: 
+    m_ClosingDefinition: 
+    m_OpeningTagArray: 
+    m_ClosingTagArray: 
+  - m_Name: Normal
+    m_HashCode: -1183493901
+    m_OpeningDefinition: 
+    m_ClosingDefinition: 
+    m_OpeningTagArray: 
+    m_ClosingTagArray: 

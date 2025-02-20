@@ -135,8 +135,12 @@ public class CardTooltip : MonoBehaviour
         // Populate descriptions for each Card Action
         foreach (CardActionData actionData in cardInfo.ActionSequence.Actions)
         {
-            CardActionTooltipDescription actionDescription = Instantiate(CardActionTooltipDescriptionPrefab, ContentPanel);
-            actionDescription.PopulateDescription(actionData);
+            // Ignore Card Actions that don't have a description
+            if (HelperFunctions.actionDescriptions.ContainsKey(actionData.CardAction))
+            {
+                CardActionTooltipDescription actionDescription = Instantiate(CardActionTooltipDescriptionPrefab, ContentPanel);
+                actionDescription.PopulateDescription(actionData);
+            }
         }
     }
 

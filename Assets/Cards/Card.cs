@@ -84,7 +84,10 @@ public class Card : MonoBehaviour
         }
         else
         {
-            activeCardTooltip.RemoveToolTip();
+            if (activeCardTooltip != null)
+            {
+                activeCardTooltip.RemoveToolTip();
+            }
         }
     }
 

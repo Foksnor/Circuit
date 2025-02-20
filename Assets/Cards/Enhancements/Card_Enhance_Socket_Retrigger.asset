@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Card_Enhance_Socket_Retrigger
   m_EditorClassIdentifier: 
   CardType: 1
-  CardRarity: 0
+  CardRarity: 1
   CardFoiling: 0
   AutoTargetType: 0
   MaxRange: 1
