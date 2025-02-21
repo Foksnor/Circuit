@@ -145,12 +145,27 @@
     <Compile Include="Assets\Cards\Card Creation\GridSelector.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\UI\Font\Oswald\README.txt" />
+    <None Include="Assets\UI\Font\Roboto_Slab\LICENSE.txt" />
+    <None Include="Assets\UI\Font\Rubik\README.txt" />
+    <None Include="Assets\UI\Font\Lato\OFL.txt" />
+    <None Include="Assets\UI\Font\Nunito\OFL.txt" />
+    <None Include="Assets\UI\Font\Jacquard_24\OFL.txt" />
+    <None Include="Assets\UI\Font\Rubik\OFL.txt" />
+    <None Include="Assets\UI\Font\Jersey_10\OFL.txt" />
     <None Include="Assets\Doozy\_Extras\Fonts\UFL.txt" />
+    <None Include="Assets\UI\Font\Nunito\README.txt" />
+    <None Include="Assets\UI\Font\Cormorant_Garamond\OFL.txt" />
+    <None Include="Assets\UI\Font\Jacquard_12\OFL.txt" />
+    <None Include="Assets\UI\Font\Piedra\OFL.txt" />
     <None Include="Assets\Doozy\_Extras\Fonts\Ubuntu Font License - UFL.txt" />
     <None Include="Assets\Doozy\_Extras\Fonts\Inter Font License - OFL.txt" />
+    <None Include="Assets\UI\Font\Oswald\OFL.txt" />
     <None Include="Assets\Doozy\_Extras\disclaimer.txt" />
     <None Include="Assets\Lana Studio\Casual RPG VFX\Readme.txt" />
+    <None Include="Assets\UI\Font\Jacquarda_Bastarda_9\OFL.txt" />
     <None Include="Assets\Doozy\readme.txt" />
+    <None Include="Assets\UI\Font\Roboto_Slab\README.txt" />
     <None Include="Assets\UI\MaskedUIBlur.shader" />
   </ItemGroup>
   <ItemGroup>

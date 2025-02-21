@@ -269,31 +269,85 @@ public static class HelperFunctions
         return instigator.TeamType == _TeamType.Player ? Teams.CharacterTeams.EnemyTeamCharacters : Teams.CharacterTeams.PlayerTeamCharacters;
     }
 
-    private static readonly Dictionary<_CardAction, string> _descriptions = new()
+    public static readonly Dictionary<_CardAction, string> actionDescriptions = new()
     {
-        { _CardAction.Damage, "Deal {x} damage to an enemy." },
-        { _CardAction.Heal, "Restore {x} health to a target." },
-        { _CardAction.Move, "Move {x} steps." },
-        { _CardAction.DrawCard, "Draw {x} cards." },
-        { _CardAction.DiscardThisCard, "Discard this card." },
-        { _CardAction.DiscardOtherCard, "Discard {x} random card" },
-        { _CardAction.DestroyThisCard, "Burn this card!" },
-        { _CardAction.DestroyOtherCard, "Burn {x} random card!" },
-        { _CardAction.EnhanceSlotFire, "{x} fire. Enhances this slot with fire. Cards played in this slot will use fire." },
-        { _CardAction.EnhanceSlotShock, "{x} shock. Enhances this slot with shock. Cards played in this slot will use shock." },
-        { _CardAction.EnhanceSlotRetrigger, "{x} echo. Enhances this slot with echo. Cards played in this slot will trigger twice." },
+        { _CardAction.Damage, "Deal {x} <style=Highlight>damage</style> to each red indicator." },
+        { _CardAction.Heal, "Restore {x} <style=Highlight>health</style> to a target." },
+        { _CardAction.Move, "<style=Highlight>Move</style> {x} steps." },
+        { _CardAction.DrawCard, "<style=Highlight>Draw</style> {x} cards." },
+        { _CardAction.DiscardThisCard, "<style=Highlight>Discard</style> this card." },
+        { _CardAction.DiscardOtherCard, "<style=Highlight>Discard</style> {x} random card" },
+        { _CardAction.DestroyThisCard, "<style=Highlight>BURN</style> this card!<br>Remove this card from your deck." },
+        { _CardAction.DestroyOtherCard, "<style=Highlight>BURN</style> {x} random card!<br>Remove that card from your deck." },
+        { _CardAction.EnhanceSlotFire, "<style=Highlight>{x} fire</style><br>Enhances this slot with <style=Highlight>fire</style>. Cards played in this slot will use <style=Highlight>fire</style>." },
+        { _CardAction.EnhanceSlotShock, "<style=Highlight>{x} shock</style><br>Enhances this <style=Highlight>shock</style> with shock. Cards played in this slot will use <style=Highlight>shock</style>." },
+        { _CardAction.EnhanceSlotRetrigger, "<style=Highlight>{x} echo</style><br>Enhances this slot with <style=Highlight>echo</style>. Cards played in this slot will trigger twice." },
         { _CardAction.AddLife, "Add {x} life." },
-        { _CardAction.SubtractLife, "Cost: Subtract {x} life!" },
-        { _CardAction.ConsumeCorpse, "Cost: Consume {x} nearby corpse!" },
-        { _CardAction.SpawnParticleOnTarget, "" },
-        { _CardAction.SpawnParticleOnSelf, "" },
-        { _CardAction.ActionSequence, "" },
+        { _CardAction.SubtractLife, "Playing cost:<br>Subtract {x} life!" },
+        { _CardAction.ConsumeCorpse, "Playing cost:<br>Consume {x} nearby corpse!" }
     };
 
-    public static string GetDescription(this _CardAction action, int value)
+    public static string FormatDescription(_CardAction action, int value)
     {
-        return _descriptions.TryGetValue(action, out string description)
-            ? description.Replace("{x}", value.ToString())
-            : "Unknown action.";
+        if (!actionDescriptions.TryGetValue(action, out string description))
+            return "";
+
+        string actionTitle = GetIcon(action);
+
+        // If no description, return only the action title
+        if (string.IsNullOrWhiteSpace(description))
+            return actionTitle;
+
+        // Ensure {x} is styled correctly inside the sentence
+        string styledValue = $"<style=Value>{value}</style>";
+        string formattedDescription = description.Replace("{x}", styledValue);
+
+        return $"{actionTitle} {formattedDescription}";
+    }
+
+    private static string GetIcon(_CardAction action)
+    {
+        return $"<sprite name=\"{action}\">";
+    }
+
+    private static readonly Dictionary<_CardAction, string> actionHexColors = new()
+    {
+        { _CardAction.Damage, "#FF0032" },
+        { _CardAction.Heal, "#FFFFFF" },
+        { _CardAction.Move, "#3C96C8" },
+        { _CardAction.DrawCard, "#FFFFFF" },
+        { _CardAction.DiscardThisCard, "#83ACA8" },
+        { _CardAction.DiscardOtherCard, "#FFFFFF" },
+        { _CardAction.DestroyThisCard, "#075951" },
+        { _CardAction.DestroyOtherCard, "#FFFFFF" },
+        { _CardAction.EnhanceSlotFire, "#F14A00" },
+        { _CardAction.EnhanceSlotShock, "#F1D600" },
+        { _CardAction.EnhanceSlotRetrigger, "#5E00F1" },
+        { _CardAction.AddLife, "#FFFFFF" },
+        { _CardAction.SubtractLife, "#FFFFFF" },
+        { _CardAction.ConsumeCorpse, "#FFFFFF" }
+    };
+
+    public static Color GetActionColor(_CardAction action)
+    {
+        Color color = Color.white;
+
+        if (actionHexColors.TryGetValue(action, out string hexColor))
+        {
+            if (UnityEngine.ColorUtility.TryParseHtmlString(hexColor, out Color newColor))
+            {
+                color = newColor;
+            }
+            else
+            {
+                Debug.LogError($"Invalid hex color for action {action}: {hexColor}");
+            }
+        }
+        else
+        {
+            Debug.LogError($"Action {action} not found in dictionary!");
+        }
+
+        return color;
     }
 }

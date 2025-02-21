@@ -17,14 +17,14 @@ MonoBehaviour:
   m_enableKerning: 1
   m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
-  m_enableTintAllSprites: 0
+  m_enableTintAllSprites: 1
   m_enableParseEscapeCharacters: 1
   m_EnableRaycastTarget: 1
   m_GetFontFeaturesAtRuntime: 1
   m_missingGlyphCharacter: 0
   m_ClearDynamicDataOnBuild: 1
   m_warningsDisabled: 0
-  m_defaultFontAsset: {fileID: 11400000, guid: a43fc92c2212b04469c4d2aa7cfd0ca8, type: 2}
+  m_defaultFontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_defaultFontAssetPath: Fonts & Materials/
   m_defaultFontSize: 36
   m_defaultAutoSizeMinRatio: 0.5
@@ -35,7 +35,7 @@ MonoBehaviour:
   m_IsTextObjectScaleStatic: 0
   m_fallbackFontAssets: []
   m_matchMaterialPreset: 1
-  m_HideSubTextObjects: 1
+  m_HideSubTextObjects: 0
   m_defaultSpriteAsset: {fileID: 11400000, guid: bd41cdd4de8aab545a2c6ea8988b7a2d, type: 2}
   m_defaultSpriteAssetPath: Sprite Assets/
   m_enableEmojiSupport: 1
