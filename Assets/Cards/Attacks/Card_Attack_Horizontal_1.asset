@@ -13,35 +13,33 @@ MonoBehaviour:
   m_Name: Card_Attack_Horizontal_1
   m_EditorClassIdentifier: 
   CardType: 1
+  CardRarity: 0
+  CardFoiling: 0
+  AutoTargetType: 0
+  MaxRange: 1
   ActionSequence:
-    TargetRequirement: {fileID: 11400000, guid: 48a83d7274fc45a449a2595f09f03faa, type: 2}
     Actions:
     - CardAction: 0
       Value: 4
       Particle: {fileID: 0}
       ActionSequence:
-        TargetRequirement: {fileID: 0}
         Actions: []
+        TargetRequirement: {fileID: 0}
     - CardAction: 14
       Value: 0
       Particle: {fileID: 5493082302257829311, guid: 261b0e3ba678dc647b775c3a15066a31, type: 3}
       ActionSequence:
-        TargetRequirement: {fileID: 11400000, guid: 66da2646165b8404289b3435f09c8e36, type: 2}
         Actions:
         - CardAction: 0
           Value: 0
           Particle: {fileID: 0}
           ActionSequence:
-            TargetRequirement: {fileID: 0}
             Actions: []
-  CardRarity: 0
-  CardStyle: 0
+            TargetRequirement: {fileID: 0}
+        TargetRequirement: {fileID: 11400000, guid: 66da2646165b8404289b3435f09c8e36, type: 2}
+    TargetRequirement: {fileID: 11400000, guid: 48a83d7274fc45a449a2595f09f03faa, type: 2}
   CardName: Claw
-  Cost: 0
-  Sprite: {fileID: 21300000, guid: 5e8406971668ebb4da492d042df66b2c, type: 3}
+  Sprite: {fileID: 21300000, guid: 3ba42afcc67f14d4b862c3358f24e14f, type: 3}
   Sound: {fileID: 0}
-  MoveSteps: {x: 0, y: 0}
-  Value: 4
-  TargetRequirement: <style="Target_East"></style>
   Description: <style="Damage"></style> 1
-  MaxTimeInUse: 0.5
+  TimeInUse: 0.5

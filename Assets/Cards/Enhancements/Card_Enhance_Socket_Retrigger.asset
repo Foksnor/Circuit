@@ -32,8 +32,8 @@ MonoBehaviour:
         Actions: []
         TargetRequirement: {fileID: 0}
     TargetRequirement: {fileID: 0}
-  CardName: Doublecast
-  Sprite: {fileID: 21300000, guid: b8312b74b863d4d4894c71e873cc7800, type: 3}
+  CardName: Echo Elixer
+  Sprite: {fileID: 21300000, guid: ac8127215aa0d1743b58303c357b12e8, type: 3}
   Sound: {fileID: 0}
   Description: Enhances this slot with Doublecast.
   TimeInUse: 0.5

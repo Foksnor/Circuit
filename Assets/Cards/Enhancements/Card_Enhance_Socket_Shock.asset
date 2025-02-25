@@ -32,8 +32,8 @@ MonoBehaviour:
         Actions: []
         TargetRequirement: {fileID: 0}
     TargetRequirement: {fileID: 0}
-  CardName: Shock slot
-  Sprite: {fileID: 5820286478268577726, guid: c88b0fffaa4a08e4da31664b9c2a2942, type: 3}
+  CardName: Shock Elixer
+  Sprite: {fileID: 21300000, guid: 3febed00ec52b844dbe0f57c056f234d, type: 3}
   Sound: {fileID: 0}
   Description: Enhances this slot with Shock.
   TimeInUse: 0.5

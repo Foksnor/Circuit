@@ -75,6 +75,7 @@
     <Compile Include="Assets\Doozy\_Examples\E22 - Popup - without Buttons\ShowSimplePopup.cs" />
     <Compile Include="Assets\Characters\Player\Feedback Interactions\FeedbackPanel.cs" />
     <Compile Include="Assets\Cards\Card Creation\CardSequenceData.cs" />
+    <Compile Include="Assets\Cards\CardSocket\CardSocket.cs" />
     <Compile Include="Assets\Characters\CharacterHitFlash.cs" />
     <Compile Include="Assets\Grid\Biome\BiomeScriptableObject.cs" />
     <Compile Include="Assets\Characters\ApplyMainCameraToCanvas.cs" />
@@ -115,7 +116,6 @@
     <Compile Include="Assets\Characters\Character.cs" />
     <Compile Include="Assets\Doozy\_Examples\E25 - Toggle - UIToggle Animators\ExampleUIToggleAnimators.cs" />
     <Compile Include="Assets\Cards\EnemyCircuitBoard.cs" />
-    <Compile Include="Assets\UI\CardSocket\CardSocket.cs" />
     <Compile Include="Assets\Cards\PlayerLevelScriptableObject.cs" />
     <Compile Include="Assets\UI\ButtonHoverImageSwapSelectable.cs" />
     <Compile Include="Assets\Characters\Player\CameraFollowTarget.cs" />

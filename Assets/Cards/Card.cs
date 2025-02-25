@@ -16,8 +16,6 @@ public class Card : MonoBehaviour
     [SerializeField] private Image cardBackground, cardimage;
     [SerializeField] private Material holographicMat, goldenMat;
     [SerializeField] private AudioClip sound;
-    [SerializeField] private TextMeshProUGUI valueText;
-    [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private Animator feedbackAnimator;
     public Animator cardAnimator;
     public Card_PointerInteraction CardPointerInteraction;
@@ -47,7 +45,6 @@ public class Card : MonoBehaviour
         {
             nameText.text = cardScriptableObject.CardName;
             cardimage.sprite = cardScriptableObject.Sprite;
-            descriptionText.text = cardScriptableObject.Description;
 
             // Set random rotation of the card material so that every card in hand looks a bit different
             SetRandomMaterialRotation();

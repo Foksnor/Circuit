@@ -14,18 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardType: 1
   CardRarity: 1
-  CardStyle: 0
+  CardFoiling: 0
+  AutoTargetType: 0
+  MaxRange: 1
+  ActionSequence:
+    Actions: []
+    TargetRequirement: {fileID: 0}
   CardName: Cleave
-  Cost: 0
-  Sprite: {fileID: 21300000, guid: 1e170bfc936c8ca4aa41a06e6ea04d68, type: 3}
+  Sprite: {fileID: 21300000, guid: 7250f903b6576774fbca4f0b980d27ad, type: 3}
   Sound: {fileID: 0}
-  Particle: {fileID: 5493082302257829311, guid: d1815482534fbca4d8307719bc8f28df, type: 3}
-  ParticleLocation: 0
-  TargetType: 0
-  MoveSteps: {x: 0, y: 0}
-  AttackSteps: {x: 3, y: 1}
-  AttackOffset: 1
-  Value: 4
-  TargetRequirement: <style="Target_East3"></style>
   Description: <style="Damage"></style> 1
-  MaxTimeInUse: 0.5
+  TimeInUse: 0.5

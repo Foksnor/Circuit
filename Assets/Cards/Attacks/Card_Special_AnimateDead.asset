@@ -27,7 +27,7 @@ MonoBehaviour:
         TargetRequirement: {fileID: 0}
     TargetRequirement: {fileID: 0}
   CardName: Animate Dead
-  Sprite: {fileID: 6423205596021147285, guid: 4866d06649a4ee846a60841d36043f97, type: 3}
+  Sprite: {fileID: 21300000, guid: 539a6780c5437534a9fc9d7944a42d30, type: 3}
   Sound: {fileID: 0}
   Description: Consume <style="Corpse"></style> and <style="Life"></style> to reanimate
     a copy of yourself
