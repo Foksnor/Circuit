@@ -6,6 +6,7 @@ using TMPro;
 using System;
 using Doozy.Runtime.Common.Extensions;
 using Doozy.Runtime.Reactor.Animators;
+using Unity.VisualScripting;
 
 public class Card : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Card : MonoBehaviour
     private CardScriptableObject cardScriptableObject = null;
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI costText;
+    [SerializeField] private TextMeshProUGUI targetIconPanelText;
     [SerializeField] private Image cardBackground, cardimage;
     [SerializeField] private Material holographicMat, goldenMat;
     [SerializeField] private AudioClip sound;
@@ -28,7 +30,6 @@ public class Card : MonoBehaviour
     public float MaxTimeInUse = 0.5f;
     //public float MaxTimeInUse { get; private set; } = 0.5f;
     private bool isCardActivated { get; set; } = false;
-    [SerializeField] private List<Image> rotatableImageMaterial = new();
 
     public bool IsCardVisible { get; private set; } = false;
     public CardSocket ConnectedSocket { get; private set; }
@@ -45,9 +46,7 @@ public class Card : MonoBehaviour
         {
             nameText.text = cardScriptableObject.CardName;
             cardimage.sprite = cardScriptableObject.Sprite;
-
-            // Set random rotation of the card material so that every card in hand looks a bit different
-            SetRandomMaterialRotation();
+            PopulateCardActionIcons();
 
             // Sets the material for various images based on card parameters
             switch (scriptableObject.CardRarity)
@@ -69,6 +68,29 @@ public class Card : MonoBehaviour
         }
     }
 
+    private void PopulateCardActionIcons()
+    {
+        // Empty placeholder string
+        targetIconPanelText.text = string.Empty;
+
+        if (cardScriptableObject.ActionSequence == null || cardScriptableObject.ActionSequence.Actions == null)
+            return;
+
+        // Populate icons for each Card Action
+        foreach (CardActionData actionData in cardScriptableObject.ActionSequence.Actions)
+        {
+            // Ignore Card Actions that don't have a description
+            if (HelperFunctions.actionDescriptions.ContainsKey(actionData.CardAction))
+            {
+                // Populate icon on text
+                targetIconPanelText.text += HelperFunctions.GetCardActionIcon(actionData.CardAction);
+
+                // Add spacing between each icons
+                targetIconPanelText.text += " ";
+            }
+        }
+    }
+
     public void ToggleCardTooltip(bool showTooltip)
     {
         if (showTooltip)
@@ -84,18 +106,6 @@ public class Card : MonoBehaviour
             if (activeCardTooltip != null)
             {
                 activeCardTooltip.RemoveToolTip();
-            }
-        }
-    }
-
-    private void SetRandomMaterialRotation()
-    {
-        if (rotatableImageMaterial.Count > 0)
-        {
-            for (int i = 0; i < rotatableImageMaterial.Count; i++)
-            {
-                float rngAngle = UnityEngine.Random.Range(0, 360);
-                rotatableImageMaterial[i].material.SetFloat("TextureRotation", rngAngle);
             }
         }
     }

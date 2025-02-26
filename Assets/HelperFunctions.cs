@@ -292,7 +292,7 @@ public static class HelperFunctions
         if (!actionDescriptions.TryGetValue(action, out string description))
             return "";
 
-        string actionTitle = GetIcon(action);
+        string actionTitle = GetCardActionIcon(action);
 
         // If no description, return only the action title
         if (string.IsNullOrWhiteSpace(description))
@@ -305,7 +305,7 @@ public static class HelperFunctions
         return $"{actionTitle} {formattedDescription}";
     }
 
-    private static string GetIcon(_CardAction action)
+    public static string GetCardActionIcon(_CardAction action)
     {
         return $"<sprite name=\"{action}\">";
     }
