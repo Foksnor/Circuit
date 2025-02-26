@@ -840,8 +840,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: test title @@@
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e6a5326bcb0003489be1aa3aafef5d6, type: 2}
-  m_sharedMaterial: {fileID: -7609433390005619507, guid: 6e6a5326bcb0003489be1aa3aafef5d6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 06698336377daf741b2455c9f532c7ad, type: 2}
+  m_sharedMaterial: {fileID: 861867681193704122, guid: 06698336377daf741b2455c9f532c7ad, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

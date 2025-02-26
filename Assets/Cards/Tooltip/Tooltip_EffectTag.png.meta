@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Tooltip_EffectTag_0: 5613477974999757404
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
