@@ -8,6 +8,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(RectTransform), typeof(Animator))]
 public class CardTooltip : MonoBehaviour
 {
+    private RectTransform rectTransform;
     private Animator animator;
     [SerializeField] private TextMeshProUGUI nameTagText;
     [SerializeField] private GameObject targetSelectorPanel;
@@ -19,6 +20,22 @@ public class CardTooltip : MonoBehaviour
     [SerializeField] private Image[] imagesToColorRarity;
     private const int tooltipOffset = 200;
     private readonly Vector3 cameraFacingDirection = Vector3.left;
+
+    private void Awake()
+    {
+        rectTransform = GetComponent<RectTransform>();
+    }
+
+    private void Update()
+    {
+        UpdateRotationOnScreen();
+    }
+
+    private void UpdateRotationOnScreen()
+    {
+        // Always force the tooltip rotation to be straight
+        rectTransform.rotation = Quaternion.Euler(Vector3.zero);
+    }
 
     public void SetTooltip(CardScriptableObject cardInfo)
     {
@@ -41,7 +58,6 @@ public class CardTooltip : MonoBehaviour
 
     private void SetPositionInScreen()
     {
-        RectTransform rectTransform = GetComponent<RectTransform>();
         rectTransform.anchoredPosition = new Vector2(0, tooltipOffset);
     }
 

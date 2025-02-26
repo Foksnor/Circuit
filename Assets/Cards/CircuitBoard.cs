@@ -101,6 +101,7 @@ public class CircuitBoard : MonoBehaviour
         newCard.transform.SetParent(cardPanel.transform);
         newCard.ConnectToSocket(socket);
         newCard.CardPointerInteraction.AssignPosition(socket.transform.position);
+        newCard.CardPointerInteraction.AssignRotation(Vector3.zero);
     }
 
     public virtual void RemoveFromSocket(Card card)

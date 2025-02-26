@@ -37,7 +37,7 @@ MonoBehaviour:
             Actions: []
             TargetRequirement: {fileID: 0}
         TargetRequirement: {fileID: 11400000, guid: 66da2646165b8404289b3435f09c8e36, type: 2}
-    TargetRequirement: {fileID: 11400000, guid: 48a83d7274fc45a449a2595f09f03faa, type: 2}
+    TargetRequirement: {fileID: 11400000, guid: 80f2cb119a95d6940949a58bfdfa8d29, type: 2}
   CardName: Cleave
   Sprite: {fileID: 21300000, guid: 7250f903b6576774fbca4f0b980d27ad, type: 3}
   Sound: {fileID: 0}

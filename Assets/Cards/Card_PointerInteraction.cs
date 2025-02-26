@@ -63,7 +63,9 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
         // Clamp rotation values and then set the value to the card rotation
         pointerInputX = Mathf.Clamp(pointerInputX, -cardAngleClamp, cardAngleClamp);
         pointerInputY = Mathf.Clamp(pointerInputY, -cardAngleClamp, cardAngleClamp);
-        transform.eulerAngles = new Vector3(pointerInputY, -pointerInputX, 0);
+
+        Vector3 rotation = new(pointerInputY, -pointerInputX, transform.eulerAngles.z);
+        AssignRotation(rotation);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -80,6 +82,10 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
 
         // Set higher sorting order so it's on top of other cards while dragging
         canvas.sortingOrder = 10;
+
+        // Resets the rotation of the card
+        // This allows cards that are being dragged from the hand panel to not have their hand panel rotation/fanning
+        AssignRotation(Vector3.zero);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -221,6 +227,10 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
         {
             // Sets a new start position for the card to return from
             startPosition = transform.position;
+
+            // Reset card rotation
+            AssignRotation(Vector3.zero);
+            PlayerUI.HandPanel.FanCardsInPanel();
         }
 
         // Updates the order in which cards are played
@@ -259,7 +269,7 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
             card.ConnectedCircuitboard.PlaceCardInSocket(card, targetSocket);
 
             // Update card positions in hand after the card swap
-            PlayerUI.HandPanel.UpdateCardPositions();
+            PlayerUI.HandPanel.FanCardsInPanel();
         }
     }
 
@@ -291,6 +301,11 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
             desiredPosition = position;
             startPosition = transform.position;
         }
+    }
+
+    public void AssignRotation(Vector3 rotation)
+    {
+        transform.eulerAngles = rotation;
     }
 
     public void AssignPosition(Vector2 position, float travelTime)
