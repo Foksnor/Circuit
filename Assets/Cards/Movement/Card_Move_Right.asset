@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Card_Move_Right
   m_EditorClassIdentifier: 
   CardType: 0
+  CardRarity: 0
+  CardFoiling: 0
+  AutoTargetType: 0
+  MaxRange: 1
   ActionSequence:
     Actions:
     - CardAction: 2
@@ -22,10 +26,8 @@ MonoBehaviour:
         Actions: []
         TargetRequirement: {fileID: 0}
     TargetRequirement: {fileID: 11400000, guid: a3a9d360d79efb14099de463bce9bcb4, type: 2}
-  CardRarity: 0
-  CardStyle: 0
   CardName: Move
-  Sprite: {fileID: 21300000, guid: 68bb39977eceafc4b807e4df592ee27e, type: 3}
+  Sprite: {fileID: 91403669424652066, guid: f62edf54f04019d429d86618ab636ed0, type: 3}
   Sound: {fileID: 0}
   Description: <style="Move_South"></style> 1
   TimeInUse: 0.5
