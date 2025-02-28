@@ -31,16 +31,21 @@ public class CardBehaviour : MonoBehaviour
         if (value == null)
             Debug.LogError($"{instigator.name} tried to use {action} action. But the value hasn't been assigned yet.");
 
-        List<Vector2Int> targetPositions = new(targets.RelativeSelectedPositions);
+        List<Vector2Int> targetPositions = new();
         GridCube startingPos = instigator.AssignedGridCube;
 
-        // Targets are based on the facing direction the team is moving
-        if (instigator.TeamType == _TeamType.Enemy)
+        if (targets != null)
         {
-            // Invert each vector's direction
-            for (int i = 0; i < targetPositions.Count; i++)
+            targetPositions = targets.RelativeSelectedPositions;
+
+            // Targets are based on the facing direction the team is moving
+            if (instigator.TeamType == _TeamType.Enemy)
             {
-                targetPositions[i] = -targetPositions[i];
+                // Invert each vector's direction
+                for (int i = 0; i < targetPositions.Count; i++)
+                {
+                    targetPositions[i] = -targetPositions[i];
+                }
             }
         }
 
