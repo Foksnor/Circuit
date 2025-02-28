@@ -11,7 +11,7 @@ public class CountCardsFromPlacement : MonoBehaviour
     [SerializeField] private string animationName;
     private int cardNumber = 0;
     private int currentValue = 0;
-    private float maxTimeForCounterToComplete = 0.5f;
+    private const float maxTimeForCounterToComplete = 0.5f;
 
     private void Update()
     {

@@ -207,7 +207,7 @@ public class PlayerCircuitBoard : CircuitBoard
             {
                 // Sets the position of the card to the connected socket
                 Vector2 newCardPosition = ActiveSockets[i].transform.position;
-                ActiveSockets[i].SlottedCard.CardPointerInteraction.AssignPosition(newCardPosition);
+                ActiveSockets[i].SlottedCard.CardPointerInteraction.AssignAnchoredPosition(newCardPosition);
             }
         }
     }

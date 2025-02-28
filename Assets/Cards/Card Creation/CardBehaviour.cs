@@ -14,7 +14,7 @@ public class CardBehaviour : MonoBehaviour
 
     // Allows for enhancements or perks to have cards retrigger additional times
     private Dictionary<string, int> triggerCounts = new();
-    private int BaseMaxTriggersPerTurn = 1;
+    private const int BaseMaxTriggersPerTurn = 1;
     public int AdditionalRetriggers { get; private set; } = 0;
     public int MaxTriggersPerTurn => BaseMaxTriggersPerTurn + AdditionalRetriggers;
 

@@ -37,33 +37,36 @@ public class PlayerHandPanel : MonoBehaviour
 
     public void FanCardsInPanel()
     {
-        // Calculate dynamic spacing based on available width and number of objects
-        float spacing = Mathf.Min(maxSpacing, rectTransform.rect.width / Mathf.Max(1, cardsInPanel.Count - 1));
+        if (cardsInPanel.Count == 0)
+            return;
 
-        // Get the scale factor from targetReferenceScalingCanvas
-        spacing *= targetReferenceScalingCanvas.scaleFactor;
+        // Get panel width and scale it with screen resolution
+        float panelWidth = rectTransform.rect.width / targetReferenceScalingCanvas.scaleFactor;
 
-        // Calculate the starting X position to center the objects around
+        // Calculate spacing, ensuring it doesn't spread too far
+        float spacing = Mathf.Min(maxSpacing, panelWidth / Mathf.Max(1, cardsInPanel.Count));
+
+        // Calculate the total width occupied by cards
         float totalWidth = (cardsInPanel.Count - 1) * spacing;
-        float startX = rectTransform.transform.position.x + (totalWidth / 2);
 
-        // Calculate the "center index"
-        // Avoiding zero calculation by using Mathf.Max
+        // Normalize startX so it remains consistent across resolutions
+        float startX = -totalWidth / 2f;
+
+        // Calculate center index
         float centerIndex = Mathf.Max((cardsInPanel.Count - 1) / 2f, 0.5f);
 
         for (int i = 0; i < cardsInPanel.Count; i++)
         {
-            // Calculate position for each GameObject
-            Vector2 cardPosition = new(startX - (i * spacing), rectTransform.transform.position.y);
+            // Adjust the card's local position within the hand panel
+            Vector2 cardPosition = new(startX + (i * spacing), 0);
 
-            // Offset from the center (e.g., -2, -1, 0, 1, 2 for 5 cards)
+            // Offset from the center
             float offset = i - centerIndex;
 
-            // This scales the offset so that the leftmost card is -maxCardFanRotation
-            // and the rightmost is +maxCardFanRotation
-            float zRotation = offset * (maxCardFanRotation / centerIndex);
+            // Apply card fan rotation
+            float zRotation = -offset * (maxCardFanRotation / centerIndex);
 
-            // Apply the rotation
+            // Apply rotation
             Vector3 cardRotation = new(
                 cardsInPanel[i].transform.eulerAngles.x,
                 cardsInPanel[i].transform.eulerAngles.y,
@@ -71,17 +74,19 @@ public class PlayerHandPanel : MonoBehaviour
             );
             cardsInPanel[i].CardPointerInteraction.AssignRotation(cardRotation);
 
-            // Apply height adjustment - cards with higher rotation go down
+            // Adjust height (cards with more rotation are positioned lower)
             float heightOffset = Mathf.Abs(zRotation) * maxCardFanHeightoffset;
             cardPosition.y -= heightOffset;
-            cardsInPanel[i].CardPointerInteraction.AssignPosition(cardPosition);
+
+            // Assign the corrected anchored position
+            cardsInPanel[i].CardPointerInteraction.AssignAnchoredPosition(cardPosition);
         }
     }
 
     public void AssignCardToPanel(Card card)
     {
         card.transform.SetParent(transform);
-        cardsInPanel.Add(card);
+        cardsInPanel.Insert(0, card); // This inserts the card at the beginning
     }
 
     public void RemoveCardFromPanel(Card card, bool isSendToDiscard)

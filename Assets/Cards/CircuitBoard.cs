@@ -100,7 +100,7 @@ public class CircuitBoard : MonoBehaviour
     {
         newCard.transform.SetParent(cardPanel.transform);
         newCard.ConnectToSocket(socket);
-        newCard.CardPointerInteraction.AssignPosition(socket.transform.position);
+        newCard.CardPointerInteraction.AssignAnchoredPosition(socket.transform.position);
         newCard.CardPointerInteraction.AssignRotation(Vector3.zero);
     }
 

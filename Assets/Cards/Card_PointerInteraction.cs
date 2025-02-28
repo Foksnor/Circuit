@@ -6,33 +6,37 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-[RequireComponent(typeof(Button), typeof(CanvasGroup))]
+[RequireComponent(typeof(Card), typeof(Button), typeof(CanvasGroup))]
 public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
     private bool isInteractable = true;
 
-    private readonly float cardDragRotSpeedModifier = 2;
-    private readonly float cardAngleClamp = 30;
+    private const float cardDragRotSpeedModifier = 2;
+    private const float cardAngleClamp = 30;
     private float pointerInputX, pointerInputY;
 
     // Store how much the mouse has moved since the last frame
     private Vector3 mouseDelta = Vector3.zero;
 
     // Used for the card to move to when not being dragged
-    private readonly float cardReleaseSpeedModifier = 2000;
-    private readonly float cardRotationSpeed = 1.5f;
+    private const float cardReleaseSpeedModifier = 2000;
+    private const float cardRotationSpeed = 1.5f;
     private Vector2 startPosition = Vector2.zero;
     private Vector2 desiredPosition = Vector2.zero;
     private float travelDuration = 0;
     private float curTime = 0;
     private bool isBeingDragged = false;
 
-    [SerializeField] private Transform visualRoot;
-    [SerializeField] private Animator animator;
+    // UI references
     private Card card;
-    private Card targetHoverOverCard;
     private CanvasGroup canvasGroup;
     private Canvas canvas;
+    private RectTransform rectTransform;
+    private Button button;
+
+    [SerializeField] private Transform visualRoot;
+    [SerializeField] private Animator animator;
+    private Card targetHoverOverCard;
     private GameObject hoveredGameObject;
     private int originalSortingOrder;
 
@@ -42,6 +46,8 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
         animator.SetBool("isInteractable", true);
         canvasGroup = GetComponent<CanvasGroup>();
         canvas = GetComponent<Canvas>();
+        rectTransform = GetComponent<RectTransform>();
+        button = GetComponent<Button>();
     }
 
     void Update()
@@ -279,7 +285,7 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
         {
             // Lerp movement
             curTime += Time.deltaTime / travelDuration;
-            transform.position = Vector2.Lerp(startPosition, desiredPosition, curTime);
+            rectTransform.anchoredPosition = Vector2.Lerp(startPosition, desiredPosition, curTime);
 
             // Rotates the card towards the target position
             RotateCardTowardsTarget(desiredPosition);
@@ -289,28 +295,23 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
             // Moves the card in a linear speed towards their desired position
             // Speed scales with screen resolution
             float scaledSpeed = cardReleaseSpeedModifier * HelperFunctions.GetResolutionScale();
-            transform.position = Vector2.MoveTowards(transform.position, desiredPosition, Time.deltaTime * scaledSpeed);
+            rectTransform.anchoredPosition = Vector2.MoveTowards(rectTransform.anchoredPosition, desiredPosition, Time.deltaTime * scaledSpeed);
         }
     }
 
-    public void AssignPosition(Vector2 position)
+    public void AssignAnchoredPosition(Vector2 position)
     {
-        // Only assign position, if the position is different than before
+        // Only assign position if it's different than before
         if (position != desiredPosition)
         {
             desiredPosition = position;
-            startPosition = transform.position;
+            startPosition = rectTransform.anchoredPosition;
         }
-    }
-
-    public void AssignRotation(Vector3 rotation)
-    {
-        transform.eulerAngles = rotation;
     }
 
     public void AssignPosition(Vector2 position, float travelTime)
     {
-        // Only assign position, if the position is different than before
+        // Only assign position if it's different than before
         if (position != desiredPosition)
         {
             // Reset curTime timer
@@ -323,20 +324,23 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
 
                 // Cards that change zone should not be able to be interacted with
                 isInteractable = false;
-                GetComponent<Button>().interactable = false;
-                CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
+                button.interactable = false;
                 canvasGroup.interactable = false;
                 canvasGroup.blocksRaycasts = false;
 
                 // Set special card animation for cards with travelTime
-                // Animation should last until travel has finished
                 animator.speed = 1 / travelTime;
                 animator.Play("A_Card_ChangeZone");
             }
 
             desiredPosition = position;
-            startPosition = transform.position;
+            startPosition = rectTransform.anchoredPosition;
         }
+    }
+
+    public void AssignRotation(Vector3 rotation)
+    {
+        transform.eulerAngles = rotation;
     }
 
     private void RotateCardTowardsTarget(Vector2 targetPosition)
