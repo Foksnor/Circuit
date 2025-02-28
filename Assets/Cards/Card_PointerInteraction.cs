@@ -132,6 +132,11 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
             {
                 ShowCardHover(hoveredCard);
             }
+            else if (hoveredGameObject.GetComponentInParent<CardSocket>() is CardSocket hoveredSocket)
+            {
+                if (hoveredSocket.SlottedCard != null)
+                    ShowCardHover(hoveredSocket.SlottedCard);
+            }
             else
             {
                 // Hide previous hovered card when hovering over a gameobject that is not a card
@@ -200,14 +205,23 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
         {
             if (hoveredGameObject.GetComponentInParent<CardSocket>() is CardSocket hoveredSocket)
             {
-                // Remove card from socket if card is in play
-                if (card.ConnectedSocket != null)
-                    card.RemoveFromSocket();
+                // If dragging held card onto a socket that holds a different card, swap cards
+                if (hoveredSocket.SlottedCard != null)
+                {
+                    SwapCards(hoveredSocket.SlottedCard);
+                }
+                // Otherwise you place the held card into an empty socket
+                else
+                {
+                    // Remove card from socket if card is in play
+                    if (card.ConnectedSocket != null)
+                        card.RemoveFromSocket();
 
-                card.ConnectedCircuitboard.PlaceCardInSocket(card, hoveredSocket);
+                    card.ConnectedCircuitboard.PlaceCardInSocket(card, hoveredSocket);
 
-                // Remove card from hand panel if applicable
-                PlayerUI.HandPanel.RemoveCardFromPanel(card, false);
+                    // Remove card from hand panel if applicable
+                    PlayerUI.HandPanel.RemoveCardFromPanel(card, false);
+                }
             }
             else if (hoveredGameObject.GetComponentInParent<Card>() is Card hoveredCard)
             {

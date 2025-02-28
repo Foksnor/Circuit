@@ -28,7 +28,7 @@ public class CardSocket : MonoBehaviour
     public Card SlottedCard
     {
         get => slottedCard;
-        set => slottedCard = value;
+        private set => slottedCard = value;
     }
 
     private void Awake()
