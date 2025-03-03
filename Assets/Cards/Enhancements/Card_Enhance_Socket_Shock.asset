@@ -32,7 +32,7 @@ MonoBehaviour:
         Actions: []
         TargetRequirement: {fileID: 0}
     TargetRequirement: {fileID: 0}
-  CardName: Shock Elixer
+  CardName: Shock Balm
   Sprite: {fileID: 21300000, guid: 3febed00ec52b844dbe0f57c056f234d, type: 3}
   Sound: {fileID: 0}
   Description: Enhances this slot with Shock.

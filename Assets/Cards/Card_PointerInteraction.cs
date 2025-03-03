@@ -313,40 +313,32 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
         }
     }
 
-    public void AssignAnchoredPosition(Vector2 position)
+    public void AssignAnchoredPosition(Vector2 position, float travelTime = 0)
     {
         // Only assign position if it's different than before
         if (position != desiredPosition)
         {
-            desiredPosition = position;
-            startPosition = rectTransform.anchoredPosition;
-        }
-    }
-
-    public void AssignPosition(Vector2 position, float travelTime)
-    {
-        // Only assign position if it's different than before
-        if (position != desiredPosition)
-        {
-            // Reset curTime timer
+            // Reset the movement timer
             curTime = 0;
 
             if (travelTime > 0)
             {
-                // Set travel duration
+                // Set travel duration for smooth movement
                 travelDuration = travelTime;
 
                 // Cards that change zone should not be able to be interacted with
                 isInteractable = false;
-                button.interactable = false;
+                GetComponent<Button>().interactable = false;
+                CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
                 canvasGroup.interactable = false;
                 canvasGroup.blocksRaycasts = false;
 
-                // Set special card animation for cards with travelTime
+                // Play card animation for cards with travelTime
                 animator.speed = 1 / travelTime;
                 animator.Play("A_Card_ChangeZone");
             }
 
+            // Set desired position in local UI space
             desiredPosition = position;
             startPosition = rectTransform.anchoredPosition;
         }

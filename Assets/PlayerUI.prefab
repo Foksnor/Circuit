@@ -7433,6 +7433,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4339035523213634195}
   - component: {fileID: 8013229227153186464}
+  - component: {fileID: 1534167548624049806}
   m_Layer: 0
   m_Name: PlayerUI
   m_TagString: Untagged
@@ -7475,8 +7476,8 @@ MonoBehaviour:
   socketPrefab: {fileID: 8745758731374674600, guid: 4e858a182188b0b498a60da377184ab8, type: 3}
   StartingCardsInPlay:
   - {fileID: 11400000, guid: f1bee7ec5bec90242a51d0845a5c554b, type: 2}
-  - {fileID: 11400000, guid: e03077d361af29c40b6b9108110728a9, type: 2}
   - {fileID: 11400000, guid: e5fa2d1ee1c20094f9c23764add936c0, type: 2}
+  - {fileID: 11400000, guid: 4a2b2580818fff240a89133674166f85, type: 2}
   - {fileID: 11400000, guid: 4a2b2580818fff240a89133674166f85, type: 2}
   startingCardsInDeck:
   - {fileID: 11400000, guid: e5fa2d1ee1c20094f9c23764add936c0, type: 2}
@@ -7493,6 +7494,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 99085dd8dde57aa409ae645a607a0b22, type: 2}
   timerText: {fileID: 0}
   timerFill: {fileID: 0}
+--- !u!114 &1534167548624049806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5471101640525786023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bb0e44d2f7fc1949a27201265909527, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardDrawPerTurn: 5
 --- !u!1 &5560662174548869436
 GameObject:
   m_ObjectHideFlags: 0
@@ -11639,8 +11653,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardToSpawn: {fileID: 406596430431226498, guid: 875bf82bf24067243a05baee2b20c410, type: 3}
-  targetDrawCardsFrom: {fileID: 4218671140072160484}
-  targetDiscardCardsTo: {fileID: 4111220080640188795}
+  targetDrawCardsFrom: {fileID: 8537897656926727946}
+  targetDiscardCardsTo: {fileID: 5042828862594581211}
   drawDelay: 0.15
   targetReferenceScalingCanvas: {fileID: 723442363298251518}
   maxSpacing: 100

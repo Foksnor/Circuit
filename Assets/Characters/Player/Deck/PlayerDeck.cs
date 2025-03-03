@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerDeck : MonoBehaviour
@@ -9,7 +10,7 @@ public class PlayerDeck : MonoBehaviour
     public List<CardScriptableObject> CurrentCardsInDeck { set; get; } = new();
     public List<CardScriptableObject> CurrentCardsInDiscard { set; get; } = new();
     public List<CardScriptableObject> AllPossibleAvailableCards { set; get; } = new();
-    public int CardDrawPerTurn {set; get; } = 5;
+    [SerializeField] private int CardDrawPerTurn = 5;
 
     private void Awake()
     {
@@ -24,6 +25,16 @@ public class PlayerDeck : MonoBehaviour
         {
             AllPossibleAvailableCards.AddRange(playerlevels[i].possibleNewCardRewards);
         }
+    }
+
+    public void IncreaseDrawPerTurn(int amount)
+    {
+        CardDrawPerTurn += amount;
+    }
+
+    public int GetDrawPerTurn()
+    {
+        return CardDrawPerTurn;
     }
 }
 

@@ -11,6 +11,7 @@ using Unity.VisualScripting;
 public static class PlayerUI
 {
     public static Canvas CanvasScreenSpace { get; set; } = null;
+    public static RectTransform CanvasRectTransform { get; set; } = null;
     public static PlayerHandPanel HandPanel { get; set; } = null;
     public static GameObject CardPanel { get; set; } = null;
     public static GameObject SocketPanel { get; set; } = null;
@@ -206,8 +207,9 @@ public class PlayerCircuitBoard : CircuitBoard
             if (ActiveSockets[i].SlottedCard != null)
             {
                 // Sets the position of the card to the connected socket
-                Vector2 newCardPosition = ActiveSockets[i].transform.position;
-                ActiveSockets[i].SlottedCard.CardPointerInteraction.AssignAnchoredPosition(newCardPosition);
+                RectTransform cardPanelRect = cardPanel.GetComponent<RectTransform>();
+                Vector2 localSocketPosition = HelperFunctions.ConvertWorldToAnchoredPosition(ActiveSockets[i].transform.position, cardPanelRect);
+                ActiveSockets[i].SlottedCard.CardPointerInteraction.AssignAnchoredPosition(localSocketPosition);
             }
         }
     }

@@ -7,5 +7,6 @@ public class UISetStaticScreenSpace : MonoBehaviour
     private void Awake()
     {
         PlayerUI.CanvasScreenSpace = GetComponent<Canvas>();
+        PlayerUI.CanvasRectTransform = GetComponent<RectTransform>();
     }
 }

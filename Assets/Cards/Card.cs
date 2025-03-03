@@ -8,6 +8,7 @@ using Doozy.Runtime.Common.Extensions;
 using Doozy.Runtime.Reactor.Animators;
 using Unity.VisualScripting;
 
+[RequireComponent(typeof(RectTransform))]
 public class Card : MonoBehaviour
 {
     public string CardId { get; private set; }
@@ -26,7 +27,8 @@ public class Card : MonoBehaviour
     [SerializeField] private CardTooltip cardTooltipPrefab;
     private CardTooltip activeCardTooltip;
 
-    private Transform targetSelfDestructDestination;
+    private RectTransform rectTransform;
+    private Vector2 targetSelfDestructDestination;
     public float MaxTimeInUse = 0.5f;
     //public float MaxTimeInUse { get; private set; } = 0.5f;
     private bool isCardActivated { get; set; } = false;
@@ -41,6 +43,7 @@ public class Card : MonoBehaviour
         cardScriptableObject = scriptableObject;
         ConnectedCircuitboard = owner;
         IsCardVisible = isVisible;
+        rectTransform = GetComponent<RectTransform>();
 
         if (isVisible)
         {
@@ -198,17 +201,23 @@ public class Card : MonoBehaviour
         isCardActivated = false;
     }
 
-    public void SetSelfDestructWhenReachingTargetTransform(Transform target)
+    public void SetSelfDestructWhenReachingTargetPosition(Vector2 targetPosition)
     {
-        targetSelfDestructDestination = target;
+        targetSelfDestructDestination = targetPosition;
     }
 
     private void CheckForSelfDestruct()
     {
-        // If the card transform is close to a self destruct destination
-        // E.g. used when discard this card to the discard pile
-        if (targetSelfDestructDestination != null)
-            if (Vector2.Distance(transform.position, targetSelfDestructDestination.position) <= 2.5f)
-                Destroy(gameObject);
+        if (targetSelfDestructDestination == Vector2.zero)
+        {
+            return;
+        }
+
+        float distance = Vector2.Distance(targetSelfDestructDestination, rectTransform.anchoredPosition);
+
+        if (distance <= 0.5f)
+        {
+            Destroy(gameObject, 0.1f);
+        }
     }
 }

@@ -242,7 +242,7 @@ public class TransitionTurns : MonoBehaviour
 
     private void PlayerDrawPhase()
     {
-        PlayerUI.HandPanel.DrawCards(Decks.Playerdeck.CardDrawPerTurn);
+        PlayerUI.HandPanel.DrawCards(Decks.Playerdeck.GetDrawPerTurn());
     }
 }
 

@@ -350,4 +350,12 @@ public static class HelperFunctions
 
         return color;
     }
+
+    public static Vector2 ConvertWorldToAnchoredPosition(Vector3 worldPosition, RectTransform referenceRect)
+    {
+        Vector2 screenPoint = RectTransformUtility.WorldToScreenPoint(null, worldPosition);
+        Vector2 localPoint;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(referenceRect, screenPoint, null, out localPoint);
+        return localPoint;
+    }
 }

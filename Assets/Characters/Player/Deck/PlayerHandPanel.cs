@@ -10,14 +10,14 @@ public class PlayerHandPanel : MonoBehaviour
     private List<Card> cardsInPanel = new();
     private int previousCardCount = 0;
     [SerializeField] private Card cardToSpawn;
-    [SerializeField] private Transform targetDrawCardsFrom;
-    [SerializeField] private Transform targetDiscardCardsTo;
+    [SerializeField] private RectTransform targetDrawCardsFrom;
+    [SerializeField] private RectTransform targetDiscardCardsTo;
     [SerializeField] private float drawDelay = 0.1f;
     [SerializeField] private Canvas targetReferenceScalingCanvas;
     [SerializeField] private float maxSpacing = 50;
     private const float maxTimeForShufflingToComplete = 1;
     private const float maxCardFanRotation = 7;
-    private const float maxCardFanHeightoffset = 3f;
+    private const float maxCardFanHeightoffset = 10f;
 
     private void Awake()
     {
@@ -28,7 +28,7 @@ public class PlayerHandPanel : MonoBehaviour
     private void Update()
     {
         // Only update the position of the cards if the amount of cards in your hand changed
-        if (cardsInPanel.Count != previousCardCount || HelperFunctions.HasResolutionChanged())
+        if (cardsInPanel.Count != previousCardCount)
         {
             previousCardCount = cardsInPanel.Count;
             FanCardsInPanel();
@@ -75,8 +75,8 @@ public class PlayerHandPanel : MonoBehaviour
             cardsInPanel[i].CardPointerInteraction.AssignRotation(cardRotation);
 
             // Adjust height (cards with more rotation are positioned lower)
-            float heightOffset = Mathf.Abs(zRotation) * maxCardFanHeightoffset;
-            cardPosition.y -= heightOffset;
+            float heightOffset = -maxCardFanHeightoffset * Mathf.Pow(offset / centerIndex, 2);
+            cardPosition.y += heightOffset;
 
             // Assign the corrected anchored position
             cardsInPanel[i].CardPointerInteraction.AssignAnchoredPosition(cardPosition);
@@ -86,6 +86,7 @@ public class PlayerHandPanel : MonoBehaviour
     public void AssignCardToPanel(Card card)
     {
         card.transform.SetParent(transform);
+        card.GetComponent<RectTransform>().localScale = Vector3.one; // Reset scale to prevent flipping or resolution scaling
         cardsInPanel.Insert(0, card); // This inserts the card at the beginning
     }
 
@@ -106,8 +107,15 @@ public class PlayerHandPanel : MonoBehaviour
     public void SentCardToDiscard(Card card, float travelTime)
     {
         Decks.Playerdeck.CurrentCardsInDiscard.Add(card.GetCardInfo());
-        card.CardPointerInteraction.AssignPosition(targetDiscardCardsTo.position, travelTime);
-        card.SetSelfDestructWhenReachingTargetTransform(targetDiscardCardsTo);
+
+        // Convert discard pile world position to UI-anchored position using the canvas as reference
+        Vector2 localDiscardPos = HelperFunctions.ConvertWorldToAnchoredPosition(targetDiscardCardsTo.position, rectTransform);
+
+        // Assign the correctly converted position
+        card.CardPointerInteraction.AssignAnchoredPosition(localDiscardPos, travelTime);
+
+        // Set the card to self-destruct when reaching the discard pile
+        card.SetSelfDestructWhenReachingTargetPosition(localDiscardPos);
     }
 
     public void DrawCards(int drawAmount)
@@ -133,8 +141,9 @@ public class PlayerHandPanel : MonoBehaviour
                     Card shuffleCard = Instantiate(cardToSpawn, targetDiscardCardsTo);
                     CardScriptableObject discardCardScriptableObject = Decks.Playerdeck.CurrentCardsInDiscard[0];
                     shuffleCard.SetCardInfo(discardCardScriptableObject, PlayerUI.PlayerCircuitboard, true);
-                    shuffleCard.CardPointerInteraction.AssignPosition(targetDrawCardsFrom.position, 0.25f);
-                    shuffleCard.SetSelfDestructWhenReachingTargetTransform(targetDrawCardsFrom);
+                    Vector2 localDrawPos = HelperFunctions.ConvertWorldToAnchoredPosition(targetDrawCardsFrom.position, targetDiscardCardsTo);
+                    shuffleCard.CardPointerInteraction.AssignAnchoredPosition(localDrawPos, 0.25f);
+                    shuffleCard.SetSelfDestructWhenReachingTargetPosition(localDrawPos);
 
                     Decks.Playerdeck.CurrentCardsInDeck.Add(Decks.Playerdeck.CurrentCardsInDiscard[0]);
                     Decks.Playerdeck.CurrentCardsInDiscard.RemoveAt(0);
