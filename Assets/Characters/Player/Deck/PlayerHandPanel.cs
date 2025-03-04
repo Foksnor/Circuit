@@ -79,7 +79,7 @@ public class PlayerHandPanel : MonoBehaviour
             cardPosition.y += heightOffset;
 
             // Assign the corrected anchored position
-            cardsInPanel[i].CardPointerInteraction.AssignAnchoredPosition(cardPosition);
+            cardsInPanel[i].CardPointerInteraction.AssignAnchoredPosition(cardPosition, cardPosition);
         }
     }
 
@@ -95,7 +95,7 @@ public class PlayerHandPanel : MonoBehaviour
         // Only play discard animations when actually removing this card to discard
         // E.g. this bool can be false if cards are removed due to replacing them with a card in your circuit
         if (isSendToDiscard)
-            SentCardToDiscard(card, 0);
+            SentCardToDiscard(card, rectTransform, 0);
 
         // Remove the card from the panel list
         cardsInPanel.Remove(card);
@@ -104,15 +104,16 @@ public class PlayerHandPanel : MonoBehaviour
         card.CardPointerInteraction.AssignRotation(Vector3.zero);
     }
 
-    public void SentCardToDiscard(Card card, float travelTime)
+    public void SentCardToDiscard(Card card, RectTransform parentRectTransform, float travelTime)
     {
+        // Add card to discard list
         Decks.Playerdeck.CurrentCardsInDiscard.Add(card.GetCardInfo());
 
         // Convert discard pile world position to UI-anchored position using the canvas as reference
-        Vector2 localDiscardPos = HelperFunctions.ConvertWorldToAnchoredPosition(targetDiscardCardsTo.position, rectTransform);
+        Vector2 localDiscardPos = HelperFunctions.ConvertWorldToAnchoredPosition(targetDiscardCardsTo.position, parentRectTransform);
 
         // Assign the correctly converted position
-        card.CardPointerInteraction.AssignAnchoredPosition(localDiscardPos, travelTime);
+        card.CardPointerInteraction.AssignAnchoredPosition(localDiscardPos, targetDiscardCardsTo.position, travelTime);
 
         // Set the card to self-destruct when reaching the discard pile
         card.SetSelfDestructWhenReachingTargetPosition(localDiscardPos);
@@ -142,7 +143,7 @@ public class PlayerHandPanel : MonoBehaviour
                     CardScriptableObject discardCardScriptableObject = Decks.Playerdeck.CurrentCardsInDiscard[0];
                     shuffleCard.SetCardInfo(discardCardScriptableObject, PlayerUI.PlayerCircuitboard, true);
                     Vector2 localDrawPos = HelperFunctions.ConvertWorldToAnchoredPosition(targetDrawCardsFrom.position, targetDiscardCardsTo);
-                    shuffleCard.CardPointerInteraction.AssignAnchoredPosition(localDrawPos, 0.25f);
+                    shuffleCard.CardPointerInteraction.AssignAnchoredPosition(localDrawPos, targetDrawCardsFrom.position, 0.25f);
                     shuffleCard.SetSelfDestructWhenReachingTargetPosition(localDrawPos);
 
                     Decks.Playerdeck.CurrentCardsInDeck.Add(Decks.Playerdeck.CurrentCardsInDiscard[0]);

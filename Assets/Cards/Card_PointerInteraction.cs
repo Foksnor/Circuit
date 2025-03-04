@@ -23,6 +23,7 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
     private const float cardRotationSpeed = 1.5f;
     private Vector2 startPosition = Vector2.zero;
     private Vector2 desiredPosition = Vector2.zero;
+    private Vector2 desiredFacingDirection = Vector2.zero;
     private float travelDuration = 0;
     private float curTime = 0;
     private bool isBeingDragged = false;
@@ -263,7 +264,8 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
         CardSocket targetSocket = hoveredCard.ConnectedSocket;
 
         // If dragged card is connected to a socket, then swap socket places
-        if (card.ConnectedSocket != null)
+        if (card.ConnectedSocket != null &&
+            hoveredCard.ConnectedSocket != card.ConnectedSocket)
         {
             // Save target socket reference before dragged card gets removed from it's socket
             CardSocket startingSocket = card.ConnectedSocket;
@@ -302,7 +304,7 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
             rectTransform.anchoredPosition = Vector2.Lerp(startPosition, desiredPosition, curTime);
 
             // Rotates the card towards the target position
-            RotateCardTowardsTarget(desiredPosition);
+            RotateCardTowardsTarget(desiredFacingDirection);
         }
         else
         {
@@ -313,10 +315,10 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
         }
     }
 
-    public void AssignAnchoredPosition(Vector2 position, float travelTime = 0)
+    public void AssignAnchoredPosition(Vector2 UIPosition, Vector2 rotationTargetPosition, float travelTime = 0)
     {
         // Only assign position if it's different than before
-        if (position != desiredPosition)
+        if (UIPosition != desiredPosition)
         {
             // Reset the movement timer
             curTime = 0;
@@ -339,8 +341,11 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
             }
 
             // Set desired position in local UI space
-            desiredPosition = position;
+            desiredPosition = UIPosition;
             startPosition = rectTransform.anchoredPosition;
+
+            // Set the desired target direction the card will face when moving
+            desiredFacingDirection = rotationTargetPosition;
         }
     }
 

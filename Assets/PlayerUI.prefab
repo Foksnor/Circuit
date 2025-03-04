@@ -7470,8 +7470,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5687d19df23f526419fae9e5244c2704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardPanel: {fileID: 1503188385931314072}
-  socketPanel: {fileID: 6481983893817491415}
+  cardPanel: {fileID: 8537678636110340935}
+  socketPanel: {fileID: 7822512441088157919}
   cardPrefab: {fileID: 406596430431226498, guid: 875bf82bf24067243a05baee2b20c410, type: 3}
   socketPrefab: {fileID: 8745758731374674600, guid: 4e858a182188b0b498a60da377184ab8, type: 3}
   StartingCardsInPlay:

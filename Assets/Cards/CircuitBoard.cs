@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class CircuitBoard : MonoBehaviour
 {
-    [SerializeField] protected GameObject cardPanel = null;
-    [SerializeField] protected GameObject socketPanel = null;
+    [SerializeField] protected RectTransform cardPanel = null;
+    [SerializeField] protected RectTransform socketPanel = null;
     [SerializeField] protected Card cardPrefab = null;
     [SerializeField] protected CardSocket socketPrefab = null;
     protected List<Card> ActiveCards { set; get; } = new ();
@@ -104,7 +104,7 @@ public class CircuitBoard : MonoBehaviour
         // Assign anchored position equal to the world position of the sockets
         RectTransform cardPanelRect = cardPanel.GetComponent<RectTransform>();
         Vector2 localSocketPosition = HelperFunctions.ConvertWorldToAnchoredPosition(socket.transform.position, cardPanelRect);
-        newCard.CardPointerInteraction.AssignAnchoredPosition(localSocketPosition);
+        newCard.CardPointerInteraction.AssignAnchoredPosition(localSocketPosition, cardPanelRect.position);
 
         // Assign rotation
         newCard.CardPointerInteraction.AssignRotation(Vector3.zero);

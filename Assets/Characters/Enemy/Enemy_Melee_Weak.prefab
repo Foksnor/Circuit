@@ -303,8 +303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539f633eee054524abb4e0380decb7d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardPanel: {fileID: 4395179892974308792}
-  socketPanel: {fileID: 4700551372047055660}
+  cardPanel: {fileID: 8537510692264659373}
+  socketPanel: {fileID: 4318440891043331208}
   cardPrefab: {fileID: 406596430431226498, guid: 875bf82bf24067243a05baee2b20c410, type: 3}
   socketPrefab: {fileID: 8745758731374674600, guid: 4e858a182188b0b498a60da377184ab8, type: 3}
   StartingCardsInPlay:

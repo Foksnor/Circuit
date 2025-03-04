@@ -215,7 +215,7 @@ public class CardBehaviour : MonoBehaviour
     {
         card.ConnectedCircuitboard.DiscardedACard();
         card.ConnectedCircuitboard.RemoveFromSocket(card);
-        PlayerUI.HandPanel.SentCardToDiscard(card, 0.5f);
+        PlayerUI.HandPanel.SentCardToDiscard(card, PlayerUI.CardPanel, 0.5f);
         PlayerUI.PlayerCircuitboard.UpdateCardsInPlay();
     }
 

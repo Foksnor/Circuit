@@ -13,8 +13,8 @@ public static class PlayerUI
     public static Canvas CanvasScreenSpace { get; set; } = null;
     public static RectTransform CanvasRectTransform { get; set; } = null;
     public static PlayerHandPanel HandPanel { get; set; } = null;
-    public static GameObject CardPanel { get; set; } = null;
-    public static GameObject SocketPanel { get; set; } = null;
+    public static RectTransform CardPanel { get; set; } = null;
+    public static RectTransform SocketPanel { get; set; } = null;
     public static PlayerCircuitBoard PlayerCircuitboard { get; set; } = null;
     public static ExperienceBar ExperienceBar { set; get; }
     public static RewardScreen RewardScreen { set; get; }
@@ -209,7 +209,7 @@ public class PlayerCircuitBoard : CircuitBoard
                 // Sets the position of the card to the connected socket
                 RectTransform cardPanelRect = cardPanel.GetComponent<RectTransform>();
                 Vector2 localSocketPosition = HelperFunctions.ConvertWorldToAnchoredPosition(ActiveSockets[i].transform.position, cardPanelRect);
-                ActiveSockets[i].SlottedCard.CardPointerInteraction.AssignAnchoredPosition(localSocketPosition);
+                ActiveSockets[i].SlottedCard.CardPointerInteraction.AssignAnchoredPosition(localSocketPosition, ActiveSockets[i].transform.position);
             }
         }
     }
