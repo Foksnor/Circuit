@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using UnityEngine;
 
 public class UI_PopulateCardsInContainer : MonoBehaviour
 {
     [SerializeField] _CardPlacement placementType;
-    [SerializeField] GameObject targetContainer;
-    [SerializeField] CardReference cardReference;
+    [SerializeField] RectTransform targetContainer;
+    [SerializeField] Card card;
     private List<CardScriptableObject> cards = new();
 
     public void PopulateContainer()
@@ -31,10 +32,16 @@ public class UI_PopulateCardsInContainer : MonoBehaviour
                 cards.AddRange(Decks.Playerdeck.CurrentCardsInDiscard);
                 break;
         }
-        for (int i = 0; i < cards.Count; i++)
+
+        foreach (CardScriptableObject cardInfo in cards)
         {
-            CardReference card = Instantiate(cardReference, targetContainer.transform.position, transform.rotation, targetContainer.transform);
-            card.SetCardInfo(cards[i]);
+            Card referenceCard = Instantiate(card, targetContainer.transform.position, transform.rotation, targetContainer.transform);
+            referenceCard.SetCardInfo(cardInfo, PlayerUI.PlayerCircuitboard, true);
+
+            Vector2 localSocketPosition = HelperFunctions.ConvertWorldToAnchoredPosition(referenceCard.transform.position, targetContainer);
+            referenceCard.CardPointerInteraction.AssignAnchoredPosition(localSocketPosition, targetContainer.position);
+
+            Debug.Log(localSocketPosition + " " + referenceCard.transform.position);
         }
     }
 }

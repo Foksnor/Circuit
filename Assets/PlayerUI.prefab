@@ -550,8 +550,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placementType: 2
-  targetContainer: {fileID: 3316162041823993416}
-  cardReference: {fileID: 3175178198017822902, guid: 4f2336cd18a1d314093187ca71ef19bb, type: 3}
+  targetContainer: {fileID: 7484888144303230668}
+  card: {fileID: 406596430431226498, guid: 875bf82bf24067243a05baee2b20c410, type: 3}
 --- !u!225 &8480317302719174666
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2958,8 +2958,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placementType: 1
-  targetContainer: {fileID: 1549408358694771025}
-  cardReference: {fileID: 3175178198017822902, guid: 4f2336cd18a1d314093187ca71ef19bb, type: 3}
+  targetContainer: {fileID: 998628409072021195}
+  card: {fileID: 406596430431226498, guid: 875bf82bf24067243a05baee2b20c410, type: 3}
 --- !u!225 &8323938074078067483
 CanvasGroup:
   m_ObjectHideFlags: 0
