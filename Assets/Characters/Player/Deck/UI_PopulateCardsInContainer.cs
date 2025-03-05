@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net.Sockets;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI_PopulateCardsInContainer : MonoBehaviour
 {
@@ -36,12 +37,17 @@ public class UI_PopulateCardsInContainer : MonoBehaviour
         foreach (CardScriptableObject cardInfo in cards)
         {
             Card referenceCard = Instantiate(card, targetContainer.transform.position, transform.rotation, targetContainer.transform);
-            referenceCard.SetCardInfo(cardInfo, PlayerUI.PlayerCircuitboard, true);
 
+            // Update the layout, that way the card is positioned correctly inside the Grid Layout Group
+            // Code can then read the information about their position after the UI has been updated
+            LayoutRebuilder.ForceRebuildLayoutImmediate(targetContainer);
+            Canvas.ForceUpdateCanvases();
+
+            referenceCard.SetCardInfo(cardInfo, PlayerUI.PlayerCircuitboard, true);
             Vector2 localSocketPosition = HelperFunctions.ConvertWorldToAnchoredPosition(referenceCard.transform.position, targetContainer);
             referenceCard.CardPointerInteraction.AssignAnchoredPosition(localSocketPosition, targetContainer.position);
 
-            Debug.Log(localSocketPosition + " " + referenceCard.transform.position);
+            Debug.Log(localSocketPosition + " " + referenceCard.GetComponent<RectTransform>().anchoredPosition);
         }
     }
 }
