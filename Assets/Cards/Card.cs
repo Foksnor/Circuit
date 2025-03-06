@@ -101,7 +101,7 @@ public class Card : MonoBehaviour
             if (activeCardTooltip == null)
             {
                 activeCardTooltip = Instantiate(cardTooltipPrefab, transform);
-                activeCardTooltip.SetTooltip(cardScriptableObject);
+                activeCardTooltip.SetTooltip(cardScriptableObject, rectTransform);
             }
         }
         else

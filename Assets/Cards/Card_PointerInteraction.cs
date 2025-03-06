@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -86,6 +84,7 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
 
         // Save the original sorting order to reset it later
         originalSortingOrder = canvas.sortingOrder;
+        canvas.overrideSorting = true;
 
         // Set higher sorting order so it's on top of other cards while dragging
         canvas.sortingOrder += 10;
@@ -196,6 +195,10 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
 
         // Reset sorting order when dragging ends
         canvas.sortingOrder = originalSortingOrder;
+        canvas.overrideSorting = false;
+
+        // Removes tooltip
+        ToggleTooltip(false);
 
         // Reset hover state
         if (targetHoverOverCard != null)
@@ -377,8 +380,7 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
     {
         if (!eventData.dragging)
         {
-            animator.SetBool("isShowingTooltip", true);
-            card.ToggleCardTooltip(true);
+            ToggleTooltip(true);
         }
     }
 
@@ -386,8 +388,13 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
     {
         if (!eventData.dragging)
         {
-            animator.SetBool("isShowingTooltip", false);
-            card.ToggleCardTooltip(false);
+            ToggleTooltip(false);
         }
+    }
+
+    private void ToggleTooltip(bool isShowing)
+    {
+        animator.SetBool("isShowingTooltip", isShowing);
+        card.ToggleCardTooltip(isShowing);
     }
 }

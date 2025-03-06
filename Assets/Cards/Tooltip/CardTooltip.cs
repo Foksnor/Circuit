@@ -8,7 +8,8 @@ using UnityEngine.UI;
 [RequireComponent(typeof(RectTransform), typeof(Animator))]
 public class CardTooltip : MonoBehaviour
 {
-    private RectTransform rectTransform;
+    private RectTransform tooltipRectTransform;
+    private RectTransform cardRectTransform;
     private Animator animator;
     [SerializeField] private TextMeshProUGUI nameTagText;
     [SerializeField] private GameObject targetSelectorPanel;
@@ -18,31 +19,32 @@ public class CardTooltip : MonoBehaviour
     [SerializeField] private CardActionTooltipDescription CardActionTooltipDescriptionPrefab;
     [SerializeField] private TextMeshProUGUI rarityTagText;
     [SerializeField] private Image[] imagesToColorRarity;
-    private const int tooltipOffset = 200;
+    private const int tooltipOffset = 100;
     private readonly Vector3 cameraFacingDirection = Vector3.left;
 
     private void Awake()
     {
-        rectTransform = GetComponent<RectTransform>();
+        tooltipRectTransform = GetComponent<RectTransform>();
     }
 
     private void Update()
     {
         UpdateRotationOnScreen();
+        SetPositionInScreen();
     }
 
     private void UpdateRotationOnScreen()
     {
         // Always force the tooltip rotation to be straight
-        rectTransform.rotation = Quaternion.Euler(Vector3.zero);
+        tooltipRectTransform.rotation = Quaternion.Euler(Vector3.zero);
     }
 
-    public void SetTooltip(CardScriptableObject cardInfo)
+    public void SetTooltip(CardScriptableObject cardInfo, RectTransform cardRect)
     {
         animator = GetComponent<Animator>();
         animator.SetBool("isVisible", true);
+        cardRectTransform = cardRect;
 
-        SetPositionInScreen();
         SetNameTag(cardInfo);
         SetTargetSelectorReference(cardInfo);
         PopulateCardActionDescriptions(cardInfo);
@@ -58,7 +60,16 @@ public class CardTooltip : MonoBehaviour
 
     private void SetPositionInScreen()
     {
-        rectTransform.anchoredPosition = new Vector2(0, tooltipOffset);
+        if (HelperFunctions.IsTooltipNearScreenTop(cardRectTransform))
+        {            
+            tooltipRectTransform.pivot = new Vector2(tooltipRectTransform.pivot.x, 1);
+            tooltipRectTransform.anchoredPosition = new Vector2(0, -tooltipOffset);
+        }
+        else
+        {
+            tooltipRectTransform.pivot = new Vector2(tooltipRectTransform.pivot.x, 0);
+            tooltipRectTransform.anchoredPosition = new Vector2(0, tooltipOffset);
+        }
     }
 
     private void SetNameTag(CardScriptableObject cardInfo)

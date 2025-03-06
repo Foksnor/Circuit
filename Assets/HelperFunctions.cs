@@ -358,4 +358,15 @@ public static class HelperFunctions
         RectTransformUtility.ScreenPointToLocalPointInRectangle(referenceRect, screenPoint, null, out localPoint);
         return localPoint;
     }
+
+    public static bool IsTooltipNearScreenTop(RectTransform rectTransform)
+    {
+        // Convert the UI element's world position to screen space
+        Vector3 screenPosition = RectTransformUtility.WorldToScreenPoint(null, rectTransform.position);
+
+        // Set the screen region for the top of the screen
+        float screenHeightRegion = Screen.height * 0.6f;
+
+        return screenPosition.y > screenHeightRegion;
+    }
 }
