@@ -88,7 +88,7 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
         originalSortingOrder = canvas.sortingOrder;
 
         // Set higher sorting order so it's on top of other cards while dragging
-        canvas.sortingOrder = 10;
+        canvas.sortingOrder += 10;
 
         // Resets the rotation of the card
         // This allows cards that are being dragged from the hand panel to not have their hand panel rotation/fanning
@@ -384,7 +384,10 @@ public class Card_PointerInteraction : MonoBehaviour, IDragHandler, IBeginDragHa
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        animator.SetBool("isShowingTooltip", false);
-        card.ToggleCardTooltip(false);
+        if (!eventData.dragging)
+        {
+            animator.SetBool("isShowingTooltip", false);
+            card.ToggleCardTooltip(false);
+        }
     }
 }

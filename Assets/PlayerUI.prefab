@@ -1812,7 +1812,6 @@ GameObject:
   m_Component:
   - component: {fileID: 998628409072021195}
   - component: {fileID: 4058419230127918593}
-  - component: {fileID: 1209879134479148340}
   m_Layer: 5
   m_Name: ContentContainer
   m_TagString: Untagged
@@ -1837,7 +1836,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -600, y: 350}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &4058419230127918593
 MonoBehaviour:
@@ -1856,27 +1855,13 @@ MonoBehaviour:
     m_Right: 100
     m_Top: 100
     m_Bottom: 100
-  m_ChildAlignment: 1
+  m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 150, y: 225}
+  m_CellSize: {x: 100, y: 150}
   m_Spacing: {x: 10, y: 10}
-  m_Constraint: 1
+  m_Constraint: 0
   m_ConstraintCount: 5
---- !u!114 &1209879134479148340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1549408358694771025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 2
-  m_VerticalFit: 2
 --- !u!1 &1722649789026041558
 GameObject:
   m_ObjectHideFlags: 0
@@ -3068,7 +3053,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7484888144303230668}
   - component: {fileID: 629664811843835005}
-  - component: {fileID: 3129659168167235474}
   m_Layer: 5
   m_Name: ContentContainer
   m_TagString: Untagged
@@ -3093,7 +3077,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -600, y: 350}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &629664811843835005
 MonoBehaviour:
@@ -3112,27 +3096,13 @@ MonoBehaviour:
     m_Right: 100
     m_Top: 100
     m_Bottom: 100
-  m_ChildAlignment: 1
+  m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 150, y: 225}
+  m_CellSize: {x: 100, y: 150}
   m_Spacing: {x: 10, y: 10}
-  m_Constraint: 1
+  m_Constraint: 0
   m_ConstraintCount: 5
---- !u!114 &3129659168167235474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3316162041823993416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 2
-  m_VerticalFit: 2
 --- !u!1 &3646292910392073261
 GameObject:
   m_ObjectHideFlags: 0
@@ -11589,7 +11559,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4850788240424337212}
   m_HandleRect: {fileID: 1648440396943921819}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -14766,7 +14736,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 562538283215937138}
   m_HandleRect: {fileID: 7630122817690569055}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
