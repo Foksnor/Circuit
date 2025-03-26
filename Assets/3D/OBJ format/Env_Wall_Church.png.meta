@@ -52,7 +52,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -285,7 +285,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Env_Wall_Church_0: -3103985317337643285
+      Env_Wall_Church_1: -7379526823190132692
+      Env_Wall_Church_2: -5286537876128561499
+      Env_Wall_Church_3: -3624891701454268508
+      Env_Wall_Church_4: 4292655259206757830
+      Env_Wall_Church_5: 4778380646386089013
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
