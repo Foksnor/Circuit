@@ -89,6 +89,7 @@
     <Compile Include="Assets\Doozy\_Examples\E24 - Popup - with Two Buttons\ShowTwoButtonsPopup.cs" />
     <Compile Include="Assets\Characters\Player\LifePanel\LifePanel.cs" />
     <Compile Include="Assets\UI\DebugMenu.cs" />
+    <Compile Include="Assets\PostProcessing\PixelDitherPostProcessing.cs" />
     <Compile Include="Assets\Lana Studio\Casual RPG VFX\Scripts\UVscroll.cs" />
     <Compile Include="Assets\Saves\GameDataLoader.cs" />
     <Compile Include="Assets\Grid\ValidateGridPosition.cs" />
