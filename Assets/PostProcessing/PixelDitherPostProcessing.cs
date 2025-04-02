@@ -14,17 +14,22 @@ public class PixelDitherPostProcessing : ScriptableRendererFeature
             material = mat;
         }
 
-        public override void Configure(CommandBuffer cmd, RenderTextureDescriptor cameraTextureDescriptor)
+        public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData)
         {
-            // Allocate temporary texture for the camera color
+            var descriptor = renderingData.cameraData.cameraTargetDescriptor;
+            descriptor.depthBufferBits = 0;
+
             RenderingUtils.ReAllocateIfNeeded(
                 ref _cameraColorHandle,
-                cameraTextureDescriptor,
+                descriptor,
                 FilterMode.Point,
                 TextureWrapMode.Clamp,
                 name: "_CameraColorTexture"
             );
+
+            ConfigureTarget(renderingData.cameraData.renderer.cameraColorTargetHandle);
         }
+
 
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
         {
@@ -64,6 +69,7 @@ public class PixelDitherPostProcessing : ScriptableRendererFeature
         {
             renderPassEvent = RenderPassEvent.AfterRendering
         };
+        pixelDitherPass.ConfigureInput(ScriptableRenderPassInput.Color);
     }
 
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
