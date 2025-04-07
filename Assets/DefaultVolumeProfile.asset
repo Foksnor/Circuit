@@ -403,6 +403,7 @@ MonoBehaviour:
   - {fileID: 5020565816067652752}
   - {fileID: 5307494359133683766}
   - {fileID: 2927827728668406181}
+  - {fileID: 4310287288624296609}
 --- !u!114 &1141206857872728310
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -576,6 +577,22 @@ MonoBehaviour:
   worldOffset:
     m_OverrideState: 1
     m_Value: {x: 0, y: 0, z: 0}
+--- !u!114 &4310287288624296609
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2be7f1c1f45a0e241bffc48501f3eb60, type: 3}
+  m_Name: SphereVolumeComponent
+  m_EditorClassIdentifier: 
+  active: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0
 --- !u!114 &4513118617975723034
 MonoBehaviour:
   m_ObjectHideFlags: 3

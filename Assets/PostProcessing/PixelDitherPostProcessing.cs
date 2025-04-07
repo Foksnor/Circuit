@@ -33,7 +33,7 @@ public class PixelDitherPostProcessing : ScriptableRendererFeature
 
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
         {
-            if (!Application.isPlaying || material == null)
+            if (!Application.isPlaying || material == null || renderingData.cameraData.isSceneViewCamera || !material.HasProperty("_CameraColorTexture"))
                 return;
 
             var cameraColorTarget = renderingData.cameraData.renderer.cameraColorTargetHandle;
