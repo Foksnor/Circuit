@@ -119,7 +119,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _LuminosityDitherScale: 1
+    - _LuminosityDitherScale: 0.5
     - _LuminosityStepTreshold: 1
     - _Metallic: 0
     - _OcclusionStrength: 1
