@@ -105,4 +105,4 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: c5a0d4cb1f89e364cb22663cb542cd99, type: 2}
   affectedLayers:
     serializedVersion: 2
-    m_Bits: 21
+    m_Bits: 33
