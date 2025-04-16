@@ -7,8 +7,6 @@ public class BiomeChunk : MonoBehaviour
     [Range(1, 100)] public int ChunkAppareanceChance = 10;
     [SerializeField] private GameObject grid;
     public int biomeID { get; set; } = 0;
-    [SerializeField]
-    private List<CharacterSpawnpoint> characterSpawnPoints = new();
 
     private void Awake()
     {
@@ -18,8 +16,9 @@ public class BiomeChunk : MonoBehaviour
 
     public void SpawnCharactersInChunk()
     {
-        for (int i = 0; i < characterSpawnPoints.Count; i++)
-            characterSpawnPoints[i].SpawnCharacter();
+        CharacterSpawnpoint[] spawnPoints = GetComponentsInChildren<CharacterSpawnpoint>();
+        for (int i = 0; i < spawnPoints.Length; i++)
+            spawnPoints[i].SpawnCharacter();
     }
 
     public GridCube GetFurthestGridCube()
