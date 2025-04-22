@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 1e33af461dd74514db870ea42483e769, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: affdc9871c3a43649b6d97bdc86c1dfa, type: 2}
     - target: {fileID: 919132149155446097, guid: 1e33af461dd74514db870ea42483e769, type: 3}
       propertyPath: m_Name
       value: Env_Church_Bench
@@ -60,6 +64,11 @@ PrefabInstance:
 --- !u!4 &730148356104479828 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1e33af461dd74514db870ea42483e769, type: 3}
+  m_PrefabInstance: {fileID: 984242620241544127}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1990770531879438546 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7635826562936255635, guid: 1e33af461dd74514db870ea42483e769, type: 3}
   m_PrefabInstance: {fileID: 984242620241544127}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1388332399903684670
@@ -130,6 +139,14 @@ PrefabInstance:
       propertyPath: CircuitBoard
       value: 
       objectReference: {fileID: 2473231040539761819}
+    - target: {fileID: 2985683909314406194, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
+      propertyPath: isDestructable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2985683909314406194, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
+      propertyPath: targetMeshRenderer
+      value: 
+      objectReference: {fileID: 1990770531879438546}
     - target: {fileID: 2985683909314406194, guid: 2b2e79c818d89f847a066f87e857207e, type: 3}
       propertyPath: ExperienceAmountOnDeath
       value: 1

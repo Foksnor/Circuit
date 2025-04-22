@@ -34,6 +34,11 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
     [SerializeField] private GameObject ExperiencePoint = null;
     [SerializeField] private int ExperienceAmountOnDeath = 3;
 
+    // Destructable
+    [SerializeField] private bool isDestructable = false;
+    [SerializeField] private MeshRenderer targetMeshRenderer = null;
+    private Material materialCopy = null;
+
     // Cards
     private GameObject cardPrevisBinder = null;
     private List<GameObject> ActiveCardPrevisTiles = new List<GameObject>();
@@ -135,13 +140,6 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
 
     protected virtual void Die(Character instigator)
     {
-        // Spawns corpse on death location
-        SpawnerFunctions.Instance.SpawnCorpse(corpseObject, AssignedGridCube);
-
-        // Spawn death VFX
-        DeathVFX deathobj = Instantiate(deathVFX, transform.position, transform.rotation);
-        deathobj.SetDeathVFXCharacterVisual(CharacterSpriteRenderer.sprite);
-
         // Spawn extra game objects on death
         if (spawnObjectOnDeath != null)
             Instantiate(spawnObjectOnDeath, transform.position, transform.rotation);        
@@ -168,7 +166,29 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
                 SpawnerFunctions.Instance.SpawnPlayerAtEndTurn(AssignedGridCube.Position);
             }
         }
-        Destroy(gameObject);
+
+        if (isDestructable)
+        {
+            if (targetMeshRenderer != null)
+            {
+                materialCopy = new(targetMeshRenderer.material);
+                targetMeshRenderer.material = materialCopy;
+            }
+
+            StartCoroutine(PlayDestructibleDissolve());
+        }
+        else
+        {
+            // Spawns corpse on death location
+            SpawnerFunctions.Instance.SpawnCorpse(corpseObject, AssignedGridCube);
+
+            // Spawn death VFX
+            DeathVFX deathobj = Instantiate(deathVFX, transform.position, transform.rotation);
+            deathobj.SetDeathVFXCharacterVisual(CharacterSpriteRenderer.sprite);
+
+            // Characters are destroyed immediatly
+            Destroy(gameObject);
+        }
     }
 
     private void OnDestroy()
@@ -178,6 +198,23 @@ public class Character : MonoBehaviour, IDamageable, ITurnSequenceTriggerable
         Teams.CharacterTeams.PlayerTeamCharacters.Remove(this);
         Teams.CharacterTeams.EnemyTeamCharacters.Remove(this);
         AssignedGridCube.RemoveCharacterReferenceOnGrid(this);
+    }
+
+    private IEnumerator PlayDestructibleDissolve()
+    {
+        float dissolveTime = 0f;
+        float dissolveStrength = 3f;
+        float displacementStrength = 12f;
+
+        while (dissolveTime < 1f)
+        {
+            dissolveTime += Time.deltaTime;
+            materialCopy.SetFloat("_DissolveStrength", dissolveTime * dissolveStrength);
+            materialCopy.SetFloat("_DisplacementStrength", dissolveTime * displacementStrength);
+            yield return null;
+        }
+
+        Destroy(gameObject);
     }
 
     public virtual void RefreshCharacterSimulation()

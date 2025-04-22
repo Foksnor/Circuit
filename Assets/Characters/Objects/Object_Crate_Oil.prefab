@@ -118,6 +118,10 @@ PrefabInstance:
       propertyPath: spawnObjectOnDeath
       value: 
       objectReference: {fileID: 579001646526742816, guid: 64dc16272d376bb46b19f0699d8f1c6e, type: 3}
+    - target: {fileID: 1957793412199929724, guid: 328226dd3127c204bb314fbfbba17cef, type: 3}
+      propertyPath: targetMeshRenderer
+      value: 
+      objectReference: {fileID: 6728045014233495598}
     - target: {fileID: 2543525051097481161, guid: 328226dd3127c204bb314fbfbba17cef, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -223,6 +227,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 59513ce0ea4ec3a4e9ffdc9a9488ad62, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a4baec04e06989b4d88b6ac2dbaf156c, type: 2}
     - target: {fileID: 919132149155446097, guid: 59513ce0ea4ec3a4e9ffdc9a9488ad62, type: 3}
       propertyPath: m_Name
       value: Obj_Crate_Beer
@@ -238,5 +246,10 @@ PrefabInstance:
 --- !u!4 &5538424807616779432 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 59513ce0ea4ec3a4e9ffdc9a9488ad62, type: 3}
+  m_PrefabInstance: {fileID: 5428747925449143107}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6728045014233495598 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7635826562936255635, guid: 59513ce0ea4ec3a4e9ffdc9a9488ad62, type: 3}
   m_PrefabInstance: {fileID: 5428747925449143107}
   m_PrefabAsset: {fileID: 0}
