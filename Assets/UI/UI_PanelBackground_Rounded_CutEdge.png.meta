@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 160cb37bbfbb1554da75ca4456ecc547
+guid: 1e2ab468c2c09ee41835788e52bf33ae
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1005267796285457124
-    second: UI_PanelBackground_0
+      213: -3548136008818386123
+    second: UI_PanelBackground_Rounded_CutEdge_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -126,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_PanelBackground_0
+      name: UI_PanelBackground_Rounded_CutEdge_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 960
-        height: 540
+        width: 512
+        height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c1df342f3429c02f0800000000000000
-      internalID: -1005267796285457124
+      spriteID: 53b9b9b491d72cec0800000000000000
+      internalID: -3548136008818386123
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 456f9207fcfa98142bc73773ed490664
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      UI_PanelBackground_0: -1005267796285457124
+      UI_PanelBackground_Rounded_CutEdge_0: -3548136008818386123
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
