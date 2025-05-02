@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class RewardScreenRayVisuals : MonoBehaviour
+public class RewardScreenRayPopulator : MonoBehaviour
 {
     [SerializeField] private RewardScreenRay targetRayVisual;
-    private const int rayCount = 50;
-    private const int rayRotateSpeed = 5;
-    private const float rayRotateDeviation = 0.33f;
-    private const float raySizeDeviation = 0.5f;
+    [SerializeField] private int rayCount = 50;
+    [SerializeField] private int rayRotateSpeed = 5;
+    [SerializeField] private float rayRotateDeviation = 0.33f;
+    [SerializeField] private float raySizeDeviation = 0.5f;
 
-    private void Awake()
+    public void PopulateRays()
     {
         for (int i = 0; i < rayCount; i++)
         {
@@ -23,6 +23,14 @@ public class RewardScreenRayVisuals : MonoBehaviour
             float sizeFactor = ray.transform.localScale.y * raySizeDeviation;
             float rngSizeDeviation = Random.Range(-sizeFactor, sizeFactor);
             ray.transform.localScale += new Vector3(0, rngSizeDeviation, 0);
+        }
+    }
+
+    public void RemoveRays()
+    {
+        foreach (Transform ray in transform)
+        {
+            Destroy(ray.gameObject);
         }
     }
 }

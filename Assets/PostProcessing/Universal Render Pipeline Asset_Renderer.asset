@@ -101,8 +101,8 @@ MonoBehaviour:
   m_Name: DitherEffectRenderFeature
   m_EditorClassIdentifier: 
   m_Active: 1
-  injectionPoint: 500
+  injectionPoint: 600
   material: {fileID: 2100000, guid: c5a0d4cb1f89e364cb22663cb542cd99, type: 2}
   affectedLayers:
     serializedVersion: 2
-    m_Bits: 33
+    m_Bits: 55

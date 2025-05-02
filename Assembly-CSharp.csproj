@@ -88,6 +88,7 @@
     <Compile Include="Assets\Saves\Crystal Ball\OverlayTurnPreview.cs" />
     <Compile Include="Assets\Grid\Biome\BiomeChunk.cs" />
     <Compile Include="Assets\Characters\Player\HealthBar\HealthBar.cs" />
+    <Compile Include="Assets\UI\RewardScreenRayPopulator.cs" />
     <Compile Include="Assets\Lana Studio\Casual RPG VFX\Demo\Scripts\ObjectsSwitcher.cs" />
     <Compile Include="Assets\Characters\CharacterTeams.cs" />
     <Compile Include="Assets\Doozy\_Examples\E24 - Popup - with Two Buttons\ShowTwoButtonsPopup.cs" />
@@ -121,7 +122,6 @@
     <Compile Include="Assets\Characters\Character.cs" />
     <Compile Include="Assets\Doozy\_Examples\E25 - Toggle - UIToggle Animators\ExampleUIToggleAnimators.cs" />
     <Compile Include="Assets\Cards\EnemyCircuitBoard.cs" />
-    <Compile Include="Assets\UI\RewardScreenRayVisuals.cs" />
     <Compile Include="Assets\Cards\PlayerLevelScriptableObject.cs" />
     <Compile Include="Assets\UI\ButtonHoverImageSwapSelectable.cs" />
     <Compile Include="Assets\Characters\Player\CameraFollowTarget.cs" />

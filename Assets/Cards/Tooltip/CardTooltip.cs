@@ -39,7 +39,7 @@ public class CardTooltip : MonoBehaviour
         tooltipRectTransform.rotation = Quaternion.Euler(Vector3.zero);
     }
 
-    public void SetTooltip(CardScriptableObject cardInfo, RectTransform cardRect)
+    public void SetTooltip(CardScriptableObject cardInfo, float cardScale, RectTransform cardRect)
     {
         animator = GetComponent<Animator>();
         animator.SetBool("isVisible", true);
@@ -49,6 +49,7 @@ public class CardTooltip : MonoBehaviour
         SetTargetSelectorReference(cardInfo);
         PopulateCardActionDescriptions(cardInfo);
         SetRarityTag(cardInfo);
+        SetTooltipScale(cardScale);
     }
 
     public void RemoveToolTip()
@@ -192,5 +193,12 @@ public class CardTooltip : MonoBehaviour
             float imageColorAlpha = image.color.a;
             image.color = new Color(color.r, color.g, color.b, imageColorAlpha);
         }
+    }
+
+    private void SetTooltipScale(float cardScale)
+    {
+        // Makes sure that the tooltip of the card remains the same
+        // This is because the tooltip is a child of the card and adheres to that scale
+        tooltipRectTransform.localScale = tooltipRectTransform.localScale / cardScale;
     }
 }

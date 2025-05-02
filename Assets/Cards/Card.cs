@@ -101,7 +101,7 @@ public class Card : MonoBehaviour
             if (activeCardTooltip == null)
             {
                 activeCardTooltip = Instantiate(cardTooltipPrefab, transform);
-                activeCardTooltip.SetTooltip(cardScriptableObject, rectTransform);
+                activeCardTooltip.SetTooltip(cardScriptableObject, rectTransform.localScale.x, rectTransform);
             }
         }
         else
@@ -116,6 +116,11 @@ public class Card : MonoBehaviour
     public CardScriptableObject GetCardInfo()
     {
         return cardScriptableObject;
+    }
+
+    public void SetCardScale(float newScale)
+    {
+        rectTransform.localScale = new(newScale, newScale, newScale);
     }
 
     private void Update()
